@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-vanbanden',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vanbanden.page.scss'],
 })
 export class VanbandenPage implements OnInit {
-
-  constructor() { }
+  public danhsachVanBans:any;
+  constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
+    this.authService.getSpecialData().subscribe(res =>{
+      this.danhsachVanBans = res["data"];
+    });
   }
 
 }
