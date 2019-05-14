@@ -1,15 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Platform, AlertController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { tap, catchError } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
-
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpModule } from '@angular/http';
 const TOKEN_KEY = 'auth-token';
 @Injectable({
   providedIn: 'root'
+})
+
+@NgModule({
+  imports: [
+    HttpModule,
+    HttpClient
+  ]
 })
 export class AuthenticationService {
 
@@ -17,16 +24,25 @@ export class AuthenticationService {
   user = null;
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private storage: Storage, private plt: Platform,
+  constructor(private storage: Storage, 
+    private plt: Platform,
     private http:HttpClient,private helper:JwtHelperService,
-    private alertController:AlertController) {
+    private alertController:AlertController,
+    // private translate : TranslateService
+    ) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
    }
 
+   //các hàm đăng ký service
+  getSpecialData() {
+    return this.get('api/nguoidung/test',null);
+  }
+
+// hàm base authen
    checkToken() {
-    this.storage.get(TOKEN_KEY).then(token => {
+      let token =  localStorage.getItem(TOKEN_KEY);
       if (token) {
         let decoded = this.helper.decodeToken(token);
         let isExpired = this.helper.isTokenExpired(token);
@@ -36,11 +52,13 @@ export class AuthenticationService {
           this.authenticationState.next(true);
         }
         else{
-          this.storage.remove(TOKEN_KEY);
+          localStorage.removeItem(TOKEN_KEY);
         }
         
       }
-    })
+  }
+  getToken() {
+    return localStorage.getItem(TOKEN_KEY)!== null ? localStorage.getItem(TOKEN_KEY) : '';
   }
   register(credentials) {
     return this.http.post(`${this.url}/api/register`, credentials).pipe(
@@ -51,12 +69,10 @@ export class AuthenticationService {
     );
   }
   login(credentials) {
-    debugger;
     return this.http.post(`${this.url}api/NguoiDung/Login`, credentials)
       .pipe(
         tap(res => {
-          debugger;
-          this.storage.set(TOKEN_KEY, res['Token']);
+          localStorage.setItem(TOKEN_KEY, res['Token']);
           this.user = this.helper.decodeToken(res['Token']);
           this.authenticationState.next(true);
         }),
@@ -68,25 +84,13 @@ export class AuthenticationService {
   }
  
   logout() {
-    this.storage.remove(TOKEN_KEY).then(() => {
-      this.authenticationState.next(false);
-    });
+    localStorage.removeItem(TOKEN_KEY);
+    this.authenticationState.next(false);
   }
   isAuthenticated() {
     return this.authenticationState.value;
   }
-  getSpecialData() {
-    return this.http.get(`${this.url}/api/special`).pipe(
-      catchError(e => {
-        let status = e.status;
-        if (status === 401) {
-          this.showAlert('You are not authorized for this!');
-          this.logout();
-        }
-        throw new Error(e);
-      })
-    )
-  }
+
   showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
@@ -94,5 +98,53 @@ export class AuthenticationService {
       buttons: ['OK']
     });
     alert.then(alert => alert.present());
+  }
+
+  post(api, data) {
+    return new Observable((observer) => { 
+      var token = this.getToken(); 
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
+     this.http.post((api.indexOf('http') > -1 ? '' : this.url) + api, data, {headers:headers}).subscribe((res: any) => {       
+        observer.next(res);
+        observer.complete();
+      }, (err) => {
+
+        if(err.status === 403){
+          this.logout();
+        }
+
+        observer.next({
+          StatusCode: 1,
+          Err: err
+        });
+        observer.complete();
+      });
+
+    });  
+  }
+
+  get(api, data) {
+    return new Observable((observer) => {    
+      var token = this.getToken(); 
+      let headers = new HttpHeaders();
+      headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
+      
+      this.http.get((api.indexOf('http') > -1 ? '' : this.url) + api, {params:data,headers:headers}).subscribe((res: any) => {       
+        observer.next(res);
+        observer.complete();
+      }, (err) => {
+
+        if(err.status === 403){
+          this.logout();
+        }
+        observer.next({
+          StatusCode: 1,
+          Err: err
+        });
+        observer.complete();
+      });
+
+    });    
   }
 }
