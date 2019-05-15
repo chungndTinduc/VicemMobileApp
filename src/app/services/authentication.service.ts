@@ -52,6 +52,7 @@ export class AuthenticationService {
   
 // hàm base authen
    checkToken() {
+     debugger;
       let token =  localStorage.getItem(TOKEN_KEY);
       let user = localStorage.getItem(CURRENT_USER)
       if (token && user) {
@@ -90,7 +91,8 @@ export class AuthenticationService {
           }
           debugger;
           localStorage.setItem(TOKEN_KEY, res['Token']);
-          localStorage.setItem(CURRENT_USER, res['Data']);
+          var userStr  = JSON.stringify( res['Data'])
+          localStorage.setItem(CURRENT_USER,userStr);
           this.user = this.helper.decodeToken(res['Token']);
           // this.CurrentUser=res['Data'];
           this.authenticationState.next(true);
