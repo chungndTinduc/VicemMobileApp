@@ -44,15 +44,12 @@ export class AppComponent {
   }
   
   load(){
-    // if(this.authService.currentUser!=null){
-     // var url = "http://localhost:8088/api/Test/getVanBanpaging?rowpage=" + this.rowpage +"&keyword=" + this.keyword;;
-      // var data1 = [{name : "sampleName",title:"xx"}];
-      // this.http.get(url).subscribe((data :[]) => {       
-      //   for (var j = 0; j < data.length; j++) {
-      //   //  this.resurl.push(data[j])
-      //   }
-      // });
-
+  //   if(this.authService.CurrentUser!=null){
+  //    this.page = <page> {
+  //     title:"Hoàng văn đế",
+  //     icon:"Không có gì",
+  //     url:"xnxx"
+  // }
 
       //  this.page.url='/members/tabs/vanbanden';
       //  this.page.icon='copy';

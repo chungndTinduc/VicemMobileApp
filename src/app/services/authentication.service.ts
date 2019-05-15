@@ -1,12 +1,12 @@
 import { Injectable, NgModule } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Platform, AlertController,LoadingController } from '@ionic/angular';
-import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpModule } from '@angular/http';
+import { environment } from 'src/environments/environment';
 const TOKEN_KEY = 'auth-token';
 const CURRENT_USER = 'current-user';
 @Injectable({
@@ -20,9 +20,10 @@ const CURRENT_USER = 'current-user';
   ]
 })
 export class AuthenticationService {
-  currentUser: [];
-  url = environment.url;
+  public currentUser: any;
+  urlServer = environment.url;
   user = [];
+  // CurrentUser=[];
   authenticationState = new BehaviorSubject(false);
   loading:any;
   constructor(private storage: Storage, 
@@ -67,13 +68,13 @@ export class AuthenticationService {
           localStorage.removeItem(TOKEN_KEY);
           localStorage.removeItem(CURRENT_USER);
         }
-      }
+      } 
   }
   getToken() {
     return localStorage.getItem(TOKEN_KEY)!== null ? localStorage.getItem(TOKEN_KEY) : '';
   }
   register(credentials) {
-    return this.http.post(`${this.url}/api/register`, credentials).pipe(
+    return this.http.post(`${this.urlServer}/api/register`, credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -81,7 +82,7 @@ export class AuthenticationService {
     );
   }
   login(credentials) {
-    return this.http.post(`${this.url}api/NguoiDung/Login`, credentials)
+    return this.http.post(`${this.urlServer}api/NguoiDung/Login`, credentials)
       .pipe(
         tap(res => {
           if(res['Token']==""){
@@ -91,16 +92,17 @@ export class AuthenticationService {
           localStorage.setItem(TOKEN_KEY, res['Token']);
           localStorage.setItem(CURRENT_USER, res['Data']);
           this.user = this.helper.decodeToken(res['Token']);
-         this.currentUser=res['Data'];
+          // this.CurrentUser=res['Data'];
           this.authenticationState.next(true);
         }),
         catchError(e => {
-          this.showAlert(e.error.msg);
+          debugger;
+          this.showAlert("Lỗi mẹ rồi");
           throw new Error(e);
         })
       );
   }
- 
+
   logout() {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(CURRENT_USER);
@@ -132,7 +134,7 @@ export class AuthenticationService {
       var token = this.getToken(); 
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
-     this.http.post((api.indexOf('http') > -1 ? '' : this.url) + api, data, {headers:headers}).subscribe((res: any) => {       
+     this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
       }, (err) => {
@@ -158,7 +160,7 @@ export class AuthenticationService {
       var token = this.getToken(); 
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
-      this.http.get((api.indexOf('http') > -1 ? '' : this.url) + api, {params:data,headers:headers}).subscribe((res: any) => {       
+      this.http.get((api.indexOf('http') > -1 ? '' : this.urlServer) + api, {params:data,headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
       }, (err) => {
