@@ -20,10 +20,9 @@ const CURRENT_USER = 'current-user';
   ]
 })
 export class AuthenticationService {
-  public currentUser: any;
+  currentUser: [];
   url = environment.url;
   user = [];
-  CurrentUser=[];
   authenticationState = new BehaviorSubject(false);
   loading:any;
   constructor(private storage: Storage, 
@@ -92,7 +91,7 @@ export class AuthenticationService {
           localStorage.setItem(TOKEN_KEY, res['Token']);
           localStorage.setItem(CURRENT_USER, res['Data']);
           this.user = this.helper.decodeToken(res['Token']);
-          this.CurrentUser=res['Data'];
+         this.currentUser=res['Data'];
           this.authenticationState.next(true);
         }),
         catchError(e => {
