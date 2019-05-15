@@ -80,9 +80,14 @@ export class AuthenticationService {
     return this.http.post(`${this.url}api/NguoiDung/Login`, credentials)
       .pipe(
         tap(res => {
+  
+          if(res['Token']==""){
+           return this.showAlert(res['Message']);
+          }
           localStorage.setItem(TOKEN_KEY, res['Token']);
           this.user = this.helper.decodeToken(res['Token']);
           this.authenticationState.next(true);
+          
         }),
         catchError(e => {
           this.showAlert(e.error.msg);
@@ -102,7 +107,7 @@ export class AuthenticationService {
   showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
-      header: 'Error',
+      header: 'Thông báo',
       buttons: ['OK']
     });
     alert.then(alert => alert.present());
