@@ -22,7 +22,8 @@ const CURRENT_USER = 'current-user';
 export class AuthenticationService {
   public currentUser: any;
   url = environment.url;
-  user = null;
+  user = [];
+  CurrentUser=[];
   authenticationState = new BehaviorSubject(false);
   loading:any;
   constructor(private storage: Storage, 
@@ -84,13 +85,14 @@ export class AuthenticationService {
     return this.http.post(`${this.url}api/NguoiDung/Login`, credentials)
       .pipe(
         tap(res => {
-  
           if(res['Token']==""){
            return this.showAlert(res['Message']);
           }
+          debugger;
           localStorage.setItem(TOKEN_KEY, res['Token']);
           localStorage.setItem(CURRENT_USER, res['Data']);
           this.user = this.helper.decodeToken(res['Token']);
+          this.CurrentUser=res['Data'];
           this.authenticationState.next(true);
         }),
         catchError(e => {
