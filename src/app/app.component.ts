@@ -7,10 +7,10 @@ import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 import { AppPage } from 'e2e/src/app.po';
 //import {Utiliti}  from './Utiliti';
-export interface page {
+ interface page {
   title: string,
   url:string,
-  icon:string,
+  icon:string
 }
 @Component({
   selector: 'app-root',
@@ -21,7 +21,7 @@ export interface page {
 
 export class AppComponent {
   page:page;
-  appPages:Array<{title: string, url: string,icon:string}>;
+  appPages:page[];
 
   constructor(
     private platform: Platform,
@@ -39,14 +39,21 @@ export class AppComponent {
   }
   
   load(){
-    if(this.authService.CurrentUser!=null){  
-       this.page.title='sss';
-       debugger;
-       this.page.url='/members/tabs/vanbanden';
-       this.page.icon='copy';
+    if(this.authService.CurrentUser!=null){
+
+     this.page = <page> {
+      title:"Hoàng văn đế",
+      icon:"Không có gì",
+      url:"xnxx"
+  }
+
+
+  debugger;
+      //  this.page.url='/members/tabs/vanbanden';
+      //  this.page.icon='copy';
      
       // this.appPages.push(this.page);
-      debugger;
+      // debugger;
     }
   }
   // appPages = [   
