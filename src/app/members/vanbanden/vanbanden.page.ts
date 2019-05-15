@@ -11,6 +11,8 @@ export class VanbandenPage implements OnInit {
   constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
+    debugger;
+    var a =  this.authService.currentUser;
     this.authService.getSpecialData().subscribe(res =>{
       this.danhsachVanBans = res["data"];
     });
