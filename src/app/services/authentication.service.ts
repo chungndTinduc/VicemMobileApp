@@ -66,6 +66,7 @@ export class AuthenticationService {
         }
         else{
           localStorage.removeItem(TOKEN_KEY);
+          localStorage.removeItem(CURRENT_USER);
         }
       }
   }
@@ -103,6 +104,7 @@ export class AuthenticationService {
  
   logout() {
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(CURRENT_USER);
     this.authenticationState.next(false);
   }
   isAuthenticated() {
