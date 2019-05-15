@@ -39,22 +39,19 @@ export class AppComponent {
   }
   
   load(){
-    if(this.authService.CurrentUser!=null){
+  //   if(this.authService.CurrentUser!=null){
+  //    this.page = <page> {
+  //     title:"Hoàng văn đế",
+  //     icon:"Không có gì",
+  //     url:"xnxx"
+  // }
 
-     this.page = <page> {
-      title:"Hoàng văn đế",
-      icon:"Không có gì",
-      url:"xnxx"
-  }
-
-
-  debugger;
       //  this.page.url='/members/tabs/vanbanden';
       //  this.page.icon='copy';
      
       // this.appPages.push(this.page);
       // debugger;
-    }
+    // }
   }
   // appPages = [   
   //   {

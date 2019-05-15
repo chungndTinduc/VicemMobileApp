@@ -15,8 +15,7 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     // pathMatch: 'full'
-  },
-   { path: 'members', loadChildren: './app-tabs/app-tabs.module#AppTabsPageModule' },
+  }
 ];
 
 @NgModule({
