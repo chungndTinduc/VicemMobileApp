@@ -1,6 +1,6 @@
 import { Injectable, NgModule } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController,LoadingController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -23,12 +23,12 @@ export class AuthenticationService {
   url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
-
+  loading:any;
   constructor(private storage: Storage, 
     private plt: Platform,
     private http:HttpClient,private helper:JwtHelperService,
     private alertController:AlertController,
-    // private translate : TranslateService
+    public loadingController: LoadingController
     ) {
     this.plt.ready().then(() => {
       this.checkToken();
@@ -39,7 +39,15 @@ export class AuthenticationService {
   getSpecialData() {
     return this.get('api/nguoidung/test',null);
   }
-
+  //các hàm đăng ký service
+  getVanBanDen() {
+    return this.get('api/vanbanden/test',null);
+  }
+  //các hàm đăng ký service
+  postVanBanDen(data) {
+    return this.post('api/vanbanden/test',data);
+  }
+  
 // hàm base authen
    checkToken() {
       let token =  localStorage.getItem(TOKEN_KEY);
@@ -100,7 +108,15 @@ export class AuthenticationService {
     alert.then(alert => alert.present());
   }
 
-  post(api, data) {
+  async post(api, data) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: 5000,
+      message: 'Please wait...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+      });
+      await loading.present();
     return new Observable((observer) => { 
       var token = this.getToken(); 
       let headers = new HttpHeaders();
@@ -119,18 +135,20 @@ export class AuthenticationService {
           Err: err
         });
         observer.complete();
-      });
+      },
+      () => loading.dismiss());
 
     });  
   }
 
-  get(api, data) {
+   get(api, data) {
+    this.presentLoadingWithOptions();
     return new Observable((observer) => {    
       var token = this.getToken(); 
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
-      
       this.http.get((api.indexOf('http') > -1 ? '' : this.url) + api, {params:data,headers:headers}).subscribe((res: any) => {       
+        debugger;
         observer.next(res);
         observer.complete();
       }, (err) => {
@@ -143,8 +161,24 @@ export class AuthenticationService {
           Err: err
         });
         observer.complete();
-      });
-
+      },
+       () => this.loading.dismiss()
+      );
+      
     });    
+    
   }
+  async presentLoadingWithOptions() {
+     this.loading = await this.loadingController.create({
+      spinner: null,
+      duration: 5000,
+      message: 'Please wait...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await this.loading.present();
+  }
+//   async hideLoading() {
+//    return await this.loading.dismiss();
+//  }
 }
