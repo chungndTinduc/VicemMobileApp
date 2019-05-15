@@ -8,6 +8,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpModule } from '@angular/http';
 const TOKEN_KEY = 'auth-token';
+const CURRENT_USER = 'current-user';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +20,7 @@ const TOKEN_KEY = 'auth-token';
   ]
 })
 export class AuthenticationService {
-
+  public currentUser: any;
   url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
@@ -51,18 +52,20 @@ export class AuthenticationService {
 // hàm base authen
    checkToken() {
       let token =  localStorage.getItem(TOKEN_KEY);
-      if (token) {
+      let user = localStorage.getItem(CURRENT_USER)
+      if (token && user) {
         let decoded = this.helper.decodeToken(token);
         let isExpired = this.helper.isTokenExpired(token);
         if(!isExpired)
         {
           this.user = decoded;
           this.authenticationState.next(true);
+          let obj = JSON.parse(localStorage.getItem(CURRENT_USER));
+          this.currentUser = obj;
         }
         else{
           localStorage.removeItem(TOKEN_KEY);
         }
-        
       }
   }
   getToken() {
@@ -85,9 +88,9 @@ export class AuthenticationService {
            return this.showAlert(res['Message']);
           }
           localStorage.setItem(TOKEN_KEY, res['Token']);
+          localStorage.setItem(CURRENT_USER, res['Data']);
           this.user = this.helper.decodeToken(res['Token']);
           this.authenticationState.next(true);
-          
         }),
         catchError(e => {
           this.showAlert(e.error.msg);
@@ -153,7 +156,6 @@ export class AuthenticationService {
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
       this.http.get((api.indexOf('http') > -1 ? '' : this.url) + api, {params:data,headers:headers}).subscribe((res: any) => {       
-        debugger;
         observer.next(res);
         observer.complete();
       }, (err) => {
@@ -183,7 +185,4 @@ export class AuthenticationService {
     });
     return await this.loading.present();
   }
-//   async hideLoading() {
-//    return await this.loading.dismiss();
-//  }
 }
