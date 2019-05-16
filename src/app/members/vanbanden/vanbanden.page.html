@@ -13,9 +13,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-list lines="none" appAnimateItems>
-    <ion-item *ngFor="let vanban of danhsachVanBans">
-      <h2>{{ vanban.title }}</h2>
-    </ion-item>
+  <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="doInfinite()" [(ngModel)]="keyword"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let vanban of danhsachVanBans" routerLink="/chitietvanban/{{session.ID}}">{{vanban.SoKyHieu}}</ion-item>
   </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

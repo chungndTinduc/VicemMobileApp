@@ -42,8 +42,8 @@ export class AuthenticationService {
     return this.get('api/nguoidung/test',null);
   }
   //các hàm đăng ký service
-  getVanBanDen() {
-    return this.get('api/vanbanden/test',null);
+  getVanBanDen(data) {
+    return this.get('api/vanbanden/GetAllVanBan',data);
   }
   //các hàm đăng ký service
   postVanBanDen(data) {
