@@ -9,6 +9,7 @@ import { AppPage } from 'e2e/src/app.po';
 import { Response } from '@angular/http';
 import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import {Enum} from 'src/app/Enum';
 
  interface page {
   title: string,
@@ -19,13 +20,10 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-
-
-
 export class AppComponent {
   page:page;
-  appPages:any;
-  resurl:any;
+  appPages:any[] = [];
+  resurl:[];
   rowpage = 1;
   keyword = " ";
   constructor(
@@ -44,52 +42,33 @@ export class AppComponent {
   }
   
   load(){
-  //   if(this.authService.CurrentUser!=null){
-  //    this.page = <page> {
-  //     title:"Hoàng văn đế",
-  //     icon:"Không có gì",
-  //     url:"xnxx"
-  // }
+       this.authService.checkToken();
+       if(this.authService.currentUser!=null){
+         var QuyenHan= ",0,"+this.authService.currentUser.QuyenHan+",";  
+         
+         if(QuyenHan.indexOf(","+Enum.Vanbanden.toString()+",")>0)     {
+          var datapage={title:'Văn bản đến',icon:'copy',url:'/members/tabs/vanbanden'}
+          this.appPages.push(datapage);
+         }
+         if(QuyenHan.indexOf(","+Enum.Vanbandi.toString()+",")>0)     {
+          var datapage={title:'Văn bản đi',icon:'paper-plane',url:'/members/tabs/vanbandi'}
+          this.appPages.push(datapage);
+         }
+         if(QuyenHan.indexOf(","+Enum.Congviec.toString()+",")>0)     {
+          var datapage={title:'Công việc',icon:'clipboard',url:'/members/tabs/congviec'}
+          this.appPages.push(datapage);
+         }
+         if(QuyenHan.indexOf(","+Enum.Congviec.toString()+",")>0)     {
+          var datapage={title:'Văn bản dự thảo',icon:'document',url:'/members/tabs/vanbanduthao'}
+          this.appPages.push(datapage);
+         }
+         var datapage={title:'Danh bạ',icon:'information-circle',url:'/members/tabs/danhba'}
+         this.appPages.push(datapage);
 
-      //  this.page.url='/members/tabs/vanbanden';
-      //  this.page.icon='copy';
-     
-      // this.appPages.push(this.page);
-      // debugger;
-    // }
+         var datapage={title:'Lịch làm việc',icon:'book',url:'/members/tabs/lichlamviec'}
+         this.appPages.push(datapage);
+       }
   }
-  // appPages = [   
-  //   {
-  //     title: 'Văn bản đến',
-  //     url: '/members/tabs/vanbanden',
-  //     icon: 'copy'
-  //   },  
-  //   {
-  //     title: 'Văn bản đi',
-  //     url: '/members/tabs/vanbandi',
-  //     icon: 'paper-plane'
-  //   },
-  //   {
-  //     title: 'Công việc',
-  //     url: '/members/tabs/congviec',
-  //     icon: 'clipboard'
-  //   },
-  //   {
-  //     title: 'Văn bản dự thảo',
-  //     url: '/members/tabs/vanbanduthao',
-  //     icon: 'document'
-  //   },
-  //   {
-  //     title: 'Danh ba',
-  //     url: '/members/tabs/danhba',
-  //     icon: 'information-circle'
-  //   },
-  //    {
-  //     title: 'Lich lam viec',
-  //     url: '/members/tabs/lichlamviec',
-  //     icon: 'book'
-  //   }
-  // ];
   loggedIn = false;
 
  logout(){

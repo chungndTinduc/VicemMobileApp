@@ -52,7 +52,6 @@ export class AuthenticationService {
   
 // hàm base authen
    checkToken() {
-     debugger;
       let token =  localStorage.getItem(TOKEN_KEY);
       let user = localStorage.getItem(CURRENT_USER)
       if (token && user) {
