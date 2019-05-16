@@ -13,9 +13,17 @@ export class VanbandenPage implements OnInit {
   constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
-   this.load();
+  
+  }
+  ionViewDidEnter(){
+    this.load();
+  }
+  Init(){
+
   }
   load(){
+    this.dataquery.RowPerPage=10;
+    this.dataquery.CurrentPage=1;
     this.authService.getVanBanDen(this.dataquery).subscribe(res =>{
       this.danhsachVanBans = res["Data"];
       this.total=res["Total"]
