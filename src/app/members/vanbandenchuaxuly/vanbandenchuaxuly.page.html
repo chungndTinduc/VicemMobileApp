@@ -11,7 +11,7 @@
         </ion-buttons>
       </ion-toolbar>
       <ion-tab-bar>
-          <ion-tab-button tab="vanbanden" class="tabvanbanden">
+          <ion-tab-button tab="vanbanden" class="vanbanden">
               <ion-icon name="ios-document"></ion-icon>
               <ion-label>Danh sách</ion-label>
             </ion-tab-button>
@@ -33,18 +33,7 @@
       
 </ion-header>
 
+
 <ion-content>
-  <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
-  <ion-list reorder="true">
-    <ion-item *ngFor="let vanban of danhsachVanBans" routerLink="/chitietvanban/{{vanban.ID}}">
-      <ion-label>
-        <div *ngIf="vanban.NgayDen!=null"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>
-        <div *ngIf="vanban.SoKyHieu!=''"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
-        {{vanban.TrichYeu}}
-      </ion-label>
-    </ion-item >
-  </ion-list>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+
 </ion-content>

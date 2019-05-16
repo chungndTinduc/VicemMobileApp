@@ -15,7 +15,9 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     // pathMatch: 'full'
-  }
+  },
+  { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
+
 ];
 
 @NgModule({

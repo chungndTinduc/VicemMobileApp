@@ -19,12 +19,25 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       { path: 'dashboard', loadChildren: 'src/app/members/dashboard/dashboard.module#DashboardPageModule' },
-      { path: 'vanbanden', loadChildren: 'src/app/members/vanbanden/vanbanden.module#VanbandenPageModule' },
+      { path: 'vanbanden', 
+     // loadChildren: 'src/app/members/vanbanden/vanbanden.module#VanbandenPageModule'
+      children: [
+        {
+          path: '',
+          loadChildren: 'src/app/members/vanbanden/vanbanden.module#VanbandenPageModule'
+        },
+        {
+          path: 'vanbandenchuaxuly',
+          loadChildren: 'src/app/members/vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule'
+        },
+      ]
+     },
       { path: 'vanbandi', loadChildren: 'src/app/members/vanbandi/vanbandi.module#VanbandiPageModule' },
       { path: 'congviec', loadChildren: 'src/app/members/congviec/congviec.module#CongviecPageModule' },
       { path: 'lichlamviec', loadChildren: 'src/app/members/lichlamviec/lichlamviec.module#LichlamviecPageModule' },
       { path: 'vanbanduthao', loadChildren: 'src/app/members/vanbanduthao/vanbanduthao.module#VanbanduthaoPageModule' },
       { path: 'danhba', loadChildren: 'src/app/members/danhba/danhba.module#DanhbaPageModule' },
+   //   { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
       
     ]}
 ];
