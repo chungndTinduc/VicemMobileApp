@@ -16,7 +16,8 @@ const routes: Routes = [
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     // pathMatch: 'full'
   },
-  { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
+  { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },  { path: 'vanbandenchuadoc', loadChildren: './vanbandenchuadoc/vanbandenchuadoc.module#VanbandenchuadocPageModule' },
+
 
 ];
 
