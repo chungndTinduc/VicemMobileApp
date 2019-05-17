@@ -64,6 +64,10 @@ export class AuthenticationService {
   getVanBanDi(data) {
     return this.get('api/vanbandi/GetDanhSachVanBanDi',data);
   }
+  // danh sách van bản đi chưa đọc
+  getVanBanDichuadoc(data) {
+    return this.get('api/vanbandi/GetDanhSachVanBanDiChuaDoc',data);
+  }
   getVanBanDiByID(data) {
     return this.get('api/vanbandi/GetByID',data);
   }
