@@ -18,9 +18,6 @@ export class VanbandenPage implements OnInit {
   ionViewDidEnter(){
     this.load();
   }
-  Init(){
-
-  }
   load(){
     this.dataquery.RowPerPage=10;
     this.dataquery.CurrentPage=1;
