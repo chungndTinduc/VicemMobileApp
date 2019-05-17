@@ -53,6 +53,9 @@ export class AuthenticationService {
   getVanBanDenChuaDoc(data) {
     return this.get('api/vanbanden/getVanBanDenChuaDoc',data);
   }
+  getVanBanDenXuLyChinh(data) {
+    return this.get('api/vanbanden/GetVanBanDenNguoiXuLy',data);
+  }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);

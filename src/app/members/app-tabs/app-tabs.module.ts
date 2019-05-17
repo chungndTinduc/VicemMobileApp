@@ -19,8 +19,7 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       { path: 'dashboard', loadChildren: 'src/app/members/dashboard/dashboard.module#DashboardPageModule' },
-      { path: 'vanbanden', 
-     // loadChildren: 'src/app/members/vanbanden/vanbanden.module#VanbandenPageModule'
+      { path: 'vanbanden',   
       children: [
         {
           path: '',
@@ -29,6 +28,14 @@ const routes: Routes = [
         {
           path: 'vanbandenchuaxuly',
           loadChildren: 'src/app/members/vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule'
+        },
+        {
+          path: 'vanbandenchuadoc',
+          loadChildren: 'src/app/members/vanbandenchuadoc/vanbandenchuadoc.module#VanbandenchuadocPageModule'
+        },
+        {
+          path: 'vanbandenxulychinh',
+          loadChildren: 'src/app/members/vanbandenxulychinh/vanbandenxulychinh.module#VanbandenxulychinhPageModule'
         },
       ]
      },

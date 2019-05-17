@@ -23,7 +23,8 @@ export class VanbandenPage implements OnInit {
     this.dataquery.CurrentPage=1;
     this.authService.getVanBanDen(this.dataquery).subscribe(res =>{
       this.danhsachVanBans = res["Data"];
-      this.total=res["Total"]
+      this.total=res["Total"];
+      return true;
     });
   }
   loadsearch(){
