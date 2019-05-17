@@ -43,7 +43,22 @@ const routes: Routes = [
         },
       ]
      },
-      { path: 'vanbandi', loadChildren: 'src/app/members/vanbandi/vanbandi.module#VanbandiPageModule' },
+      { path: 'vanbandi',     
+       children: [
+        {
+          path: '',
+          loadChildren:'src/app/members/vanbandi/vanbandi.module#VanbandiPageModule',
+        },
+        {
+          path: 'vanbandichuadoc',
+          loadChildren:'src/app/members/vanbandichuadoc/vanbandichuadoc.module#VanbandichuadocPageModule',
+        },
+        {
+          path: 'chitietvanbandi/:vanbandiid',
+          loadChildren:'src/app/members/chitietvanbandi/chitietvanbandi.module#ChitietvanbandiPageModule',
+        },
+      ]
+       },
       { path: 'congviec', loadChildren: 'src/app/members/congviec/congviec.module#CongviecPageModule' },
       { path: 'lichlamviec', loadChildren: 'src/app/members/lichlamviec/lichlamviec.module#LichlamviecPageModule' },
       { path: 'vanbanduthao', loadChildren: 'src/app/members/vanbanduthao/vanbanduthao.module#VanbanduthaoPageModule' },

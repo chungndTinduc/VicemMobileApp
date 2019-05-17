@@ -60,7 +60,7 @@ export class AuthenticationService {
   getVanBanDenByID(data) {
     return this.get('api/vanbanden/GetByID',data);
   }
-
+// danh sách văn bản đi
   getVanBanDi(data) {
     return this.get('api/vanbandi/GetDanhSachVanBanDi',data);
   }
