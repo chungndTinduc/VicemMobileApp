@@ -17,6 +17,7 @@ const routes: Routes = [
     // pathMatch: 'full'
   },
   { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },  { path: 'vanbandenchuadoc', loadChildren: './vanbandenchuadoc/vanbandenchuadoc.module#VanbandenchuadocPageModule' },
+  { path: 'vanbandenxulychinh', loadChildren: './vanbandenxulychinh/vanbandenxulychinh.module#VanbandenxulychinhPageModule' },
 
 
 ];
