@@ -1,9 +1,66 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>chitietvanbandi</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Chi tiết văn bản đi</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="presentPopover($event)">
+            <ion-icon slot="icon-only" name="more"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>     
 </ion-header>
 
 <ion-content>
-
-</ion-content>
+    <ion-item *ngIf="vanban.NgayBanHanh!=null">
+      <ion-label>
+        <div ><span > Ngày ban hành:</span> {{vanban.NgayBanHanh|date:'dd/MM/yyyy'}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.SoKyHieu!=''">
+       <ion-label>
+        <div ><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
+        </ion-label> 
+      </ion-item>
+     
+    <ion-item>
+      <ion-label>
+        <div *ngIf="vanban.TenLoaiVanBan!=null"><span > Loại văn bản:</span> {{vanban.TenLoaiVanBan}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.TenSoVanBan!=null">
+      <ion-label>
+        <div ><span > Sổ văn bản:</span> {{vanban.TenSoVanBan}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.TenDonViSoanThao!=null">
+      <ion-label>
+        <div  class="line-break"><span > Đơn vị soạn thảo:</span> {{vanban.TenDonViSoanThao}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.TrichYeu !=''">
+      <ion-label>
+        <div  class="line-break"><span > Trích yếu:</span> {{vanban.TrichYeu}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.HanXuLy!=null">
+      <ion-label>
+        <div ><span > Hạn xử lý:</span> {{vanban.HanXuLy|date:'dd/MM/yyyy'}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.LstDanhMucGiaTri.length>0">
+      <ion-label >
+        <div *ngFor="let danhmuc of LtsAllDanhMuc" ><span > {{danhmuc.Ten}} :</span> {{danhmuc.TenGiaTri}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.LtsFileAttach!=null">
+      <ion-label>
+          <div>
+              <span > File văn bản:</span>
+              <p *ngFor="let file of vanban.LtsFileAttach"><a target="_blank" href="/{{file.FileLink}}">{{file.Ten}}</a></p>
+            </div> 
+      </ion-label>
+    </ion-item>  
+  </ion-content>
+  
