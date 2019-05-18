@@ -25,9 +25,9 @@
         </ion-label> 
       </ion-item>
      
-    <ion-item>
+    <ion-item *ngIf="vanban.TenLoaiVanBan!=null">
       <ion-label>
-        <div *ngIf="vanban.TenLoaiVanBan!=null"><span > Loại văn bản:</span> {{vanban.TenLoaiVanBan}}<br></div>
+        <div ><span > Loại văn bản:</span> {{vanban.TenLoaiVanBan}}<br></div>
       </ion-label>
     </ion-item>
     <ion-item *ngIf="vanban.TenSoVanBan!=null">
