@@ -21,6 +21,10 @@ const routes: Routes = [
   { path: 'vanbandenxulychinh', loadChildren: './vanbandenxulychinh/vanbandenxulychinh.module#VanbandenxulychinhPageModule' },
   { path: 'chitietvanbanden', loadChildren: './chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule' },  { path: 'chitietvanbandi', loadChildren: './chitietvanbandi/chitietvanbandi.module#ChitietvanbandiPageModule' },
   { path: 'vanbandichuadoc', loadChildren: './vanbandichuadoc/vanbandichuadoc.module#VanbandichuadocPageModule' },
+  { path: 'vanbanduthaochuaxuly', loadChildren: './vanbanduthaochuaxuly/vanbanduthaochuaxuly.module#VanbanduthaochuaxulyPageModule' },
+  { path: 'vanbanduthaodangxuly', loadChildren: './vanbanduthaodangxuly/vanbanduthaodangxuly.module#VanbanduthaodangxulyPageModule' },
+  { path: 'vanbanduthaodaxuly', loadChildren: './vanbanduthaodaxuly/vanbanduthaodaxuly.module#VanbanduthaodaxulyPageModule' },
+  { path: 'vanbanduthaochitiet', loadChildren: './vanbanduthaochitiet/vanbanduthaochitiet.module#VanbanduthaochitietPageModule' },
 
 
 

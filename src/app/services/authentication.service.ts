@@ -68,9 +68,18 @@ export class AuthenticationService {
   getVanBanDichuadoc(data) {
     return this.get('api/vanbandi/GetDanhSachVanBanDiChuaDoc',data);
   }
+  //chi tiết văn bản đi
   getVanBanDiByID(data) {
     return this.get('api/vanbandi/GetByID',data);
   }
+  // danh sách văn bản dự thảo
+   getVanBanDuThao(data){
+    return this.get('api/vanbanduthao/GetDuThaoVanBan',data);
+   }
+   // danh sách văn bản dự thảo
+   getVanBanDuThaobyID(data){
+    return this.get('api/vanbanduthao/GetByID',data);
+   }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
