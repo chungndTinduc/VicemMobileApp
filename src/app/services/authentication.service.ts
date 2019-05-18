@@ -76,6 +76,18 @@ export class AuthenticationService {
    getVanBanDuThao(data){
     return this.get('api/vanbanduthao/GetDuThaoVanBan',data);
    }
+   // văn bản dự thảo chưa xư lý
+   getVanBanDuThaoChuaXuLy(data){
+    return this.get('api/vanbanduthao/GetDuThaoVanBanChuaXuLy',data);
+   }
+   // văn bản dự thảo Dang xư lý
+   getVanBanDuThaoDangXuLy(data){
+    return this.get('api/vanbanduthao/GetDuThaoVanBanDangXuLy',data);
+   }
+   // văn bản dự thảo Da xư lý
+   getVanBanDuThaoDaXuLy(data){
+    return this.get('api/vanbanduthao/GetDuThaoVanBanDaXuLy',data);
+   }
    // danh sách văn bản dự thảo
    getVanBanDuThaobyID(data){
     return this.get('api/vanbanduthao/GetByID',data);

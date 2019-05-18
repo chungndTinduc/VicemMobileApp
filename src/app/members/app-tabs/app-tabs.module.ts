@@ -61,7 +61,31 @@ const routes: Routes = [
        },
       { path: 'congviec', loadChildren: 'src/app/members/congviec/congviec.module#CongviecPageModule' },
       { path: 'lichlamviec', loadChildren: 'src/app/members/lichlamviec/lichlamviec.module#LichlamviecPageModule' },
-      { path: 'vanbanduthao', loadChildren: 'src/app/members/vanbanduthao/vanbanduthao.module#VanbanduthaoPageModule' },
+      {
+         path: 'vanbanduthao',         
+         children: [
+          {
+            path: '',
+            loadChildren:'src/app/members/vanbanduthao/vanbanduthao.module#VanbanduthaoPageModule',
+          },
+          {
+            path: 'vanbanduthaochuaxuly',
+            loadChildren: 'src/app/members/vanbanduthaochuaxuly/vanbanduthaochuaxuly.module#VanbanduthaochuaxulyPageModule',
+          },
+          {
+            path: 'vanbanduthaodangxuly',
+            loadChildren: 'src/app/members/vanbanduthaodangxuly/vanbanduthaodangxuly.module#VanbanduthaodangxulyPageModule',
+          },
+          {
+            path: 'vanbanduthaodaxuly',
+            loadChildren: 'src/app/members/vanbanduthaodaxuly/vanbanduthaodaxuly.module#VanbanduthaodaxulyPageModule',
+          },
+          {
+            path: 'vanbanduthaochitiet/:vanbanduthaoid',
+            loadChildren: 'src/app/members/vanbanduthaochitiet/vanbanduthaochitiet.module#VanbanduthaochitietPageModule',
+          },
+        ]
+         },
       { path: 'danhba', loadChildren: 'src/app/members/danhba/danhba.module#DanhbaPageModule' },
    //   { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
       

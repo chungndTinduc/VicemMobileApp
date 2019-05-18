@@ -1,9 +1,52 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>vanbanduthaodaxuly</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Văn bản dự thảo</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="presentPopover($event)">
+            <ion-icon slot="icon-only" name="more"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-tab-bar>
+        <ion-tab-button tab="vanbanduthao" class="tabvanbanduthao">
+            <ion-icon name="ios-document"></ion-icon>
+            <ion-label>Danh sách</ion-label>
+          </ion-tab-button>
+        <ion-tab-button tab="vanbanduthao/vanbanduthaochuaxuly" class="tabvanbanduthaochuaxuly">
+          <ion-icon name="ios-document"></ion-icon>
+          <ion-label>Chưa xử lý</ion-label>
+        </ion-tab-button>
+  
+        <ion-tab-button tab="vanbanduthao/vanbanduthaodangxuly" class="tabvanbanduthaodangxuly">
+          <ion-icon name="ios-document"></ion-icon>
+           <ion-label>Đang xử lý</ion-label>
+        </ion-tab-button>
+  
+        <ion-tab-button tab="vanbanduthao/vanbanduthaodaxuly" class="tabvanbanduthaodaxuly">
+          <ion-icon name="ios-document"></ion-icon>
+          <ion-label>Đã xử lý</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+      
 </ion-header>
 
 <ion-content>
-
+  <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
+  <ion-list reorder="true">
+    <ion-item *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbanduthao/vanbanduthaochitiet/{{vanban.ID}}">
+      <ion-label>
+        <div *ngIf="vanban.TenLoaiVanBan!=null"><span > Loại văn bản :</span> {{vanban.TenLoaiVanBan}}<br></div>
+        <div *ngIf="vanban.TenNguoiTao!=null"><span >Người tạo :</span> {{vanban.TenNguoiTao}}<br></div>
+        <div *ngIf="vanban.SoKyHieu!=null"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
+        <div *ngIf="vanban.TenDonViSoanThao!=''"><span > Đơn vị soạn thảo:</span> {{vanban.TenDonViSoanThao}}<br></div>
+        {{vanban.TrichYeu}}
+      </ion-label>
+    </ion-item >
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
