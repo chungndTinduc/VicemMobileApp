@@ -1,9 +1,95 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>vanbanduthaochitiet</ion-title>
-  </ion-toolbar>
+      <ion-buttons slot="start">
+        <!-- <ion-menu-button></ion-menu-button> -->
+        <ion-back-button text="" ></ion-back-button>     
+      </ion-buttons>
+      <ion-title>Chi tiết văn bản đi</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="presentPopover($event)">
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>     
 </ion-header>
 
 <ion-content>
+    <ion-item>
+        <ion-label>
+          <div *ngIf="vanban.TenLoaiVanBan!=null"><span > Loại văn bản:</span> {{vanban.TenLoaiVanBan}}<br></div>
+        </ion-label>
+      </ion-item>
 
+  <ion-item *ngIf="vanban.TrangThaiID!=null">
+    <ion-label>
+      <div ><span > Trạng thái:</span> 
+       
+        <span [innerHTML]=" TrangThaiVanBan"></span>
+        <br></div>
+    </ion-label>
+  </ion-item>
+  <ion-item *ngIf="vanban.TenNguoiTao!=null">
+      <ion-label>
+        <div ><span >Người tạo:</span> {{vanban.TenNguoiTao}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="vanban.NgayTao!=null">
+        <ion-label>
+          <div ><span >Ngày tạo:</span> {{vanban.NgayTao|date:'dd/MM/yyyy'}}<br></div>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="TrangThaiCaNhanID!=null">
+          <ion-label>
+            <div ><span >Trạng thái cá nhân:</span> 
+              <span *ngIf="TrangThaiCaNhanID==0" class="danger">Chưa xử lý</span>
+              <span *ngIf="TrangThaiCaNhanID==1" class="warning">Đang xử lý</span>
+              <span *ngIf="TrangThaiCaNhanID==3" class="success">Đã xử lý</span>
+            </div>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="vanban.TenNguoiKy !=''">
+            <ion-label>
+              <div  class="line-break"><span > Người phê duyệt:</span> {{vanban.TenNguoiKy}}<br></div>
+            </ion-label>
+          </ion-item>
+  <ion-item *ngIf="vanban.TrichYeu !=''">
+    <ion-label>
+      <div  class="line-break"><span > Trích yếu:</span> {{vanban.TrichYeu}}<br></div>
+    </ion-label>
+  </ion-item>
+  <ion-item *ngIf="strNguoiNhan!=''">
+      <ion-label>
+        <div  class="line-break"><span > Người nhận:</span> {{strNguoiNhan}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="DonViNhan!=''">
+      <ion-label>
+        <div  class="line-break"><span > Đơn vị nhận:</span> {{DonViNhan}}<br></div>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="strNoiNhanbenNgoai!=''">
+      <ion-label>
+        <div  class="line-break"><span > Nơi nhận bên ngoài:</span> {{strNoiNhanbenNgoai}}<br></div>
+      </ion-label>
+    </ion-item>
+  <ion-item *ngIf="vanban.LtsDanhMucGiaTri.length>0">
+    <ion-label >
+      <div *ngFor="let danhmuc of LtsAllDanhMuc" ><span > {{danhmuc.Ten}} :</span> {{danhmuc.TenGiaTri}}<br></div>
+    </ion-label>
+  </ion-item>
+  <ion-item *ngIf="vanban.LtsFileAttach!=null">
+    <ion-label>
+        <div>
+            <span > File văn bản:</span>
+            <p *ngFor="let file of vanban.LtsFileAttach"><a target="_blank" href="/{{file.FileLink}}">{{file.Ten}}</a></p>
+          </div> 
+    </ion-label>
+  </ion-item>  
 </ion-content>
+<style>
+  .default{
+    background:#c6c6c6;
+    padding:5px 5px;
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,29 @@
+ion-label div span:first-child{
+    font-weight: bold;
+}
+.line-break{
+    overflow: inherit ;
+    text-overflow: inherit ;
+    white-space: normal;
+  }
+  .success{
+      background: #45B6AF;
+      padding:5px 5px;
+      color: #fff;
+  }
+  .warning{
+    background:#dfba49;
+    padding:5px 5px;
+    color: #fff;
+}
+.danger{
+    background:#F3565D;
+    padding:5px 5px;
+    color: #fff;
+}
+.default{
+    background:#c6c6c6;
+    padding:5px 5px;
+    color: #fff;
+}
+  
