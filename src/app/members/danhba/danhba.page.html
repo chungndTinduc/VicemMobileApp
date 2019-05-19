@@ -1,17 +1,31 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Danh bạ điện thoại</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="presentPopover($event)">
-            <ion-icon slot="icon-only" name="more"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Danh bạ</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="presentPopover($event)">
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>    
 </ion-header>
-
 <ion-content>
-
+<ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
+<ion-list reorder="true">
+  <ion-item *ngFor="let danhba of danhsachs" routerLink="/members/tabs/danhba/chitietdanhba/{{danhba.ID}}">
+        <ion-avatar item-left class="avatar">
+            <img src="/assets/img/not_avata.png">
+          </ion-avatar>
+      <ion-label>
+      <h3 *ngIf="danhba.TenHienThi!=null" class="line-break"><span ></span> {{danhba.TenHienThi}} {{danhba.TenChucVu!=null?"-"+danhba.TenChucVu:""}} {{danhba.TenDonVi!=null?"-"+danhba.TenDonVi:""}}<br></h3>
+      <p *ngIf="danhba.Email!=null"><span ></span> {{danhba.Email}}{{danhba.DienThoai!=""?("-"+danhba.DienThoai):""}}<br></p>
+      <p *ngIf="danhba.DiDong!=''"><span style="font-weight: bold">Di động:</span> {{danhba.DiDong}}<br></p>
+    </ion-label>
+  </ion-item >
+</ion-list>
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
 </ion-content>

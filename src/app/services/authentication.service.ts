@@ -92,6 +92,19 @@ export class AuthenticationService {
    getVanBanDuThaobyID(data){
     return this.get('api/vanbanduthao/GetByID',data);
    }
+   // danh sách danh bạ
+   getDanhBa(data){
+    return this.get('api/NguoiDung/getnguoiDungDanhBa',data);
+   }
+   // lấy thông tin chi tiết người dùng
+   getNguoiDungByID(data){
+    return this.get('api/NguoiDung/GetByID',data);
+   }
+   // Lich lam viec
+   getLichLamViec(data){
+    return this.get('api/LichlamViec/getLichCongtacTuan',data);
+   }
+   
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);

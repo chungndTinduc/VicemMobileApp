@@ -40,7 +40,7 @@
       <ion-label>
         <div *ngIf="vanban.NgayDen!=null"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>
         <div *ngIf="vanban.SoKyHieu!=''"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
-        {{vanban.TrichYeu}}
+        <div class="line-break">{{vanban.TrichYeu}}</div>
       </ion-label>
     </ion-item >
   </ion-list>

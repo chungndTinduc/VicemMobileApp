@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'vanbanduthaodangxuly', loadChildren: './vanbanduthaodangxuly/vanbanduthaodangxuly.module#VanbanduthaodangxulyPageModule' },
   { path: 'vanbanduthaodaxuly', loadChildren: './vanbanduthaodaxuly/vanbanduthaodaxuly.module#VanbanduthaodaxulyPageModule' },
   { path: 'vanbanduthaochitiet', loadChildren: './vanbanduthaochitiet/vanbanduthaochitiet.module#VanbanduthaochitietPageModule' },
+  { path: 'danhbachitiet', loadChildren: './danhbachitiet/danhbachitiet.module#DanhbachitietPageModule' },
 
 
 
