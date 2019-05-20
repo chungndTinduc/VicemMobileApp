@@ -1,0 +1,31 @@
+ion-label h3{
+    font-weight: bold;
+    font-size: 23px;
+}
+ion-item ion-label span{
+    font-weight:bold; 
+ }
+ .lichnoidung:not(:last-child){
+     border-bottom: 1px dotted #999;
+     padding: 8px 0px;
+ }
+ .lichnoidung:last-child{
+    padding: 8px 0px;
+}
+.titleday{
+    background:#A67E51;
+    padding: 5px;
+    color: #fff;
+}
+.button{
+    text-align:center;
+}
+.button ion-button{
+    background: #A67E51;
+}
+.ion-color-primary{
+    background: #A67E51 !important;
+}
+.daterance{
+    text-align: center;
+}

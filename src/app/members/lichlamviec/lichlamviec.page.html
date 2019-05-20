@@ -1,17 +1,39 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Lịch làm việc</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="presentPopover($event)">
-            <ion-icon slot="icon-only" name="more"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Lịch làm việc</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="presentPopover($event)">
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>    
 </ion-header>
-
 <ion-content>
-
+<div class="button">
+  <ion-button color="primary" (click)="prev()"><ion-icon name="arrow-dropleft-circle"></ion-icon> Trước</ion-button>
+  <ion-button color="primary">Hiện tại</ion-button>
+  <ion-button color="primary"(click)="next()">Sau <ion-icon name="arrow-dropright-circle"></ion-icon></ion-button>
+</div>
+<div>
+  <h4 class="daterance">{{daterance}}</h4>
+</div>
+<ion-list reorder="true">
+  <ion-item *ngFor="let lich of danhsachs" >        
+      <ion-label>
+      <div class="titleday"><h3 *ngIf="lich.Thu!=null" class="line-break"><span ></span> {{lich.Thu}}<br></h3></div>
+      <div *ngFor="let noidung of lich.LstNoiDung" class="lichnoidung">
+          <div class="line-break"><span>{{noidung.ThoiGianBatDau | date:'hh:mm'}}</span> {{noidung.NoiDung}}</div>
+          <div class="line-break"><span>Thành phần tham gia:</span> {{noidung.ThanhPhanThamDu}}</div>
+          <div><span>Địa điểm</span>: {{noidung.DiaDiem}}</div>
+          <div><span>Chủ trì:</span> {{noidung.LanhDaoChuTri}}</div>
+      </div>
+    </ion-label>
+  </ion-item >
+</ion-list>
+<!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll> -->
 </ion-content>
