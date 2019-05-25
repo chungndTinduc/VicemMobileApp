@@ -7,6 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpModule } from '@angular/http';
 import { environment } from 'src/environments/environment';
+import { MenuController } from '@ionic/angular';
 const TOKEN_KEY = 'auth-token';
 const CURRENT_USER = 'current-user';
 @Injectable({
@@ -30,7 +31,8 @@ export class AuthenticationService {
     private plt: Platform,
     private http:HttpClient,private helper:JwtHelperService,
     private alertController:AlertController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    private menuCtrl: MenuController
     ) {
     this.plt.ready().then(() => {
       this.checkToken();
@@ -154,6 +156,7 @@ export class AuthenticationService {
           localStorage.setItem(CURRENT_USER,userStr);
           this.user = this.helper.decodeToken(res['Token']);
           // this.CurrentUser=res['Data'];
+          this.menuCtrl.enable(true)
           this.authenticationState.next(true);
         }),
         catchError(e => {
