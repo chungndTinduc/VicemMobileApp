@@ -25,7 +25,7 @@
 <ion-content>
   <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
   <ion-list reorder="true">
-    <ion-item *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbandi/chitietvanbandi/{{vanban.ID}}">
+    <ion-item lines="none" *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbandi/chitietvanbandi/{{vanban.ID}}">
       <ion-label>
         <div *ngIf="vanban.NgayBanHanh!=null"><span > Ngày ban hành :</span> {{vanban.NgayBanHanh|date:'dd/MM/yyyy'}}<br></div>
         <div *ngIf="vanban.SoKyHieu!=''" class="line-break"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>

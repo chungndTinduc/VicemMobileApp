@@ -152,7 +152,6 @@ export class AuthenticationService {
           if(res['Token']==""){
            return this.showAlert(res['Message']);
           }
-          debugger;
           localStorage.setItem(TOKEN_KEY, res['Token']);
           var userStr  = JSON.stringify( res['Data'])
           localStorage.setItem(CURRENT_USER,userStr);
@@ -187,15 +186,8 @@ export class AuthenticationService {
     alert.then(alert => alert.present());
   }
 
-  async post(api, data) {
-    const loading = await this.loadingController.create({
-      spinner: null,
-      duration: 5000,
-      message: 'Please wait...',
-      translucent: true,
-      cssClass: 'custom-class custom-loading'
-      });
-      await loading.present();
+   post(api, data) {
+     this.presentLoadingWithOptions();
     return new Observable((observer) => { 
       var token = this.getToken(); 
       let headers = new HttpHeaders();
@@ -203,6 +195,7 @@ export class AuthenticationService {
      this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
+        this.loading.dismiss();
       }, (err) => {
 
         if(err.status === 403){
@@ -214,14 +207,15 @@ export class AuthenticationService {
           Err: err
         });
         observer.complete();
-      },
-      () => loading.dismiss());
-
+        this.loading.dismiss();
+        this.showAlert('Đã có lỗi xảy ra.');
+      });
     });  
   }
 
    get(api, data) {
-    this.presentLoadingWithOptions();
+  
+     this.presentLoadingWithOptions();
     return new Observable((observer) => {    
       var token = this.getToken(); 
       let headers = new HttpHeaders();
@@ -229,6 +223,7 @@ export class AuthenticationService {
       this.http.get((api.indexOf('http') > -1 ? '' : this.urlServer) + api, {params:data,headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
+        this.loading.dismiss();
       }, (err) => {
 
         if(err.status === 403){
@@ -242,8 +237,7 @@ export class AuthenticationService {
         this.showAlert('Đã có lỗi xảy ra.');
         observer.complete();
         return;
-      },
-       () => this.loading.dismiss()
+        }
       );
       
     });    
@@ -252,7 +246,7 @@ export class AuthenticationService {
   async presentLoadingWithOptions() {
      this.loading = await this.loadingController.create({
       spinner: null,
-      duration: 5000,
+      duration: 220000,
       message: 'Xin chờ đang lấy dữ liệu..',
       translucent: true,
       cssClass: 'custom-class custom-loading'
