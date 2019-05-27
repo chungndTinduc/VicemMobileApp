@@ -28,6 +28,7 @@ export class AuthenticationService {
   // CurrentUser=[];
   authenticationState = new BehaviorSubject(false);
   loading:any;
+  // alertController:any;
   constructor(private storage: Storage, 
     private plt: Platform,
     private http:HttpClient,private helper:JwtHelperService,
@@ -162,8 +163,7 @@ export class AuthenticationService {
           this.authenticationState.next(true);
         }),
         catchError(e => {
-          debugger;
-          this.showAlert("Lỗi mẹ rồi");
+          this.showAlert("Đã có lỗi xảy ra.");
           throw new Error(e);
         })
       );
@@ -238,7 +238,10 @@ export class AuthenticationService {
           StatusCode: 1,
           Err: err
         });
+        this.loading.dismiss();
+        this.showAlert('Đã có lỗi xảy ra.');
         observer.complete();
+        return;
       },
        () => this.loading.dismiss()
       );
@@ -250,10 +253,11 @@ export class AuthenticationService {
      this.loading = await this.loadingController.create({
       spinner: null,
       duration: 5000,
-      message: 'Please wait...',
+      message: 'Xin chờ đang lấy dữ liệu..',
       translucent: true,
       cssClass: 'custom-class custom-loading'
     });
     return await this.loading.present();
   }
+
 }
