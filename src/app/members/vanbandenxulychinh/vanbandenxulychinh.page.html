@@ -34,6 +34,9 @@
 </ion-header>
 <ion-content>
 <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
+<ion-refresher slot="fixed" (ionRefresh)="dorefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
 <ion-list  reorder="true">
   <ion-item  lines="none" *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}">
     <ion-label>
