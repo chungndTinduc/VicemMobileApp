@@ -9,6 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class DanhbaPage implements OnInit {
   danhsachs:any;
   total=0;
+  fakeUsers: Array<any> = new Array(10);
   public dataquery ={CurrentPage:1,RowPerPage:10,SearchIn:'TenHienThi,Email',Keyword:''};
    constructor(private authService:AuthenticationService) { }
  
@@ -16,7 +17,9 @@ export class DanhbaPage implements OnInit {
   
   }
   ionViewDidEnter(){
-    this.load();
+    setTimeout(() => {
+   this.load();
+  }, 5500);
   }
   load(){
     this.dataquery.RowPerPage=10;

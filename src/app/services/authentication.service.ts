@@ -24,6 +24,7 @@ export class AuthenticationService {
   public currentUser: any;
   urlServer = environment.url;
   user = [];
+  TenHienThi:string;
   // CurrentUser=[];
   authenticationState = new BehaviorSubject(false);
   loading:any;
@@ -155,7 +156,8 @@ export class AuthenticationService {
           var userStr  = JSON.stringify( res['Data'])
           localStorage.setItem(CURRENT_USER,userStr);
           this.user = this.helper.decodeToken(res['Token']);
-          // this.CurrentUser=res['Data'];
+           this.currentUser=res['Data'];
+           this.TenHienThi=this.currentUser.TenHienThi;
           this.menuCtrl.enable(true)
           this.authenticationState.next(true);
         }),

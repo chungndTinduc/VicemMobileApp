@@ -26,7 +26,7 @@ export class AppComponent {
   resurl:[];
   rowpage = 1;
   keyword = " ";
-  TenHienThi:'';
+  TenHienThi:string;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -39,12 +39,13 @@ export class AppComponent {
     this.initializeApp();
   }
   ngOnInit(){
-    this.TenHienThi=this.authService.currentUser.TenHienThi;
+  
     this.load();
   }
   
   load(){
        this.authService.checkToken();
+       this.TenHienThi=this.authService.currentUser.TenHienThi;
        if(this.authService.currentUser!=null){
          var QuyenHan= ",0,"+this.authService.currentUser.QuyenHan+",";  
          
