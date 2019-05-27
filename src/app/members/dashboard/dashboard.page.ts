@@ -26,10 +26,10 @@ export class DashboardPage implements OnInit {
           type: 'bar'
       },
       title: {
-          text: 'Historic World Population by Region'
+          text: 'Tình hình xử lý văn bản'
       },
       subtitle: {
-          text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+          text: 'Source: Wikipedia.org'
       },
       xAxis: {
           categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
