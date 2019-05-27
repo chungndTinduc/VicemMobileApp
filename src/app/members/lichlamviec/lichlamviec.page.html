@@ -21,7 +21,7 @@
   <h4 class="daterance">{{daterance}}</h4>
 </div>
 <ion-list reorder="true">
-  <ion-item *ngFor="let lich of danhsachs" >        
+  <ion-item lines="none"  *ngFor="let lich of danhsachs" >        
       <ion-label>
       <div class="titleday"><h3 *ngIf="lich.Thu!=null" class="line-break"><span ></span> {{lich.Thu}}<br></h3></div>
       <div *ngFor="let noidung of lich.LstNoiDung" class="lichnoidung">

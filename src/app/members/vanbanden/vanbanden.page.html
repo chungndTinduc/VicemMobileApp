@@ -38,7 +38,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list reorder="true">
-    <ion-item *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}">
+    <ion-item lines="none"  *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}">
       <ion-label>
         <div *ngIf="vanban.NgayDen!=null"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>
         <div *ngIf="vanban.SoKyHieu!=''"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
