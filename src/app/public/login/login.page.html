@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Đăng nhập</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,16 +8,16 @@
     <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label position="floating">Tên Đăng nhập</ion-label>
           <ion-input  formControlName="userName"></ion-input>
         </ion-item>
      
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label position="floating">Mật khẩu</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
      
-        <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
+        <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Đăng nhập</ion-button>
         <!-- <ion-button expand="full" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button> -->
      
       </form>

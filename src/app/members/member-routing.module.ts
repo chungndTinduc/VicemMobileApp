@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'vanbanduthaodaxuly', loadChildren: './vanbanduthaodaxuly/vanbanduthaodaxuly.module#VanbanduthaodaxulyPageModule' },
   { path: 'vanbanduthaochitiet', loadChildren: './vanbanduthaochitiet/vanbanduthaochitiet.module#VanbanduthaochitietPageModule' },
   { path: 'danhbachitiet', loadChildren: './danhbachitiet/danhbachitiet.module#DanhbachitietPageModule' },
+  { path: 'viewfile', loadChildren: './viewfile/viewfile.module#ViewfilePageModule' },
 
 
 

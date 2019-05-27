@@ -88,6 +88,7 @@ const routes: Routes = [
          },
       { path: 'danhba', loadChildren: 'src/app/members/danhba/danhba.module#DanhbaPageModule' },
    //   { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
+      { path: 'viewfile', loadChildren: 'src/app/members/viewfile/viewfile.module#ViewfilePageModule' },
       
     ]}
 ];

@@ -26,6 +26,7 @@ export class AppComponent {
   resurl:[];
   rowpage = 1;
   keyword = " ";
+  TenHienThi:string;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -38,11 +39,13 @@ export class AppComponent {
     this.initializeApp();
   }
   ngOnInit(){
+  
     this.load();
   }
   
   load(){
        this.authService.checkToken();
+       this.TenHienThi=this.authService.currentUser.TenHienThi;
        if(this.authService.currentUser!=null){
          var QuyenHan= ",0,"+this.authService.currentUser.QuyenHan+",";  
          
@@ -66,6 +69,8 @@ export class AppComponent {
          this.appPages.push(datapage);
 
          var datapage={title:'Lịch làm việc',icon:'book',url:'/members/tabs/lichlamviec'}
+         this.appPages.push(datapage);
+         var datapage={title:'xem file',icon:'book',url:'/members/tabs/viewfile'}
          this.appPages.push(datapage);
        }
   }

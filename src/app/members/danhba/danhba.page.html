@@ -20,11 +20,27 @@
           </ion-avatar>
       <ion-label>
       <h3 *ngIf="danhba.TenHienThi!=null" class="line-break"><span ></span> {{danhba.TenHienThi}} {{danhba.TenChucVu!=null?"-"+danhba.TenChucVu:""}} {{danhba.TenDonVi!=null?"-"+danhba.TenDonVi:""}}<br></h3>
-      <p *ngIf="danhba.Email!=null"><span ></span> {{danhba.Email}}{{danhba.DienThoai!=""?("-"+danhba.DienThoai):""}}<br></p>
+      <p *ngIf="danhba.Email!=null"><span style="font-weight: bold">Email:</span> {{danhba.Email}}<br></p>
+      <p *ngIf="danhba.DienThoai!=''"><span style="font-weight: bold">Điện thoại:</span> {{danhba.DienThoai}}<br></p>
       <p *ngIf="danhba.DiDong!=''"><span style="font-weight: bold">Di động:</span> {{danhba.DiDong}}<br></p>
     </ion-label>
   </ion-item >
 </ion-list>
+
+<ion-list reorder="true" *ngIf='!danhsachs'>
+  <ion-item *ngFor="let item of fakeUsers" class='fakeItem'>
+        <ion-avatar item-left class="avatar">
+            <img src="/assets/img/not_avata.png">
+          </ion-avatar>
+      <ion-label>
+      <h3><br></h3>
+      <p><br></p>
+      <p ><br></p>
+      <p ><br></p>
+    </ion-label>
+  </ion-item >
+</ion-list>
+
 <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
   <ion-infinite-scroll-content></ion-infinite-scroll-content>
 </ion-infinite-scroll>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,12 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
   credentialsForm: FormGroup;
-  constructor(private authService: AuthenticationService,private formBuilder: FormBuilder) { }
-
+  constructor(private authService: AuthenticationService,private formBuilder: FormBuilder,
+    public menuCtrl: MenuController
+    ) { }
+    ionViewDidEnter() {
+      this.menuCtrl.enable(false);
+    }
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
       // email: ['', [Validators.required, Validators.email]],
