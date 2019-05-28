@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { environment } from 'src/environments/environment';
 import { MenuController } from '@ionic/angular';
 import{Utility} from 'src/app/providers/Utility';
+import { loadavg } from 'os';
 const TOKEN_KEY = 'auth-token';
 const CURRENT_USER = 'current-user';
 @Injectable({
@@ -259,7 +260,6 @@ export class AuthenticationService {
         return;
         },
         ()=>{
-          
           this.loading.dismiss();
         }
       );
@@ -275,7 +275,16 @@ export class AuthenticationService {
       translucent: true,
       cssClass: 'custom-class custom-loading'
     });
-    return await this.loading.present();
+    return await this.loading.present().then(() => {
+          this.loading.dismiss();
+          
+    },()=>{
+      this.loading.dismiss();
+    }
+    )    
   }
+  async dismissLoading() {
+    return await this.loading.dismiss();
+}
 
 }

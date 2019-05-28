@@ -29,25 +29,27 @@ export class DashboardPage implements OnInit {
    this.getDataFromTwoResources()
   }
   ionViewDidEnter(){
-    //this.load();
-    //this.loaddoarboardvanbanden();
+  //  this.load();
+   // this.loaddoarboardvanbanden();
    
   }
   getDataFromTwoResources() {
+     // this.authService.presentLoadingWithOptions();
     // The URLs in this example are dummy
     let url1 =  this.authService.getLichLamViecHome();
-    let url2 =   this.authService.getVanBanDenCounHome();
-    forkJoin(url1, url2).subscribe(resurl=>{     
+    let url2 = "" // this.authService.getVanBanDenCounHome();
+    forkJoin(url1).subscribe(resurl=>{     
      this.danhsachs=resurl[0]["Data"];
-     this.dashboardvbden=resurl[1]["Data"];
+    // this.dashboardvbden=resurl[1]["Data"];
+    this.authService.dismissLoading();
      return true;
     
-    }).unsubscribe   
+    }).unsubscribe  
+   // this.authService.loading.dismiss(); 
     return true;
 }
   loaddoarboardvanbanden(){
     this.authService.getVanBanDenCounHome().subscribe(res=>{
-        debugger;
         this.dashboardvbden = res["Data"];
         return true;
       })
