@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpModule } from '@angular/http';
 import { environment } from 'src/environments/environment';
 import { MenuController } from '@ionic/angular';
+import{Utility} from 'src/app/providers/Utility';
 const TOKEN_KEY = 'auth-token';
 const CURRENT_USER = 'current-user';
 @Injectable({
@@ -34,7 +35,8 @@ export class AuthenticationService {
     private http:HttpClient,private helper:JwtHelperService,
     private alertController:AlertController,
     public loadingController: LoadingController,
-    private menuCtrl: MenuController
+    private menuCtrl: MenuController,
+    private utility:Utility
     ) {
     this.plt.ready().then(() => {
       this.checkToken();
@@ -128,12 +130,14 @@ export class AuthenticationService {
       if (token && user) {
         let decoded = this.helper.decodeToken(token);
         let isExpired = this.helper.isTokenExpired(token);
+       
         if(!isExpired)
         {
           this.user = decoded;
           this.authenticationState.next(true);
           let obj = JSON.parse(localStorage.getItem(CURRENT_USER));
           this.currentUser = obj;
+          this.currentUser.QuyenHanEnum = this.utility.checkPermisstions(this.currentUser.QuyenHan);
         }
         else{
           localStorage.removeItem(TOKEN_KEY);
@@ -197,9 +201,12 @@ export class AuthenticationService {
      this.presentLoadingWithOptions();
     return new Observable((observer) => { 
       var token = this.getToken(); 
+      if(!token){
+        this.logout();
+      }
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
-     this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
+      this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
       
@@ -227,7 +234,10 @@ export class AuthenticationService {
   
      this.presentLoadingWithOptions();
     return new Observable((observer) => {    
-      var token = this.getToken(); 
+      var token = this.getToken();
+      if(!token){
+        this.logout();
+      } 
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
       this.http.get((api.indexOf('http') > -1 ? '' : this.urlServer) + api, {params:data,headers:headers}).subscribe((res: any) => {       
