@@ -10,7 +10,7 @@
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
-      <ion-tab-bar class="header">
+      <ion-tab-bar>
         <ion-tab-button tab="vanbanden" class="vanbanden" class="tabvanbanden">
             <ion-icon name="ios-document"></ion-icon>
             <ion-label>Danh sách</ion-label>
@@ -34,15 +34,12 @@
 </ion-header>
 <ion-content>
   <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
-  <ion-refresher slot="fixed" (ionRefresh)="dorefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
   <ion-list reorder="true">
-    <ion-item lines="none"  *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}">
+    <ion-item  lines="none" *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}">
       <ion-label>
         <div *ngIf="vanban.NgayDen!=null"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>
         <div *ngIf="vanban.SoKyHieu!=''"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
-        <div class="line-break">{{vanban.TrichYeu}}</div>
+        {{vanban.TrichYeu}}
       </ion-label>
     </ion-item >
   </ion-list>

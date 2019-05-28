@@ -1,5 +1,4 @@
 import { Component,OnInit } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -9,7 +8,6 @@ import { AppPage } from 'e2e/src/app.po';
 import { Response } from '@angular/http';
 import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import {Enum} from 'src/app/Enum';
 
  interface page {
   title: string,
@@ -45,32 +43,32 @@ export class AppComponent {
   
   load(){
        this.authService.checkToken();
-       this.TenHienThi=this.authService.currentUser.TenHienThi;
        if(this.authService.currentUser!=null){
-         var QuyenHan= ",0,"+this.authService.currentUser.QuyenHan+",";  
-         
-         if(QuyenHan.indexOf(","+Enum.Vanbanden.toString()+",")>0)     {
-          var datapage={title:'Văn bản đến',icon:'copy',url:'/members/tabs/vanbanden'}
+        this.TenHienThi=this.authService.currentUser.TenHienThi;
+        //  if(QuyenHan.indexOf(","+Enum.Vanbanden.toString()+",")>0)     {
+          
+          if(this.authService.currentUser.QuyenHanEnum.Vanbanden){
+          var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/vanbanden',color:'success'}
           this.appPages.push(datapage);
          }
-         if(QuyenHan.indexOf(","+Enum.Vanbandi.toString()+",")>0)     {
-          var datapage={title:'Văn bản đi',icon:'paper-plane',url:'/members/tabs/vanbandi'}
+         if(this.authService.currentUser.QuyenHanEnum.vanbandi)     {
+          var datapage={title:'Văn bản đi',icon:'md-paper-plane',iconIos:'ios-paper-plane-outline',url:'/members/tabs/vanbandi',color:'secondary'}
           this.appPages.push(datapage);
          }
-         if(QuyenHan.indexOf(","+Enum.Congviec.toString()+",")>0)     {
-          var datapage={title:'Công việc',icon:'clipboard',url:'/members/tabs/congviec'}
+         if(this.authService.currentUser.QuyenHanEnum.Congviec)     {
+          var datapage={title:'Công việc',icon:'md-clipboard',iconIos:'ios-clipboard-outline',url:'/members/tabs/congviec',color:'tertiary'}
           this.appPages.push(datapage);
          }
-         if(QuyenHan.indexOf(","+Enum.Congviec.toString()+",")>0)     {
-          var datapage={title:'Văn bản dự thảo',icon:'document',url:'/members/tabs/vanbanduthao'}
+         if(this.authService.currentUser.QuyenHanEnum.Vanbanduthao)     {
+          var datapage={title:'Văn bản dự thảo',icon:'md-document',iconIos:'ios-document-outline',url:'/members/tabs/vanbanduthao',color:'success'}
           this.appPages.push(datapage);
          }
-         var datapage={title:'Danh bạ',icon:'information-circle',url:'/members/tabs/danhba'}
+         var datapage={title:'Danh bạ',icon:'md-bookmarks',iconIos:'ios-bookmarks-outline',url:'/members/tabs/danhba',color:'danger'}
          this.appPages.push(datapage);
 
-         var datapage={title:'Lịch làm việc',icon:'book',url:'/members/tabs/lichlamviec'}
+         var datapage={title:'Lịch làm việc',icon:'md-calendar',iconIos:'ios-calendar-outline',url:'/members/tabs/lichlamviec',color:'primary'}
          this.appPages.push(datapage);
-         var datapage={title:'xem file',icon:'book',url:'/members/tabs/viewfile'}
+         var datapage={title:'xem file',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/viewfile',color:'medium'}
          this.appPages.push(datapage);
        }
   }

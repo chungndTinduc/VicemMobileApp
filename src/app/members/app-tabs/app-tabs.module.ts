@@ -27,19 +27,19 @@ const routes: Routes = [
         },
         {
           path: 'vanbandenchuaxuly',
-          loadChildren: 'src/app/members/vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule'
+          loadChildren: 'src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule'
         },
         {
           path: 'vanbandenchuadoc',
-          loadChildren: 'src/app/members/vanbandenchuadoc/vanbandenchuadoc.module#VanbandenchuadocPageModule'
+          loadChildren: 'src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.module#VanbandenchuadocPageModule'
         },
         {
           path: 'vanbandenxulychinh',
-          loadChildren: 'src/app/members/vanbandenxulychinh/vanbandenxulychinh.module#VanbandenxulychinhPageModule'
+          loadChildren: 'src/app/members/vanbanden/vanbandenxulychinh/vanbandenxulychinh.module#VanbandenxulychinhPageModule'
         },
         {
           path: 'chitietvanbanden/:vanbandenid',
-          loadChildren: 'src/app/members/chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule'
+          loadChildren: 'src/app/members/vanbanden/chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule'
         },
       ]
      },
@@ -88,7 +88,6 @@ const routes: Routes = [
          },
       { path: 'danhba', loadChildren: 'src/app/members/danhba/danhba.module#DanhbaPageModule' },
    //   { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
-      { path: 'viewfile', loadChildren: 'src/app/members/viewfile/viewfile.module#ViewfilePageModule' },
       
     ]}
 ];
