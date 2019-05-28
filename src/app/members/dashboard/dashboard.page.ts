@@ -2,26 +2,68 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MenuController } from '@ionic/angular';
 import * as Highcharts from 'highcharts';
+import { Observable } from 'rxjs/internal/Observable';
+import { fork } from 'cluster';
+import {forkJoin} from 'rxjs';
+import { url } from 'inspector';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-
+    public dataquery ={week:'',year:''};
+    danhsachs:any;
+    dashboardvbden:any;
+    shownSessions:any;
   constructor(private authService: AuthenticationService,
-    public menuCtrl: MenuController) {  
+    
+    public menuCtrl: MenuController,
+    private http: HttpClient
+    ) {  
     }
   ngOnInit() {
-    setTimeout( () => {
-     this.loadHighChart()
- }, 500);
+   // Build the chart
+   this.getDataFromTwoResources()
+  }
+  ionViewDidEnter(){
+    //this.load();
+    //this.loaddoarboardvanbanden();
+   
+  }
+  getDataFromTwoResources() {
+    // The URLs in this example are dummy
+    let url1 =  this.authService.getLichLamViecHome();
+    let url2 =   this.authService.getVanBanDenCounHome();
+    forkJoin(url1, url2).subscribe(resurl=>{     
+     this.danhsachs=resurl[0]["Data"];
+    // this.dashboardvbden=resurl[1]["Data"];
+     return true;
+    
+    }).unsubscribe   
+    return true;
+}
+  loaddoarboardvanbanden(){
+    this.authService.getVanBanDenCounHome().subscribe(res=>{
+        debugger;
+        this.dashboardvbden = res["Data"];
+        return true;
+      })
+  }
+  load(){
+      this.authService.getLichLamViecHome().subscribe(res=>{
+        this.danhsachs = res["Data"];
+        return true;
+      })
+      
   }
   logout() {
     this.authService.logout();
   }
   loadHighChart(){
-    Highcharts.chart('highChart', {
+    Highcharts.chart('container', {
       chart: {
           type: 'bar'
       },

@@ -13,8 +13,36 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
-      <div class="highChart" #container  id="highChart"></div>
-  </div>
+  <ion-item-group class="lichhome">
+    <ion-item-divider>
+      <ion-label>Lịch làm việc</ion-label>
+    </ion-item-divider>
   
+   <ul>
+     <li *ngFor="let lich of danhsachs">{{lich.NoiDung}} ({{lich.ThoiGianBatDau | date:'dd/MM/yyyy'}})</li>
+   </ul>
+  </ion-item-group>
+
+  <ion-item-group class="vanbanhome">
+    <ion-item-divider>
+      <ion-label>Văn bản</ion-label>
+    </ion-item-divider>
+  </ion-item-group>
+  <ion-segment>
+    <ion-segment style="float: left">
+      <ion-label>Văn bản đến</ion-label>
+    </ion-segment>
+    <ion-segment>
+      <ion-label>Văn bản đi</ion-label>
+    </ion-segment>
+    <ion-segment>
+      <ion-label></ion-label>
+    </ion-segment>
+  </ion-segment>
+  <ion-list-header [hidden]="shownSessions=== 0">
+    <div id="container"></div>
+  </ion-list-header>
+  <ion-list-header [hidden]="shownSessions > 0">
+   van ban di
+  </ion-list-header>
 </ion-content>

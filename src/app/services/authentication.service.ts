@@ -45,6 +45,10 @@ export class AuthenticationService {
   getSpecialData() {
     return this.get('api/nguoidung/test',null);
   }
+  //count Van bản đến trang chủ
+  getVanBanDenCounHome() {
+    return this.get('api/vanbanden/GetCountTotalByNguoiDung',null);
+  }
   //các hàm đăng ký service
   getVanBanDen(data) {
     return this.get('api/vanbanden/GetAllVanBan',data);
@@ -108,7 +112,10 @@ export class AuthenticationService {
    getLichLamViec(data){
     return this.get('api/LichlamViec/getLichCongtacTuan',data);
    }
-   
+   // lấy lịc làm việc trang chủ
+   getLichLamViecHome(){
+    return this.get('api/LichlamViec/getLichCongtacHome',null);
+   }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
@@ -195,7 +202,7 @@ export class AuthenticationService {
      this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
-        this.loading.dismiss();
+      
       }, (err) => {
 
         if(err.status === 403){
@@ -207,9 +214,12 @@ export class AuthenticationService {
           Err: err
         });
         observer.complete();
-        this.loading.dismiss();
         this.showAlert('Đã có lỗi xảy ra.');
-      });
+      },
+        ()=>{
+          this.loading.dismiss();
+        }
+      );
     });  
   }
 
@@ -223,7 +233,6 @@ export class AuthenticationService {
       this.http.get((api.indexOf('http') > -1 ? '' : this.urlServer) + api, {params:data,headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
-        this.loading.dismiss();
       }, (err) => {
 
         if(err.status === 403){
@@ -233,10 +242,12 @@ export class AuthenticationService {
           StatusCode: 1,
           Err: err
         });
-        this.loading.dismiss();
         this.showAlert('Đã có lỗi xảy ra.');
         observer.complete();
         return;
+        },
+        ()=>{
+          this.loading.dismiss();
         }
       );
       
