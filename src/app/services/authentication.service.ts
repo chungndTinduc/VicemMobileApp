@@ -209,7 +209,7 @@ export class AuthenticationService {
       this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
-      
+        this.loading.dismiss();
       }, (err) => {
 
         if(err.status === 403){
@@ -224,6 +224,7 @@ export class AuthenticationService {
         this.showAlert('Đã có lỗi xảy ra.');
       },
         ()=>{
+         
           this.loading.dismiss();
         }
       );
@@ -243,6 +244,7 @@ export class AuthenticationService {
       this.http.get((api.indexOf('http') > -1 ? '' : this.urlServer) + api, {params:data,headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
+        this.loading.dismiss();
       }, (err) => {
 
         if(err.status === 403){
@@ -257,6 +259,7 @@ export class AuthenticationService {
         return;
         },
         ()=>{
+          
           this.loading.dismiss();
         }
       );

@@ -39,7 +39,7 @@ export class DashboardPage implements OnInit {
     let url2 =   this.authService.getVanBanDenCounHome();
     forkJoin(url1, url2).subscribe(resurl=>{     
      this.danhsachs=resurl[0]["Data"];
-    // this.dashboardvbden=resurl[1]["Data"];
+     this.dashboardvbden=resurl[1]["Data"];
      return true;
     
     }).unsubscribe   
@@ -96,7 +96,7 @@ export class DashboardPage implements OnInit {
           bar: {
               dataLabels: {
                   enabled: true
-              }
+              } 
           }
       },
       legend: {
