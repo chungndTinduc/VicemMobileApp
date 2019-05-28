@@ -26,6 +26,7 @@ export class AuthenticationService {
   urlServer = environment.url;
   user = [];
   TenHienThi:string;
+  countLoadding = 0;
   // CurrentUser=[];
   authenticationState = new BehaviorSubject(false);
   loading:any;
@@ -198,7 +199,8 @@ export class AuthenticationService {
   }
 
    post(api, data) {
-     this.presentLoadingWithOptions();
+      this.presentLoadingWithOptions();
+   
     return new Observable((observer) => { 
       var token = this.getToken(); 
       if(!token){
@@ -206,10 +208,10 @@ export class AuthenticationService {
       }
       let headers = new HttpHeaders();
       headers = headers.set('Content-Type', 'application/json; charset=utf-8').set('Authorization',token);
-      this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {       
+      this.http.post((api.indexOf('http') > -1 ? '' : this.urlServer) + api, data, {headers:headers}).subscribe((res: any) => {     
+        
         observer.next(res);
         observer.complete();
-        this.loading.dismiss();
       }, (err) => {
 
         if(err.status === 403){
@@ -224,16 +226,24 @@ export class AuthenticationService {
         this.showAlert('Đã có lỗi xảy ra.');
       },
         ()=>{
-         
-          this.loading.dismiss();
+          try {
+            this.countLoadding -= 1;
+            console.log(this.countLoadding);
+            if(this.countLoadding ===0)
+            { 
+              this.loading.dismiss();
+            }
+          }
+          catch(e) {
+            console.log(e);
+          }
         }
       );
     });  
   }
 
    get(api, data) {
-  
-     this.presentLoadingWithOptions();
+      this.presentLoadingWithOptions();
     return new Observable((observer) => {    
       var token = this.getToken();
       if(!token){
@@ -244,7 +254,7 @@ export class AuthenticationService {
       this.http.get((api.indexOf('http') > -1 ? '' : this.urlServer) + api, {params:data,headers:headers}).subscribe((res: any) => {       
         observer.next(res);
         observer.complete();
-        this.loading.dismiss();
+      
       }, (err) => {
 
         if(err.status === 403){
@@ -259,8 +269,19 @@ export class AuthenticationService {
         return;
         },
         ()=>{
-          
-          this.loading.dismiss();
+          try {
+            this.countLoadding -= 1;
+            console.log(this.countLoadding);
+            if(this.countLoadding ===0)
+            { 
+              this.loading.dismiss();
+            }
+           
+          }
+          catch(e) {
+            console.log(e);
+          }
+         
         }
       );
       
@@ -268,6 +289,9 @@ export class AuthenticationService {
     
   }
   async presentLoadingWithOptions() {
+    this.countLoadding = this.countLoadding +1;
+    console.log(this.countLoadding);
+    if(this.countLoadding > 1) return;
      this.loading = await this.loadingController.create({
       spinner: null,
       duration: 220000,
@@ -276,6 +300,7 @@ export class AuthenticationService {
       cssClass: 'custom-class custom-loading'
     });
     return await this.loading.present();
+    
   }
 
 }

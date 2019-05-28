@@ -35,14 +35,18 @@ export class DashboardPage implements OnInit {
   }
   getDataFromTwoResources() {
     // The URLs in this example are dummy
-    let url1 =  this.authService.getLichLamViecHome();
-    let url2 =   this.authService.getVanBanDenCounHome();
-    forkJoin(url1, url2).subscribe(resurl=>{     
-     this.danhsachs=resurl[0]["Data"];
-     this.dashboardvbden=resurl[1]["Data"];
-     return true;
+    this.authService.getLichLamViecHome().subscribe(res=>{
+      this.danhsachs = res["Data"];
+    })
+    this.authService.getVanBanDenCounHome().subscribe(res=>{
+      this.dashboardvbden= res["Data"];
+    })
+    // forkJoin(url1, url2).subscribe(resurl=>{     
+    //  this.danhsachs=resurl[0]["Data"];
+    //  this.dashboardvbden=resurl[1]["Data"];
+    //  return true;
     
-    }).unsubscribe   
+    // }).unsubscribe   
     return true;
 }
   loaddoarboardvanbanden(){
