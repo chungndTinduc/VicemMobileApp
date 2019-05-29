@@ -32,6 +32,10 @@ export class DashboardPage implements OnInit {
     // this.load();
     // this.loaddoarboardvanbanden();
     // this.loadHighChart()
+    this.load();
+    this.loaddoarboardvanbanden();
+    this.loadHighChart();
+   
   }
   getDataFromTwoResources() {
      // this.authService.presentLoadingWithOptions();

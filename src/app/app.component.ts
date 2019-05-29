@@ -59,7 +59,7 @@ export class AppComponent {
           var datapage={title:'Công việc',icon:'md-clipboard',iconIos:'ios-clipboard-outline',url:'/members/tabs/congviec',color:'tertiary'}
           this.appPages.push(datapage);
          }
-         if(this.authService.currentUser.QuyenHanEnum.Vanbanduthao)     {
+         if(this.authService.currentUser.QuyenHanEnum.Vanbandusthao)     {
           var datapage={title:'Văn bản dự thảo',icon:'md-document',iconIos:'ios-document-outline',url:'/members/tabs/vanbanduthao',color:'success'}
           this.appPages.push(datapage);
          }

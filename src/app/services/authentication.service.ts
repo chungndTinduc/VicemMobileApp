@@ -40,6 +40,7 @@ export class AuthenticationService {
     private menuCtrl: MenuController,
     private utility:Utility
     ) {
+      return;
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -159,9 +160,11 @@ export class AuthenticationService {
     );
   }
   login(credentials) {
+    this.presentLoadingWithOptions('Xin chờ đang xác thực..');
     return this.http.post(`${this.urlServer}api/NguoiDung/Login`, credentials)
       .pipe(
         tap(res => {
+          this.dismissLoadding();
           if(res['Token']==""){
            return this.showAlert(res['Message']);
           }
@@ -169,12 +172,13 @@ export class AuthenticationService {
           var userStr  = JSON.stringify( res['Data'])
           localStorage.setItem(CURRENT_USER,userStr);
           this.user = this.helper.decodeToken(res['Token']);
-           this.currentUser=res['Data'];
-           this.TenHienThi=this.currentUser.TenHienThi;
+          this.currentUser=res['Data'];
+          this.TenHienThi=this.currentUser.TenHienThi;
           this.menuCtrl.enable(true)
           this.authenticationState.next(true);
         }),
         catchError(e => {
+          this.dismissLoadding();
           this.showAlert("Đã có lỗi xảy ra.");
           throw new Error(e);
         })
@@ -200,7 +204,7 @@ export class AuthenticationService {
   }
 
    post(api, data) {
-      this.presentLoadingWithOptions();
+      this.presentLoadingWithOptions(0);
    
     return new Observable((observer) => { 
       var token = this.getToken(); 
@@ -218,33 +222,23 @@ export class AuthenticationService {
         if(err.status === 403){
           this.logout();
         }
-
         observer.next({
           StatusCode: 1,
           Err: err
         });
         observer.complete();
+        this.dismissLoadding();
         this.showAlert('Đã có lỗi xảy ra.');
       },
         ()=>{
-          try {
-            this.countLoadding -= 1;
-             
-            if(this.countLoadding ===0)
-            { 
-              this.loading.dismiss();
-            }
-          }
-          catch(e) {
-            console.log(e);
-          }
+          this.dismissLoadding();
         }
       );
     });  
   }
 
    get(api, data) {
-      this.presentLoadingWithOptions();
+    this.presentLoadingWithOptions(0);
     return new Observable((observer) => {    
       var token = this.getToken();
       if(!token){
@@ -265,43 +259,48 @@ export class AuthenticationService {
           StatusCode: 1,
           Err: err
         });
-        this.showAlert('Đã có lỗi xảy ra.');
         observer.complete();
+        this.dismissLoadding();
+        this.showAlert('Đã có lỗi xảy ra.');
         return;
         },
         ()=>{
-          try {
-            this.countLoadding -= 1;
-             
-            if(this.countLoadding ===0)
-            { 
-              this.loading.dismiss();
-            }
-           
-          }
-          catch(e) {
-            console.log(e);
-          }
-         
+          this.dismissLoadding();
         }
       );
       
     });    
     
   }
-  async presentLoadingWithOptions() {
+  async presentLoadingWithOptions(message) {
     this.countLoadding = this.countLoadding +1;
-     
+     if(!message){
+      message =  'Xin chờ đang lấy dữ liệu..';
+     }
     if(this.countLoadding > 1) return;
      this.loading = await this.loadingController.create({
       spinner: null,
       duration: 220000,
-      message: 'Xin chờ đang lấy dữ liệu..',
+      message: message,
       translucent: true,
       cssClass: 'custom-class custom-loading'
     });
     return await this.loading.present();
     
+  }
+  dismissLoadding(){
+    try {
+      this.countLoadding -= 1;
+       
+      if(this.countLoadding ===0)
+      { 
+        this.loading.dismiss();
+      }
+     
+    }
+    catch(e) {
+      console.log(e);
+    }
   }
 
 }
