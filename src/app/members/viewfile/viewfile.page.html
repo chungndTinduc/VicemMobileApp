@@ -1,11 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>viewfile</ion-title>
-  </ion-toolbar>
+<!-- <ion-navbar>
+    <ion-title>Swipeabale Tabs</ion-title>
+</ion-navbar> -->
+
+<ion-toolbar>
+    <ion-segment [(ngModel)]="page" color="dark">
+        <ion-segment-button value="camera" (click)="selectedTab(0)">
+            <ion-icon name="camera"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="bookmark" (click)="selectedTab(1)">
+            <ion-icon name="bookmark"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="camera" (click)="selectedTab(2)">
+                <ion-icon name="camera"></ion-icon>
+            </ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+<ion-content padding>   
+    <ion-slides #slider>
+        <ion-slide>
+            <h1>Tab 1</h1>
+        </ion-slide>
 
-  <div #container></div>
+        <ion-slide>
+            <h1>Tab 2</h1>
+        </ion-slide>
+
+        <ion-slide>
+            <h1>Tab 3</h1>
+        </ion-slide>
+    </ion-slides>
 </ion-content>
