@@ -164,11 +164,7 @@ export class AuthenticationService {
     return this.http.post(`${this.urlServer}api/NguoiDung/Login`, credentials)
       .pipe(
         tap(res => {
-          this.countLoadding -= 1;
-          if(this.countLoadding ===0)
-          { 
-            this.loading.dismiss();
-          }
+          this.dismissLoadding();
           if(res['Token']==""){
            return this.showAlert(res['Message']);
           }
@@ -182,11 +178,7 @@ export class AuthenticationService {
           this.authenticationState.next(true);
         }),
         catchError(e => {
-          this.countLoadding -= 1;
-          if(this.countLoadding ===0)
-          { 
-            this.loading.dismiss();
-          }
+          this.dismissLoadding();
           this.showAlert("Đã có lỗi xảy ra.");
           throw new Error(e);
         })
@@ -230,33 +222,23 @@ export class AuthenticationService {
         if(err.status === 403){
           this.logout();
         }
-
         observer.next({
           StatusCode: 1,
           Err: err
         });
         observer.complete();
+        this.dismissLoadding();
         this.showAlert('Đã có lỗi xảy ra.');
       },
         ()=>{
-          try {
-            this.countLoadding -= 1;
-             
-            if(this.countLoadding ===0)
-            { 
-              this.loading.dismiss();
-            }
-          }
-          catch(e) {
-            console.log(e);
-          }
+          this.dismissLoadding();
         }
       );
     });  
   }
 
    get(api, data) {
-      this.presentLoadingWithOptions(0);
+    this.presentLoadingWithOptions(0);
     return new Observable((observer) => {    
       var token = this.getToken();
       if(!token){
@@ -277,24 +259,13 @@ export class AuthenticationService {
           StatusCode: 1,
           Err: err
         });
-        this.showAlert('Đã có lỗi xảy ra.');
         observer.complete();
+        this.dismissLoadding();
+        this.showAlert('Đã có lỗi xảy ra.');
         return;
         },
         ()=>{
-          try {
-            this.countLoadding -= 1;
-             
-            if(this.countLoadding ===0)
-            { 
-              this.loading.dismiss();
-            }
-           
-          }
-          catch(e) {
-            console.log(e);
-          }
-         
+          this.dismissLoadding();
         }
       );
       
@@ -316,6 +287,20 @@ export class AuthenticationService {
     });
     return await this.loading.present();
     
+  }
+  dismissLoadding(){
+    try {
+      this.countLoadding -= 1;
+       
+      if(this.countLoadding ===0)
+      { 
+        this.loading.dismiss();
+      }
+     
+    }
+    catch(e) {
+      console.log(e);
+    }
   }
 
 }

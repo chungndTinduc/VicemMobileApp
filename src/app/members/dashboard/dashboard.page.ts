@@ -31,7 +31,8 @@ export class DashboardPage implements OnInit {
   ionViewDidEnter(){
     this.load();
     this.loaddoarboardvanbanden();
-    this.loadHighChart()
+    this.loadHighChart();
+   
   }
   getDataFromTwoResources() {
      // this.authService.presentLoadingWithOptions();
