@@ -229,7 +229,7 @@ export class AuthenticationService {
         ()=>{
           try {
             this.countLoadding -= 1;
-            console.log(this.countLoadding);
+             
             if(this.countLoadding ===0)
             { 
               this.loading.dismiss();
@@ -272,7 +272,7 @@ export class AuthenticationService {
         ()=>{
           try {
             this.countLoadding -= 1;
-            console.log(this.countLoadding);
+             
             if(this.countLoadding ===0)
             { 
               this.loading.dismiss();
@@ -291,7 +291,7 @@ export class AuthenticationService {
   }
   async presentLoadingWithOptions() {
     this.countLoadding = this.countLoadding +1;
-    console.log(this.countLoadding);
+     
     if(this.countLoadding > 1) return;
      this.loading = await this.loadingController.create({
       spinner: null,
