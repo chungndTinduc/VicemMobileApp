@@ -26,26 +26,23 @@ export class DashboardPage implements OnInit {
     }
   ngOnInit() {
    // Build the chart
-   this.getDataFromTwoResources()
+   //this.getDataFromTwoResources()
   }
   ionViewDidEnter(){
-  //  this.load();
-   // this.loaddoarboardvanbanden();
-   
+    this.load();
+    this.loaddoarboardvanbanden();
+    this.loadHighChart()
   }
   getDataFromTwoResources() {
      // this.authService.presentLoadingWithOptions();
     // The URLs in this example are dummy
-    let url1 =  this.authService.getLichLamViecHome();
-    let url2 = "" // this.authService.getVanBanDenCounHome();
-    forkJoin(url1).subscribe(resurl=>{     
-     this.danhsachs=resurl[0]["Data"];
-    // this.dashboardvbden=resurl[1]["Data"];
-    this.authService.dismissLoading();
-     return true;
-    
-    }).unsubscribe  
-   // this.authService.loading.dismiss(); 
+    this.authService.getLichLamViecHome().subscribe(res=>{
+      this.danhsachs = res["Data"];
+    })
+    this.authService.getVanBanDenCounHome().subscribe(res=>{
+      this.dashboardvbden= res["Data"];
+    })
+   
     return true;
 }
   loaddoarboardvanbanden(){
