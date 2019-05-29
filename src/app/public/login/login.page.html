@@ -1,24 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Đăng nhập</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
     <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
- 
-        <ion-item>
-          <ion-label position="floating">Tên Đăng nhập</ion-label>
-          <ion-input  formControlName="userName"></ion-input>
-        </ion-item>
-     
-        <ion-item>
-          <ion-label position="floating">Mật khẩu</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
-        </ion-item>
-     
-        <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Đăng nhập</ion-button>
-        <!-- <ion-button expand="full" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button> -->
-     
+      <div class="container-login">
+        <div class="logo-box">
+          <img src="/assets/img/logo.png"/>
+        </div>
+          <div class="box-login">
+            <ion-item>
+              <!-- <ion-label position="floating">Tên Đăng nhập</ion-label> -->
+              <ion-icon class="icon-input" ios="ios-contact-outline" md="md-contact" item-start></ion-icon>
+              <ion-input  formControlName="userName"  placeholder="Tên đăng nhập"></ion-input>
+            </ion-item>
+            <ion-item>
+              <!-- <ion-label position="floating">Mật khẩu</ion-label> -->
+              <ion-icon class="icon-input" ios="ios-key-outline" md="md-key" item-start></ion-icon>
+              <ion-input type="password" formControlName="password" placeholder="Mật khẩu"></ion-input>
+            </ion-item>
+            <ion-button class="btn-login"  type="submit" [disabled]="!credentialsForm.valid" outline >Đăng nhập</ion-button>
+          </div>
+          
+      </div>
       </form>
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>coppyright tinducsoftware 2019</ion-title>
+    </ion-toolbar>
+  </ion-footer>
