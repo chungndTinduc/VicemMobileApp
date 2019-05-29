@@ -26,14 +26,15 @@ export class DashboardPage implements OnInit {
     }
   ngOnInit() {
    // Build the chart
-   this.getDataFromTwoResources()
+   //this.getDataFromTwoResources()
   }
   ionViewDidEnter(){
-    //this.load();
-    //this.loaddoarboardvanbanden();
-   
+    this.load();
+    this.loaddoarboardvanbanden();
+    this.loadHighChart()
   }
   getDataFromTwoResources() {
+     // this.authService.presentLoadingWithOptions();
     // The URLs in this example are dummy
     this.authService.getLichLamViecHome().subscribe(res=>{
       this.danhsachs = res["Data"];
@@ -41,17 +42,11 @@ export class DashboardPage implements OnInit {
     this.authService.getVanBanDenCounHome().subscribe(res=>{
       this.dashboardvbden= res["Data"];
     })
-    // forkJoin(url1, url2).subscribe(resurl=>{     
-    //  this.danhsachs=resurl[0]["Data"];
-    //  this.dashboardvbden=resurl[1]["Data"];
-    //  return true;
-    
-    // }).unsubscribe   
+   
     return true;
 }
   loaddoarboardvanbanden(){
     this.authService.getVanBanDenCounHome().subscribe(res=>{
-        debugger;
         this.dashboardvbden = res["Data"];
         return true;
       })
