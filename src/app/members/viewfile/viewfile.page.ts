@@ -8,14 +8,14 @@ import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 //  import { NavController } from 'ionic-angular';
 import * as Highcharts from 'highcharts';
 import {IonSlides} from '@ionic/angular';
-import { Slides } from '@ionic/angular';
+
 @Component({
   selector: 'app-viewfile',
   templateUrl: './viewfile.page.html',
   styleUrls: ['./viewfile.page.scss'],
 })
 export class ViewfilePage implements OnInit {
-  @ViewChild('slides', { read: Slides }) slides: Slides;
+  @ViewChild('slides', { read: IonSlides }) slides: IonSlides;
   @ViewChild("segments") segments;
   constructor() {
 

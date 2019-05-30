@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   
 })
 export class ChitietvanbandenPage implements OnInit {
-  vanbanden:{};
+  vanbanden:any;
   LtsAllDanhMuc:any;
   public dataquery ={ID:0};
   total=0;

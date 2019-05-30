@@ -18,8 +18,7 @@ const CURRENT_USER = 'current-user';
 
 @NgModule({
   imports: [
-    HttpModule,
-    HttpClient
+    HttpModule
   ]
 })
 export class AuthenticationService {

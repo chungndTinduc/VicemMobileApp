@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ChitietvanbandiPage implements OnInit {
 
-  vanban:{};
+  vanban:any;
   LtsAllDanhMuc:any;
   public dataquery ={ID:0};
   total=0;

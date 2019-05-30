@@ -22,6 +22,11 @@ export class VanbandenPage implements OnInit {
   ionViewDidEnter(){
     this.load();
   }
+  onKeyPressed= function(keyEvent) {
+    if (keyEvent.keyCode == 13) {
+      this.load();
+    }
+};
     // On segment click
     selectedTab(index) {
       this.slides.slideTo(index);

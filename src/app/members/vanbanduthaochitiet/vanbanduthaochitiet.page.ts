@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./vanbanduthaochitiet.page.scss',],
 })
 export class VanbanduthaochitietPage implements OnInit {
-  vanban:{};
+  vanban:any;
   LtsAllDanhMuc:any;
   TrangThaiCaNhanID:any;
   strNguoiNhan:string;
