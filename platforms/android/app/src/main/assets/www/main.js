@@ -2290,8 +2290,7 @@ var AuthenticationService = /** @class */ (function () {
         }),
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
-                _angular_http__WEBPACK_IMPORTED_MODULE_8__["HttpModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]
+                _angular_http__WEBPACK_IMPORTED_MODULE_8__["HttpModule"]
             ]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"],
@@ -2372,7 +2371,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\CV\TinhVan\Vicem\App\VicemMobileApp\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\Project\Mine\Mobile\Vicem\EofficeApp\src\main.ts */"./src/main.ts");
 
 
 /***/ })
