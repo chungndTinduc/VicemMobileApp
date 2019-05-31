@@ -48,7 +48,7 @@ export class AppComponent {
         //  if(QuyenHan.indexOf(","+Enum.Vanbanden.toString()+",")>0)     {
           
           if(this.authService.currentUser.QuyenHanEnum.Vanbanden){
-          var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/vanbanden',color:'success'}
+          var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/viewfile',color:'success'}
           this.appPages.push(datapage);
          }
          if(this.authService.currentUser.QuyenHanEnum.vanbandi)     {

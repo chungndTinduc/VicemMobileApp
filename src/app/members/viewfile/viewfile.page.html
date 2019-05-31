@@ -1,9 +1,10 @@
 <ion-header>
 <!-- <ion-navbar>
     <ion-title>Swipeabale Tabs</ion-title>
+
 </ion-navbar> -->
-<!-- 
-<ion-toolbar>
+
+<!-- <ion-toolbar>
     <ion-segment [(ngModel)]="page" color="dark">
         <ion-segment-button value="camera" (click)="selectedTab(0)">
             <ion-icon name="camera"></ion-icon>
@@ -11,26 +12,38 @@
         <ion-segment-button value="bookmark" (click)="selectedTab(1)">
             <ion-icon name="bookmark"></ion-icon>
         </ion-segment-button>
-        <ion-segment-button value="camera" (click)="selectedTab(2)">
+        <ion-segment-button value="xxxx" (click)="selectedTab(2)">
                 <ion-icon name="camera"></ion-icon>
             </ion-segment-button>
     </ion-segment>
 </ion-toolbar> -->
 
+
 </ion-header>
+<ion-tabs>
+        <ion-tab-bar slot="top">
+          <ion-tab-button tab="schedule">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>Schedule</ion-label>
+            <ion-badge>6</ion-badge>
+          </ion-tab-button>
 
-<ion-content padding>   
-    <ion-slides #slider>
-        <ion-slide>
-            <h1>Tab 1</h1>
-        </ion-slide>
+          <ion-tab-button tab="speakers">
+            <ion-icon name="contacts"></ion-icon>
+            <ion-label>Speakers</ion-label>
+          </ion-tab-button>
 
-        <ion-slide>
-            <h1>Tab 2</h1>
-        </ion-slide>
+          <ion-tab-button tab="map">
+            <ion-icon name="map"></ion-icon>
+            <ion-label>Map</ion-label>
+          </ion-tab-button>
 
-        <ion-slide>
-            <h1>Tab 3</h1>
-        </ion-slide>
-    </ion-slides>
-</ion-content>
+          <ion-tab-button tab="about">
+            <ion-icon name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+<!-- <ion-content>
+   dunghv
+</ion-content> -->

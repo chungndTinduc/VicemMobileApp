@@ -16,6 +16,8 @@ const routes: Routes = [
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     // pathMatch: 'full'
   },
+  // { path: 'tab-vanbanden', loadChildren: './vanbanden/tab-vanbanden/tab-vanbanden.module#TabVanbandenPageModule' },
+
   // { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
   // { path: 'vanbandenchuadoc', loadChildren: './vanbandenchuadoc/vanbandenchuadoc.module#VanbandenchuadocPageModule' },
   // { path: 'vanbandenxulychinh', loadChildren: './vanbandenxulychinh/vanbandenxulychinh.module#VanbandenxulychinhPageModule' },
