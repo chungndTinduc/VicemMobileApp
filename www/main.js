@@ -837,6 +837,22 @@ var map = {
 		"./src/app/members/app-tabs/app-tabs.module.ts",
 		"app-tabs-app-tabs-module"
 	],
+	"./congviec/chuaxuly/chuaxuly.module": [
+		"./src/app/members/congviec/chuaxuly/chuaxuly.module.ts",
+		"congviec-chuaxuly-chuaxuly-module"
+	],
+	"./congviec/dangxuly/dangxuly.module": [
+		"./src/app/members/congviec/dangxuly/dangxuly.module.ts",
+		"congviec-dangxuly-dangxuly-module"
+	],
+	"./congviec/danhsach/danhsach.module": [
+		"./src/app/members/congviec/danhsach/danhsach.module.ts",
+		"congviec-danhsach-danhsach-module"
+	],
+	"./congviec/daxuly/daxuly.module": [
+		"./src/app/members/congviec/daxuly/daxuly.module.ts",
+		"congviec-daxuly-daxuly-module"
+	],
 	"./members/member-routing.module": [
 		"./src/app/members/member-routing.module.ts",
 		"members-member-routing-module"
@@ -998,7 +1014,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n\r\n    <ion-menu>\r\n      <ion-header>\r\n        <ion-toolbar class=\"header-menu\">\r\n          <div class=\"avatar\">\r\n              <img src=\"/assets/img/avatar.jpg\" />\r\n          </div>\r\n          <div class=\"fullname\">\r\n            Nguyen Duc Chung\r\n          </div>\r\n          <div class=\"organizationUnit\">\r\n              Phòng hành chính\r\n            </div>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content>\r\n\r\n        <ion-list>\r\n          <ion-list-header>\r\n            menu\r\n          </ion-list-header>\r\n          <ion-menu-toggle autoHide=\"false\" *ngFor=\"let p of appPages; let i = index\">\r\n            <ion-item [routerLink]=\"p.url\"  routerLinkActive=\"active\">\r\n              <ion-icon slot=\"start\" [ios]=\"p.iconIos\" [md]=\"p.icon\" [color]=\"p.color\"></ion-icon>\r\n              <ion-label>\r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n        <ion-list *ngIf=\"loggedIn\">\r\n          <ion-list-header>\r\n            Tài khoản \r\n          </ion-list-header>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item routerLink=\"/account\">\r\n              <ion-icon slot=\"start\" name=\"person\"></ion-icon>\r\n              <ion-label>\r\n                {{TenHienThi}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item routerLink=\"/support\">\r\n              <ion-icon slot=\"start\" name=\"help\"></ion-icon>\r\n              <ion-label>\r\n                Hướng dẫn\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item button (click)=\"logout()\">\r\n              <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\r\n              <ion-label>\r\n                Đăng xuất\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n  </ion-split-pane>\r\n\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n\r\n    <ion-menu>\r\n      <ion-header>\r\n        <ion-toolbar class=\"header-menu\">\r\n          <div class=\"avatar\">\r\n              <img src=\"/assets/img/avatar.jpg\" />\r\n          </div>\r\n          <div class=\"fullname\">\r\n            Nguyen Duc Chung\r\n          </div>\r\n          <div class=\"organizationUnit\">\r\n              Phòng hành chính\r\n            </div>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content>\r\n\r\n        <ion-list>\r\n          <ion-list-header>\r\n            MENU\r\n          </ion-list-header>\r\n          <ion-menu-toggle autoHide=\"false\" *ngFor=\"let p of appPages; let i = index\">\r\n            <ion-item [routerLink]=\"p.url\"  routerLinkActive=\"active\">\r\n              <ion-icon slot=\"start\" [ios]=\"p.iconIos\" [md]=\"p.icon\" [color]=\"p.color\"></ion-icon>\r\n              <ion-label>\r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n        <ion-list *ngIf=\"loggedIn\">\r\n          <ion-list-header>\r\n            Tài khoản \r\n          </ion-list-header>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item routerLink=\"/account\">\r\n              <ion-icon slot=\"start\" name=\"person\"></ion-icon>\r\n              <ion-label>\r\n                {{TenHienThi}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item routerLink=\"/support\">\r\n              <ion-icon slot=\"start\" name=\"help\"></ion-icon>\r\n              <ion-label>\r\n                Hướng dẫn\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item button (click)=\"logout()\">\r\n              <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\r\n              <ion-label>\r\n                Đăng xuất\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n  </ion-split-pane>\r\n\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -1049,7 +1065,6 @@ var AppComponent = /** @class */ (function () {
         this.authService.checkToken();
         if (this.authService.currentUser != null) {
             this.TenHienThi = this.authService.currentUser.TenHienThi;
-            //  if(QuyenHan.indexOf(","+Enum.Vanbanden.toString()+",")>0)     {
             if (this.authService.currentUser.QuyenHanEnum.Vanbanden) {
                 var datapage = { title: 'Văn bản đến', icon: 'md-copy', iconIos: 'ios-copy-outline', url: '/members/tabs/vanbanden', color: 'success' };
                 this.appPages.push(datapage);
