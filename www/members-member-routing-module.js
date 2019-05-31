@@ -30,6 +30,10 @@ var routes = [
         path: '',
         loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     },
+    { path: 'danhsach', loadChildren: './congviec/danhsach/danhsach.module#DanhsachPageModule' },
+    { path: 'chuaxuly', loadChildren: './congviec/chuaxuly/chuaxuly.module#ChuaxulyPageModule' },
+    { path: 'dangxuly', loadChildren: './congviec/dangxuly/dangxuly.module#DangxulyPageModule' },
+    { path: 'daxuly', loadChildren: './congviec/daxuly/daxuly.module#DaxulyPageModule' },
 ];
 var MemberRoutingModule = /** @class */ (function () {
     function MemberRoutingModule() {

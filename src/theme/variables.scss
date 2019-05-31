@@ -179,3 +179,9 @@ ion-tab-bar.header .tab-selected {
 .header-md:after{
   background-image: none;
 }
+.tab-has-icon ion-label.hydrated{
+  font-size: 9px;
+}
+.tab-has-icon ion-icon.hydrated{
+  font-size: 27px;
+}

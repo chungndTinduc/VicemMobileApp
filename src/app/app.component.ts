@@ -40,13 +40,10 @@ export class AppComponent {
   
     this.load();
   }
-  
   load(){
        this.authService.checkToken();
        if(this.authService.currentUser!=null){
         this.TenHienThi=this.authService.currentUser.TenHienThi;
-        //  if(QuyenHan.indexOf(","+Enum.Vanbanden.toString()+",")>0)     {
-          
           if(this.authService.currentUser.QuyenHanEnum.Vanbanden){
           var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/viewfile',color:'success'}
           this.appPages.push(datapage);

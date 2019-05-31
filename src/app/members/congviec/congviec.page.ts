@@ -10,6 +10,7 @@ export class CongviecPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
