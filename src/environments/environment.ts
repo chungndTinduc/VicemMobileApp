@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-   url:'http://test.e-office.vn/'
-  // url:'http://localhost:5000/'
+  production: false,
+   //url:'http://test.e-office.vn/'
+   url:'http://localhost:5000/'
 };
 
 /*
