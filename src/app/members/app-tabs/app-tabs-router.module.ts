@@ -53,7 +53,27 @@ const routes: Routes = [
         },
       ]
        },
-      { path: 'congviec', loadChildren: 'src/app/members/congviec/congviec.module#CongviecPageModule' },
+      { 
+        path: 'congviec',         
+        children: [
+        {
+          path: '',
+          loadChildren:'src/app/members/congviec/danhsach/danhsach.module#DanhsachPageModule',
+        },
+        {
+          path: 'chuaxuly',
+          loadChildren: 'src/app/members/congviec/chuaxuly/chuaxuly.module#ChuaxulyPageModule',
+        },
+        {
+          path: 'dangxuly',
+          loadChildren: 'src/app/members/congviec/dangxuly/dangxuly.module#DangxulyPageModule',
+        },
+        {
+          path: 'daxuly',
+          loadChildren: 'src/app/members/congviec/daxuly/daxuly.module#DaxulyPageModule',
+        }
+       ] 
+     },
       { path: 'lichlamviec', loadChildren: 'src/app/members/lichlamviec/lichlamviec.module#LichlamviecPageModule' },
       {
          path: 'vanbanduthao',         

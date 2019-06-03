@@ -30,14 +30,8 @@ export class AuthenticationService {
   authenticationState = new BehaviorSubject(false);
   loading:any;
   // alertController:any;
-  constructor(private storage: Storage, 
-    private plt: Platform,
-    private http:HttpClient,private helper:JwtHelperService,
-    private alertController:AlertController,
-    public loadingController: LoadingController,
-    private menuCtrl: MenuController,
-    private utility:Utility
-    ) {
+  constructor(private storage: Storage, private plt: Platform, private http:HttpClient,private helper:JwtHelperService, private alertController:AlertController, public loadingController: LoadingController, private menuCtrl: MenuController, private utility:Utility)
+    {
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -131,13 +125,12 @@ export class AuthenticationService {
   }
   
 // hàm base authen
-   checkToken() {
+checkToken() {
       let token =  localStorage.getItem(TOKEN_KEY);
       let user = localStorage.getItem(CURRENT_USER)
       if (token && user) {
         let decoded = this.helper.decodeToken(token);
         let isExpired = this.helper.isTokenExpired(token);
-       
         if(!isExpired)
         {
           this.user = decoded;
@@ -146,7 +139,8 @@ export class AuthenticationService {
           this.currentUser = obj;
           this.currentUser.QuyenHanEnum = this.utility.checkPermisstions(this.currentUser.QuyenHan);
         }
-        else{
+        else
+        {
           localStorage.removeItem(TOKEN_KEY);
           localStorage.removeItem(CURRENT_USER);
         }
