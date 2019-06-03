@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AppTabsPage } from './app-tabs.page';
-<<<<<<< HEAD
-
+import { DirectivesModule } from 'src/app/directives/directives.module';
+import { AppTabsRouterModule } from './app-tabs-router.module';
+import { Routes } from 'HighChartsIonic/node_modules/@angular/router/router';
 
 const routes: Routes = [
   {
@@ -91,10 +92,7 @@ const routes: Routes = [
       
     ]}
 ];
-=======
-import { DirectivesModule } from 'src/app/directives/directives.module';
-import { AppTabsRouterModule } from './app-tabs-router.module';
->>>>>>> 94c8a51a84a4c53ec2de8b2b1e5a17feea47eb27
+
 
 @NgModule({
   imports: [
