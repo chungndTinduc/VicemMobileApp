@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
-import {SwipeTabDirective} from 'src/app/directives/swipe-tab.directive';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -28,7 +27,6 @@ export function jwtOptionsFactory(storage) {
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    // SwipeTabDirective,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

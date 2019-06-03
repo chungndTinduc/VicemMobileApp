@@ -40,7 +40,7 @@ export class AppComponent {
    });
   }
   ngOnInit(){
-   
+    this.load();
   }
 
   load(){
