@@ -118,6 +118,13 @@ export class AuthenticationService {
    getLichLamViecHome(){
     return this.get('api/LichlamViec/getLichCongtacHome',null);
    }
+   // lấy report công việc
+   getCongViecDashboardHome(){
+    return this.get('api/CongViec/reportDashboard',null);
+   }
+   getVanBanDuThaoHome(){
+    return this.get('api/VanBanDuThao/GetDuThaoVanBanHome',null);
+   }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);

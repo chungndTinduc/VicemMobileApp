@@ -7,20 +7,20 @@ ion-item-group {
     margin: 9px auto;
     border: 1px solid #e6e3e3;
 }
-.lichhome ul li{
+.lichhome ul li,.vanbanduthao ul li{
     margin-bottom: 2px;
     font-size: 14px;
     color: #4d4a4a;
     list-style: none;
 }
-.lichhome ul li::before {
+.lichhome ul li::before,.vanbanduthao ul li::before{
     content: "\2022";
     color:#696969;
     font-weight: bold;
     display: inline-block; 
     width: 1em;
     margin-left: -1em;
-    
+
   }
   .vanban{
       margin: 0px 20px;
@@ -31,7 +31,38 @@ ion-item-group {
       border-bottom: 3px solid #4d4a4a
   }
   .lbvbden{
-      border-bottom: 2px solid #c49d6b;
       padding-bottom: 2px;
   }
- 
+ .bottontab{
+    border-bottom: 2px solid #c49d6b;
+ }
+ ion-segment-button{
+     border: 0px !important;
+ }
+ ion-segment-button ion-label{
+     font-size: 16px;
+     margin-left: 10px;
+ }
+ .sc-ion-segment-ios-h {
+    --background: transparent;
+    --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.1);
+    --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);
+    --background-checked: #c49d6b;
+    --color:#929292;
+    --color-checked: var(--ion-color-primary-contrast,#fff);
+    --color-disabled: rgba(var(--ion-color-primary-rgb,56,128,255),0.3);
+    --color-checked-disabled: rgba(var(--ion-color-primary-contrast-rgb,255,255,255),0.3);
+    --border-color: var(--ion-color-primary,#c49d6b);
+    --indicator-color: transparent;
+}
+ion-segment-button{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    // margin-left: 4px;
+    padding: 3px 1px;
+}
+ion-segment{
+    border-bottom: 1px solid #c49d6b;
+}

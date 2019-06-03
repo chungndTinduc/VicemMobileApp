@@ -12,37 +12,45 @@
       </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="height: 100%">
   <ion-item-group class="lichhome">
     <ion-item-divider>
       <ion-label>Lịch làm việc</ion-label>
     </ion-item-divider>
-  
    <ul>
      <li *ngFor="let lich of danhsachs">{{lich.NoiDung}} ({{lich.ThoiGianBatDau | date:'dd/MM/yyyy'}})</li>
    </ul>
   </ion-item-group>
 
-  <ion-item-group class="vanbanhome">
+  <ion-item-group class="vanbanhome" style="height:30%;">
     <ion-item-divider>
       <ion-label>Văn bản</ion-label>
     </ion-item-divider>
+    <ion-segment [(ngModel)]="segment" >
+      <ion-segment-button style="float: left" value="vanbanden" (click)="loaddoarboardvanbanden()" id="tabvanbanden" >
+        <ion-label class="lbvbden">Văn bản đến</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="congviec" (click)="changecongviec()">
+        <ion-label>Công việc</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div>
+      <div id="container1" style="height: 100%" ng-bind-html="theHtmlString"></div>
+    </div>
   </ion-item-group>
-  <ion-segment>
-    <ion-segment style="float: left"value="vanbanden">
-      <ion-label class="lbvbden" >Văn bản đến</ion-label>
-    </ion-segment>
-    <ion-segment value="congviec" (click)="changecongviec()">
-      <ion-label>Công việc</ion-label>
-    </ion-segment>
-    <ion-segment>
-      <ion-label></ion-label>
-    </ion-segment>
-  </ion-segment>
-  <div style="height: 200px">
-    <div id="container1" style="height:30%"></div>
-  </div>
-  <ion-list-header [hidden]="shownSessions > 0">
-   van ban di
-  </ion-list-header>
+  <ion-item-group class="vanbanduthao" >
+      <ion-item-divider>
+          <ion-label>Văn bản dự thảo</ion-label>
+        </ion-item-divider>
+        
+   <ul *ngIf="danhsachduthaos!=null">
+      <li *ngFor="let duthao of danhsachduthaos">{{duthao.TrichYeu}} ({{duthao.NgayTao | date:'dd/MM/yyyy'}})</li>
+    </ul>
+    <div *ngIf="danhsachduthaos==null || danhsachduthaos==''" class="notnone"> 
+      <h3>Không có bản ghi nào</h3>
+    </div>
+  </ion-item-group>
 </ion-content>
