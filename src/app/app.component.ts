@@ -1,5 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Component,HostListener  } from '@angular/core';
+import { Platform,Events } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/authentication.service';
@@ -26,6 +26,7 @@ export class AppComponent {
   keyword = " ";
   TenHienThi:string;
   constructor(
+    private events: Events,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -34,17 +35,23 @@ export class AppComponent {
     private http: HttpClient,
     
   ) {
+
     this.initializeApp();
+    this.events.subscribe('user:login', () => {
+      console.log('logined..');
+      this.load();
+   });
   }
   ngOnInit(){
-  
-    this.load();
+   
   }
+
   load(){
        this.authService.checkToken();
        if(this.authService.currentUser!=null){
         this.TenHienThi=this.authService.currentUser.TenHienThi;
-          if(this.authService.currentUser.QuyenHanEnum.Vanbanden){
+        this.appPages=[];
+        if(this.authService.currentUser.QuyenHanEnum.Vanbanden){
           var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/vanbanden',color:'success'}
           this.appPages.push(datapage);
          }

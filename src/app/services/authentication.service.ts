@@ -274,9 +274,11 @@ export class AuthenticationService {
   async presentLoadingWithOptions(message) {
     this.countLoadding = this.countLoadding +1;
      if(!message){
-      message =  'Xin chờ đang lấy dữ liệu..';
-     }
+         message =  'Xin chờ đang lấy dữ liệu..';
+    }
+    console.log('presentLoading ' + this.countLoadding);
     if(this.countLoadding > 1) return;
+     console.log('present');
      this.loading = await this.loadingController.create({
       spinner: null,
       duration: 220000,
@@ -287,19 +289,26 @@ export class AuthenticationService {
     return await this.loading.present();
     
   }
-  dismissLoadding(){
+
+async dismissLoadding()
+  {
+    await this.delay(500);
     try {
       this.countLoadding -= 1;
-       
-      if(this.countLoadding ===0)
+      console.log('dismissLoadding ' + this.countLoadding);
+      if(this.countLoadding === 0)
       { 
+        console.log('dismissed..');
         this.loading.dismiss();
       }
-     
     }
     catch(e) {
       console.log(e);
     }
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
 }

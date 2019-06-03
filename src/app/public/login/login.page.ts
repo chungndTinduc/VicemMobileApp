@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MenuController } from '@ionic/angular';
+import { MenuController,Events  } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,10 @@ import { MenuController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   credentialsForm: FormGroup;
-  constructor(private authService: AuthenticationService,private formBuilder: FormBuilder,
+  constructor(
+    private events: Events,
+    private authService: AuthenticationService,
+    private formBuilder: FormBuilder,
     public menuCtrl: MenuController
     ) { }
     ionViewDidEnter() {
@@ -18,18 +21,19 @@ export class LoginPage implements OnInit {
     }
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
-      // email: ['', [Validators.required, Validators.email]],
-      userName:[''],
+      userName:['',[Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
   onSubmit() {
-    this.authService.login(this.credentialsForm.value).subscribe();
+    this.authService.login(this.credentialsForm.value).subscribe(res => {
+      console.log('login thanh công.');
+      this.events.publish('user:login');
+    });
   }
  
   register() {
     this.authService.register(this.credentialsForm.value).subscribe(res => {
-      // Call Login to automatically login the new user
       this.authService.login(this.credentialsForm.value).subscribe();
     });
   }

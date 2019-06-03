@@ -58,6 +58,7 @@ ion-button,ion-button:active{
     }
     
     ion-toolbar{
+        text-align: center;
         --background: #f1f1f1;
         color: #985c10;
         border: none;
@@ -70,4 +71,18 @@ ion-button,ion-button:active{
         border: none;
         font-size: 10px;
         font-weight: 500;
+    }
+    ion-title{
+        margin: auto;
+        display: block;
+        padding: 10px;
+    }
+    .footer-md:before{
+        background: transparent !important;
+    }
+    .button-native{
+        box-shadow: none !important;
+    }
+    button{
+        box-shadow: none !important;
     }

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
 import { AppTabsPage } from './app-tabs.page';
+<<<<<<< HEAD
 
 
 const routes: Routes = [
@@ -93,13 +91,18 @@ const routes: Routes = [
       
     ]}
 ];
+=======
+import { DirectivesModule } from 'src/app/directives/directives.module';
+import { AppTabsRouterModule } from './app-tabs-router.module';
+>>>>>>> 94c8a51a84a4c53ec2de8b2b1e5a17feea47eb27
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    AppTabsRouterModule,
+    DirectivesModule
   ],
   declarations: [AppTabsPage]
 })

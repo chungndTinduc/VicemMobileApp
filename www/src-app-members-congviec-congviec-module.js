@@ -59,10 +59,14 @@ var CongviecPageModule = /** @class */ (function () {
 /***/ (function(module, exports) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Công việc</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button >\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>\r\n"
 =======
 module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Công việc</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button >\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-tabs>\r\n    <ion-tab [root]=\"tab1Root\"></ion-tab>\r\n    <ion-tab [root]=\"tab2Root\"></ion-tab>\r\n    <ion-tab [root]=\"tab3Root\"></ion-tab>\r\n  </ion-tabs>\r\n</ion-content>\r\n"
 >>>>>>> c0c083cbee8206c02680291e762026d9488b4f4a
+=======
+module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Công việc</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button >\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  \r\n</ion-content>\r\n"
+>>>>>>> 94c8a51a84a4c53ec2de8b2b1e5a17feea47eb27
 
 /***/ }),
 
