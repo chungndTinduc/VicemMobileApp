@@ -38,7 +38,6 @@ export class AuthenticationService {
     private menuCtrl: MenuController,
     private utility:Utility
     ) {
-      return;
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -291,7 +290,7 @@ export class AuthenticationService {
 
 async dismissLoadding()
   {
-    await this.delay(1000);
+    await this.delay(500);
     try {
       this.countLoadding -= 1;
       console.log('dismissLoadding ' + this.countLoadding);
