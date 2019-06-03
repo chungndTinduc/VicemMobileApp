@@ -75,7 +75,7 @@ export class DashboardPage implements OnInit {
         var lstData=[];
         var colorList = [
             '#B5C334', '#F09A49', '#7CB5EC', '#FCCE10'];
-     Highcharts.chart('container', {
+     Highcharts.chart('container1', {
     colors: colorList,
     chart: {
         plotBackgroundColor: null,
