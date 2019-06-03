@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MenuController } from '@ionic/angular';
 import * as Highcharts from 'highcharts';
@@ -12,6 +12,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DashboardPage implements OnInit {
     public dataquery ={week:'',year:''};
+    @ViewChild('container') dataContainer: ElementRef;
+    btn: HTMLElement;
     danhsachs:any;
     dashboardvbden:any;
     shownSessions:any;
@@ -28,10 +30,10 @@ export class DashboardPage implements OnInit {
   ionViewDidEnter(){
     // this.load();
     // this.loaddoarboardvanbanden();
-    // this.loadHighChart()
+     this.loadHighChart()
     this.load();
     this.loaddoarboardvanbanden();
-    this.loadHighChart();
+   // this.loadHighChart();
    
   }
   getDataFromTwoResources() {
@@ -59,15 +61,21 @@ export class DashboardPage implements OnInit {
       })
       
   }
+  changecongviec(){
+    debugger;
+    this.dataContainer.nativeElement.HTMLElement('')
+  }
   logout() {
     this.authService.logout();
+   
   }
   loadHighChart(){
     this.authService.getVanBanDenCounHome().subscribe(res=>{
         this.dashboardvbden = res["Data"];
+        var lstData=[];
         var colorList = [
             '#B5C334', '#F09A49', '#7CB5EC', '#FCCE10'];
-Highcharts.chart('container', {
+     Highcharts.chart('container', {
     colors: colorList,
     chart: {
         plotBackgroundColor: null,
@@ -92,18 +100,10 @@ Highcharts.chart('container', {
             
         }
     },
-    // series: [{    
-    //     data: [{
-    //         name: 'Đầu mối',
-    //         y: this.dashboardvbden.TotalDauMoi,   
-    //     }, {
-    //         name: 'Phối hợp',
-    //         y: this.dashboardvbden.TotalPhoiHop
-    //     }, {
-    //         name: 'Nhận để biết',
-    //         y: this.dashboardvbden.TotalNhanDeBiet
-    //     }]
-    // }]
+  series: [{
+    data: [{name:"Đầu mối",y:this.dashboardvbden.TotalDauMoi}, {name:"Phối hợp",y:this.dashboardvbden.TotalPhoiHop}, {name:"Nhận để biết",y:this.dashboardvbden.TotalNhanDeBiet}],
+    type:undefined
+}]
 });
 })
   }

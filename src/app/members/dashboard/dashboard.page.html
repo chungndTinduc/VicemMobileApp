@@ -29,19 +29,17 @@
     </ion-item-divider>
   </ion-item-group>
   <ion-segment>
-    <ion-segment style="float: left">
-      <ion-label>Văn bản đến</ion-label>
+    <ion-segment style="float: left"value="vanbanden">
+      <ion-label class="lbvbden" >Văn bản đến</ion-label>
     </ion-segment>
-    <ion-segment>
-      <ion-label>Văn bản đi</ion-label>
+    <ion-segment value="congviec" (click)="changecongviec()">
+      <ion-label>Công việc</ion-label>
     </ion-segment>
     <ion-segment>
       <ion-label></ion-label>
     </ion-segment>
   </ion-segment>
-  
-    <div id="container" style="height: 35%"></div>
- 
+    <div id="container" style="height: 35%" class="container"></div>
   <ion-list-header [hidden]="shownSessions > 0">
    van ban di
   </ion-list-header>

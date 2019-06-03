@@ -15,7 +15,8 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     // pathMatch: 'full'
-  },  { path: 'danhsach', loadChildren: './congviec/danhsach/danhsach.module#DanhsachPageModule' },
+  },
+  { path: 'danhsach', loadChildren: './congviec/danhsach/danhsach.module#DanhsachPageModule' },
   { path: 'chuaxuly', loadChildren: './congviec/chuaxuly/chuaxuly.module#ChuaxulyPageModule' },
   { path: 'dangxuly', loadChildren: './congviec/dangxuly/dangxuly.module#DangxulyPageModule' },
   { path: 'daxuly', loadChildren: './congviec/daxuly/daxuly.module#DaxulyPageModule' },
