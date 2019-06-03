@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 import { environment } from 'src/environments/environment';
 import { MenuController } from '@ionic/angular';
 import{Utility} from 'src/app/providers/Utility';
-import { loadavg } from 'os';
 const TOKEN_KEY = 'auth-token';
 const CURRENT_USER = 'current-user';
 @Injectable({
@@ -39,7 +38,6 @@ export class AuthenticationService {
     private menuCtrl: MenuController,
     private utility:Utility
     ) {
-      return;
     this.plt.ready().then(() => {
       this.checkToken();
     });

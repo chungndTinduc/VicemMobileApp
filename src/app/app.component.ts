@@ -4,9 +4,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
-import { AppPage } from 'e2e/src/app.po';	
-import { Response } from '@angular/http';
-import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
  interface page {
@@ -32,9 +29,9 @@ export class AppComponent {
     private statusBar: StatusBar,
     private authService:AuthenticationService,
     private router:Router,
-    private http: HttpClient,
     
-  ) {
+  ) 
+  {
 
     this.initializeApp();
     this.events.subscribe('user:login', () => {

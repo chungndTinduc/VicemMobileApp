@@ -3,9 +3,6 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MenuController } from '@ionic/angular';
 import * as Highcharts from 'highcharts';
 import { Observable } from 'rxjs/internal/Observable';
-import { fork } from 'cluster';
-import {forkJoin} from 'rxjs';
-import { url } from 'inspector';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({

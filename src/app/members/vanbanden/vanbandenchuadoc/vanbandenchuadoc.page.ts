@@ -9,6 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class VanbandenchuadocPage implements OnInit {
   danhsachVanBans:any;
   total=0;
+  tabsIndex=2;
   public dataquery ={CurrentPage:1,RowPerPage:10,SearchIn:'SoKyHieu,TrichYeu',Keyword:'',TrangThaiID:0};
   constructor(private authService:AuthenticationService) { }
 
