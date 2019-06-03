@@ -33,11 +33,7 @@
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "^11.0.1",
     "angular-jwt": "^0.1.11",
-<<<<<<< HEAD
-    "com.telerik.plugins.nativepagetransitions": "0.6.5",
-=======
     "cordova": "^9.0.0",
->>>>>>> c0c083cbee8206c02680291e762026d9488b4f4a
     "cordova-android": "8.0.0",
     "cordova-plugin-document-viewer": "0.9.10",
     "cordova-plugin-sqlite": "^1.0.3",

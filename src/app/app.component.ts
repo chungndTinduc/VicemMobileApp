@@ -45,7 +45,7 @@ export class AppComponent {
        if(this.authService.currentUser!=null){
         this.TenHienThi=this.authService.currentUser.TenHienThi;
           if(this.authService.currentUser.QuyenHanEnum.Vanbanden){
-          var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/viewfile',color:'success'}
+          var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/vanbanden',color:'success'}
           this.appPages.push(datapage);
          }
          if(this.authService.currentUser.QuyenHanEnum.vanbandi)     {
