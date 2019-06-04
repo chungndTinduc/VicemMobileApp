@@ -2866,7 +2866,7 @@ var routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'dashboard',
+                redirectTo: 'congviec',
                 pathMatch: 'full'
             },
             { path: 'dashboard', loadChildren: 'src/app/members/dashboard/dashboard.module#DashboardPageModule' },
@@ -2910,7 +2910,27 @@ var routes = [
                     },
                 ]
             },
-            { path: 'congviec', loadChildren: 'src/app/members/congviec/congviec.module#CongviecPageModule' },
+            {
+                path: 'congviec',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: 'src/app/members/congviec/danhsach/danhsach.module#DanhsachPageModule',
+                    },
+                    {
+                        path: 'chuaxuly',
+                        loadChildren: 'src/app/members/congviec/chuaxuly/chuaxuly.module#ChuaxulyPageModule',
+                    },
+                    {
+                        path: 'dangxuly',
+                        loadChildren: 'src/app/members/congviec/dangxuly/dangxuly.module#DangxulyPageModule',
+                    },
+                    {
+                        path: 'daxuly',
+                        loadChildren: 'src/app/members/congviec/daxuly/daxuly.module#DaxulyPageModule',
+                    }
+                ]
+            },
             { path: 'lichlamviec', loadChildren: 'src/app/members/lichlamviec/lichlamviec.module#LichlamviecPageModule' },
             {
                 path: 'vanbanduthao',
@@ -3016,7 +3036,7 @@ var AppTabsRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs appSwipetab (ionTabsDidChange)=\"ionTabsDidChange($event)\" (tabChange)=\"onTabChange($event)\" #myTabs>\n\n  <ion-tab-bar slot=\"bottom\">\n      <ion-tab-button tab=\"dashboard\">\n          <ion-icon ios=\"ios-home-outline\" md=\"md-home\"></ion-icon>\n          <ion-label>Trang chủ</ion-label>\n        </ion-tab-button>\n    \n    <ion-tab-button tab=\"vanbanden\">\n        <ion-icon  ios=\"ios-copy-outline\" md=\"md-copy\"></ion-icon>\n      <ion-label>Văn bản đến</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"vanbandi\">\n      <ion-icon ios=\"ios-paper-plane-outline\" md=\"md-paper-plane\"></ion-icon>\n      <ion-label>Văn bản đi</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"congviec\">\n        <ion-icon ios=\"ios-clipboard-outline\" md=\"md-clipboard\"></ion-icon>\n      <ion-label>Công việc</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"lichlamviec\">\n        <ion-icon ios=\"ios-calendar-outline\" md=\"md-calendar\"></ion-icon>\n      <ion-label>Lich làm việc</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n"
+module.exports = "<!-- <ion-tabs appSwipetab (ionTabsDidChange)=\"ionTabsDidChange($event)\" (tabChange)=\"onTabChange($event)\" #myTabs> -->\r\n<ion-tabs>\r\n  <ion-tab-bar slot=\"bottom\">\r\n      <ion-tab-button tab=\"dashboard\">\r\n          <ion-icon ios=\"ios-home-outline\" md=\"md-home\"></ion-icon>\r\n          <ion-label>Trang chủ</ion-label>\r\n        </ion-tab-button>\r\n    \r\n    <ion-tab-button tab=\"vanbanden\">\r\n        <ion-icon  ios=\"ios-copy-outline\" md=\"md-copy\"></ion-icon>\r\n      <ion-label>Văn bản đến</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"vanbandi\">\r\n      <ion-icon ios=\"ios-paper-plane-outline\" md=\"md-paper-plane\"></ion-icon>\r\n      <ion-label>Văn bản đi</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"congviec\">\r\n        <ion-icon ios=\"ios-clipboard-outline\" md=\"md-clipboard\"></ion-icon>\r\n      <ion-label>Công việc</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"lichlamviec\">\r\n        <ion-icon ios=\"ios-calendar-outline\" md=\"md-calendar\"></ion-icon>\r\n      <ion-label>Lich làm việc</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n</ion-tabs>\r\n"
 
 /***/ }),
 
@@ -3049,6 +3069,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var AppTabsPage = /** @class */ (function () {
     function AppTabsPage() {
     }
@@ -3070,6 +3091,10 @@ var AppTabsPage = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('myTabs'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonTabs"])
     ], AppTabsPage.prototype, "tabRef", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('mylbl'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], AppTabsPage.prototype, "el", void 0);
     AppTabsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-app-tabs',

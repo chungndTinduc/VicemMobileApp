@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild   } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
 import { SwipeTabDirective } from 'src/app/directives/swipe-tab.directive';
+import {injectStyles} from 'shadow-dom-inject-styles';
+import { ElementRef } from '@angular/core';
 @Component({
   selector: 'app-app-tabs',
   templateUrl: './app-tabs.page.html',
@@ -9,7 +11,11 @@ import { SwipeTabDirective } from 'src/app/directives/swipe-tab.directive';
 export class AppTabsPage implements OnInit  {
   @ViewChild(SwipeTabDirective) swipeTabDirective: SwipeTabDirective;
   @ViewChild('myTabs') tabRef: IonTabs;
-  constructor() { }
+  @ViewChild('mylbl') el: ElementRef;
+  constructor() {
+
+
+   }
 
   ngOnInit() {
   }
@@ -23,4 +29,5 @@ export class AppTabsPage implements OnInit  {
     console.log('[TabsPage] onTabChange, $event: ', $event);
     this.tabRef.select($event);
   }
+
 }

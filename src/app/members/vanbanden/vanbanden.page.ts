@@ -13,7 +13,8 @@ export class VanbandenPage implements OnInit {
  danhsachVanBans:any;
  total=0;
  page: any;
- public dataquery ={CurrentPage:1,RowPerPage:10,SearchIn:'SoKyHieu,TrichYeu',Keyword:''};
+ public dataquery =
+ {CurrentPage:1,RowPerPage:10,SearchIn:'SoKyHieu,TrichYeu',Keyword:''};
   constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
@@ -34,6 +35,7 @@ export class VanbandenPage implements OnInit {
     }
     // On slide changed
     slideChanged() {
+      
       let currentIndex = this.slides.getActiveIndex();
       let slides_count = this.segments.nativeElement.childElementCount;
   
@@ -47,6 +49,7 @@ export class VanbandenPage implements OnInit {
     }
     // Center current scroll
     centerScroll(){
+      
       if(!this.segments || !this.segments.nativeElement)
         return;
   
@@ -66,6 +69,7 @@ export class VanbandenPage implements OnInit {
     }
       // Animate scroll
   smoothScrollTo(endX){
+    
     let startTime = new Date().getTime();
     let startX = this.segments.nativeElement.scrollLeft;
     let distanceX = endX - startX;
@@ -94,6 +98,7 @@ export class VanbandenPage implements OnInit {
     });
   }
   dorefresh(refresher){
+    
     this.dataquery.RowPerPage=10;
     this.dataquery.CurrentPage=1;
     this.authService.getVanBanDen(this.dataquery).subscribe(res =>{
@@ -111,6 +116,7 @@ export class VanbandenPage implements OnInit {
     });
   }
   doInfinite(infiniteScroll) {
+    
     setTimeout(() => {
       if (this.dataquery.CurrentPage == 1)
         this.dataquery.CurrentPage  = 2;     

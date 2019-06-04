@@ -58,11 +58,7 @@ var ViewfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
-module.exports = "<ion-header>\n<!-- <ion-navbar>\n    <ion-title>Swipeabale Tabs</ion-title>\n</ion-navbar> -->\n<!-- \n<ion-toolbar>\n    <ion-segment [(ngModel)]=\"page\" color=\"dark\">\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(0)\">\n            <ion-icon name=\"camera\"></ion-icon>\n        </ion-segment-button>\n        <ion-segment-button value=\"bookmark\" (click)=\"selectedTab(1)\">\n            <ion-icon name=\"bookmark\"></ion-icon>\n        </ion-segment-button>\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(2)\">\n                <ion-icon name=\"camera\"></ion-icon>\n            </ion-segment-button>\n    </ion-segment>\n</ion-toolbar> -->\n\n</ion-header>\n\n<ion-content padding>   \n    <ion-slides #slider>\n        <ion-slide>\n            <h1>Tab 1</h1>\n        </ion-slide>\n\n        <ion-slide>\n            <h1>Tab 2</h1>\n        </ion-slide>\n\n        <ion-slide>\n            <h1>Tab 3</h1>\n        </ion-slide>\n    </ion-slides>\n</ion-content>"
-=======
-module.exports = "<ion-header>\r\n<!-- <ion-navbar>\r\n    <ion-title>Swipeabale Tabs</ion-title>\r\n</ion-navbar> -->\r\n<!-- \r\n<ion-toolbar>\r\n    <ion-segment [(ngModel)]=\"page\" color=\"dark\">\r\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(0)\">\r\n            <ion-icon name=\"camera\"></ion-icon>\r\n        </ion-segment-button>\r\n        <ion-segment-button value=\"bookmark\" (click)=\"selectedTab(1)\">\r\n            <ion-icon name=\"bookmark\"></ion-icon>\r\n        </ion-segment-button>\r\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(2)\">\r\n                <ion-icon name=\"camera\"></ion-icon>\r\n            </ion-segment-button>\r\n    </ion-segment>\r\n</ion-toolbar> -->\r\n\r\n</ion-header>\r\n\r\n<ion-content padding>   \r\n    <ion-slides #slider>\r\n        <ion-slide>\r\n            <h1>Tab 1</h1>\r\n        </ion-slide>\r\n\r\n        <ion-slide>\r\n            <h1>Tab 2</h1>\r\n        </ion-slide>\r\n\r\n        <ion-slide>\r\n            <h1>Tab 3</h1>\r\n        </ion-slide>\r\n    </ion-slides>\r\n</ion-content>"
->>>>>>> c0c083cbee8206c02680291e762026d9488b4f4a
+module.exports = "<ion-header>\r\n<!-- <ion-navbar>\r\n    <ion-title>Swipeabale Tabs</ion-title>\r\n\r\n</ion-navbar> -->\r\n\r\n<ion-toolbar>\r\n    <ion-segment [(ngModel)]=\"page\" color=\"dark\">\r\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(0)\">\r\n            <ion-icon name=\"camera\"></ion-icon>\r\n        </ion-segment-button>\r\n        <ion-segment-button value=\"bookmark\" (click)=\"selectedTab(1)\">\r\n            <ion-icon name=\"bookmark\"></ion-icon>\r\n        </ion-segment-button>\r\n        <ion-segment-button value=\"xxxx\" (click)=\"selectedTab(2)\">\r\n                <ion-icon name=\"camera\"></ion-icon>\r\n            </ion-segment-button>\r\n    </ion-segment>\r\n</ion-toolbar>\r\n\r\n\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>"
 
 /***/ }),
 
@@ -90,25 +86,116 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_members_vanbanden_vanbanden_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/members/vanbanden/vanbanden.page */ "./src/app/members/vanbanden/vanbanden.page.ts");
+/* harmony import */ var src_app_members_vanbanden_vanbandenchuadoc_vanbandenchuadoc_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page */ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.ts");
+/* harmony import */ var src_app_members_vanbanden_vanbandenchuaxuly_vanbandenchuaxuly_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page */ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.ts");
+
+
+
+
 
 
 
 var ViewfilePage = /** @class */ (function () {
-    function ViewfilePage() {
+    function ViewfilePage(navCtrl) {
+        this.navCtrl = navCtrl;
+        this.tab1Root = src_app_members_vanbanden_vanbanden_page__WEBPACK_IMPORTED_MODULE_3__["VanbandenPage"];
+        this.tab2Root = src_app_members_vanbanden_vanbandenchuadoc_vanbandenchuadoc_page__WEBPACK_IMPORTED_MODULE_4__["VanbandenchuadocPage"];
+        this.tab3Root = src_app_members_vanbanden_vanbandenchuaxuly_vanbandenchuaxuly_page__WEBPACK_IMPORTED_MODULE_5__["VanbandenchuaxulyPage"];
+        this.loaded = false;
+        this.tabIndex = 0;
     }
+    // private getAnimationDirection(index):string {
+    //   var currentIndex = this.tabIndex;
+    //   this.tabIndex = index;
+    //   switch (true){
+    //     case (currentIndex < index):
+    //       return('left');
+    //     case (currentIndex > index):
+    //       return ('right');
+    //   }
+    // }
+    // public transition(e):void {
+    //   let options: NativeTransitionOptions = {
+    //    direction:this.getAnimationDirection(e.index),
+    //    duration: 250,
+    //    slowdownfactor: -1,
+    //    slidePixels: 0,
+    //    iosdelay: 20,
+    //    androiddelay: 0,
+    //    fixedPixelsTop: 0,
+    //    fixedPixelsBottom: 48
+    //   };
+    //   if (!this.loaded) {
+    //     this.loaded = true;
+    //     return;
+    //   }
+    //   this.nativePageTransitions.slide(options);
+    // }
     ViewfilePage.prototype.selectedTab = function (index) {
-        this.slides.slideTo(index);
+        this.slides.slideTo(index, 0);
+    };
+    // On slide changed
+    ViewfilePage.prototype.slideChanged = function () {
+        var currentIndex = this.slides.getActiveIndex();
+        var slides_count = this.segments.nativeElement.childElementCount;
+        this.page = currentIndex.toString();
+        if (this.page >= slides_count)
+            this.page = (slides_count - 1).toString();
+        console.log("slides_count", slides_count);
+        console.log("this.page", this.page);
+        this.centerScroll();
+    };
+    // Center current scroll
+    ViewfilePage.prototype.centerScroll = function () {
+        if (!this.segments || !this.segments.nativeElement)
+            return;
+        var sizeLeft = this.sizeLeft();
+        var sizeCurrent = this.segments.nativeElement.children[this.page].clientWidth;
+        var result = sizeLeft - (window.innerWidth / 2) + (sizeCurrent / 2);
+        result = (result > 0) ? result : 0;
+        this.smoothScrollTo(result);
+    };
+    // Get size start to current
+    ViewfilePage.prototype.sizeLeft = function () {
+        var size = 0;
+        for (var i = 0; i < this.page; i++) {
+            size += this.segments.nativeElement.children[i].clientWidth;
+        }
+        return size;
+    };
+    // Easing function
+    ViewfilePage.prototype.easeInOutQuart = function (time, from, distance, duration) {
+        if ((time /= duration / 2) < 1)
+            return distance / 2 * time * time * time * time + from;
+        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+    };
+    // Animate scroll
+    ViewfilePage.prototype.smoothScrollTo = function (endX) {
+        var _this = this;
+        var startTime = new Date().getTime();
+        var startX = this.segments.nativeElement.scrollLeft;
+        var distanceX = endX - startX;
+        var duration = 400;
+        var timer = setInterval(function () {
+            var time = new Date().getTime() - startTime;
+            var newX = _this.easeInOutQuart(time, startX, distanceX, duration);
+            if (time >= duration) {
+                clearInterval(timer);
+            }
+            _this.segments.nativeElement.scrollLeft = newX;
+        }, 1000 / 60); // 60 fps
     };
     ViewfilePage.prototype.ngOnInit = function () {
     };
     ViewfilePage.prototype.ionViewDidLoad = function () {
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slides', { read: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"] }),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"])
     ], ViewfilePage.prototype, "slides", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("segments"),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("IonSegment"),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], ViewfilePage.prototype, "segments", void 0);
     ViewfilePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -117,7 +204,7 @@ var ViewfilePage = /** @class */ (function () {
             template: __webpack_require__(/*! ./viewfile.page.html */ "./src/app/members/viewfile/viewfile.page.html"),
             styles: [__webpack_require__(/*! ./viewfile.page.scss */ "./src/app/members/viewfile/viewfile.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]])
     ], ViewfilePage);
     return ViewfilePage;
 }());

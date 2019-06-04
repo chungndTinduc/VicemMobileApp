@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
+import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module'
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -27,6 +28,7 @@ export function jwtOptionsFactory(storage) {
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    CongviecformPageModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

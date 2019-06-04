@@ -837,22 +837,6 @@ var map = {
 		"./src/app/members/app-tabs/app-tabs.module.ts",
 		"app-tabs-app-tabs-module"
 	],
-	"./congviec/chuaxuly/chuaxuly.module": [
-		"./src/app/members/congviec/chuaxuly/chuaxuly.module.ts",
-		"congviec-chuaxuly-chuaxuly-module"
-	],
-	"./congviec/dangxuly/dangxuly.module": [
-		"./src/app/members/congviec/dangxuly/dangxuly.module.ts",
-		"congviec-dangxuly-dangxuly-module"
-	],
-	"./congviec/danhsach/danhsach.module": [
-		"./src/app/members/congviec/danhsach/danhsach.module.ts",
-		"congviec-danhsach-danhsach-module"
-	],
-	"./congviec/daxuly/daxuly.module": [
-		"./src/app/members/congviec/daxuly/daxuly.module.ts",
-		"congviec-daxuly-daxuly-module"
-	],
 	"./members/member-routing.module": [
 		"./src/app/members/member-routing.module.ts",
 		"members-member-routing-module"
@@ -869,9 +853,21 @@ var map = {
 		"./src/app/members/chitietvanbandi/chitietvanbandi.module.ts",
 		"src-app-members-chitietvanbandi-chitietvanbandi-module"
 	],
-	"src/app/members/congviec/congviec.module": [
-		"./src/app/members/congviec/congviec.module.ts",
-		"src-app-members-congviec-congviec-module"
+	"src/app/members/congviec/chuaxuly/chuaxuly.module": [
+		"./src/app/members/congviec/chuaxuly/chuaxuly.module.ts",
+		"src-app-members-congviec-chuaxuly-chuaxuly-module"
+	],
+	"src/app/members/congviec/dangxuly/dangxuly.module": [
+		"./src/app/members/congviec/dangxuly/dangxuly.module.ts",
+		"src-app-members-congviec-dangxuly-dangxuly-module"
+	],
+	"src/app/members/congviec/danhsach/danhsach.module": [
+		"./src/app/members/congviec/danhsach/danhsach.module.ts",
+		"src-app-members-congviec-danhsach-danhsach-module"
+	],
+	"src/app/members/congviec/daxuly/daxuly.module": [
+		"./src/app/members/congviec/daxuly/daxuly.module.ts",
+		"src-app-members-congviec-daxuly-daxuly-module"
 	],
 	"src/app/members/danhba/danhba.module": [
 		"./src/app/members/danhba/danhba.module.ts",
@@ -891,14 +887,17 @@ var map = {
 	],
 	"src/app/members/vanbanden/vanbanden.module": [
 		"./src/app/members/vanbanden/vanbanden.module.ts",
+		"common",
 		"src-app-members-vanbanden-vanbanden-module"
 	],
 	"src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.module": [
 		"./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.module.ts",
+		"common",
 		"src-app-members-vanbanden-vanbandenchuadoc-vanbandenchuadoc-module"
 	],
 	"src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.module": [
 		"./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.module.ts",
+		"common",
 		"src-app-members-vanbanden-vanbandenchuaxuly-vanbandenchuaxuly-module"
 	],
 	"src/app/members/vanbanden/vanbandenxulychinh/vanbandenxulychinh.module": [
@@ -935,6 +934,7 @@ var map = {
 	],
 	"src/app/members/viewfile/viewfile.module": [
 		"./src/app/members/viewfile/viewfile.module.ts",
+		"common",
 		"src-app-members-viewfile-viewfile-module"
 	]
 };
@@ -947,7 +947,7 @@ function webpackAsyncContext(req) {
 			throw e;
 		});
 	}
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		var id = ids[0];
 		return __webpack_require__(id);
 	});
@@ -1035,8 +1035,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-
 
 
 
@@ -1045,18 +1043,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, authService, router, http) {
+    function AppComponent(events, platform, splashScreen, statusBar, authService, router) {
+        var _this = this;
+        this.events = events;
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.authService = authService;
         this.router = router;
-        this.http = http;
         this.appPages = [];
         this.rowpage = 1;
         this.keyword = " ";
         this.loggedIn = false;
         this.initializeApp();
+        this.events.subscribe('user:login', function () {
+            console.log('logined..');
+            _this.load();
+        });
     }
     AppComponent.prototype.ngOnInit = function () {
         this.load();
@@ -1065,6 +1068,7 @@ var AppComponent = /** @class */ (function () {
         this.authService.checkToken();
         if (this.authService.currentUser != null) {
             this.TenHienThi = this.authService.currentUser.TenHienThi;
+            this.appPages = [];
             if (this.authService.currentUser.QuyenHanEnum.Vanbanden) {
                 var datapage = { title: 'Văn bản đến', icon: 'md-copy', iconIos: 'ios-copy-outline', url: '/members/tabs/vanbanden', color: 'success' };
                 this.appPages.push(datapage);
@@ -1113,12 +1117,12 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Events"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
             _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -1151,6 +1155,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
 /* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
 /* harmony import */ var src_app_providers_Utility__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/providers/Utility */ "./src/app/providers/Utility.ts");
+/* harmony import */ var src_app_members_congviec_congviecform_congviecform_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/members/congviec/congviecform/congviecform.module */ "./src/app/members/congviec/congviecform/congviecform.module.ts");
+
 
 
 
@@ -1183,7 +1189,7 @@ var AppModule = /** @class */ (function () {
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
-                // SwipeTabDirective,
+                src_app_members_congviec_congviecform_congviecform_module__WEBPACK_IMPORTED_MODULE_13__["CongviecformPageModule"],
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(),
                 _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__["JwtModule"].forRoot({
                     jwtOptionsProvider: {
@@ -1203,6 +1209,145 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/congviec/congviecform/congviecform.module.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/members/congviec/congviecform/congviecform.module.ts ***!
+  \**********************************************************************/
+/*! exports provided: CongviecformPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CongviecformPageModule", function() { return CongviecformPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _congviecform_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./congviecform.page */ "./src/app/members/congviec/congviecform/congviecform.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _congviecform_page__WEBPACK_IMPORTED_MODULE_6__["CongviecformPage"]
+    }
+];
+var CongviecformPageModule = /** @class */ (function () {
+    function CongviecformPageModule() {
+    }
+    CongviecformPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_congviecform_page__WEBPACK_IMPORTED_MODULE_6__["CongviecformPage"]]
+        })
+    ], CongviecformPageModule);
+    return CongviecformPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/congviec/congviecform/congviecform.page.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/members/congviec/congviecform/congviecform.page.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-button (click)=\"closePopup()\">\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n        <ion-title>Thêm mới công việc</ion-title>\n      \n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n      <ion-grid>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label position=\"stacked\">Tên công việc</ion-label>\n                      <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label position=\"stacked\">Mã công việc</ion-label>\n                      <ion-input  formControlName=\"Ma\"  placeholder=\"Nhập mã công việc\"></ion-input>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Ngày bắt đầu</ion-label>\n                      <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayBatDau\" placeholder=\"Nhập ngày bắt đầu\">\n                      </ion-datetime>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Hạn xử lý</ion-label>\n                      <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayKetThuc\"  placeholder=\"Nhập ngày kết thúc\"> \n                      </ion-datetime>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label position=\"stacked\">Nội dung công việc</ion-label><br>\n                      <ion-textarea  formControlName=\"NoiDung\" placeholder=\"Nhập nội dung\"></ion-textarea>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"6\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Độ quan trọng</ion-label>\n                      <ion-select placeholder=\"Độ quan trọng\">\n                        <ion-select-option value=\"14\">Bình thường</ion-select-option>\n                        <ion-select-option value=\"15\">Quan trọng</ion-select-option>\n                        <ion-select-option value=\"16\">Rất quan trọng</ion-select-option>\n                      </ion-select>\n                    </ion-item>\n              </ion-col>\n              <ion-col size=\"6\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Độ ưu tiên</ion-label>\n                      <ion-select placeholder=\"Độ ưu tiên\">\n                        <ion-select-option value=\"17\">Bình thường</ion-select-option>\n                        <ion-select-option value=\"18\">Gấp</ion-select-option>\n                        <ion-select-option value=\"19\">Rất gấp</ion-select-option>\n                      </ion-select>\n                    </ion-item>\n              </ion-col>\n          </ion-row>\n          \n        </ion-grid>\n    </form>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/members/congviec/congviecform/congviecform.page.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/members/congviec/congviecform/congviecform.page.scss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvY29uZ3ZpZWMvY29uZ3ZpZWNmb3JtL2Nvbmd2aWVjZm9ybS5wYWdlLnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/members/congviec/congviecform/congviecform.page.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/members/congviec/congviecform/congviecform.page.ts ***!
+  \********************************************************************/
+/*! exports provided: CongviecformPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CongviecformPage", function() { return CongviecformPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+
+
+
+
+
+var CongviecformPage = /** @class */ (function () {
+    function CongviecformPage(navParams, modalController, formBuilder, authService, events) {
+        this.navParams = navParams;
+        this.modalController = modalController;
+        this.formBuilder = formBuilder;
+        this.authService = authService;
+        this.events = events;
+        this.congviecId = null;
+    }
+    CongviecformPage.prototype.ngOnInit = function () {
+        this.congviecId = this.navParams.get('id');
+        this.credentialsForm = this.formBuilder.group({
+            Ten: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+        });
+    };
+    CongviecformPage.prototype.closePopup = function () {
+        this.modalController.dismiss();
+    };
+    CongviecformPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.login(this.credentialsForm.value).subscribe(function (res) {
+            console.log('login thanh công.');
+            _this.events.publish('user:login');
+        });
+    };
+    CongviecformPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-congviecform',
+            template: __webpack_require__(/*! ./congviecform.page.html */ "./src/app/members/congviec/congviecform/congviecform.page.html"),
+            providers: [],
+            styles: [__webpack_require__(/*! ./congviecform.page.scss */ "./src/app/members/congviec/congviecform/congviecform.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
+            src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Events"]])
+    ], CongviecformPage);
+    return CongviecformPage;
 }());
 
 
@@ -2049,15 +2194,11 @@ var AuthenticationService = /** @class */ (function () {
         this.countLoadding = 0;
         // CurrentUser=[];
         this.authenticationState = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](false);
-        return;
         this.plt.ready().then(function () {
             _this.checkToken();
         });
     }
-    //các hàm đăng ký service
-    AuthenticationService.prototype.getSpecialData = function () {
-        return this.get('api/nguoidung/test', null);
-    };
+    //==========================================*********các hàm đăng ký service******* ==================================================
     //count Van bản đến trang chủ
     AuthenticationService.prototype.getVanBanDenCounHome = function () {
         return this.get('api/vanbanden/GetCountTotalByNguoiDung', null);
@@ -2133,6 +2274,12 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.postVanBanDen = function (data) {
         return this.post('api/vanbanden/test', data);
     };
+    //lấy danh sách công việc
+    AuthenticationService.prototype.getDanhSachCongViec = function (data) {
+        return this.get('api/CongViec/getDanhDachCongViec', data);
+    };
+    //============================================================*********End danh sach dang ky service****======================= 
+    //===============================================================Base function==================================================  
     // hàm base authen
     AuthenticationService.prototype.checkToken = function () {
         var token = localStorage.getItem(TOKEN_KEY);
@@ -2271,8 +2418,10 @@ var AuthenticationService = /** @class */ (function () {
                         if (!message) {
                             message = 'Xin chờ đang lấy dữ liệu..';
                         }
+                        console.log('presentLoading ' + this.countLoadding);
                         if (this.countLoadding > 1)
                             return [2 /*return*/];
+                        console.log('present');
                         _a = this;
                         return [4 /*yield*/, this.loadingController.create({
                                 spinner: null,
@@ -2290,15 +2439,30 @@ var AuthenticationService = /** @class */ (function () {
         });
     };
     AuthenticationService.prototype.dismissLoadding = function () {
-        try {
-            this.countLoadding -= 1;
-            if (this.countLoadding === 0) {
-                this.loading.dismiss();
-            }
-        }
-        catch (e) {
-            console.log(e);
-        }
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.delay(500)];
+                    case 1:
+                        _a.sent();
+                        try {
+                            this.countLoadding -= 1;
+                            console.log('dismissLoadding ' + this.countLoadding);
+                            if (this.countLoadding === 0) {
+                                console.log('dismissed..');
+                                this.loading.dismiss();
+                            }
+                        }
+                        catch (e) {
+                            console.log(e);
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AuthenticationService.prototype.delay = function (ms) {
+        return new Promise(function (resolve) { return setTimeout(resolve, ms); });
     };
     AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -2309,13 +2473,7 @@ var AuthenticationService = /** @class */ (function () {
                 _angular_http__WEBPACK_IMPORTED_MODULE_8__["HttpModule"]
             ]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"], _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtHelperService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"],
-            src_app_providers_Utility__WEBPACK_IMPORTED_MODULE_10__["Utility"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_storage__WEBPACK_IMPORTED_MODULE_2__["Storage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"], _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtHelperService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"], src_app_providers_Utility__WEBPACK_IMPORTED_MODULE_10__["Utility"]])
     ], AuthenticationService);
     return AuthenticationService;
 }());
@@ -2338,9 +2496,9 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: true,
-    url: 'http://test.e-office.vn/'
-    // url:'http://localhost:5000/'
+    production: false,
+    //url:'http://test.e-office.vn/'
+    url: 'http://localhost:5000/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

@@ -17,23 +17,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    // { path: 'tabs', loadChildren: './app-tabs/app-tabs.module#AppTabsPageModule' },
-    // { path: 'vanbanden', loadChildren: './vanbanden/vanbanden.module#VanbandenPageModule' },
-    // { path: 'vanbandi', loadChildren: './vanbandi/vanbandi.module#VanbandiPageModule' },
-    // { path: 'congviec', loadChildren: './congviec/congviec.module#CongviecPageModule' },
-    // { path: 'lichlamviec', loadChildren: './lichlamviec/lichlamviec.module#LichlamviecPageModule' },
-    // { path: 'danhba', loadChildren: './danhba/danhba.module#DanhbaPageModule' },
-    // { path: 'vanbanduthao', loadChildren: './vanbanduthao/vanbanduthao.module#VanbanduthaoPageModule' },
-    // { path: '', loadChildren: './app-tabs/app-tabs.module#AppTabsPageModule' },
-    // { path: 'members', loadChildren: './app-tabs/app-tabs.module#AppTabsPageModule' },
     {
         path: '',
         loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
-    },
-    { path: 'danhsach', loadChildren: './congviec/danhsach/danhsach.module#DanhsachPageModule' },
-    { path: 'chuaxuly', loadChildren: './congviec/chuaxuly/chuaxuly.module#ChuaxulyPageModule' },
-    { path: 'dangxuly', loadChildren: './congviec/dangxuly/dangxuly.module#DangxulyPageModule' },
-    { path: 'daxuly', loadChildren: './congviec/daxuly/daxuly.module#DaxulyPageModule' },
+    }
 ];
 var MemberRoutingModule = /** @class */ (function () {
     function MemberRoutingModule() {

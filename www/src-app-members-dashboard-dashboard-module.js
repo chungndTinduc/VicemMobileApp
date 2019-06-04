@@ -528,7 +528,7 @@ var DashboardPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar >\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Trang chủ</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button>\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-item-group class=\"lichhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Lịch làm việc</ion-label>\r\n    </ion-item-divider>\r\n  \r\n   <ul>\r\n     <li *ngFor=\"let lich of danhsachs\">{{lich.NoiDung}} ({{lich.ThoiGianBatDau | date:'dd/MM/yyyy'}})</li>\r\n   </ul>\r\n  </ion-item-group>\r\n\r\n  <ion-item-group class=\"vanbanhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Văn bản</ion-label>\r\n    </ion-item-divider>\r\n  </ion-item-group>\r\n  <ion-segment>\r\n    <ion-segment style=\"float: left\">\r\n      <ion-label>Văn bản đến</ion-label>\r\n    </ion-segment>\r\n    <ion-segment>\r\n      <ion-label>Văn bản đi</ion-label>\r\n    </ion-segment>\r\n    <ion-segment>\r\n      <ion-label></ion-label>\r\n    </ion-segment>\r\n  </ion-segment>\r\n  \r\n    <div id=\"container\" style=\"height: 35%\"></div>\r\n \r\n  <ion-list-header [hidden]=\"shownSessions > 0\">\r\n   van ban di\r\n  </ion-list-header>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n    <ion-toolbar >\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Trang chủ</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button>\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-item-group class=\"lichhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Lịch làm việc</ion-label>\r\n    </ion-item-divider>\r\n  \r\n   <ul>\r\n     <li *ngFor=\"let lich of danhsachs\">{{lich.NoiDung}} ({{lich.ThoiGianBatDau | date:'dd/MM/yyyy'}})</li>\r\n   </ul>\r\n  </ion-item-group>\r\n\r\n  <ion-item-group class=\"vanbanhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Văn bản</ion-label>\r\n    </ion-item-divider>\r\n  </ion-item-group>\r\n  <ion-segment>\r\n    <ion-segment style=\"float: left\"value=\"vanbanden\">\r\n      <ion-label class=\"lbvbden\" >Văn bản đến</ion-label>\r\n    </ion-segment>\r\n    <ion-segment value=\"congviec\" (click)=\"changecongviec()\">\r\n      <ion-label>Công việc</ion-label>\r\n    </ion-segment>\r\n    <ion-segment>\r\n      <ion-label></ion-label>\r\n    </ion-segment>\r\n  </ion-segment>\r\n  <div style=\"height: 200px\">\r\n    <div id=\"container1\" style=\"height:30%\"></div>\r\n  </div>\r\n  <ion-list-header [hidden]=\"shownSessions > 0\">\r\n   van ban di\r\n  </ion-list-header>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ module.exports = "<ion-header>\r\n    <ion-toolbar >\r\n        <ion-buttons slo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  width: 100%;\n  padding: 10px; }\n\nion-item-group {\n  width: 99%;\n  margin: 9px auto;\n  border: 1px solid #e6e3e3; }\n\n.lichhome ul li {\n  margin-bottom: 2px;\n  font-size: 14px;\n  color: #4d4a4a;\n  list-style: none; }\n\n.lichhome ul li::before {\n  content: \"\\2022\";\n  color: #696969;\n  font-weight: bold;\n  display: inline-block;\n  width: 1em;\n  margin-left: -1em; }\n\n.vanban {\n  margin: 0px 20px; }\n\n.tabvbden {\n  margin-right: 20px;\n  float: left;\n  border-bottom: 3px solid #4d4a4a; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9kYXNoYm9hcmQvRTpcXFByb2plY3RcXE1pbmVcXE1vYmlsZVxcVmljZW1cXEVvZmZpY2VBcHAvc3JjXFxhcHBcXG1lbWJlcnNcXGRhc2hib2FyZFxcZGFzaGJvYXJkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVc7RUFDWCxhQUFhLEVBQUE7O0FBRWpCO0VBQ0ksVUFBVTtFQUNWLGdCQUFnQjtFQUNoQix5QkFBeUIsRUFBQTs7QUFFN0I7RUFDSSxrQkFBa0I7RUFDbEIsZUFBZTtFQUNmLGNBQWM7RUFDZCxnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxnQkFBZ0I7RUFDaEIsY0FBYTtFQUNiLGlCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIsVUFBVTtFQUNWLGlCQUFpQixFQUFBOztBQUVuQjtFQUNJLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsZ0NBQ0osRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvZGFzaGJvYXJkL2Rhc2hib2FyZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVye1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcbmlvbi1pdGVtLWdyb3VwIHtcclxuICAgIHdpZHRoOiA5OSU7XHJcbiAgICBtYXJnaW46IDlweCBhdXRvO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTNlMztcclxufVxyXG4ubGljaGhvbWUgdWwgbGl7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAycHg7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBjb2xvcjogIzRkNGE0YTtcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbn1cclxuLmxpY2hob21lIHVsIGxpOjpiZWZvcmUge1xyXG4gICAgY29udGVudDogXCJcXDIwMjJcIjtcclxuICAgIGNvbG9yOiM2OTY5Njk7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsgXHJcbiAgICB3aWR0aDogMWVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xZW07XHJcbiAgfVxyXG4gIC52YW5iYW57XHJcbiAgICAgIG1hcmdpbjogMHB4IDIwcHg7XHJcbiAgfVxyXG4gIC50YWJ2YmRlbntcclxuICAgICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gICAgICBmbG9hdDogbGVmdDtcclxuICAgICAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICM0ZDRhNGFcclxuICB9XHJcbiAiXX0= */"
+module.exports = ".container {\n  width: 100%;\n  padding: 10px; }\n\nion-item-group {\n  width: 99%;\n  margin: 9px auto;\n  border: 1px solid #e6e3e3; }\n\n.lichhome ul li {\n  margin-bottom: 2px;\n  font-size: 14px;\n  color: #4d4a4a;\n  list-style: none; }\n\n.lichhome ul li::before {\n  content: \"\\2022\";\n  color: #696969;\n  font-weight: bold;\n  display: inline-block;\n  width: 1em;\n  margin-left: -1em; }\n\n.vanban {\n  margin: 0px 20px; }\n\n.tabvbden {\n  margin-right: 20px;\n  float: left;\n  border-bottom: 3px solid #4d4a4a; }\n\n.lbvbden {\n  border-bottom: 2px solid #c49d6b;\n  padding-bottom: 2px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9kYXNoYm9hcmQvRTpcXFByb2plY3RcXE1pbmVcXE1vYmlsZVxcVmljZW1cXEVvZmZpY2VBcHAvc3JjXFxhcHBcXG1lbWJlcnNcXGRhc2hib2FyZFxcZGFzaGJvYXJkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVc7RUFDWCxhQUFhLEVBQUE7O0FBRWpCO0VBQ0ksVUFBVTtFQUNWLGdCQUFnQjtFQUNoQix5QkFBeUIsRUFBQTs7QUFFN0I7RUFDSSxrQkFBa0I7RUFDbEIsZUFBZTtFQUNmLGNBQWM7RUFDZCxnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxnQkFBZ0I7RUFDaEIsY0FBYTtFQUNiLGlCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIsVUFBVTtFQUNWLGlCQUFpQixFQUFBOztBQUduQjtFQUNJLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsZ0NBQ0osRUFBQTs7QUFDQTtFQUNJLGdDQUFnQztFQUNoQyxtQkFBbUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvZGFzaGJvYXJkL2Rhc2hib2FyZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVye1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcbmlvbi1pdGVtLWdyb3VwIHtcclxuICAgIHdpZHRoOiA5OSU7XHJcbiAgICBtYXJnaW46IDlweCBhdXRvO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTNlMztcclxufVxyXG4ubGljaGhvbWUgdWwgbGl7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAycHg7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBjb2xvcjogIzRkNGE0YTtcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbn1cclxuLmxpY2hob21lIHVsIGxpOjpiZWZvcmUge1xyXG4gICAgY29udGVudDogXCJcXDIwMjJcIjtcclxuICAgIGNvbG9yOiM2OTY5Njk7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsgXHJcbiAgICB3aWR0aDogMWVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xZW07XHJcbiAgICBcclxuICB9XHJcbiAgLnZhbmJhbntcclxuICAgICAgbWFyZ2luOiAwcHggMjBweDtcclxuICB9XHJcbiAgLnRhYnZiZGVue1xyXG4gICAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgICBib3JkZXItYm90dG9tOiAzcHggc29saWQgIzRkNGE0YVxyXG4gIH1cclxuICAubGJ2YmRlbntcclxuICAgICAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICNjNDlkNmI7XHJcbiAgICAgIHBhZGRpbmctYm90dG9tOiAycHg7XHJcbiAgfVxyXG4gIl19 */"
 
 /***/ }),
 
@@ -580,10 +580,10 @@ var DashboardPage = /** @class */ (function () {
     DashboardPage.prototype.ionViewDidEnter = function () {
         // this.load();
         // this.loaddoarboardvanbanden();
-        // this.loadHighChart()
+        this.loadHighChart();
         this.load();
         this.loaddoarboardvanbanden();
-        this.loadHighChart();
+        // this.loadHighChart();
     };
     DashboardPage.prototype.getDataFromTwoResources = function () {
         var _this = this;
@@ -611,6 +611,10 @@ var DashboardPage = /** @class */ (function () {
             return true;
         });
     };
+    DashboardPage.prototype.changecongviec = function () {
+        debugger;
+        this.dataContainer.nativeElement.HTMLElement('');
+    };
     DashboardPage.prototype.logout = function () {
         this.authService.logout();
     };
@@ -618,10 +622,11 @@ var DashboardPage = /** @class */ (function () {
         var _this = this;
         this.authService.getVanBanDenCounHome().subscribe(function (res) {
             _this.dashboardvbden = res["Data"];
+            var lstData = [];
             var colorList = [
                 '#B5C334', '#F09A49', '#7CB5EC', '#FCCE10'
             ];
-            highcharts__WEBPACK_IMPORTED_MODULE_4__["chart"]('container', {
+            highcharts__WEBPACK_IMPORTED_MODULE_4__["chart"]('container1', {
                 colors: colorList,
                 chart: {
                     plotBackgroundColor: null,
@@ -645,9 +650,17 @@ var DashboardPage = /** @class */ (function () {
                         showInLegend: true,
                     }
                 },
+                series: [{
+                        data: [{ name: "Đầu mối", y: _this.dashboardvbden.TotalDauMoi }, { name: "Phối hợp", y: _this.dashboardvbden.TotalPhoiHop }, { name: "Nhận để biết", y: _this.dashboardvbden.TotalNhanDeBiet }],
+                        type: undefined
+                    }]
             });
         });
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('container'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], DashboardPage.prototype, "dataContainer", void 0);
     DashboardPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-dashboard',

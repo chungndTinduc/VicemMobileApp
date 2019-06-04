@@ -14,6 +14,7 @@ export class VanbandenchuadocPage implements OnInit {
   constructor(private authService:AuthenticationService) { }
 
   ngOnInit() {
+    
   }
   ionViewDidEnter(){
     this.load();

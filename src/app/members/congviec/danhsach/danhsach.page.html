@@ -11,24 +11,74 @@
       </ion-buttons>
   </ion-toolbar>
   <ion-tab-bar  class="tab-header" slot="top" selected-tab="congviec">
-        <ion-tab-button tab="congviec" class="vanbanden" class="tabvanbanden">
-            <ion-icon name="ios-document"></ion-icon>
+        <ion-tab-button tab="congviec" class="vanbanden" class="">
+            <ion-icon ios="ios-document-outline" md="md-document"></ion-icon>
             <ion-label>Danh sách</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="congviec/chuaxuly" class="tabvanbandenchuaxuly">
-          <ion-icon name="ios-document"></ion-icon>
+        <ion-tab-button tab="congviec/chuaxuly" class="">
+          <ion-icon  ios="ios-list-box-outline" md="md-list-box"></ion-icon>
           <ion-label>Chưa xử lý</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="congviec/dangxuly" class="tabvanbandenchuadoc">
-          <ion-icon name="ios-document"></ion-icon>
+        <ion-tab-button tab="congviec/dangxuly" class="">
+          <ion-icon  ios="ios-git-compare" md="md-git-compare"></ion-icon>
            <ion-label>Đang xử lý</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="congviec/daxuly" class="tabvanbandenxulychinh">
-          <ion-icon name="ios-document"></ion-icon>
+        <ion-tab-button tab="congviec/daxuly" class="">
+          <ion-icon  ios="ios-checkmark-circle-outline" md="md-checkmark-circle"></ion-icon>
           <ion-label>Đã xử lý</ion-label>
         </ion-tab-button>
   </ion-tab-bar>
 </ion-header>
 <ion-content>
-
+  <ion-searchbar  id="keyword" name="keyword" (keypress)="onKeyPressed($event)" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
+  <ion-refresher slot="fixed" (ionRefresh)="load($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+      <!-- Multi-line sliding item with icon options on both sides -->
+      <ion-item-sliding  *ngFor="let congviec of danhSach">
+        <ion-item lines="none"  routerLink="/members/tabs/congviec/chitietcongviec/{{congviec.ID}}" slot="start">
+          <ion-label>
+            <h2>{{congviec.Ten}}</h2>
+            <p>{{congviec.NoiDung}}</p>
+            <div *ngIf="congviec.HanXuLy!=null" class="info-item"><span>Hạn xử lý :</span> {{congviec.HanXuLy|date:'dd/MM/yyyy'}} - <span>Người tạo:</span> Nguyễn Đức Chung</div>
+          </ion-label>
+          <ion-note slot="end">
+              <span slot="start">5</span>
+              <ion-icon ios="ios-attach" md="md-attach" slot="end"></ion-icon>
+          </ion-note>
+        </ion-item>
+        <ion-item-options side="start">
+          <ion-item-option>
+            <ion-icon slot="icon-only"  ios="ios-exit-outline" md="md-exit"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item-options side="end">
+          <ion-item-option color="danger">
+            <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+          </ion-item-option>
+          <ion-item-option>
+            <ion-icon slot="icon-only" ios="ios-create-outline" md="md-create"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  <!-- <ion-list reorder="true">
+    <ion-item lines="none"  *ngFor="let congviec of danhSach" routerLink="/members/tabs/congviec/chitietcongviec/{{congviec.ID}}">
+      <ion-label>
+        <div class="line-break"><span >{{congviec.Ten}}</span></div>
+        <div class="line-break"><span>Nội dung:</span>{{congviec.NoiDung}}</div>
+        <div *ngIf="congviec.HanXuLy!=null"><span>Hạn xử lý :</span> {{congviec.HanXuLy|date:'dd/MM/yyyy'}}<br></div>
+      </ion-label>
+    </ion-item >
+  </ion-list> -->
+  <div *ngIf="danhSach==''" style="text-align: center;color: #999"><h3>Không có bản ghi nào</h3></div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="success" (click)="presentModal(null)">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>

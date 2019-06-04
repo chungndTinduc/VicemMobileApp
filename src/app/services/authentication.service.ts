@@ -37,10 +37,8 @@ export class AuthenticationService {
     });
    }
 
-   //các hàm đăng ký service
-  getSpecialData() {
-    return this.get('api/nguoidung/test',null);
-  }
+   //==========================================*********các hàm đăng ký service******* ==================================================
+
   //count Van bản đến trang chủ
   getVanBanDenCounHome() {
     return this.get('api/vanbanden/GetCountTotalByNguoiDung',null);
@@ -64,7 +62,7 @@ export class AuthenticationService {
   getVanBanDenByID(data) {
     return this.get('api/vanbanden/GetByID',data);
   }
-// danh sách văn bản đi
+  // danh sách văn bản đi
   getVanBanDi(data) {
     return this.get('api/vanbandi/GetDanhSachVanBanDi',data);
   }
@@ -116,7 +114,16 @@ export class AuthenticationService {
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
   }
+  //lấy danh sách công việc
+  getDanhSachCongViec(data){
+    return this.get('api/CongViec/getDanhDachCongViec',data);
+  }
   
+//============================================================*********End danh sach dang ky service****======================= 
+
+
+
+//===============================================================Base function==================================================  
 // hàm base authen
 checkToken() {
       let token =  localStorage.getItem(TOKEN_KEY);
@@ -302,5 +309,5 @@ async dismissLoadding()
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
-
+//================================================ end base function===============================================
 }
