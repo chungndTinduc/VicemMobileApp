@@ -5,7 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { AppTabsPage } from './app-tabs.page';
 import { DirectivesModule } from 'src/app/directives/directives.module';
 import { AppTabsRouterModule } from './app-tabs-router.module';
-import { Routes } from 'HighChartsIonic/node_modules/@angular/router/router';
+import { Routes, RouterModule } from '@angular/router';
+// import { Routes } from 'HighChartsIonic/node_modules/@angular/router/router';
 
 const routes: Routes = [
   {
