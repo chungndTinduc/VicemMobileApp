@@ -146,9 +146,9 @@ ion-toolbar.header-menu {
 ion-tab-bar{
   --background: #f9f9f9 ;
 }
-ion-label{
-  color:#757575;
-}
+// ion-label{
+//   color:#757575;
+// }
 ion-icon{
   color: #757575;
 }
@@ -205,3 +205,5 @@ p{
 ion-item-option ion-icon {
   color: #fff;
 }
+.notnone{
+  text-align: center;color: #999}

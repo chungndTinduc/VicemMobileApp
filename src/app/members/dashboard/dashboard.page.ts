@@ -12,11 +12,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DashboardPage implements OnInit {
     public dataquery ={week:'',year:''};
+    public theHtmlString:any;
     @ViewChild('container') dataContainer: ElementRef;
     btn: HTMLElement;
     danhsachs:any;
     dashboardvbden:any;
     shownSessions:any;
+    danhsachduthaos:any;
+    segment='vanbanden'
+    public chectab:any;
   constructor(private authService: AuthenticationService,
     
     public menuCtrl: MenuController,
@@ -24,57 +28,54 @@ export class DashboardPage implements OnInit {
     ) {  
     }
   ngOnInit() {
-   // Build the chart
-   //this.getDataFromTwoResources()
   }
   ionViewDidEnter(){
-    // this.load();
-    // this.loaddoarboardvanbanden();
-     this.loadHighChart()
-    this.load();
-    this.loaddoarboardvanbanden();
-   // this.loadHighChart();
-   
+    this.loadlichlamviec();
+     this.loaddoarboardvanbanden();
+     this.loadvanbanduthaohome();
   }
-  getDataFromTwoResources() {
-     // this.authService.presentLoadingWithOptions();
-    // The URLs in this example are dummy
-    this.authService.getLichLamViecHome().subscribe(res=>{
-      this.danhsachs = res["Data"];
-    })
-    this.authService.getVanBanDenCounHome().subscribe(res=>{
-      this.dashboardvbden= res["Data"];
-    })
-   
-    return true;
-}
   loaddoarboardvanbanden(){
+    this.chectab=1;
     this.authService.getVanBanDenCounHome().subscribe(res=>{
         this.dashboardvbden = res["Data"];
-        return true;
+        var data=[{name:"Đầu mối",y:this.dashboardvbden.TotalDauMoi}, {name:"Phối hợp",y:this.dashboardvbden.TotalPhoiHop}, {name:"Nhận để biết",y:this.dashboardvbden.TotalNhanDeBiet}]
+        this.loadHighChart(data)
       })
   }
-  load(){
+  loadlichlamviec(){
       this.authService.getLichLamViecHome().subscribe(res=>{
         this.danhsachs = res["Data"];
         return true;
       })
       
   }
+  loadvanbanduthaohome(){
+    this.authService.getVanBanDuThaoHome().subscribe(res=>{
+      this.danhsachduthaos = res["Data"];
+    })
+  }
   changecongviec(){
-    debugger;
-    this.dataContainer.nativeElement.HTMLElement('')
+    this.chectab=2;
+    this.authService.getCongViecDashboardHome().subscribe(res=>{
+      var congviec= res["Data"];
+      if(congviec.TotalDauMoi!=0 && congviec.TotalPhoiHop!=0 && congviec.TotalNhanDeBiet){
+      var data=[{name:"Đầu mối",y:congviec.TotalDauMoi}, {name:"Phối hợp",y:congviec.TotalPhoiHop}, {name:"Nhận để biết",y:congviec.TotalNhanDeBiet}]
+      this.loadHighChart(data);
+      }else{
+        document.getElementById("container1").innerHTML='';
+      }
+    })
   }
   logout() {
     this.authService.logout();
    
   }
-  loadHighChart(){
-    this.authService.getVanBanDenCounHome().subscribe(res=>{
-        this.dashboardvbden = res["Data"];
-        var lstData=[];
+  loadHighChart(data){
+  var container1=  document.getElementById("container1");
+
         var colorList = [
             '#B5C334', '#F09A49', '#7CB5EC', '#FCCE10'];
+          
      Highcharts.chart('container1', {
     colors: colorList,
     chart: {
@@ -82,6 +83,7 @@ export class DashboardPage implements OnInit {
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie',
+        height:230,
     },
     title: {
         text: ''
@@ -101,10 +103,9 @@ export class DashboardPage implements OnInit {
         }
     },
   series: [{
-    data: [{name:"Đầu mối",y:this.dashboardvbden.TotalDauMoi}, {name:"Phối hợp",y:this.dashboardvbden.TotalPhoiHop}, {name:"Nhận để biết",y:this.dashboardvbden.TotalNhanDeBiet}],
+    data: data,
     type:undefined
 }]
 });
-})
   }
 }
