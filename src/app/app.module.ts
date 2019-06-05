@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -11,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
-import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module'
+import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module';
+import { AutoCompleteModule } from 'ionic4-auto-complete';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -29,6 +29,7 @@ export function jwtOptionsFactory(storage) {
     AppRoutingModule,
     HttpClientModule,
     CongviecformPageModule,
+    AutoCompleteModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

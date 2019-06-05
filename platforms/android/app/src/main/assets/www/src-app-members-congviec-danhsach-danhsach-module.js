@@ -17,8 +17,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _danhsach_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./danhsach.page */ "./src/app/members/congviec/danhsach/danhsach.page.ts");
-/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
-
 
 
 
@@ -33,12 +31,8 @@ var routes = [
     }
 ];
 var DanhsachPageModule = /** @class */ (function () {
-    function DanhsachPageModule(authService) {
-        this.authService = authService;
-        this.dataquery = { CurrentPage: 1, RowPerPage: 10, SearchIn: 'Ten,NoiDung', Keyword: '' };
+    function DanhsachPageModule() {
     }
-    DanhsachPageModule.prototype.ngOnInit = function () {
-    };
     DanhsachPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
@@ -48,8 +42,7 @@ var DanhsachPageModule = /** @class */ (function () {
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
             ],
             declarations: [_danhsach_page__WEBPACK_IMPORTED_MODULE_6__["DanhsachPage"]]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"]])
+        })
     ], DanhsachPageModule);
     return DanhsachPageModule;
 }());

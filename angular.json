@@ -34,6 +34,11 @@
                 "glob": "**/*-outline.svg",
                 "input": "node_modules/ionicons/dist/svg",
                 "output": "./svg"
+            },
+            {
+              "glob": "**/*",
+              "input": "node_modules/ionic4-auto-complete/assets/",
+              "output": "./assets/"
             }
             ],
             "styles": [

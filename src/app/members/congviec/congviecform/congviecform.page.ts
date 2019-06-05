@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController,Events } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+
 @Component({
   selector: 'app-congviecform',
   templateUrl: './congviecform.page.html',
@@ -11,6 +12,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class CongviecformPage implements OnInit {
 congviecId = null;
 credentialsForm: FormGroup;
+tags = ['Ionic', 'Angular', 'TypeScript'];
   constructor(private navParams: NavParams,
     private modalController: ModalController,   
     private formBuilder: FormBuilder,    
@@ -32,6 +34,10 @@ credentialsForm: FormGroup;
       console.log('login thanh công.');
       this.events.publish('user:login');
     });
+  }
+
+  verifyTag(str: string): boolean{
+    return str !== 'ABC' && str.trim() !== '';
   }
  
 }

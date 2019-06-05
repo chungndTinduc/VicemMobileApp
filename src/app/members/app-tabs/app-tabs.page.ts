@@ -6,15 +6,13 @@ import { ElementRef } from '@angular/core';
 @Component({
   selector: 'app-app-tabs',
   templateUrl: './app-tabs.page.html',
-  styleUrls: ['./app-tabs.page.scss'],
+  styleUrls: ['./app-tabs.page.scss','./auto-complete.scss'],
 })
 export class AppTabsPage implements OnInit  {
   @ViewChild(SwipeTabDirective) swipeTabDirective: SwipeTabDirective;
   @ViewChild('myTabs') tabRef: IonTabs;
   @ViewChild('mylbl') el: ElementRef;
   constructor() {
-
-
    }
 
   ngOnInit() {

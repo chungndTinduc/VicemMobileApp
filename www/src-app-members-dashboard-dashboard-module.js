@@ -528,7 +528,7 @@ var DashboardPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar >\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Trang chủ</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button>\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-item-group class=\"lichhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Lịch làm việc</ion-label>\r\n    </ion-item-divider>\r\n  \r\n   <ul>\r\n     <li *ngFor=\"let lich of danhsachs\">{{lich.NoiDung}} ({{lich.ThoiGianBatDau | date:'dd/MM/yyyy'}})</li>\r\n   </ul>\r\n  </ion-item-group>\r\n\r\n  <ion-item-group class=\"vanbanhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Văn bản</ion-label>\r\n    </ion-item-divider>\r\n  </ion-item-group>\r\n  <ion-segment>\r\n    <ion-segment style=\"float: left\"value=\"vanbanden\">\r\n      <ion-label class=\"lbvbden\" >Văn bản đến</ion-label>\r\n    </ion-segment>\r\n    <ion-segment value=\"congviec\" (click)=\"changecongviec()\">\r\n      <ion-label>Công việc</ion-label>\r\n    </ion-segment>\r\n    <ion-segment>\r\n      <ion-label></ion-label>\r\n    </ion-segment>\r\n  </ion-segment>\r\n  <div style=\"height: 200px\">\r\n    <div id=\"container1\" style=\"height:30%\"></div>\r\n  </div>\r\n  <ion-list-header [hidden]=\"shownSessions > 0\">\r\n   van ban di\r\n  </ion-list-header>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n    <ion-toolbar >\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Trang chủ</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button>\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content style=\"height: 100%\">\r\n  <ion-item-group class=\"lichhome\">\r\n    <ion-item-divider>\r\n      <ion-label>Lịch làm việc</ion-label>\r\n    </ion-item-divider>\r\n   <ul>\r\n     <li *ngFor=\"let lich of danhsachs\">{{lich.NoiDung}} ({{lich.ThoiGianBatDau | date:'dd/MM/yyyy'}})</li>\r\n   </ul>\r\n  </ion-item-group>\r\n\r\n  <ion-item-group class=\"vanbanhome\" style=\"height:30%;\">\r\n    <ion-item-divider>\r\n      <ion-label>Văn bản</ion-label>\r\n    </ion-item-divider>\r\n    <ion-segment [(ngModel)]=\"segment\" >\r\n      <ion-segment-button style=\"float: left\" value=\"vanbanden\" (click)=\"loaddoarboardvanbanden()\" id=\"tabvanbanden\" >\r\n        <ion-label class=\"lbvbden\">Văn bản đến</ion-label>\r\n      </ion-segment-button>\r\n      <ion-segment-button value=\"congviec\" (click)=\"changecongviec()\">\r\n        <ion-label>Công việc</ion-label>\r\n      </ion-segment-button>\r\n      <ion-segment-button>\r\n        <ion-label></ion-label>\r\n      </ion-segment-button>\r\n    </ion-segment>\r\n    <div>\r\n      <div id=\"container1\" style=\"height: 100%\" ng-bind-html=\"theHtmlString\"></div>\r\n    </div>\r\n  </ion-item-group>\r\n  <ion-item-group class=\"vanbanduthao\" >\r\n      <ion-item-divider>\r\n          <ion-label>Văn bản dự thảo</ion-label>\r\n        </ion-item-divider>\r\n        \r\n   <ul *ngIf=\"danhsachduthaos!=null\">\r\n      <li *ngFor=\"let duthao of danhsachduthaos\">{{duthao.TrichYeu}} ({{duthao.NgayTao | date:'dd/MM/yyyy'}})</li>\r\n    </ul>\r\n    <div *ngIf=\"danhsachduthaos==null || danhsachduthaos==''\" class=\"notnone\"> \r\n      <h3>Không có bản ghi nào</h3>\r\n    </div>\r\n  </ion-item-group>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ module.exports = "<ion-header>\r\n    <ion-toolbar >\r\n        <ion-buttons slo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  width: 100%;\n  padding: 10px; }\n\nion-item-group {\n  width: 99%;\n  margin: 9px auto;\n  border: 1px solid #e6e3e3; }\n\n.lichhome ul li {\n  margin-bottom: 2px;\n  font-size: 14px;\n  color: #4d4a4a;\n  list-style: none; }\n\n.lichhome ul li::before {\n  content: \"\\2022\";\n  color: #696969;\n  font-weight: bold;\n  display: inline-block;\n  width: 1em;\n  margin-left: -1em; }\n\n.vanban {\n  margin: 0px 20px; }\n\n.tabvbden {\n  margin-right: 20px;\n  float: left;\n  border-bottom: 3px solid #4d4a4a; }\n\n.lbvbden {\n  border-bottom: 2px solid #c49d6b;\n  padding-bottom: 2px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9kYXNoYm9hcmQvRTpcXFByb2plY3RcXE1pbmVcXE1vYmlsZVxcVmljZW1cXEVvZmZpY2VBcHAvc3JjXFxhcHBcXG1lbWJlcnNcXGRhc2hib2FyZFxcZGFzaGJvYXJkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVc7RUFDWCxhQUFhLEVBQUE7O0FBRWpCO0VBQ0ksVUFBVTtFQUNWLGdCQUFnQjtFQUNoQix5QkFBeUIsRUFBQTs7QUFFN0I7RUFDSSxrQkFBa0I7RUFDbEIsZUFBZTtFQUNmLGNBQWM7RUFDZCxnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxnQkFBZ0I7RUFDaEIsY0FBYTtFQUNiLGlCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIsVUFBVTtFQUNWLGlCQUFpQixFQUFBOztBQUduQjtFQUNJLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsZ0NBQ0osRUFBQTs7QUFDQTtFQUNJLGdDQUFnQztFQUNoQyxtQkFBbUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvZGFzaGJvYXJkL2Rhc2hib2FyZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVye1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcbmlvbi1pdGVtLWdyb3VwIHtcclxuICAgIHdpZHRoOiA5OSU7XHJcbiAgICBtYXJnaW46IDlweCBhdXRvO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTNlMztcclxufVxyXG4ubGljaGhvbWUgdWwgbGl7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAycHg7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBjb2xvcjogIzRkNGE0YTtcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbn1cclxuLmxpY2hob21lIHVsIGxpOjpiZWZvcmUge1xyXG4gICAgY29udGVudDogXCJcXDIwMjJcIjtcclxuICAgIGNvbG9yOiM2OTY5Njk7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsgXHJcbiAgICB3aWR0aDogMWVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xZW07XHJcbiAgICBcclxuICB9XHJcbiAgLnZhbmJhbntcclxuICAgICAgbWFyZ2luOiAwcHggMjBweDtcclxuICB9XHJcbiAgLnRhYnZiZGVue1xyXG4gICAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgICBib3JkZXItYm90dG9tOiAzcHggc29saWQgIzRkNGE0YVxyXG4gIH1cclxuICAubGJ2YmRlbntcclxuICAgICAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICNjNDlkNmI7XHJcbiAgICAgIHBhZGRpbmctYm90dG9tOiAycHg7XHJcbiAgfVxyXG4gIl19 */"
+module.exports = ".container {\n  width: 100%;\n  padding: 10px; }\n\nion-item-group {\n  width: 99%;\n  margin: 9px auto;\n  border: 1px solid #e6e3e3; }\n\n.lichhome ul li, .vanbanduthao ul li {\n  margin-bottom: 2px;\n  font-size: 14px;\n  color: #4d4a4a;\n  list-style: none; }\n\n.lichhome ul li::before, .vanbanduthao ul li::before {\n  content: \"\\2022\";\n  color: #696969;\n  font-weight: bold;\n  display: inline-block;\n  width: 1em;\n  margin-left: -1em; }\n\n.vanban {\n  margin: 0px 20px; }\n\n.tabvbden {\n  margin-right: 20px;\n  float: left;\n  border-bottom: 3px solid #4d4a4a; }\n\n.lbvbden {\n  padding-bottom: 2px; }\n\n.bottontab {\n  border-bottom: 2px solid #c49d6b; }\n\nion-segment-button {\n  border: 0px !important; }\n\nion-segment-button ion-label {\n  font-size: 16px;\n  margin-left: 10px; }\n\n.sc-ion-segment-ios-h {\n  --background: transparent;\n  --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.1);\n  --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);\n  --background-checked: #c49d6b;\n  --color:#929292;\n  --color-checked: var(--ion-color-primary-contrast,#fff);\n  --color-disabled: rgba(var(--ion-color-primary-rgb,56,128,255),0.3);\n  --color-checked-disabled: rgba(var(--ion-color-primary-contrast-rgb,255,255,255),0.3);\n  --border-color: var(--ion-color-primary,#c49d6b);\n  --indicator-color: transparent; }\n\nion-segment-button {\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n  padding: 3px 1px; }\n\nion-segment {\n  border-bottom: 1px solid #c49d6b; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9kYXNoYm9hcmQvRTpcXFByb2plY3RcXE1pbmVcXE1vYmlsZVxcVmljZW1cXEVvZmZpY2VBcHAvc3JjXFxhcHBcXG1lbWJlcnNcXGRhc2hib2FyZFxcZGFzaGJvYXJkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVc7RUFDWCxhQUFhLEVBQUE7O0FBRWpCO0VBQ0ksVUFBVTtFQUNWLGdCQUFnQjtFQUNoQix5QkFBeUIsRUFBQTs7QUFFN0I7RUFDSSxrQkFBa0I7RUFDbEIsZUFBZTtFQUNmLGNBQWM7RUFDZCxnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxnQkFBZ0I7RUFDaEIsY0FBYTtFQUNiLGlCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIsVUFBVTtFQUNWLGlCQUFpQixFQUFBOztBQUduQjtFQUNJLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsZ0NBQ0osRUFBQTs7QUFDQTtFQUNJLG1CQUFtQixFQUFBOztBQUV4QjtFQUNHLGdDQUFnQyxFQUFBOztBQUVuQztFQUNJLHNCQUFzQixFQUFBOztBQUUxQjtFQUNJLGVBQWU7RUFDZixpQkFBaUIsRUFBQTs7QUFFckI7RUFDRyx5QkFBYTtFQUNiLHFFQUFtQjtFQUNuQiwwRUFBdUI7RUFDdkIsNkJBQXFCO0VBQ3JCLGVBQVE7RUFDUix1REFBZ0I7RUFDaEIsbUVBQWlCO0VBQ2pCLHFGQUF5QjtFQUN6QixnREFBZTtFQUNmLDhCQUFrQixFQUFBOztBQUV0QjtFQUNJLHlCQUF5QjtFQUN6QiwwQkFBMEI7RUFDMUIsNkJBQTZCO0VBQzdCLDRCQUE0QjtFQUU1QixnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxnQ0FBZ0MsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvZGFzaGJvYXJkL2Rhc2hib2FyZC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVye1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcbmlvbi1pdGVtLWdyb3VwIHtcclxuICAgIHdpZHRoOiA5OSU7XHJcbiAgICBtYXJnaW46IDlweCBhdXRvO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTNlMztcclxufVxyXG4ubGljaGhvbWUgdWwgbGksLnZhbmJhbmR1dGhhbyB1bCBsaXtcclxuICAgIG1hcmdpbi1ib3R0b206IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGNvbG9yOiAjNGQ0YTRhO1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxufVxyXG4ubGljaGhvbWUgdWwgbGk6OmJlZm9yZSwudmFuYmFuZHV0aGFvIHVsIGxpOjpiZWZvcmV7XHJcbiAgICBjb250ZW50OiBcIlxcMjAyMlwiO1xyXG4gICAgY29sb3I6IzY5Njk2OTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrOyBcclxuICAgIHdpZHRoOiAxZW07XHJcbiAgICBtYXJnaW4tbGVmdDogLTFlbTtcclxuXHJcbiAgfVxyXG4gIC52YW5iYW57XHJcbiAgICAgIG1hcmdpbjogMHB4IDIwcHg7XHJcbiAgfVxyXG4gIC50YWJ2YmRlbntcclxuICAgICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gICAgICBmbG9hdDogbGVmdDtcclxuICAgICAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICM0ZDRhNGFcclxuICB9XHJcbiAgLmxidmJkZW57XHJcbiAgICAgIHBhZGRpbmctYm90dG9tOiAycHg7XHJcbiAgfVxyXG4gLmJvdHRvbnRhYntcclxuICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjYzQ5ZDZiO1xyXG4gfVxyXG4gaW9uLXNlZ21lbnQtYnV0dG9ue1xyXG4gICAgIGJvcmRlcjogMHB4ICFpbXBvcnRhbnQ7XHJcbiB9XHJcbiBpb24tc2VnbWVudC1idXR0b24gaW9uLWxhYmVse1xyXG4gICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgICBtYXJnaW4tbGVmdDogMTBweDtcclxuIH1cclxuIC5zYy1pb24tc2VnbWVudC1pb3MtaCB7XHJcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gICAgLS1iYWNrZ3JvdW5kLWhvdmVyOiByZ2JhKHZhcigtLWlvbi1jb2xvci1wcmltYXJ5LXJnYiw1NiwxMjgsMjU1KSwwLjEpO1xyXG4gICAgLS1iYWNrZ3JvdW5kLWFjdGl2YXRlZDogcmdiYSh2YXIoLS1pb24tY29sb3ItcHJpbWFyeS1yZ2IsNTYsMTI4LDI1NSksMC4xNik7XHJcbiAgICAtLWJhY2tncm91bmQtY2hlY2tlZDogI2M0OWQ2YjtcclxuICAgIC0tY29sb3I6IzkyOTI5MjtcclxuICAgIC0tY29sb3ItY2hlY2tlZDogdmFyKC0taW9uLWNvbG9yLXByaW1hcnktY29udHJhc3QsI2ZmZik7XHJcbiAgICAtLWNvbG9yLWRpc2FibGVkOiByZ2JhKHZhcigtLWlvbi1jb2xvci1wcmltYXJ5LXJnYiw1NiwxMjgsMjU1KSwwLjMpO1xyXG4gICAgLS1jb2xvci1jaGVja2VkLWRpc2FibGVkOiByZ2JhKHZhcigtLWlvbi1jb2xvci1wcmltYXJ5LWNvbnRyYXN0LXJnYiwyNTUsMjU1LDI1NSksMC4zKTtcclxuICAgIC0tYm9yZGVyLWNvbG9yOiB2YXIoLS1pb24tY29sb3ItcHJpbWFyeSwjYzQ5ZDZiKTtcclxuICAgIC0taW5kaWNhdG9yLWNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5pb24tc2VnbWVudC1idXR0b257XHJcbiAgICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gICAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XHJcbiAgICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcclxuICAgIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbiAgICAvLyBtYXJnaW4tbGVmdDogNHB4O1xyXG4gICAgcGFkZGluZzogM3B4IDFweDtcclxufVxyXG5pb24tc2VnbWVudHtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjYzQ5ZDZiO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -572,89 +572,88 @@ var DashboardPage = /** @class */ (function () {
         this.menuCtrl = menuCtrl;
         this.http = http;
         this.dataquery = { week: '', year: '' };
+        this.segment = 'vanbanden';
     }
     DashboardPage.prototype.ngOnInit = function () {
-        // Build the chart
-        //this.getDataFromTwoResources()
     };
     DashboardPage.prototype.ionViewDidEnter = function () {
-        // this.load();
-        // this.loaddoarboardvanbanden();
-        this.loadHighChart();
-        this.load();
+        this.loadlichlamviec();
         this.loaddoarboardvanbanden();
-        // this.loadHighChart();
-    };
-    DashboardPage.prototype.getDataFromTwoResources = function () {
-        var _this = this;
-        // this.authService.presentLoadingWithOptions();
-        // The URLs in this example are dummy
-        this.authService.getLichLamViecHome().subscribe(function (res) {
-            _this.danhsachs = res["Data"];
-        });
-        this.authService.getVanBanDenCounHome().subscribe(function (res) {
-            _this.dashboardvbden = res["Data"];
-        });
-        return true;
+        this.loadvanbanduthaohome();
     };
     DashboardPage.prototype.loaddoarboardvanbanden = function () {
         var _this = this;
+        this.chectab = 1;
         this.authService.getVanBanDenCounHome().subscribe(function (res) {
             _this.dashboardvbden = res["Data"];
-            return true;
+            var data = [{ name: "Đầu mối", y: _this.dashboardvbden.TotalDauMoi }, { name: "Phối hợp", y: _this.dashboardvbden.TotalPhoiHop }, { name: "Nhận để biết", y: _this.dashboardvbden.TotalNhanDeBiet }];
+            _this.loadHighChart(data);
         });
     };
-    DashboardPage.prototype.load = function () {
+    DashboardPage.prototype.loadlichlamviec = function () {
         var _this = this;
         this.authService.getLichLamViecHome().subscribe(function (res) {
             _this.danhsachs = res["Data"];
             return true;
         });
     };
+    DashboardPage.prototype.loadvanbanduthaohome = function () {
+        var _this = this;
+        this.authService.getVanBanDuThaoHome().subscribe(function (res) {
+            _this.danhsachduthaos = res["Data"];
+        });
+    };
     DashboardPage.prototype.changecongviec = function () {
-        debugger;
-        this.dataContainer.nativeElement.HTMLElement('');
+        var _this = this;
+        this.chectab = 2;
+        this.authService.getCongViecDashboardHome().subscribe(function (res) {
+            var congviec = res["Data"];
+            if (congviec.TotalDauMoi != 0 && congviec.TotalPhoiHop != 0 && congviec.TotalNhanDeBiet) {
+                var data = [{ name: "Đầu mối", y: congviec.TotalDauMoi }, { name: "Phối hợp", y: congviec.TotalPhoiHop }, { name: "Nhận để biết", y: congviec.TotalNhanDeBiet }];
+                _this.loadHighChart(data);
+            }
+            else {
+                document.getElementById("container1").innerHTML = '';
+            }
+        });
     };
     DashboardPage.prototype.logout = function () {
         this.authService.logout();
     };
-    DashboardPage.prototype.loadHighChart = function () {
-        var _this = this;
-        this.authService.getVanBanDenCounHome().subscribe(function (res) {
-            _this.dashboardvbden = res["Data"];
-            var lstData = [];
-            var colorList = [
-                '#B5C334', '#F09A49', '#7CB5EC', '#FCCE10'
-            ];
-            highcharts__WEBPACK_IMPORTED_MODULE_4__["chart"]('container1', {
-                colors: colorList,
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false,
-                    type: 'pie',
-                },
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: false
-                        },
-                        showInLegend: true,
-                    }
-                },
-                series: [{
-                        data: [{ name: "Đầu mối", y: _this.dashboardvbden.TotalDauMoi }, { name: "Phối hợp", y: _this.dashboardvbden.TotalPhoiHop }, { name: "Nhận để biết", y: _this.dashboardvbden.TotalNhanDeBiet }],
-                        type: undefined
-                    }]
-            });
+    DashboardPage.prototype.loadHighChart = function (data) {
+        var container1 = document.getElementById("container1");
+        var colorList = [
+            '#B5C334', '#F09A49', '#7CB5EC', '#FCCE10'
+        ];
+        highcharts__WEBPACK_IMPORTED_MODULE_4__["chart"]('container1', {
+            colors: colorList,
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie',
+                height: 230,
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true,
+                }
+            },
+            series: [{
+                    data: data,
+                    type: undefined
+                }]
         });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
