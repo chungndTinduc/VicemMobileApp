@@ -59,6 +59,9 @@ export class AuthenticationService {
   getVanBanDenXuLyChinh(data) {
     return this.get('api/vanbanden/GetVanBanDenNguoiXuLy',data);
   }
+  getYKienVanBanDen(data) {
+    return this.get('api/vanbanden/GetYKienByVanBanID',data);
+  }
   getVanBanDenByID(data) {
     return this.get('api/vanbanden/GetByID',data);
   }

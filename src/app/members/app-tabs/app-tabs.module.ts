@@ -25,6 +25,7 @@ const routes: Routes = [
           path: '',
           loadChildren: 'src/app/members/vanbanden/vanbanden.module#VanbandenPageModule'
         },
+        
         {
           path: 'vanbandenchuaxuly',
           loadChildren: 'src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule'
@@ -41,6 +42,11 @@ const routes: Routes = [
           path: 'chitietvanbanden/:vanbandenid',
           loadChildren: 'src/app/members/vanbanden/chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule'
         },
+        { 
+          path: 'ykienvanbanden/:vanbandenid', 
+          loadChildren: 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule'
+       },
+       
       ]
      },
       { path: 'vanbandi',     

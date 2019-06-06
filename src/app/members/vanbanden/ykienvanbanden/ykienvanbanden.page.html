@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ykienvanbanden</ion-title>
-  </ion-toolbar>
+      <ion-buttons slot="start">
+          <!-- <ion-menu-button></ion-menu-button> -->
+          <ion-back-button text="" ></ion-back-button>     
+      </ion-buttons>
+      <ion-title>Ý kiến văn bản đến</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>    
 </ion-header>
 
 <ion-content>
-
+  <ion-list reorder="true">
+    <ion-item lines="none"  *ngFor="let objyk of lstobject">
+      <ion-label>
+        <div  ><span > Người dùng :</span> {{objyk.TenNguoiTao}}<br></div>
+        <div *ngIf="objyk.NoiDung!=''"><span > Nội dung :</span> {{objyk.NoiDung}}<br></div>
+        <div><span > Thời gian:</span> {{objyk.NgayTao | date:'dd/MM/yyyy'}}<br></div>
+        <div class="line-break"><span >Đầu mối:</span>
+          {{objyk.strDonViXuLy + objyk.strNguoiXuLy!=''?(", "+objyk.strNguoiXuLy):''}}
+        </div>
+        <div class="line-break"><span >Phối hợp:</span>
+          {{objyk.strDonViNhanDeBiet + objyk.strNguoiNhanDeBiet!=''?(", "+objyk.strNguoiNhanDeBiet):''}}
+        </div>
+        <div class="line-break"><span >Xem để biết:</span>
+          {{objyk.strDonViXem+ objyk.strNguoiXem!=''?(", "+objyk.strNguoiXem):''}}
+        </div>
+      </ion-label>
+    </ion-item >
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

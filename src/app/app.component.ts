@@ -71,6 +71,8 @@ export class AppComponent {
          this.appPages.push(datapage);
          var datapage={title:'xem file',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/viewfile',color:'medium'}
          this.appPages.push(datapage);
+         var datapage={title:'xem file',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/vanbanden/ykienvanbanden/7001',color:'medium'}
+         this.appPages.push(datapage);
        }
   }
   loggedIn = false;

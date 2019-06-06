@@ -35,6 +35,10 @@ const routes: Routes = [
           path: 'chitietvanbanden/:vanbandenid',
           loadChildren: 'src/app/members/vanbanden/chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule'
         },
+        { 
+          path: 'ykienvanbanden/:vanbandenid', 
+          loadChildren: 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule'
+       },
       ]
      },
       { path: 'vanbandi',     
