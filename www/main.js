@@ -11,796 +11,792 @@ var map = {
 	"./1fcq78hk.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/1fcq78hk.entry.js",
 		"common",
-		102
+		93
 	],
 	"./1fcq78hk.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/1fcq78hk.sc.entry.js",
 		"common",
-		103
+		94
 	],
 	"./2i50w2lv.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/2i50w2lv.entry.js",
 		"common",
-		104
+		123
 	],
 	"./2i50w2lv.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/2i50w2lv.sc.entry.js",
 		"common",
-		105
+		124
 	],
 	"./39fhulxe.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/39fhulxe.entry.js",
 		"common",
-		106
+		95
 	],
 	"./39fhulxe.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/39fhulxe.sc.entry.js",
 		"common",
-		107
+		96
 	],
 	"./3hbcnxuc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/3hbcnxuc.entry.js",
 		"common",
-		54
+		97
 	],
 	"./3hbcnxuc.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/3hbcnxuc.sc.entry.js",
 		"common",
-		55
+		98
 	],
 	"./3kzauze7.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/3kzauze7.entry.js",
 		"common",
-		56
+		9
 	],
 	"./3kzauze7.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/3kzauze7.sc.entry.js",
 		"common",
-		57
+		10
 	],
 	"./3pkkvczk.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/3pkkvczk.entry.js",
 		0,
 		"common",
-		128
+		125
 	],
 	"./3pkkvczk.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/3pkkvczk.sc.entry.js",
 		0,
 		"common",
-		129
+		126
 	],
 	"./5zcdwzsx.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/5zcdwzsx.entry.js",
 		"common",
-		10
+		11
 	],
 	"./5zcdwzsx.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/5zcdwzsx.sc.entry.js",
 		"common",
-		11
+		12
 	],
 	"./6kgso7pq.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/6kgso7pq.entry.js",
 		"common",
-		12
+		13
 	],
 	"./6kgso7pq.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/6kgso7pq.sc.entry.js",
 		"common",
-		13
+		14
 	],
 	"./7hlpr3fd.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/7hlpr3fd.entry.js",
 		0,
 		"common",
-		130
+		127
 	],
 	"./7hlpr3fd.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/7hlpr3fd.sc.entry.js",
 		0,
 		"common",
-		131
+		128
 	],
 	"./8wdovu8e.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/8wdovu8e.entry.js",
 		"common",
-		58
+		99
 	],
 	"./8wdovu8e.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/8wdovu8e.sc.entry.js",
 		"common",
-		59
+		100
 	],
 	"./admmxern.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/admmxern.entry.js",
 		"common",
-		60
+		15
 	],
 	"./admmxern.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/admmxern.sc.entry.js",
 		"common",
-		61
+		16
 	],
 	"./aubabxbm.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/aubabxbm.entry.js",
 		"common",
-		14
+		17
 	],
 	"./aubabxbm.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/aubabxbm.sc.entry.js",
 		"common",
-		15
+		18
 	],
 	"./azzrjyyu.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/azzrjyyu.entry.js",
 		0,
 		"common",
-		132
+		129
 	],
 	"./azzrjyyu.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/azzrjyyu.sc.entry.js",
 		0,
 		"common",
-		133
+		130
 	],
 	"./b65tzyas.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/b65tzyas.entry.js",
 		"common",
-		16
+		19
 	],
 	"./b65tzyas.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/b65tzyas.sc.entry.js",
 		"common",
-		17
+		20
 	],
 	"./bb7q7tld.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/bb7q7tld.entry.js",
 		"common",
-		108
+		131
 	],
 	"./bb7q7tld.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/bb7q7tld.sc.entry.js",
 		"common",
-		109
+		132
 	],
 	"./bcmaaa8l.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/bcmaaa8l.entry.js",
 		"common",
-		62
+		21
 	],
 	"./bcmaaa8l.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/bcmaaa8l.sc.entry.js",
 		"common",
-		63
+		22
 	],
 	"./bygik61u.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/bygik61u.entry.js",
 		"common",
-		64
+		23
 	],
 	"./bygik61u.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/bygik61u.sc.entry.js",
 		"common",
-		65
+		24
 	],
 	"./ddlg9urb.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ddlg9urb.entry.js",
 		"common",
-		18
+		25
 	],
 	"./ddlg9urb.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ddlg9urb.sc.entry.js",
 		"common",
-		19
+		26
 	],
 	"./devt5yhg.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/devt5yhg.entry.js",
 		0,
 		"common",
-		136
+		135
 	],
 	"./devt5yhg.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/devt5yhg.sc.entry.js",
 		0,
 		"common",
-		137
+		136
 	],
 	"./dhprnqol.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/dhprnqol.entry.js",
-		2,
 		"common",
-		138
+		27
 	],
 	"./dhprnqol.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/dhprnqol.sc.entry.js",
-		2,
 		"common",
-		139
+		28
 	],
 	"./djkq5plb.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/djkq5plb.entry.js",
 		"common",
-		66
+		29
 	],
 	"./djkq5plb.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/djkq5plb.sc.entry.js",
 		"common",
-		67
+		30
 	],
 	"./efdsz9yy.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/efdsz9yy.entry.js",
 		"common",
-		94
+		101
 	],
 	"./efdsz9yy.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/efdsz9yy.sc.entry.js",
 		"common",
-		95
+		102
 	],
 	"./eghwkqif.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/eghwkqif.entry.js",
 		"common",
-		20
+		31
 	],
 	"./eghwkqif.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/eghwkqif.sc.entry.js",
 		"common",
-		21
+		32
 	],
 	"./ek05jvfc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ek05jvfc.entry.js",
 		"common",
-		22
+		33
 	],
 	"./ek05jvfc.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ek05jvfc.sc.entry.js",
 		"common",
-		23
+		34
 	],
 	"./ficmbhoi.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ficmbhoi.entry.js",
-		2,
 		"common",
-		140
+		35
 	],
 	"./ficmbhoi.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ficmbhoi.sc.entry.js",
-		2,
 		"common",
-		141
+		36
 	],
 	"./fkzdmlip.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/fkzdmlip.entry.js",
-		142
+		137
 	],
 	"./fkzdmlip.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/fkzdmlip.sc.entry.js",
-		143
+		138
 	],
 	"./fmzmhk3d.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/fmzmhk3d.entry.js",
 		"common",
-		68
+		37
 	],
 	"./fmzmhk3d.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/fmzmhk3d.sc.entry.js",
 		"common",
-		69
+		38
 	],
 	"./fz2rcnow.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/fz2rcnow.entry.js",
 		"common",
-		70
+		39
 	],
 	"./fz2rcnow.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/fz2rcnow.sc.entry.js",
 		"common",
-		71
+		40
 	],
 	"./gnkkjvvk.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/gnkkjvvk.entry.js",
 		"common",
-		72
+		41
 	],
 	"./gnkkjvvk.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/gnkkjvvk.sc.entry.js",
 		"common",
-		73
+		42
 	],
 	"./helxzsef.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/helxzsef.entry.js",
-		144
+		139
 	],
 	"./helxzsef.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/helxzsef.sc.entry.js",
-		145
+		140
 	],
 	"./i5bu78vq.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/i5bu78vq.entry.js",
 		"common",
-		74
+		43
 	],
 	"./i5bu78vq.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/i5bu78vq.sc.entry.js",
 		"common",
-		75
+		44
 	],
 	"./imcdx1xe.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/imcdx1xe.entry.js",
 		"common",
-		114
+		103
 	],
 	"./imcdx1xe.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/imcdx1xe.sc.entry.js",
 		"common",
-		115
+		104
 	],
 	"./iqlhkurd.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/iqlhkurd.entry.js",
 		"common",
-		76
+		45
 	],
 	"./iqlhkurd.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/iqlhkurd.sc.entry.js",
 		"common",
-		77
+		46
 	],
 	"./isuxxasv.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/isuxxasv.entry.js",
 		"common",
-		78
+		47
 	],
 	"./isuxxasv.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/isuxxasv.sc.entry.js",
 		"common",
-		79
+		48
 	],
 	"./iwgahuhw.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/iwgahuhw.entry.js",
 		"common",
-		24
+		49
 	],
 	"./iwgahuhw.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/iwgahuhw.sc.entry.js",
 		"common",
-		25
+		50
 	],
 	"./j20d1ikn.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/j20d1ikn.entry.js",
 		"common",
-		80
+		51
 	],
 	"./j20d1ikn.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/j20d1ikn.sc.entry.js",
 		"common",
-		81
+		52
 	],
 	"./jzwyowjw.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/jzwyowjw.entry.js",
 		"common",
-		26
+		53
 	],
 	"./jzwyowjw.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/jzwyowjw.sc.entry.js",
 		"common",
-		27
+		54
 	],
 	"./k6eoch7h.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/k6eoch7h.entry.js",
 		0,
 		"common",
-		146
+		141
 	],
 	"./k6eoch7h.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/k6eoch7h.sc.entry.js",
 		0,
 		"common",
-		147
+		142
 	],
 	"./kgjnfunx.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/kgjnfunx.entry.js",
 		"common",
-		28
+		55
 	],
 	"./kgjnfunx.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/kgjnfunx.sc.entry.js",
 		"common",
-		29
+		56
 	],
 	"./lb8tayd0.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/lb8tayd0.entry.js",
 		"common",
-		116
+		105
 	],
 	"./lb8tayd0.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/lb8tayd0.sc.entry.js",
 		"common",
-		117
+		106
 	],
 	"./ldqvnzrr.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ldqvnzrr.entry.js",
 		"common",
-		30
+		57
 	],
 	"./ldqvnzrr.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ldqvnzrr.sc.entry.js",
 		"common",
-		31
+		58
 	],
 	"./llyqw4no.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/llyqw4no.entry.js",
 		"common",
-		82
+		59
 	],
 	"./llyqw4no.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/llyqw4no.sc.entry.js",
 		"common",
-		83
+		60
 	],
 	"./lsxwd44p.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/lsxwd44p.entry.js",
 		"common",
-		32
+		61
 	],
 	"./lsxwd44p.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/lsxwd44p.sc.entry.js",
 		"common",
-		33
+		62
 	],
 	"./mf2ayo12.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mf2ayo12.entry.js",
 		"common",
-		34
+		63
 	],
 	"./mf2ayo12.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mf2ayo12.sc.entry.js",
 		"common",
-		35
+		64
 	],
 	"./migtpkzd.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/migtpkzd.entry.js",
 		"common",
-		36
+		65
 	],
 	"./migtpkzd.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/migtpkzd.sc.entry.js",
 		"common",
-		37
+		66
 	],
 	"./mo7qeek2.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mo7qeek2.entry.js",
 		"common",
-		118
+		107
 	],
 	"./mo7qeek2.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mo7qeek2.sc.entry.js",
 		"common",
-		119
+		108
 	],
 	"./mri9bdlj.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mri9bdlj.entry.js",
-		148
+		143
 	],
 	"./mri9bdlj.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mri9bdlj.sc.entry.js",
-		149
+		144
 	],
 	"./mrs0ks1r.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mrs0ks1r.entry.js",
 		0,
 		"common",
-		150
+		145
 	],
 	"./mrs0ks1r.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/mrs0ks1r.sc.entry.js",
 		0,
 		"common",
-		151
+		146
 	],
 	"./najnlwm4.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/najnlwm4.entry.js",
 		"common",
-		38
+		67
 	],
 	"./najnlwm4.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/najnlwm4.sc.entry.js",
 		"common",
-		39
+		68
 	],
 	"./narso64l.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/narso64l.entry.js",
 		0,
 		"common",
-		110
+		147
 	],
 	"./narso64l.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/narso64l.sc.entry.js",
 		0,
 		"common",
-		111
+		148
 	],
 	"./nqozldol.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/nqozldol.entry.js",
 		0,
 		"common",
-		152
+		149
 	],
 	"./nqozldol.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/nqozldol.sc.entry.js",
 		0,
 		"common",
-		153
+		150
 	],
 	"./o6zsuoqi.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/o6zsuoqi.entry.js",
 		"common",
-		84
+		69
 	],
 	"./o6zsuoqi.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/o6zsuoqi.sc.entry.js",
 		"common",
-		85
+		70
 	],
 	"./oc7j8k7y.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/oc7j8k7y.entry.js",
 		"common",
-		120
+		109
 	],
 	"./oc7j8k7y.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/oc7j8k7y.sc.entry.js",
 		"common",
-		121
+		110
 	],
 	"./ofd4s8dw.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ofd4s8dw.entry.js",
 		"common",
-		96
+		111
 	],
 	"./ofd4s8dw.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ofd4s8dw.sc.entry.js",
 		"common",
-		97
+		112
 	],
 	"./pd9wflli.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/pd9wflli.entry.js",
 		"common",
-		98
+		113
 	],
 	"./pd9wflli.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/pd9wflli.sc.entry.js",
 		"common",
-		99
+		114
 	],
 	"./pdzm9bfy.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/pdzm9bfy.entry.js",
 		"common",
-		100
+		115
 	],
 	"./pdzm9bfy.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/pdzm9bfy.sc.entry.js",
 		"common",
-		101
+		116
 	],
 	"./r8dtlwvb.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/r8dtlwvb.entry.js",
 		0,
 		"common",
-		154
+		151
 	],
 	"./r8dtlwvb.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/r8dtlwvb.sc.entry.js",
 		0,
 		"common",
-		155
+		152
 	],
 	"./rkecsmgc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/rkecsmgc.entry.js",
 		"common",
-		122
+		117
 	],
 	"./rkecsmgc.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/rkecsmgc.sc.entry.js",
 		"common",
-		123
+		118
 	],
 	"./rrpxfm2a.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/rrpxfm2a.entry.js",
-		156
+		153
 	],
 	"./rrpxfm2a.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/rrpxfm2a.sc.entry.js",
-		157
+		154
 	],
 	"./senscofp.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/senscofp.entry.js",
 		"common",
-		40
+		71
 	],
 	"./senscofp.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/senscofp.sc.entry.js",
 		"common",
-		41
+		72
 	],
 	"./tjefn81q.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/tjefn81q.entry.js",
 		"common",
-		42
+		73
 	],
 	"./tjefn81q.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/tjefn81q.sc.entry.js",
 		"common",
-		43
+		74
 	],
 	"./tlbladaf.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/tlbladaf.entry.js",
 		"common",
-		44
+		75
 	],
 	"./tlbladaf.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/tlbladaf.sc.entry.js",
 		"common",
-		45
+		76
 	],
 	"./tn7df4wj.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/tn7df4wj.entry.js",
 		"common",
-		124
+		119
 	],
 	"./tn7df4wj.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/tn7df4wj.sc.entry.js",
 		"common",
-		125
+		120
 	],
 	"./uhyavx6a.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/uhyavx6a.entry.js",
 		0,
 		"common",
-		158
+		155
 	],
 	"./uhyavx6a.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/uhyavx6a.sc.entry.js",
 		0,
 		"common",
-		159
+		156
 	],
 	"./vompwuhi.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/vompwuhi.entry.js",
 		"common",
-		46
+		77
 	],
 	"./vompwuhi.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/vompwuhi.sc.entry.js",
 		"common",
-		47
+		78
 	],
 	"./vypdotd0.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/vypdotd0.entry.js",
 		"common",
-		48
+		79
 	],
 	"./vypdotd0.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/vypdotd0.sc.entry.js",
 		"common",
-		49
+		80
 	],
 	"./wb4mk1b9.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wb4mk1b9.entry.js",
 		0,
 		"common",
-		160
+		157
 	],
 	"./wb4mk1b9.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wb4mk1b9.sc.entry.js",
 		0,
 		"common",
-		161
+		158
 	],
 	"./whjbxjrd.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/whjbxjrd.entry.js",
 		0,
 		"common",
-		112
+		159
 	],
 	"./whjbxjrd.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/whjbxjrd.sc.entry.js",
 		0,
 		"common",
-		113
+		160
 	],
 	"./wjdsdnuu.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wjdsdnuu.entry.js",
 		"common",
-		86
+		81
 	],
 	"./wjdsdnuu.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wjdsdnuu.sc.entry.js",
 		"common",
-		87
+		82
 	],
 	"./wrpzmdqx.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wrpzmdqx.entry.js",
 		"common",
-		50
+		83
 	],
 	"./wrpzmdqx.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wrpzmdqx.sc.entry.js",
 		"common",
-		51
+		84
 	],
 	"./wzw9zscm.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wzw9zscm.entry.js",
 		0,
 		"common",
-		162
+		161
 	],
 	"./wzw9zscm.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/wzw9zscm.sc.entry.js",
 		0,
 		"common",
-		163
+		162
 	],
 	"./x5xnv4jv.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/x5xnv4jv.entry.js",
 		0,
 		"common",
-		164
+		163
 	],
 	"./x5xnv4jv.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/x5xnv4jv.sc.entry.js",
 		0,
 		"common",
-		165
+		164
 	],
 	"./xajhwvib.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/xajhwvib.entry.js",
 		"common",
-		88
+		85
 	],
 	"./xajhwvib.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/xajhwvib.sc.entry.js",
 		"common",
-		89
+		86
 	],
 	"./xo7dncgt.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/xo7dncgt.entry.js",
 		"common",
-		90
+		87
 	],
 	"./xo7dncgt.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/xo7dncgt.sc.entry.js",
 		"common",
-		91
+		88
 	],
 	"./yifvz1ud.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/yifvz1ud.entry.js",
 		"common",
-		92
+		89
 	],
 	"./yifvz1ud.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/yifvz1ud.sc.entry.js",
 		"common",
-		93
+		90
 	],
 	"./ymem7pf1.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ymem7pf1.entry.js",
 		"common",
-		52
+		91
 	],
 	"./ymem7pf1.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ymem7pf1.sc.entry.js",
 		"common",
-		53
+		92
 	],
 	"./ziv0mko0.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ziv0mko0.entry.js",
 		"common",
-		126
+		121
 	],
 	"./ziv0mko0.sc.entry.js": [
 		"./node_modules/@ionic/core/dist/esm/es5/build/ziv0mko0.sc.entry.js",
 		"common",
-		127
+		122
 	]
 };
 function webpackAsyncContext(req) {
@@ -848,14 +844,6 @@ var map = {
 	"./public/register/register.module": [
 		"./src/app/public/register/register.module.ts",
 		"public-register-register-module"
-	],
-	"./vanbanden/vanbandenformykien/vanbandenformykien.module": [
-		"./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module.ts",
-		"vanbanden-vanbandenformykien-vanbandenformykien-module"
-	],
-	"./vanbanden/ykienvanbanden/ykienvanbanden.module": [
-		"./src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module.ts",
-		"vanbanden-ykienvanbanden-ykienvanbanden-module"
 	],
 	"src/app/members/chitietvanbandi/chitietvanbandi.module": [
 		"./src/app/members/chitietvanbandi/chitietvanbandi.module.ts",
@@ -914,7 +902,7 @@ var map = {
 	],
 	"src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module": [
 		"./src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module.ts",
-		"vanbanden-ykienvanbanden-ykienvanbanden-module"
+		"src-app-members-vanbanden-ykienvanbanden-ykienvanbanden-module"
 	],
 	"src/app/members/vanbandi/vanbandi.module": [
 		"./src/app/members/vanbandi/vanbandi.module.ts",
@@ -1170,10 +1158,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
 /* harmony import */ var src_app_providers_Utility__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/providers/Utility */ "./src/app/providers/Utility.ts");
 /* harmony import */ var src_app_members_congviec_congviecform_congviecform_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/members/congviec/congviecform/congviecform.module */ "./src/app/members/congviec/congviecform/congviecform.module.ts");
-/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
-/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/esm5/ngx-chips.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var src_app_members_vanbanden_vanbandenformykien_vanbandenformykien_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module */ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module.ts");
+/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
+/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/esm5/ngx-chips.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
 
 
 
@@ -1212,11 +1202,12 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
                 src_app_members_congviec_congviecform_congviecform_module__WEBPACK_IMPORTED_MODULE_13__["CongviecformPageModule"],
-                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_14__["AutoCompleteModule"],
-                ngx_chips__WEBPACK_IMPORTED_MODULE_15__["TagInputModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__["BrowserAnimationsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_17__["ReactiveFormsModule"],
+                src_app_members_vanbanden_vanbandenformykien_vanbandenformykien_module__WEBPACK_IMPORTED_MODULE_14__["VanbandenformykienPageModule"],
+                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_15__["AutoCompleteModule"],
+                ngx_chips__WEBPACK_IMPORTED_MODULE_16__["TagInputModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_18__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_18__["ReactiveFormsModule"],
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(),
                 _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__["JwtModule"].forRoot({
                     jwtOptionsProvider: {
@@ -1413,6 +1404,175 @@ var CongviecformPage = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Events"]])
     ], CongviecformPage);
     return CongviecformPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module.ts ***!
+  \***********************************************************************************/
+/*! exports provided: VanbandenformykienPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandenformykienPageModule", function() { return VanbandenformykienPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
+/* harmony import */ var _vanbandenformykien_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vanbandenformykien.page */ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.ts");
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _vanbandenformykien_page__WEBPACK_IMPORTED_MODULE_7__["VanbandenformykienPage"]
+    }
+];
+var VanbandenformykienPageModule = /** @class */ (function () {
+    function VanbandenformykienPageModule() {
+    }
+    VanbandenformykienPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                ionic_selectable__WEBPACK_IMPORTED_MODULE_6__["IonicSelectableModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_vanbandenformykien_page__WEBPACK_IMPORTED_MODULE_7__["VanbandenformykienPage"]]
+        })
+    ], VanbandenformykienPageModule);
+    return VanbandenformykienPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>    \r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-button (click)=\"closePopup()\">\r\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\r\n            </ion-button>\r\n        </ion-buttons>\r\n        <ion-title>Chuyển xử lý</ion-title>\r\n      </ion-toolbar>    \r\n</ion-header>\r\n\r\n<ion-content>\r\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\r\n    <ion-grid>\r\n      <ion-row>\r\n          <ion-col size=\"12\">\r\n              <ion-item>\r\n                  <ion-label position=\"stacked\">Nội dung</ion-label>\r\n                  <ion-textarea placeholder=\"Nhập nội dung...\" formControlName=\"NoiDung\"></ion-textarea>\r\n                  <input type=\"hidden\" formControlName=\"VanBanID\" value=\"{{VanBanID}}\">\r\n              </ion-item>\r\n          </ion-col>\r\n      </ion-row>\r\n      <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Đơn vị xử lý</ion-label>\r\n                  <ionic-selectable  [(ngModel)]=\"donvi\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"strLtsDonViDauMoi\"  [shouldStoreItemValue]=\"true\"\r\n                \r\n                  itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị xử lý\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\r\n                </ionic-selectable>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Đơn vị phối hợp</ion-label>\r\n                <ionic-selectable [(ngModel)]=\"donviph\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"strLtsDonViPhoiHop\"  [shouldStoreItemValue]=\"true\"\r\n                itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị phối hợp\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\r\n              </ionic-selectable>\r\n              </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Đơn vị nhận để biết</ion-label>\r\n                <ionic-selectable [(ngModel)]=\"donvixem\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"strLtsDonViXem\"  [shouldStoreItemValue]=\"true\"\r\n                itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị nhận để biết\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\r\n              </ionic-selectable>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Người xử lý</ion-label>\r\n                <ionic-selectable [(ngModel)]=\"nguoidung\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"strLtsNguoiDungDauMoi\"  [shouldStoreItemValue]=\"true\"\r\n                itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người xử lý\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\r\n              </ionic-selectable>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Người phối hợp</ion-label>\r\n                <ionic-selectable [(ngModel)]=\"nguoidungph\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"strLtsNguoiDungPhoiHop\"  [shouldStoreItemValue]=\"true\"\r\n                itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người phối hợp\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\r\n              </ionic-selectable>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Người nhận để biết</ion-label>\r\n                <ionic-selectable [(ngModel)]=\"nguoidungxem\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"strLtsNguoiDungNhan\"  [shouldStoreItemValue]=\"true\"\r\n                itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người nhận để biết\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\r\n              </ionic-selectable>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                <ion-label position=\"stacked\">Hạn xử lý</ion-label>\r\n                 <ion-datetime display-format=\"DD/MM/YYYY\" doneText=\"Chọn\" cancelText=\"Hủy\" formControlName=\"strHanXuLy\"></ion-datetime>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n    <ion-row>\r\n        <ion-col size=\"12\">\r\n            <ion-item>\r\n                   <ion-button class=\"btn-login\"  type=\"submit\" [disabled]=\"!credentialsForm.valid\" outline >Gửi</ion-button>\r\n            </ion-item>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n      </ion-grid>\r\n    </form>\r\n</ion-content>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.scss ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".button-clear {\n  --color: #fff !important; }\n\nion-button.ios.button.button-full.button-solid.ion-activatable.ion-focusable.hydrated {\n  --background: #c49d6b; }\n\n.button-native {\n  background: #8e693b; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy92YW5iYW5kZW4vdmFuYmFuZGVuZm9ybXlraWVuL0U6XFxQcm9qZWN0XFxNaW5lXFxNb2JpbGVcXFZpY2VtXFxFb2ZmaWNlQXBwL3NyY1xcYXBwXFxtZW1iZXJzXFx2YW5iYW5kZW5cXHZhbmJhbmRlbmZvcm15a2llblxcdmFuYmFuZGVuZm9ybXlraWVuLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHdCQUFRLEVBQUE7O0FBRVo7RUFDSSxxQkFBYSxFQUFBOztBQUVqQjtFQUNJLG1CQUFtQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvbWVtYmVycy92YW5iYW5kZW4vdmFuYmFuZGVuZm9ybXlraWVuL3ZhbmJhbmRlbmZvcm15a2llbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnV0dG9uLWNsZWFye1xyXG4gICAgLS1jb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xyXG59XHJcbmlvbi1idXR0b24uaW9zLmJ1dHRvbi5idXR0b24tZnVsbC5idXR0b24tc29saWQuaW9uLWFjdGl2YXRhYmxlLmlvbi1mb2N1c2FibGUuaHlkcmF0ZWQge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjYzQ5ZDZiO1xyXG59XHJcbi5idXR0b24tbmF0aXZle1xyXG4gICAgYmFja2dyb3VuZDogIzhlNjkzYjtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.ts ***!
+  \*********************************************************************************/
+/*! exports provided: VanbandenformykienPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandenformykienPage", function() { return VanbandenformykienPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+
+var VanbandenformykienPage = /** @class */ (function () {
+    function VanbandenformykienPage(navParams, modalController, formBuilder, authService, events, route) {
+        this.navParams = navParams;
+        this.modalController = modalController;
+        this.formBuilder = formBuilder;
+        this.authService = authService;
+        this.events = events;
+        this.route = route;
+        this.tags = ['Ionic', 'Angular', 'TypeScript'];
+    }
+    VanbandenformykienPage.prototype.ngOnInit = function () {
+        this.credentialsForm = this.formBuilder.group({
+            NoiDung: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+            strLtsDonViDauMoi: [],
+            strLtsDonViPhoiHop: [],
+            strLtsDonViXem: [],
+            strLtsNguoiDungDauMoi: [],
+            strLtsNguoiDungPhoiHop: [],
+            strLtsNguoiDungNhan: [],
+            strHanXuLy: [],
+            VanBanID: this.navParams.get('id')
+        });
+        this.loadDonVi();
+        this.loadnguoidung();
+    };
+    VanbandenformykienPage.prototype.loadnguoidung = function () {
+        var _this = this;
+        this.authService.getnguoiDungXuLy().subscribe(function (res) {
+            _this.lstnguoidung = res["Data"];
+        });
+    };
+    VanbandenformykienPage.prototype.loadDonVi = function () {
+        var _this = this;
+        this.authService.getAllDonVi().subscribe(function (res) {
+            _this.lstdonvi = res["Data"];
+        });
+    };
+    VanbandenformykienPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.postVanBanDenykien(this.credentialsForm.value).subscribe(function (res) {
+            console.log('login thanh công.');
+            _this.events.publish('user:login');
+        });
+    };
+    VanbandenformykienPage.prototype.portChangeDonvi = function (event) {
+        console.log('port:', event.value[0].ID);
+    };
+    VanbandenformykienPage.prototype.closePopup = function () {
+        this.modalController.dismiss();
+    };
+    VanbandenformykienPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-vanbandenformykien',
+            template: __webpack_require__(/*! ./vanbandenformykien.page.html */ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.html"),
+            styles: [__webpack_require__(/*! ./vanbandenformykien.page.scss */ "./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
+            src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Events"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
+    ], VanbandenformykienPage);
+    return VanbandenformykienPage;
 }());
 
 
@@ -2344,6 +2504,17 @@ var AuthenticationService = /** @class */ (function () {
     };
     AuthenticationService.prototype.getVanBanDuThaoHome = function () {
         return this.get('api/VanBanDuThao/GetDuThaoVanBanHome', null);
+    };
+    //lấy tất cả đơn vị
+    AuthenticationService.prototype.getAllDonVi = function () {
+        return this.get('api/DonVi/GetDonViAll', null);
+    };
+    //lấy người dùng xử lý
+    AuthenticationService.prototype.getnguoiDungXuLy = function () {
+        return this.get('api/NguoiDung/GetnguoiDungXuLy', null);
+    };
+    AuthenticationService.prototype.postVanBanDenykien = function (data) {
+        return this.post('api/vanbanden/YKien', data);
     };
     //các hàm đăng ký service
     AuthenticationService.prototype.postVanBanDen = function (data) {

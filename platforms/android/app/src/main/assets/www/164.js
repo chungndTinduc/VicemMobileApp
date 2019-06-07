@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[164],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/es5/build/x5xnv4jv.entry.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/es5/build/x5xnv4jv.entry.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/@ionic/core/dist/esm/es5/build/x5xnv4jv.sc.entry.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/es5/build/x5xnv4jv.sc.entry.js ***!
+  \**************************************************************************/
 /*! exports provided: IonPopover, IonPopoverController */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
