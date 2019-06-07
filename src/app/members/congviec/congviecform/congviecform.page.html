@@ -1,105 +1,165 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-button (click)="closePopup()">
-              <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-        <ion-title>Thêm mới công việc</ion-title>
-      
-    </ion-toolbar>
-  </ion-header>
-
-<ion-content>
-    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
-      <ion-grid>
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="stacked">Tên công việc</ion-label>
-                      <ion-input  formControlName="Ten"  placeholder="Nhập tên công việc"></ion-input>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="stacked">Mã công việc</ion-label>
-                      <ion-input  formControlName="Ma"  placeholder="Nhập mã công việc"></ion-input>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label  position="stacked">Ngày bắt đầu</ion-label>
-                      <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="NgayBatDau" placeholder="Nhập ngày bắt đầu">
-                      </ion-datetime>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label  position="stacked">Hạn xử lý</ion-label>
-                      <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="NgayKetThuc"  placeholder="Nhập ngày kết thúc"> 
-                      </ion-datetime>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col size="12">
-                  <ion-item>
-                      <ion-label position="stacked">Nội dung công việc</ion-label><br>
-                      <ion-textarea  formControlName="NoiDung" placeholder="Nhập nội dung"></ion-textarea>
-                  </ion-item>
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col size="6">
-                  <ion-item>
-                      <ion-label  position="stacked">Độ quan trọng</ion-label>
-                      <ion-select placeholder="Độ quan trọng">
-                        <ion-select-option value="14">Bình thường</ion-select-option>
-                        <ion-select-option value="15">Quan trọng</ion-select-option>
-                        <ion-select-option value="16">Rất quan trọng</ion-select-option>
-                      </ion-select>
-                    </ion-item>
-              </ion-col>
-              <ion-col size="6">
-                  <ion-item>
-                      <ion-label  position="stacked">Độ ưu tiên</ion-label>
-                      <ion-select placeholder="Độ ưu tiên" >
-                        <ion-select-option value="17">Bình thường</ion-select-option>
-                        <ion-select-option value="18">Gấp</ion-select-option>
-                        <ion-select-option value="19">Rất gấp</ion-select-option>
-                      </ion-select>
-                    </ion-item>
-              </ion-col>
-          </ion-row>
-        </ion-grid>
-        <div class="box-component">
-            <span class="title-box">Thành phần tham gia</span>
-        <ion-grid>
-            <ion-row>
-              <ion-col size="12">
-                 <ion-item>
-                    <ion-label position="stacked">Đơn vị xử lý</ion-label>
-                    
-                    </ion-item>
-                 </ion-col>
-            </ion-row>
-        </ion-grid>
-        <ion-grid>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button (click)="closePopup()">
+                  <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>Thêm mới công việc</ion-title>
+          
+        </ion-toolbar>
+      </ion-header>
+    
+    <ion-content>
+        <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+          <ion-grid>
+              <ion-row>
+                  <ion-col size="12">
+                      <ion-item>
+                          <ion-label position="stacked">Tên công việc</ion-label>
+                          <ion-input  formControlName="Ten"  placeholder="Nhập tên công việc"></ion-input>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col size="12">
+                      <ion-item>
+                          <ion-label position="stacked">Mã công việc</ion-label>
+                          <ion-input  formControlName="Ma"  placeholder="Nhập mã công việc"></ion-input>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col size="12">
+                      <ion-item>
+                          <ion-label  position="stacked">Ngày bắt đầu</ion-label>
+                          <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="NgayBatDau" placeholder="Nhập ngày bắt đầu">
+                          </ion-datetime>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col size="12">
+                      <ion-item>
+                          <ion-label  position="stacked">Hạn xử lý</ion-label>
+                          <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="NgayKetThuc"  placeholder="Nhập ngày kết thúc"> 
+                          </ion-datetime>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col size="12">
+                      <ion-item>
+                          <ion-label position="stacked">Nội dung công việc</ion-label><br>
+                          <ion-textarea  formControlName="NoiDung" placeholder="Nhập nội dung"></ion-textarea>
+                      </ion-item>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col size="6">
+                      <ion-item>
+                          <ion-label  position="stacked">Độ quan trọng</ion-label>
+                          <ion-select placeholder="Độ quan trọng">
+                            <ion-select-option value="14">Bình thường</ion-select-option>
+                            <ion-select-option value="15">Quan trọng</ion-select-option>
+                            <ion-select-option value="16">Rất quan trọng</ion-select-option>
+                          </ion-select>
+                        </ion-item>
+                  </ion-col>
+                  <ion-col size="6">
+                      <ion-item>
+                          <ion-label  position="stacked">Độ ưu tiên</ion-label>
+                          <ion-select placeholder="Độ ưu tiên" >
+                            <ion-select-option value="17">Bình thường</ion-select-option>
+                            <ion-select-option value="18">Gấp</ion-select-option>
+                            <ion-select-option value="19">Rất gấp</ion-select-option>
+                          </ion-select>
+                        </ion-item>
+                  </ion-col>
+              </ion-row>
+            </ion-grid>
+            <div class="box-component">
+                <span class="title-box">Thành phần tham gia</span>
+            <ion-grid>
                 <ion-row>
                   <ion-col size="12">
                      <ion-item>
-                        <ion-label position="stacked">Tên công việc</ion-label>
-                          <ion-input  formControlName="Ten"  placeholder="Nhập tên công việc"></ion-input>
-                         </ion-item>
+                        <ion-label position="stacked">Đơn vị xử lý</ion-label>
+                        <tag-input  formControlName="DonViXuLy"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn đơn vị xử lý'"  [secondaryPlaceholder]="'Chọn đơn vị xử lý'">
+                            <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                            [dynamicUpdate]="false"
+                                            [focusFirstElement]="true"
+                                            [displayBy]="'value'"
+                                            [identifyBy]="'id'"
+                                            [autocompleteItems]="donViXulyObj">
+                                <ng-template let-item="item" let-index="index">
+                                  {{ item.id }}: {{ item.value }}
+                                </ng-template>
+                            </tag-input-dropdown>
+                          </tag-input>
+                        </ion-item>
                      </ion-col>
                 </ion-row>
-            </ion-grid>
-        </div>
-    </form>
-</ion-content>
+                <ion-row>
+                        <ion-col size="12">
+                           <ion-item>
+                              <ion-label position="stacked">Người xử lý</ion-label>
+                              <tag-input  formControlName="NguoiXuLy"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn người xử lý'"   [secondaryPlaceholder]="'Chọn người xử lý'">
+                                  <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                                  [dynamicUpdate]="false"
+                                                  [focusFirstElement]="true"
+                                                  [displayBy]="'value'"
+                                                  [identifyBy]="'id'"
+                                                  [autocompleteItems]="nguoiXuLyObj">
+                                      <ng-template let-item="item" let-index="index">
+                                        {{ item.id }}: {{ item.value }}
+                                      </ng-template>
+                                  </tag-input-dropdown>
+                                </tag-input>
+                              </ion-item>
+                           </ion-col>
+                      </ion-row>
+                      <ion-row>
+                            <ion-col size="12">
+                               <ion-item>
+                                  <ion-label position="stacked">Đơn vị phối hợp</ion-label>
+                                  <tag-input  formControlName="DonViPhoiHop"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn đơn vị phối hợp'"   [secondaryPlaceholder]="'Chọn đơn vị phối hợp'">
+                                      <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                                      [dynamicUpdate]="false"
+                                                      [focusFirstElement]="true"
+                                                      [displayBy]="'value'"
+                                                      [identifyBy]="'id'"
+                                                      [autocompleteItems]="donViPhoiHopObj">
+                                          <ng-template let-item="item" let-index="index">
+                                            {{ item.id }}: {{ item.value }}
+                                          </ng-template>
+                                      </tag-input-dropdown>
+                                    </tag-input>
+                                  </ion-item>
+                               </ion-col>
+                          </ion-row>
+                          <ion-row>
+                                <ion-col size="12">
+                                   <ion-item>
+                                      <ion-label position="stacked">Người phối hợp</ion-label>
+                                      <tag-input  formControlName="NguoiPhoiHop"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn người phối hợp'"   [secondaryPlaceholder]="'Chọn người phối hợp'">
+                                          <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                                          [dynamicUpdate]="false"
+                                                          [focusFirstElement]="true"
+                                                          [displayBy]="'value'"
+                                                          [identifyBy]="'id'"
+                                                          [autocompleteItems]="nguoiPhoiHopObj">
+                                              <ng-template let-item="item" let-index="index">
+                                                {{ item.id }}: {{ item.value }}
+                                              </ng-template>
+                                          </tag-input-dropdown>
+                                        </tag-input>
+                                      </ion-item>
+                                   </ion-col>
+                              </ion-row>
+                 </ion-grid> 
+            
+            </div>
+        </form>
+    </ion-content>
+    

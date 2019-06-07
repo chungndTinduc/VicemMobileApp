@@ -12,6 +12,9 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
 import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module';
 import { AutoCompleteModule } from 'ionic4-auto-complete';
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -30,6 +33,10 @@ export function jwtOptionsFactory(storage) {
     HttpClientModule,
     CongviecformPageModule,
     AutoCompleteModule,
+    TagInputModule, 
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

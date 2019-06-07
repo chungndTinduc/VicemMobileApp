@@ -229,3 +229,12 @@ ion-item-option ion-icon {
 ion-row{
   margin-left: -10px;
 }
+.tag-input .input-wrapper {
+  align-items: flex-start;
+  tag-input {
+    width: 100%;
+  }
+}
+app-app-tabs{
+  background: #fff;
+}
