@@ -2866,7 +2866,7 @@ var routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'dashboard',
+                redirectTo: 'congviec',
                 pathMatch: 'full'
             },
             { path: 'dashboard', loadChildren: 'src/app/members/dashboard/dashboard.module#DashboardPageModule' },
@@ -2891,6 +2891,10 @@ var routes = [
                     {
                         path: 'chitietvanbanden/:vanbandenid',
                         loadChildren: 'src/app/members/vanbanden/chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule'
+                    },
+                    {
+                        path: 'ykienvanbanden/:vanbandenid',
+                        loadChildren: 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule'
                     },
                 ]
             },
@@ -3041,6 +3045,10 @@ var routes = [
                         path: 'chitietvanbanden/:vanbandenid',
                         loadChildren: 'src/app/members/vanbanden/chitietvanbanden/chitietvanbanden.module#ChitietvanbandenPageModule'
                     },
+                    {
+                        path: 'ykienvanbanden/:vanbandenid',
+                        loadChildren: 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule'
+                    },
                 ]
             },
             { path: 'vanbandi',
@@ -3184,7 +3192,7 @@ var AppTabsPage = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-app-tabs',
             template: __webpack_require__(/*! ./app-tabs.page.html */ "./src/app/members/app-tabs/app-tabs.page.html"),
-            styles: [__webpack_require__(/*! ./app-tabs.page.scss */ "./src/app/members/app-tabs/app-tabs.page.scss")]
+            styles: [__webpack_require__(/*! ./app-tabs.page.scss */ "./src/app/members/app-tabs/app-tabs.page.scss"), __webpack_require__(/*! ./auto-complete.scss */ "./src/app/members/app-tabs/auto-complete.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AppTabsPage);
@@ -3192,6 +3200,17 @@ var AppTabsPage = /** @class */ (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "./src/app/members/app-tabs/auto-complete.scss":
+/*!*****************************************************!*\
+  !*** ./src/app/members/app-tabs/auto-complete.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-auto-complete {\n  overflow: hidden !important;\n  width: 90vw;\n  display: inline-block; }\n  ion-auto-complete ion-searchbar {\n    padding: 1px !important; }\n  ion-auto-complete .disabled input.searchbar-input {\n    pointer-events: none;\n    cursor: default; }\n  ion-auto-complete ul {\n    position: absolute;\n    width: 90vw;\n    margin-top: 0;\n    background: #FFF;\n    list-style-type: none;\n    padding: 0;\n    left: 16px;\n    z-index: 999;\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n  ion-auto-complete ul li {\n      padding: 15px;\n      border-bottom: 1px solid #c1c1c1; }\n  ion-auto-complete ul ion-auto-complete-item {\n      height: 40px;\n      width: 100%; }\n  ion-auto-complete ul li:last-child {\n      border: none; }\n  ion-auto-complete ul li:hover {\n      cursor: pointer;\n      background: #f1f1f1; }\n  ion-auto-complete .hidden {\n    display: none; }\n  ion-auto-complete .loading input.searchbar-input {\n    background: white url(/assets/loading.gif) no-repeat right center;\n    background-size: 25px 25px; }\n  ion-auto-complete .selected-items {\n    float: left; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy9hcHAtdGFicy9FOlxcUHJvamVjdFxcTWluZVxcTW9iaWxlXFxWaWNlbVxcRW9mZmljZUFwcC9zcmNcXGFwcFxcbWVtYmVyc1xcYXBwLXRhYnNcXGF1dG8tY29tcGxldGUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDJCQUEyQjtFQUMzQixXQUFjO0VBQ2QscUJBQXNCLEVBQUE7RUFIeEI7SUFNSSx1QkFBdUIsRUFBQTtFQU4zQjtJQVVJLG9CQUFvQjtJQUNwQixlQUFlLEVBQUE7RUFYbkI7SUFlSSxrQkFBeUI7SUFDekIsV0FBcUI7SUFDckIsYUFBa0I7SUFDbEIsZ0JBQXFCO0lBQ3JCLHFCQUFxQjtJQUNyQixVQUFrQjtJQUNsQixVQUFxQjtJQUNyQixZQUFvQjtJQUNwQiwrR0FBb0gsRUFBQTtFQXZCeEg7TUEwQk0sYUFBbUI7TUFDbkIsZ0NBQWdDLEVBQUE7RUEzQnRDO01BK0JNLFlBQVk7TUFDWixXQUFZLEVBQUE7RUFoQ2xCO01Bb0NNLFlBQVksRUFBQTtFQXBDbEI7TUF3Q00sZUFBbUI7TUFDbkIsbUJBQ0YsRUFBQTtFQTFDSjtJQThDSSxhQUFhLEVBQUE7RUE5Q2pCO0lBa0RJLGlFQUFzRTtJQUN0RSwwQkFBMEIsRUFBQTtFQW5EOUI7SUF1REksV0FBVyxFQUFBIiwiZmlsZSI6InNyYy9hcHAvbWVtYmVycy9hcHAtdGFicy9hdXRvLWNvbXBsZXRlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tYXV0by1jb21wbGV0ZSB7XG4gIG92ZXJmbG93OiBoaWRkZW4gIWltcG9ydGFudDtcbiAgd2lkdGg6ICAgIDkwdnc7XG4gIGRpc3BsYXk6ICBpbmxpbmUtYmxvY2s7XG5cbiAgaW9uLXNlYXJjaGJhciB7XG4gICAgcGFkZGluZzogMXB4ICFpbXBvcnRhbnQ7XG4gIH1cblxuICAuZGlzYWJsZWQgaW5wdXQuc2VhcmNoYmFyLWlucHV0IHtcbiAgICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgICBjdXJzb3I6IGRlZmF1bHQ7XG4gIH1cblxuICB1bCB7XG4gICAgcG9zaXRpb246ICAgICAgICBhYnNvbHV0ZTtcbiAgICB3aWR0aDogICAgICAgICAgIDkwdnc7XG4gICAgbWFyZ2luLXRvcDogICAgICAwO1xuICAgIGJhY2tncm91bmQ6ICAgICAgI0ZGRjtcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XG4gICAgcGFkZGluZzogICAgICAgICAwO1xuICAgIGxlZnQ6ICAgICAgICAgICAgMTZweDtcbiAgICB6LWluZGV4OiAgICAgICAgIDk5OTtcbiAgICBib3gtc2hhZG93OiAgICAgIDAgMnB4IDJweCAwIHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcblxuICAgIGxpIHtcbiAgICAgIHBhZGRpbmc6ICAgICAgIDE1cHg7XG4gICAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2MxYzFjMTtcbiAgICB9XG5cbiAgICBpb24tYXV0by1jb21wbGV0ZS1pdGVtIHtcbiAgICAgIGhlaWdodDogNDBweDtcbiAgICAgIHdpZHRoOiAgMTAwJTtcbiAgICB9XG5cbiAgICBsaTpsYXN0LWNoaWxkIHtcbiAgICAgIGJvcmRlcjogbm9uZTtcbiAgICB9XG5cbiAgICBsaTpob3ZlciB7XG4gICAgICBjdXJzb3I6ICAgICBwb2ludGVyO1xuICAgICAgYmFja2dyb3VuZDogI2YxZjFmMVxuICAgIH1cbiAgfVxuXG4gIC5oaWRkZW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAubG9hZGluZyBpbnB1dC5zZWFyY2hiYXItaW5wdXQge1xuICAgIGJhY2tncm91bmQ6ICAgICAgd2hpdGUgdXJsKC9hc3NldHMvbG9hZGluZy5naWYpIG5vLXJlcGVhdCByaWdodCBjZW50ZXI7XG4gICAgYmFja2dyb3VuZC1zaXplOiAyNXB4IDI1cHg7XG4gIH1cblxuICAuc2VsZWN0ZWQtaXRlbXMge1xuICAgIGZsb2F0OiBsZWZ0O1xuICB9XG59Il19 */"
 
 /***/ })
 

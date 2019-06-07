@@ -849,6 +849,14 @@ var map = {
 		"./src/app/public/register/register.module.ts",
 		"public-register-register-module"
 	],
+	"./vanbanden/vanbandenformykien/vanbandenformykien.module": [
+		"./src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module.ts",
+		"vanbanden-vanbandenformykien-vanbandenformykien-module"
+	],
+	"./vanbanden/ykienvanbanden/ykienvanbanden.module": [
+		"./src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module.ts",
+		"vanbanden-ykienvanbanden-ykienvanbanden-module"
+	],
 	"src/app/members/chitietvanbandi/chitietvanbandi.module": [
 		"./src/app/members/chitietvanbandi/chitietvanbandi.module.ts",
 		"src-app-members-chitietvanbandi-chitietvanbandi-module"
@@ -903,6 +911,10 @@ var map = {
 	"src/app/members/vanbanden/vanbandenxulychinh/vanbandenxulychinh.module": [
 		"./src/app/members/vanbanden/vanbandenxulychinh/vanbandenxulychinh.module.ts",
 		"src-app-members-vanbanden-vanbandenxulychinh-vanbandenxulychinh-module"
+	],
+	"src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module": [
+		"./src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module.ts",
+		"vanbanden-ykienvanbanden-ykienvanbanden-module"
 	],
 	"src/app/members/vanbandi/vanbandi.module": [
 		"./src/app/members/vanbandi/vanbandi.module.ts",
@@ -1091,6 +1103,8 @@ var AppComponent = /** @class */ (function () {
             this.appPages.push(datapage);
             var datapage = { title: 'xem file', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/viewfile', color: 'medium' };
             this.appPages.push(datapage);
+            var datapage = { title: 'xem file', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/vanbanden/ykienvanbanden/7001', color: 'medium' };
+            this.appPages.push(datapage);
         }
     };
     AppComponent.prototype.logout = function () {
@@ -1156,6 +1170,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
 /* harmony import */ var src_app_providers_Utility__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/providers/Utility */ "./src/app/providers/Utility.ts");
 /* harmony import */ var src_app_members_congviec_congviecform_congviecform_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/members/congviec/congviecform/congviecform.module */ "./src/app/members/congviec/congviecform/congviecform.module.ts");
+/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
+/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/esm5/ngx-chips.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 
 
 
@@ -1169,6 +1187,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+ // this is needed!
 
 function jwtOptionsFactory(storage) {
     return {
@@ -1190,6 +1212,11 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
                 src_app_members_congviec_congviecform_congviecform_module__WEBPACK_IMPORTED_MODULE_13__["CongviecformPageModule"],
+                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_14__["AutoCompleteModule"],
+                ngx_chips__WEBPACK_IMPORTED_MODULE_15__["TagInputModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__["BrowserAnimationsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_17__["ReactiveFormsModule"],
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(),
                 _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__["JwtModule"].forRoot({
                     jwtOptionsProvider: {
@@ -1231,7 +1258,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _congviecform_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./congviecform.page */ "./src/app/members/congviec/congviecform/congviecform.page.ts");
+/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/esm5/ngx-chips.js");
+/* harmony import */ var _congviecform_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./congviecform.page */ "./src/app/members/congviec/congviecform/congviecform.page.ts");
+
 
 
 
@@ -1242,7 +1271,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     {
         path: '',
-        component: _congviecform_page__WEBPACK_IMPORTED_MODULE_6__["CongviecformPage"]
+        component: _congviecform_page__WEBPACK_IMPORTED_MODULE_7__["CongviecformPage"]
     }
 ];
 var CongviecformPageModule = /** @class */ (function () {
@@ -1253,11 +1282,12 @@ var CongviecformPageModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                ngx_chips__WEBPACK_IMPORTED_MODULE_6__["TagInputModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
             ],
-            declarations: [_congviecform_page__WEBPACK_IMPORTED_MODULE_6__["CongviecformPage"]]
+            declarations: [_congviecform_page__WEBPACK_IMPORTED_MODULE_7__["CongviecformPage"]]
         })
     ], CongviecformPageModule);
     return CongviecformPageModule;
@@ -1274,7 +1304,7 @@ var CongviecformPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-button (click)=\"closePopup()\">\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n        <ion-title>Thêm mới công việc</ion-title>\n      \n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n      <ion-grid>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label position=\"stacked\">Tên công việc</ion-label>\n                      <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label position=\"stacked\">Mã công việc</ion-label>\n                      <ion-input  formControlName=\"Ma\"  placeholder=\"Nhập mã công việc\"></ion-input>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Ngày bắt đầu</ion-label>\n                      <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayBatDau\" placeholder=\"Nhập ngày bắt đầu\">\n                      </ion-datetime>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Hạn xử lý</ion-label>\n                      <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayKetThuc\"  placeholder=\"Nhập ngày kết thúc\"> \n                      </ion-datetime>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"12\">\n                  <ion-item>\n                      <ion-label position=\"stacked\">Nội dung công việc</ion-label><br>\n                      <ion-textarea  formControlName=\"NoiDung\" placeholder=\"Nhập nội dung\"></ion-textarea>\n                  </ion-item>\n              </ion-col>\n          </ion-row>\n          <ion-row>\n              <ion-col size=\"6\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Độ quan trọng</ion-label>\n                      <ion-select placeholder=\"Độ quan trọng\">\n                        <ion-select-option value=\"14\">Bình thường</ion-select-option>\n                        <ion-select-option value=\"15\">Quan trọng</ion-select-option>\n                        <ion-select-option value=\"16\">Rất quan trọng</ion-select-option>\n                      </ion-select>\n                    </ion-item>\n              </ion-col>\n              <ion-col size=\"6\">\n                  <ion-item>\n                      <ion-label  position=\"stacked\">Độ ưu tiên</ion-label>\n                      <ion-select placeholder=\"Độ ưu tiên\">\n                        <ion-select-option value=\"17\">Bình thường</ion-select-option>\n                        <ion-select-option value=\"18\">Gấp</ion-select-option>\n                        <ion-select-option value=\"19\">Rất gấp</ion-select-option>\n                      </ion-select>\n                    </ion-item>\n              </ion-col>\n          </ion-row>\n        </ion-grid>\n        <div class=\"box-component\">\n            <span class=\"title-box\">Thành phần tham gia</span>\n        <ion-grid>\n            <ion-row>\n              <ion-col size=\"12\">\n                 <ion-item>\n                    <ion-label position=\"stacked\">Tên công việc</ion-label>\n                      <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\n                     </ion-item>\n                 </ion-col>\n            </ion-row>\n        </ion-grid>\n        <ion-grid>\n                <ion-row>\n                  <ion-col size=\"12\">\n                     <ion-item>\n                        <ion-label position=\"stacked\">Tên công việc</ion-label>\n                          <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\n                         </ion-item>\n                     </ion-col>\n                </ion-row>\n            </ion-grid>\n        </div>\n    </form>\n</ion-content>\n"
+module.exports = "<ion-header>\n        <ion-toolbar>\n            <ion-buttons slot=\"start\">\n                <ion-button (click)=\"closePopup()\">\n                  <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n                </ion-button>\n            </ion-buttons>\n            <ion-title>Thêm mới công việc</ion-title>\n          \n        </ion-toolbar>\n      </ion-header>\n    \n    <ion-content>\n        <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n          <ion-grid>\n              <ion-row>\n                  <ion-col size=\"12\">\n                      <ion-item>\n                          <ion-label position=\"stacked\">Tên công việc</ion-label>\n                          <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\n                      </ion-item>\n                  </ion-col>\n              </ion-row>\n              <ion-row>\n                  <ion-col size=\"12\">\n                      <ion-item>\n                          <ion-label position=\"stacked\">Mã công việc</ion-label>\n                          <ion-input  formControlName=\"Ma\"  placeholder=\"Nhập mã công việc\"></ion-input>\n                      </ion-item>\n                  </ion-col>\n              </ion-row>\n              <ion-row>\n                  <ion-col size=\"12\">\n                      <ion-item>\n                          <ion-label  position=\"stacked\">Ngày bắt đầu</ion-label>\n                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayBatDau\" placeholder=\"Nhập ngày bắt đầu\">\n                          </ion-datetime>\n                      </ion-item>\n                  </ion-col>\n              </ion-row>\n              <ion-row>\n                  <ion-col size=\"12\">\n                      <ion-item>\n                          <ion-label  position=\"stacked\">Hạn xử lý</ion-label>\n                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayKetThuc\"  placeholder=\"Nhập ngày kết thúc\"> \n                          </ion-datetime>\n                      </ion-item>\n                  </ion-col>\n              </ion-row>\n              <ion-row>\n                  <ion-col size=\"12\">\n                      <ion-item>\n                          <ion-label position=\"stacked\">Nội dung công việc</ion-label><br>\n                          <ion-textarea  formControlName=\"NoiDung\" placeholder=\"Nhập nội dung\"></ion-textarea>\n                      </ion-item>\n                  </ion-col>\n              </ion-row>\n              <ion-row>\n                  <ion-col size=\"6\">\n                      <ion-item>\n                          <ion-label  position=\"stacked\">Độ quan trọng</ion-label>\n                          <ion-select placeholder=\"Độ quan trọng\">\n                            <ion-select-option value=\"14\">Bình thường</ion-select-option>\n                            <ion-select-option value=\"15\">Quan trọng</ion-select-option>\n                            <ion-select-option value=\"16\">Rất quan trọng</ion-select-option>\n                          </ion-select>\n                        </ion-item>\n                  </ion-col>\n                  <ion-col size=\"6\">\n                      <ion-item>\n                          <ion-label  position=\"stacked\">Độ ưu tiên</ion-label>\n                          <ion-select placeholder=\"Độ ưu tiên\" >\n                            <ion-select-option value=\"17\">Bình thường</ion-select-option>\n                            <ion-select-option value=\"18\">Gấp</ion-select-option>\n                            <ion-select-option value=\"19\">Rất gấp</ion-select-option>\n                          </ion-select>\n                        </ion-item>\n                  </ion-col>\n              </ion-row>\n            </ion-grid>\n            <div class=\"box-component\">\n                <span class=\"title-box\">Thành phần tham gia</span>\n            <ion-grid>\n                <ion-row>\n                  <ion-col size=\"12\">\n                     <ion-item>\n                        <ion-label position=\"stacked\">Đơn vị xử lý</ion-label>\n                        <tag-input  formControlName=\"DonViXuLy\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn đơn vị xử lý'\"  [secondaryPlaceholder]=\"'Chọn đơn vị xử lý'\">\n                            <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\n                                            [dynamicUpdate]=\"false\"\n                                            [focusFirstElement]=\"true\"\n                                            [displayBy]=\"'value'\"\n                                            [identifyBy]=\"'id'\"\n                                            [autocompleteItems]=\"donViXulyObj\">\n                                <ng-template let-item=\"item\" let-index=\"index\">\n                                  {{ item.id }}: {{ item.value }}\n                                </ng-template>\n                            </tag-input-dropdown>\n                          </tag-input>\n                        </ion-item>\n                     </ion-col>\n                </ion-row>\n                <ion-row>\n                        <ion-col size=\"12\">\n                           <ion-item>\n                              <ion-label position=\"stacked\">Người xử lý</ion-label>\n                              <tag-input  formControlName=\"NguoiXuLy\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn người xử lý'\"   [secondaryPlaceholder]=\"'Chọn người xử lý'\">\n                                  <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\n                                                  [dynamicUpdate]=\"false\"\n                                                  [focusFirstElement]=\"true\"\n                                                  [displayBy]=\"'value'\"\n                                                  [identifyBy]=\"'id'\"\n                                                  [autocompleteItems]=\"nguoiXuLyObj\">\n                                      <ng-template let-item=\"item\" let-index=\"index\">\n                                        {{ item.id }}: {{ item.value }}\n                                      </ng-template>\n                                  </tag-input-dropdown>\n                                </tag-input>\n                              </ion-item>\n                           </ion-col>\n                      </ion-row>\n                      <ion-row>\n                            <ion-col size=\"12\">\n                               <ion-item>\n                                  <ion-label position=\"stacked\">Đơn vị phối hợp</ion-label>\n                                  <tag-input  formControlName=\"DonViPhoiHop\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn đơn vị phối hợp'\"   [secondaryPlaceholder]=\"'Chọn đơn vị phối hợp'\">\n                                      <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\n                                                      [dynamicUpdate]=\"false\"\n                                                      [focusFirstElement]=\"true\"\n                                                      [displayBy]=\"'value'\"\n                                                      [identifyBy]=\"'id'\"\n                                                      [autocompleteItems]=\"donViPhoiHopObj\">\n                                          <ng-template let-item=\"item\" let-index=\"index\">\n                                            {{ item.id }}: {{ item.value }}\n                                          </ng-template>\n                                      </tag-input-dropdown>\n                                    </tag-input>\n                                  </ion-item>\n                               </ion-col>\n                          </ion-row>\n                          <ion-row>\n                                <ion-col size=\"12\">\n                                   <ion-item>\n                                      <ion-label position=\"stacked\">Người phối hợp</ion-label>\n                                      <tag-input  formControlName=\"NguoiPhoiHop\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn người phối hợp'\"   [secondaryPlaceholder]=\"'Chọn người phối hợp'\">\n                                          <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\n                                                          [dynamicUpdate]=\"false\"\n                                                          [focusFirstElement]=\"true\"\n                                                          [displayBy]=\"'value'\"\n                                                          [identifyBy]=\"'id'\"\n                                                          [autocompleteItems]=\"nguoiPhoiHopObj\">\n                                              <ng-template let-item=\"item\" let-index=\"index\">\n                                                {{ item.id }}: {{ item.value }}\n                                              </ng-template>\n                                          </tag-input-dropdown>\n                                        </tag-input>\n                                      </ion-item>\n                                   </ion-col>\n                              </ion-row>\n                              <ion-row>\n                                <ion-col size=\"4\">\n                                </ion-col>\n                                <ion-col size=\"4\">\n                                    <ion-button  class=\"btn-theme\"  color=\"theme\"  type=\"submit\" >Thêm mới</ion-button>\n                                </ion-col>\n                                <ion-col size=\"4\">\n                                </ion-col>\n                              </ion-row>\n                 </ion-grid> \n            \n            </div>\n        </form>\n    </ion-content>\n    "
 
 /***/ }),
 
@@ -1317,11 +1347,43 @@ var CongviecformPage = /** @class */ (function () {
         this.authService = authService;
         this.events = events;
         this.congviecId = null;
+        this.donViXulyObj = [
+            { value: 'Văn phòng', id: 1, extra: 1 },
+            { value: 'Phòng Công nghệ thông tin', id: 2, extra: 1 },
+            { value: 'Phòng tài chính', id: 3, extra: 1 },
+            { value: 'Ban lãnh đạo', id: 4, extra: 1 }
+        ];
+        this.nguoiXuLyObj = [
+            { value: 'Hoàng Văn Dũng', id: 1, extra: 1 },
+            { value: 'Lê Hồng Quân', id: 2, extra: 1 },
+            { value: 'Đặng Văn Bổng', id: 3, extra: 1 },
+            { value: 'Nguyễn Thế Công', id: 4, extra: 1 }
+        ];
+        this.donViPhoiHopObj = [
+            { value: 'Văn phòng', id: 1, extra: 1 },
+            { value: 'Phòng Công nghệ thông tin', id: 2, extra: 1 },
+            { value: 'Phòng tài chính', id: 3, extra: 1 },
+            { value: 'Ban lãnh đạo', id: 4, extra: 1 }
+        ];
+        this.nguoiPhoiHopObj = [
+            { value: 'Hoàng Văn Dũng', id: 1, extra: 1 },
+            { value: 'Lê Hồng Quân', id: 2, extra: 1 },
+            { value: 'Đặng Văn Bổng', id: 3, extra: 1 },
+            { value: 'Nguyễn Thế Công', id: 4, extra: 1 }
+        ];
     }
     CongviecformPage.prototype.ngOnInit = function () {
         this.congviecId = this.navParams.get('id');
         this.credentialsForm = this.formBuilder.group({
             Ten: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+            Ma: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+            NgayBatDau: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+            NgayKetThuc: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+            NoiDung: ['', []],
+            DonViXuLy: ['', []],
+            NguoiXuLy: ['', []],
+            DonViPhoiHop: ['', []],
+            NguoiPhoiHop: ['', []],
         });
     };
     CongviecformPage.prototype.closePopup = function () {
@@ -1333,6 +1395,9 @@ var CongviecformPage = /** @class */ (function () {
             console.log('login thanh công.');
             _this.events.publish('user:login');
         });
+    };
+    CongviecformPage.prototype.verifyTag = function (str) {
+        return str !== 'ABC' && str.trim() !== '';
     };
     CongviecformPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2219,6 +2284,9 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.getVanBanDenXuLyChinh = function (data) {
         return this.get('api/vanbanden/GetVanBanDenNguoiXuLy', data);
     };
+    AuthenticationService.prototype.getYKienVanBanDen = function (data) {
+        return this.get('api/vanbanden/GetYKienByVanBanID', data);
+    };
     AuthenticationService.prototype.getVanBanDenByID = function (data) {
         return this.get('api/vanbanden/GetByID', data);
     };
@@ -2504,8 +2572,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    //url:'http://test.e-office.vn/'
-    url: 'http://localhost:5000/'
+    url: 'http://test.e-office.vn/'
+    //url:'http://localhost:5000/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

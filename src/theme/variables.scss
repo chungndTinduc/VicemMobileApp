@@ -83,7 +83,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   vibrant:    rebeccapurple,
-  bright:     #ffc125
+  bright:     #ffc125,
+  theme:      #b36b0f
 );
 ion-label div span:first-child{
   font-weight: bold;
@@ -237,4 +238,13 @@ ion-row{
 }
 app-app-tabs{
   background: #fff;
+}
+.btn-theme{
+  color: #b36b0f !important;
+  color: #fff  !important;
+  --color: #b36b0f !important;
+  --color: #fff  !important;
+  --ion-color-base: #b36b0f !important;
+  --ion-color-shade: #b36b0f !important;
+  --ion-color-tint: #b36b0f !important;
 }

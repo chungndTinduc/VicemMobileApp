@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com.telerik.plugins.nativepagetransitions": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
@@ -30,9 +33,6 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-sqlite-storage": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "com.telerik.plugins.nativepagetransitions": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },

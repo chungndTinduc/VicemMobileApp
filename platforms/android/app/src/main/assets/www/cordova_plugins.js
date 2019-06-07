@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
+      "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
+      "pluginId": "com.telerik.plugins.nativepagetransitions",
+      "clobbers": [
+        "window.plugins.nativepagetransitions"
+      ]
+    },
+    {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
@@ -56,17 +64,10 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "SQLitePlugin"
       ]
-    },
-    {
-      "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
-      "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
-      "pluginId": "com.telerik.plugins.nativepagetransitions",
-      "clobbers": [
-        "window.plugins.nativepagetransitions"
-      ]
     }
   ];
   module.exports.metadata = {
+    "com.telerik.plugins.nativepagetransitions": "0.6.5",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-document-viewer": "0.9.10",
     "cordova-plugin-ionic-keyboard": "2.1.3",
@@ -74,7 +75,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-sqlite-storage": "3.2.0",
-    "com.telerik.plugins.nativepagetransitions": "0.6.5"
+    "cordova-sqlite-storage": "3.2.0"
   };
 });
