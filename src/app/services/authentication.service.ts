@@ -120,6 +120,14 @@ export class AuthenticationService {
    getVanBanDuThaoHome(){
     return this.get('api/VanBanDuThao/GetDuThaoVanBanHome',null);
    }
+   //lấy tất cả đơn vị
+   getAllDonVi(){
+    return this.get('api/DonVi/GetDonViAll',null);
+   }
+   //lấy người dùng xử lý
+   getnguoiDungXuLy(){
+    return this.get('api/NguoiDung/GetnguoiDungXuLy',null);
+   }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);

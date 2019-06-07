@@ -6,8 +6,8 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     
-  },  { path: 'ykienvanbanden', loadChildren: './vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule' },
-  { path: 'vanbandenformykien', loadChildren: './vanbanden/vanbandenformykien/vanbandenformykien.module#VanbandenformykienPageModule' }
+  },
+
 
 ];
 

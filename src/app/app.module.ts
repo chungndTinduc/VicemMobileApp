@@ -11,6 +11,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
 import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module';
+import {VanbandenformykienPageModule} from 'src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module'
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 export function jwtOptionsFactory(storage) {
   return {
@@ -29,6 +30,7 @@ export function jwtOptionsFactory(storage) {
     AppRoutingModule,
     HttpClientModule,
     CongviecformPageModule,
+    VanbandenformykienPageModule,
     AutoCompleteModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({

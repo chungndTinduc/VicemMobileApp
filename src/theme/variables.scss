@@ -229,3 +229,11 @@ ion-item-option ion-icon {
 ion-row{
   margin-left: -10px;
 }
+ion-button.ios.button.button-full.button-solid.ion-activatable.ion-focusable.hydrated {
+  --background: #8e693b;
+  --background-activated:#735631;
+  margin-left: 10px;
+}
+ion-button.ios.button.button-clear.ion-activatable.ion-focusable.hydrated span{
+  color: #fff;
+}

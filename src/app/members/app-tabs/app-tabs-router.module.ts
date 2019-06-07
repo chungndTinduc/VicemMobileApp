@@ -39,6 +39,11 @@ const routes: Routes = [
           path: 'ykienvanbanden/:vanbandenid', 
           loadChildren: 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule'
        },
+    //    { 
+    //     path: 'vanbandenformykien/:vanbandenid', 
+    //     loadChildren: 'src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module#vanbandenformykienPageModule'
+    //  },
+    
       ]
      },
       { path: 'vanbandi',     
