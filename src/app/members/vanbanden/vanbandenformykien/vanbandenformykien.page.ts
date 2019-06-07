@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder,ReactiveFormsModule  } from '@angula
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { IonicSelectableComponent } from 'src/app/members/components/ionic-selectable/ionic-selectable.module'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vanbandenformykien',
@@ -18,25 +19,31 @@ export class VanbandenformykienPage implements OnInit {
   donvixem:{ID:0,Ten:''};
   lstnguoidung:any;
   nguoidung:any;
+  nguoidungph:any;
+  nguoidungxem:any;
+  VanBanID:Number
   tags = ['Ionic', 'Angular', 'TypeScript'];
   constructor(  private navParams: NavParams,
     private modalController: ModalController,   
     private formBuilder: FormBuilder,    
     private authService: AuthenticationService,
-    private events: Events
-    ) { }
+    private events: Events,
+    private route: ActivatedRoute
+    ) { 
+    }
 
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
       NoiDung:['',[ Validators.minLength(3)]],   
-      strLtsDonViDauMoi:[''],  
-      strLtsDonViPhoiHop:[''], 
-      strLtsDonViXem:[''], 
-      strLtsNguoiDungDauMoi:[''],
-      strLtsNguoiDungPhoiHop:[''],
-      strLtsNguoiDungNhan:[''],
-      strHanXuLy:['']
-    });
+      strLtsDonViDauMoi:[],  
+      strLtsDonViPhoiHop:[], 
+      strLtsDonViXem:[], 
+      strLtsNguoiDungDauMoi:[],
+      strLtsNguoiDungPhoiHop:[],
+      strLtsNguoiDungNhan:[],
+      strHanXuLy:[],
+      VanBanID: this.navParams.get('id')
+    });  
     this.loadDonVi();
     this.loadnguoidung();
   }
@@ -51,7 +58,7 @@ export class VanbandenformykienPage implements OnInit {
     });
   }
   onSubmit() {
-    this.authService.login(this.credentialsForm.value).subscribe(res => {
+    this.authService.postVanBanDenykien(this.credentialsForm.value).subscribe(res => {
       console.log('login thanh công.');
       this.events.publish('user:login');
     });

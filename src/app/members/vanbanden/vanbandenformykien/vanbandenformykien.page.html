@@ -17,6 +17,7 @@
               <ion-item>
                   <ion-label position="stacked">Nội dung</ion-label>
                   <ion-textarea placeholder="Nhập nội dung..." formControlName="NoiDung"></ion-textarea>
+                  <input type="hidden" formControlName="VanBanID" value="{{VanBanID}}">
               </ion-item>
           </ion-col>
       </ion-row>
@@ -24,7 +25,7 @@
         <ion-col size="12">
             <ion-item>
                 <ion-label position="stacked">Đơn vị xử lý</ion-label>
-                  <ionic-selectable  itemValueField="ID" [isMultiple]="true" formControlName="strLtsDonViDauMoi"  [shouldStoreItemValue]="true"
+                  <ionic-selectable  [(ngModel)]="donvi" itemValueField="ID" [isMultiple]="true" formControlName="strLtsDonViDauMoi"  [shouldStoreItemValue]="true"
                 
                   itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
                 </ionic-selectable>
@@ -65,7 +66,7 @@
         <ion-col size="12">
             <ion-item>
                 <ion-label position="stacked">Người phối hợp</ion-label>
-                <ionic-selectable [(ngModel)]="nguoidung" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungPhoiHop"  [shouldStoreItemValue]="true"
+                <ionic-selectable [(ngModel)]="nguoidungph" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungPhoiHop"  [shouldStoreItemValue]="true"
                 itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
               </ionic-selectable>
             </ion-item>
@@ -75,7 +76,7 @@
         <ion-col size="12">
             <ion-item>
                 <ion-label position="stacked">Người nhận để biết</ion-label>
-                <ionic-selectable [(ngModel)]="nguoidung" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungNhan"  [shouldStoreItemValue]="true"
+                <ionic-selectable [(ngModel)]="nguoidungxem" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungNhan"  [shouldStoreItemValue]="true"
                 itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người nhận để biết" confirmButtonText="Chọn" closeButtonText="Hủy">
               </ionic-selectable>
             </ion-item>
@@ -85,7 +86,7 @@
         <ion-col size="12">
             <ion-item>
                 <ion-label position="stacked">Hạn xử lý</ion-label>
-                 <ion-datetime display-format="DD-MM-YYYY" doneText="Chọn" cancelText="Hủy" formControlName="strHanXuLy"></ion-datetime>
+                 <ion-datetime display-format="DD/MM/YYYY" doneText="Chọn" cancelText="Hủy" formControlName="strHanXuLy"></ion-datetime>
             </ion-item>
         </ion-col>
     </ion-row>

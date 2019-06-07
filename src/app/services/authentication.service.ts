@@ -128,6 +128,9 @@ export class AuthenticationService {
    getnguoiDungXuLy(){
     return this.get('api/NguoiDung/GetnguoiDungXuLy',null);
    }
+   postVanBanDenykien(data) {
+    return this.post('api/vanbanden/YKien',data);
+  }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
