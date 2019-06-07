@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+
+import {VanbandenformykienPage} from 'src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.page'
 
 @Component({
   selector: 'app-ykienvanbanden',
@@ -14,7 +17,7 @@ export class YkienvanbandenPage implements OnInit {
   public dataquery ={VanBanID:0};
   total=0;
   ID:any;
-  constructor(private authService:AuthenticationService, private route: ActivatedRoute) { }
+  constructor(private authService:AuthenticationService, private route: ActivatedRoute,public modalController: ModalController) { }
 
 
   ngOnInit() {
@@ -28,5 +31,11 @@ export class YkienvanbandenPage implements OnInit {
       this.lstobject = res["Data"];      
     });
   }
-
+  async presentModal(_id) {
+    const modal = await this.modalController.create({
+      component: VanbandenformykienPage,
+      componentProps: { id: _id }
+    });
+    return await modal.present();
+  }
 }

@@ -1,9 +1,103 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>vanbandenformykien</ion-title>
-  </ion-toolbar>
+<ion-header>    
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closePopup()">
+              <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Chuyển xử lý</ion-title>
+      </ion-toolbar>    
 </ion-header>
 
 <ion-content>
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked">Nội dung</ion-label>
+                  <ion-textarea placeholder="Nhập nội dung..." formControlName="NoiDung"></ion-textarea>
+                  <input type="hidden" formControlName="VanBanID" value="{{VanBanID}}">
+              </ion-item>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Đơn vị xử lý</ion-label>
+                  <ionic-selectable  [(ngModel)]="donvi" itemValueField="ID" [isMultiple]="true" formControlName="strLtsDonViDauMoi"  [shouldStoreItemValue]="true"
+                
+                  itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
+                </ionic-selectable>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Đơn vị phối hợp</ion-label>
+                <ionic-selectable [(ngModel)]="donviph" itemValueField="ID" [isMultiple]="true" formControlName="strLtsDonViPhoiHop"  [shouldStoreItemValue]="true"
+                itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
+              </ionic-selectable>
+              </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Đơn vị nhận để biết</ion-label>
+                <ionic-selectable [(ngModel)]="donvixem" itemValueField="ID" [isMultiple]="true" formControlName="strLtsDonViXem"  [shouldStoreItemValue]="true"
+                itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị nhận để biết" confirmButtonText="Chọn" closeButtonText="Hủy">
+              </ionic-selectable>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Người xử lý</ion-label>
+                <ionic-selectable [(ngModel)]="nguoidung" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungDauMoi"  [shouldStoreItemValue]="true"
+                itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
+              </ionic-selectable>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Người phối hợp</ion-label>
+                <ionic-selectable [(ngModel)]="nguoidungph" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungPhoiHop"  [shouldStoreItemValue]="true"
+                itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
+              </ionic-selectable>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Người nhận để biết</ion-label>
+                <ionic-selectable [(ngModel)]="nguoidungxem" itemValueField="id" [isMultiple]="true" formControlName="strLtsNguoiDungNhan"  [shouldStoreItemValue]="true"
+                itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người nhận để biết" confirmButtonText="Chọn" closeButtonText="Hủy">
+              </ionic-selectable>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                <ion-label position="stacked">Hạn xử lý</ion-label>
+                 <ion-datetime display-format="DD/MM/YYYY" doneText="Chọn" cancelText="Hủy" formControlName="strHanXuLy"></ion-datetime>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-item>
+                   <ion-button class="btn-login"  type="submit" [disabled]="!credentialsForm.valid" outline >Gửi</ion-button>
+            </ion-item>
+        </ion-col>
+    </ion-row>
 
+      </ion-grid>
+    </form>
 </ion-content>

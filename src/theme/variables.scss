@@ -238,8 +238,15 @@ ion-row{
 }
 app-app-tabs{
   background: #fff;
+}ion-button.ios.button.button-full.button-solid.ion-activatable.ion-focusable.hydrated {
+  --background: #8e693b;
+  --background-activated:#735631;
+  margin-left: 10px;
 }
-.btn-theme{
+ion-button.ios.button.button-clear.ion-activatable.ion-focusable.hydrated span{
+  color: #fff;
+}
+btn-theme{
   color: #b36b0f !important;
   color: #fff  !important;
   --color: #b36b0f !important;
