@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[136],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/es5/build/devt5yhg.entry.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/es5/build/devt5yhg.entry.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/@ionic/core/dist/esm/es5/build/devt5yhg.sc.entry.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/es5/build/devt5yhg.sc.entry.js ***!
+  \**************************************************************************/
 /*! exports provided: IonAlert, IonAlertController */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

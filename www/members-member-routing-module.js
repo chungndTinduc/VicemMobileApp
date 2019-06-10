@@ -20,7 +20,7 @@ var routes = [
     {
         path: '',
         loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
-    }
+    },
 ];
 var MemberRoutingModule = /** @class */ (function () {
     function MemberRoutingModule() {

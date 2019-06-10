@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  //  url:'http://test.e-office.vn/'
+  //url:'http://test.e-office.vn/'
    url:'http://localhost:5000/'
 };
 
