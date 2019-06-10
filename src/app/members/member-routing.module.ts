@@ -6,7 +6,10 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     
-  },  { path: 'vanbandenflowchart', loadChildren: './vanbanden/vanbandenflowchart/vanbandenflowchart.module#VanbandenflowchartPageModule' },
+  },
+  // { path: 'vanbandenflowchart', loadChildren: './vanbanden/vanbandenflowchart/vanbandenflowchart.module#VanbandenflowchartPageModule' },
+  // { path: 'capnhattrangthaivb', loadChildren: './vanbanden/capnhattrangthaivb/capnhattrangthaivb.module#CapnhattrangthaivbPageModule' },
+  // { path: 'capnhattrangthaicanhan', loadChildren: './vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.module#CapnhattrangthaicanhanPageModule' },
 
 
 

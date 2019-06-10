@@ -21,14 +21,20 @@ export class YkienvanbandenPage implements OnInit {
 
 
   ngOnInit() {
+    
   }
   ionViewDidEnter(){
     this.load();
   }
+  // ionViewWillEnter(){
+  //   this.load();
+  // }
   load(){
+   
     this.dataquery.VanBanID = parseInt(this.route.snapshot.paramMap.get('vanbandenid'));
     this.authService.getYKienVanBanDen(this.dataquery).subscribe(res =>{
-      this.lstobject = res["Data"];      
+      this.lstobject = res["Data"];   
+  
     });
   }
   async presentModal(_id) {
@@ -36,6 +42,12 @@ export class YkienvanbandenPage implements OnInit {
       component: VanbandenformykienPage,
       componentProps: { id: _id }
     });
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!=null){
+      this.lstobject  = data['data']; 
+      }
+  });
     return await modal.present();
   }
 }

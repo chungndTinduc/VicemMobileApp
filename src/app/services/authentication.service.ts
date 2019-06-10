@@ -128,8 +128,17 @@ export class AuthenticationService {
    getnguoiDungXuLy(){
     return this.get('api/NguoiDung/GetnguoiDungXuLy',null);
    }
+   // ý kiến văn bản đến
    postVanBanDenykien(data) {
     return this.post('api/vanbanden/YKien',data);
+  }
+// cập nhật trạng thái cá nhân
+  postVanBanDenytrangthaicanhan(data) {
+    return this.post('api/vanbanden/HoanThanh',data);
+  }
+  // cập nhật trạng thái văn bản
+  postVanBanDenytrangthaivb(data) {
+    return this.post('api/vanbanden/Finish',data);
   }
   //các hàm đăng ký service
   postVanBanDen(data) {

@@ -255,6 +255,10 @@ ion-button.ios.button.button-clear.ion-activatable.ion-focusable.hydrated span{
   --ion-color-shade: #b36b0f !important;
   --ion-color-tint: #b36b0f !important;
 }
+ion-fab-button{
+  --background: #c49d6b;
+}
+
 .button-native{
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0px #d3d3d3;
