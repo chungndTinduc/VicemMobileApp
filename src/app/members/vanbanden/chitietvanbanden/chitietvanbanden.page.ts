@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import {CapnhattrangthaicanhanPage} from 'src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.page'
 import {CapnhattrangthaivbPage} from 'src/app/members/vanbanden/capnhattrangthaivb/capnhattrangthaivb.page'
-
+import {VanbandenflowchartPage} from 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page'
 @Component({
   selector: 'app-chitietvanbanden',
   templateUrl: './chitietvanbanden.page.html',
@@ -56,6 +56,15 @@ export class ChitietvanbandenPage implements OnInit {
       this.vanbanden  = data['data']; 
       }
   });
+    return await modal.present();
+  }
+
+  async presentModalluonglc(_id) {
+    const modal = await this.modalController.create({
+      component: VanbandenflowchartPage,
+      componentProps: { id: _id }
+    });
+  
     return await modal.present();
   }
 }

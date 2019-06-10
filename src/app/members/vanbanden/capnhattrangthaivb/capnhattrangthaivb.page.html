@@ -9,5 +9,72 @@
       </ion-toolbar>    
 </ion-header>
 <ion-content>
-
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+        <ion-grid>
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <input type="hidden" formControlName="ID" value="{{dataquery.ID}}">
+                      <ion-label position="stacked">Trạng thái</ion-label>
+                      <ion-select value="brown" okText="OK" cancelText="Hủy" placeholder="Chọn trạng thái" formControlName="TrangThaiID">
+                          <ion-select-option value="0">Chưa xử lý</ion-select-option>
+                          <ion-select-option value="1">Đang xử lý</ion-select-option>
+                          <ion-select-option value="3">Đã xử lý</ion-select-option>
+                        </ion-select>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="stacked">Ngày xử lý</ion-label>
+                       <ion-datetime display-format="DD/MM/YYYY" doneText="Chọn" cancelText="Hủy" formControlName="strNgayXuLy" placeholder="Chọn ngày xử lý" ></ion-datetime>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="stacked">Nội dung</ion-label>
+                      <ion-textarea placeholder="Nhập nội dung..." formControlName="strNoiDung"></ion-textarea>
+                      <input type="hidden" formControlName="ID" value="{{ID}}">
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="stacked">Khó khăn vướng mắc</ion-label>
+                      <ion-textarea placeholder="Nhập khó khăn vướng mắc..." formControlName="KhoKhan"></ion-textarea>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="stacked">Giải pháp và cam kết thực hiện</ion-label>
+                      <ion-textarea placeholder="Nhập giải pháp..." formControlName="GiaiPhap"></ion-textarea>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="stacked">Ra hạn thời gian</ion-label>
+                       <ion-datetime display-format="DD/MM/YYYY" doneText="Chọn" cancelText="Hủy" formControlName="RaHan" placeholder="Chọn ngày ra hạn" ></ion-datetime>
+                  </ion-item>
+              </ion-col>
+          </ion-row>
+          <ion-row class="row-button">
+              <ion-col size="12">    
+                         <ion-button color="success" type="submit" class="ion-button ion-button-save"  [disabled]="!credentialsForm.valid">
+                              <ion-icon name="paper" class="ion-icon-save"></ion-icon>
+                             Cập nhật</ion-button>
+                             <ion-button color="success"  class="ion-button ion-button-save" (click)="closePopup()">
+                                  <ion-icon name="close" class="ion-icon-close"></ion-icon>
+                                 Hủy</ion-button>
+              </ion-col>
+          </ion-row>
+          </ion-grid>
+          </form>
 </ion-content>

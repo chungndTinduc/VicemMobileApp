@@ -140,6 +140,9 @@ export class AuthenticationService {
   postVanBanDenytrangthaivb(data) {
     return this.post('api/vanbanden/Finish',data);
   }
+  getluongluanchuyenvanbanden(data){
+    return this.get('api/vanbanden/LuongLuanChuyenVanBan',data);
+   }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
