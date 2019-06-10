@@ -83,7 +83,13 @@
             <ion-grid>
                 <ion-row>
                   <ion-col size="12">
-                     <ion-item>
+                      <ion-item>
+                          <ion-label position="stacked">Đơn vị xử lý</ion-label>
+                            <ionic-selectable   itemValueField="ID" [isMultiple]="true" formControlName="DonViXuLy"  [shouldStoreItemValue]="true"
+                            itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
+                          </ionic-selectable>
+                      </ion-item>
+                     <!-- <ion-item>
                         <ion-label position="stacked">Đơn vị xử lý</ion-label>
                         <tag-input  formControlName="DonViXuLy"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn đơn vị xử lý'"  [secondaryPlaceholder]="'Chọn đơn vị xử lý'">
                             <tag-input-dropdown [showDropdownIfEmpty]="true"
@@ -97,12 +103,18 @@
                                 </ng-template>
                             </tag-input-dropdown>
                           </tag-input>
-                        </ion-item>
+                        </ion-item> -->
                      </ion-col>
                 </ion-row>
                 <ion-row>
                         <ion-col size="12">
-                           <ion-item>
+                            <ion-item>
+                                <ion-label position="stacked">Người xử lý</ion-label>
+                                <ionic-selectable [(ngModel)]="nguoidung" itemValueField="id" [isMultiple]="true" formControlName="NguoiXuLy"  [shouldStoreItemValue]="true"
+                                itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
+                              </ionic-selectable>
+                            </ion-item>
+                           <!-- <ion-item>
                               <ion-label position="stacked">Người xử lý</ion-label>
                               <tag-input  formControlName="NguoiXuLy"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn người xử lý'"   [secondaryPlaceholder]="'Chọn người xử lý'">
                                   <tag-input-dropdown [showDropdownIfEmpty]="true"
@@ -116,12 +128,18 @@
                                       </ng-template>
                                   </tag-input-dropdown>
                                 </tag-input>
-                              </ion-item>
+                              </ion-item> -->
                            </ion-col>
                       </ion-row>
                       <ion-row>
                             <ion-col size="12">
-                               <ion-item>
+                                <ion-item>
+                                    <ion-label position="stacked">Đơn vị phối hợp</ion-label>
+                                    <ionic-selectable [(ngModel)]="donviph" itemValueField="ID" [isMultiple]="true" formControlName="DonViPhoiHop"  [shouldStoreItemValue]="true"
+                                    itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
+                                  </ionic-selectable>
+                                  </ion-item>
+                               <!-- <ion-item>
                                   <ion-label position="stacked">Đơn vị phối hợp</ion-label>
                                   <tag-input  formControlName="DonViPhoiHop"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn đơn vị phối hợp'"   [secondaryPlaceholder]="'Chọn đơn vị phối hợp'">
                                       <tag-input-dropdown [showDropdownIfEmpty]="true"
@@ -135,12 +153,19 @@
                                           </ng-template>
                                       </tag-input-dropdown>
                                     </tag-input>
-                                  </ion-item>
+                                  </ion-item> -->
                                </ion-col>
                           </ion-row>
                           <ion-row>
                                 <ion-col size="12">
-                                   <ion-item>
+
+                                    <ion-item>
+                                        <ion-label position="stacked">Người phối hợp</ion-label>
+                                        <ionic-selectable [(ngModel)]="nguoidungph" itemValueField="id" [isMultiple]="true" formControlName="NguoiPhoiHop"  [shouldStoreItemValue]="true"
+                                        itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
+                                      </ionic-selectable>
+                                    </ion-item>
+                                   <!-- <ion-item>
                                       <ion-label position="stacked">Người phối hợp</ion-label>
                                       <tag-input  formControlName="NguoiPhoiHop"  [onlyFromAutocomplete]="true"  [placeholder]="'Chọn người phối hợp'"   [secondaryPlaceholder]="'Chọn người phối hợp'">
                                           <tag-input-dropdown [showDropdownIfEmpty]="true"
@@ -154,7 +179,7 @@
                                               </ng-template>
                                           </tag-input-dropdown>
                                         </tag-input>
-                                      </ion-item>
+                                      </ion-item> -->
                                    </ion-col>
                               </ion-row>
                               <ion-row>

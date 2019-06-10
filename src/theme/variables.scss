@@ -246,7 +246,7 @@ app-app-tabs{
 ion-button.ios.button.button-clear.ion-activatable.ion-focusable.hydrated span{
   color: #fff;
 }
-btn-theme{
+.btn-theme{
   color: #b36b0f !important;
   color: #fff  !important;
   --color: #b36b0f !important;
@@ -259,6 +259,7 @@ ion-fab-button{
   --background: #c49d6b;
 }
 
+<<<<<<< HEAD
 
 .contain-flowchart{
   overflow: auto;
@@ -357,3 +358,13 @@ overflow: auto;
   clear: both;
 }
 
+=======
+.button-native{
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px #d3d3d3;
+}
+
+ionic-selectable-modal ion-footer ion-toolbar{
+  --background: #ececec;
+}
+>>>>>>> 4c7cbf257096eab53976c49a2536cc8d292ea555
