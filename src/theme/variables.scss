@@ -259,7 +259,14 @@ ion-fab-button{
   --background: #c49d6b;
 }
 
-<<<<<<< HEAD
+.button-native{
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px #d3d3d3;
+}
+
+ionic-selectable-modal ion-footer ion-toolbar{
+  --background: #ececec;
+}
 
 .contain-flowchart{
   overflow: auto;
@@ -358,13 +365,3 @@ overflow: auto;
   clear: both;
 }
 
-=======
-.button-native{
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px 0px #d3d3d3;
-}
-
-ionic-selectable-modal ion-footer ion-toolbar{
-  --background: #ececec;
-}
->>>>>>> 4c7cbf257096eab53976c49a2536cc8d292ea555
