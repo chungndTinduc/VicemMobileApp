@@ -210,7 +210,7 @@ checkToken() {
         }),
         catchError(e => {
           this.dismissLoadding();
-          this.showAlert("Đã có lỗi xảy ra.");
+          this.presentToastFail("Đã có lỗi xảy ra.");
           throw new Error(e);
         })
       );
@@ -259,7 +259,7 @@ checkToken() {
         });
         observer.complete();
         this.dismissLoadding();
-        this.showAlert('Đã có lỗi xảy ra.');
+        this.presentToastFail('Đã có lỗi xảy ra.');
       },
         ()=>{
           this.dismissLoadding();
@@ -292,7 +292,7 @@ checkToken() {
         });
         observer.complete();
         this.dismissLoadding();
-        this.showAlert('Đã có lỗi xảy ra.');
+        this.presentToastFail('Đã có lỗi xảy ra.');
         return;
         },
         ()=>{

@@ -267,3 +267,12 @@ ion-fab-button{
 ionic-selectable-modal ion-footer ion-toolbar{
   --background: #ececec;
 }
+.hidden{
+  display: none !important;
+}
+.btn-header{
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #aa7d43;
+  background: #ac824c;
+}
