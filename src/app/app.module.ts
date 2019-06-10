@@ -15,6 +15,7 @@ import {VanbandenformykienPageModule} from 'src/app/members/vanbanden/vanbandenf
 
 import {CapnhattrangthaivbPageModule} from 'src/app/members/vanbanden/capnhattrangthaivb/capnhattrangthaivb.module'
 import {CapnhattrangthaicanhanPageModule} from 'src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.module'
+import {VanbandenflowchartPageModule} from 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module'
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -40,6 +41,7 @@ export function jwtOptionsFactory(storage) {
     VanbandenformykienPageModule,
     CapnhattrangthaivbPageModule,
     CapnhattrangthaicanhanPageModule,
+    VanbandenflowchartPageModule,
     AutoCompleteModule,
     TagInputModule, 
     BrowserAnimationsModule,
