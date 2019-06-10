@@ -1,0 +1,25 @@
+.button-clear{
+    --color: #fff !important;
+}
+ion-button.ios.button.button-full.button-solid.ion-activatable.ion-focusable.hydrated {
+    --background: #c49d6b;
+}
+.button-native{
+    background: #8e693b;
+}
+.ion-icon-save,
+    .ion-icon-close{
+    color: #fff;
+    padding-right: 4px;
+    padding-left: 0px;
+    margin-left: -7px;
+    width: 17px;
+}
+.ion-button-save{
+    max-height: 36px;
+    margin-left: 10px;
+    --ion-color-base: #AC8559 !important;
+}
+.row-button{
+    text-align:right;
+}

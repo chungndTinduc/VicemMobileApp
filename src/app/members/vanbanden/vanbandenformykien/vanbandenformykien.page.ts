@@ -47,7 +47,6 @@ export class VanbandenformykienPage implements OnInit {
       strLtsNguoiDungPhoiHop:[],
       strLtsNguoiDungNhan:[],
       strHanXuLy:[],
-
     });  
     
     this.loadDonVi();
@@ -66,10 +65,7 @@ export class VanbandenformykienPage implements OnInit {
   }
   onSubmit() {
     this.authService.postVanBanDenykien(this.credentialsForm.value).subscribe(res => {
-     
-  
-      this.closePopup();
-
+      this.closePopupupdate();
     });
   }
   portChangeDonvi(event: {
@@ -79,9 +75,14 @@ export class VanbandenformykienPage implements OnInit {
     console.log('port:', event.value[0].ID);
   }
   async closePopup(){
-     this.authService.getYKienVanBanDen(this.dataquery).subscribe(res =>{
-       this.lstdata = res["Data"];  
-       this.modalController.dismiss(this.lstdata);
-      });
+   
+       this.modalController.dismiss();
   }
+
+  async closePopupupdate(){
+    this.authService.getYKienVanBanDen(this.dataquery).subscribe(res =>{
+      this.lstdata = res["Data"];  
+      this.modalController.dismiss(this.lstdata);
+     });
+ }
 }

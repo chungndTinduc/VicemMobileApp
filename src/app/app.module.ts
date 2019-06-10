@@ -12,6 +12,9 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
 import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module';
 import {VanbandenformykienPageModule} from 'src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module'
+
+import {CapnhattrangthaivbPageModule} from 'src/app/members/vanbanden/capnhattrangthaivb/capnhattrangthaivb.module'
+import {CapnhattrangthaicanhanPageModule} from 'src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.module'
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -34,6 +37,8 @@ export function jwtOptionsFactory(storage) {
     HttpClientModule,
     CongviecformPageModule,
     VanbandenformykienPageModule,
+    CapnhattrangthaivbPageModule,
+    CapnhattrangthaicanhanPageModule,
     AutoCompleteModule,
     TagInputModule, 
     BrowserAnimationsModule,
