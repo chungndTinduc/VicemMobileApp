@@ -37,11 +37,23 @@ export class YkienvanbandenPage implements OnInit {
   
     });
   }
+  loadbyid(id){
+   debugger;
+    this.dataquery.VanBanID =id;
+    this.authService.getYKienVanBanDen(this.dataquery).subscribe(res =>{
+      this.lstobject = res["Data"];   
+  
+    });
+  }
   async presentModal(_id) {
     const modal = await this.modalController.create({
       component: VanbandenformykienPage,
       componentProps: { id: _id }
     });
+    modal.onDidDismiss()
+    .then((data) => {
+      this.lstobject  = data['data']; 
+  });
     return await modal.present();
   }
 }

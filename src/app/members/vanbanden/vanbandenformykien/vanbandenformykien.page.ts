@@ -5,7 +5,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { IonicSelectableComponent } from 'src/app/members/components/ionic-selectable/ionic-selectable.module'
 import { ActivatedRoute } from '@angular/router';
-//import {YkienvanbandenPage} from 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.page'
+import {YkienvanbandenPage} from 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.page'
 
 @Component({
   selector: 'app-vanbandenformykien',
@@ -24,6 +24,7 @@ export class VanbandenformykienPage implements OnInit {
   nguoidungph:any;
   nguoidungxem:any;
   VanBanID:Number
+  lstdata:any
   tags = ['Ionic', 'Angular', 'TypeScript'];
   constructor(  private navParams: NavParams,
     private modalController: ModalController,   
@@ -31,10 +32,10 @@ export class VanbandenformykienPage implements OnInit {
     private authService: AuthenticationService,
     private events: Events,
     private route: ActivatedRoute,
-  
+    //private YkienvanbandenPage: YkienvanbandenPage
     ) { 
     }
-  //  private YkienvanbandenPage: YkienvanbandenPage
+    private YkienvanbandenPage: YkienvanbandenPage
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
       VanBanID: this.navParams.get('id'),
@@ -65,6 +66,8 @@ export class VanbandenformykienPage implements OnInit {
   }
   onSubmit() {
     this.authService.postVanBanDenykien(this.credentialsForm.value).subscribe(res => {
+     
+  
       this.closePopup();
 
     });
@@ -76,8 +79,9 @@ export class VanbandenformykienPage implements OnInit {
     console.log('port:', event.value[0].ID);
   }
   async closePopup(){
-    // this.modalController.dismiss();
-    const modal = await this.modalController.getTop();
-    modal.dismiss();
+     this.authService.getYKienVanBanDen(this.dataquery).subscribe(res =>{
+       this.lstdata = res["Data"];  
+       this.modalController.dismiss(this.lstdata);
+      });
   }
 }

@@ -87,8 +87,16 @@
     </ion-label>
   </ion-item>  
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success" routerLink="/members/tabs/vanbanden/ykienvanbanden/{{vanbanden.ID}}" title="Chuyển xử lý">
-      <ion-icon name="paper-plane"></ion-icon>
+    <ion-fab-button>
+      <ion-icon name="hammer"></ion-icon>
     </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="shuffle"></ion-icon><ion-title>Luồng</ion-title>
+      </ion-fab-button>
+      <ion-fab-button  routerLink="/members/tabs/vanbanden/ykienvanbanden/{{vanbanden.ID}}" title="Chuyển xử lý"><ion-icon name="paper-plane"></ion-icon><ion-title>ý kiến</ion-title></ion-fab-button>
+      <ion-fab-button><ion-icon name="checkmark-circle"></ion-icon><ion-title>Trạng thái văn bản</ion-title></ion-fab-button>
+      <ion-fab-button><ion-icon name="checkbox"></ion-icon><ion-title>Trạng thái cá nhân</ion-title></ion-fab-button>
+    </ion-fab-list>
+   
   </ion-fab>
 </ion-content>
