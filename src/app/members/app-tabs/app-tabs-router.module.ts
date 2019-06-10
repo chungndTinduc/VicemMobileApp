@@ -38,7 +38,7 @@ const routes: Routes = [
         { 
           path: 'ykienvanbanden/:vanbandenid', 
           loadChildren: 'src/app/members/vanbanden/ykienvanbanden/ykienvanbanden.module#YkienvanbandenPageModule'
-       },
+        },
        {
         path: 'vanbandenflowchart',
         loadChildren: 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module#VanbandenflowchartPageModule'
