@@ -8,10 +8,14 @@
 
 .listtree{
     width: 5000px;
-}
-        
-        
-        .listtree ul {
+    padding: 10px
+} 
+ .scroll-contain{
+     height: 100%;
+     width: 100%;
+     overflow: auto;
+ }
+.listtree ul {
             display: inline;
             list-style: none;
         }
