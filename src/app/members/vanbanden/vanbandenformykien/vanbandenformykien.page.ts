@@ -34,7 +34,8 @@ export class VanbandenformykienPage implements OnInit {
 
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
-      NoiDung:['',[ Validators.minLength(3)]],   
+      VanBanID: this.navParams.get('id'),
+      strNoiDung:['',[ Validators.minLength(3)]],   
       strLtsDonViDauMoi:[],  
       strLtsDonViPhoiHop:[], 
       strLtsDonViXem:[], 
@@ -42,7 +43,7 @@ export class VanbandenformykienPage implements OnInit {
       strLtsNguoiDungPhoiHop:[],
       strLtsNguoiDungNhan:[],
       strHanXuLy:[],
-      VanBanID: this.navParams.get('id')
+
     });  
     this.loadDonVi();
     this.loadnguoidung();
