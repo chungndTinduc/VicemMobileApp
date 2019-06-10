@@ -7,7 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpModule } from '@angular/http';
 import { environment } from 'src/environments/environment';
-import { MenuController } from '@ionic/angular';
+import { MenuController,ToastController  } from '@ionic/angular';
 import{Utility} from 'src/app/providers/Utility';
 const TOKEN_KEY = 'auth-token';
 const CURRENT_USER = 'current-user';
@@ -30,7 +30,7 @@ export class AuthenticationService {
   authenticationState = new BehaviorSubject(false);
   loading:any;
   // alertController:any;
-  constructor(private storage: Storage, private plt: Platform, private http:HttpClient,private helper:JwtHelperService, private alertController:AlertController, public loadingController: LoadingController, private menuCtrl: MenuController, private utility:Utility)
+  constructor(private storage: Storage, private plt: Platform, private http:HttpClient,private helper:JwtHelperService, private alertController:AlertController, public loadingController: LoadingController, private menuCtrl: MenuController, private utility:Utility,private toastController: ToastController)
     {
     this.plt.ready().then(() => {
       this.checkToken();
@@ -139,7 +139,10 @@ export class AuthenticationService {
   getDanhSachCongViec(data){
     return this.get('api/CongViec/getDanhDachCongViec',data);
   }
-  
+  //thêm mới công việc
+  postCongViec(data){
+      return this.get('api/CongViec/AddOrEdit',data);
+    }
 //============================================================*********End danh sach dang ky service****======================= 
 
 
@@ -330,5 +333,51 @@ async dismissLoadding()
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
+
+
+  async presentToastSuccess(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'top',
+      color:'success'
+    });
+    toast.present();
+  }
+  
+  async presentToastFail(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'top',
+      color:'danger'
+    });
+    toast.present();
+  }
+
+  // async presentToastWithOptions() {
+  //   const toast = await this.toastController.create({
+  //     header: 'Toast header',
+  //     message: 'Click to Close',
+  //     position: 'top',
+  //     buttons: [
+  //       {
+  //         side: 'start',
+  //         icon: 'star',
+  //         text: 'Favorite',
+  //         handler: () => {
+  //           console.log('Favorite clicked');
+  //         }
+  //       }, {
+  //         text: 'Done',
+  //         role: 'cancel',
+  //         handler: () => {
+  //           console.log('Cancel clicked');
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   toast.present();
+  // }
 //================================================ end base function===============================================
 }

@@ -16,6 +16,7 @@ import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicSelectableModule } from 'ionic-selectable';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -39,6 +40,7 @@ export function jwtOptionsFactory(storage) {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    // IonicSelectableModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

@@ -246,7 +246,7 @@ app-app-tabs{
 ion-button.ios.button.button-clear.ion-activatable.ion-focusable.hydrated span{
   color: #fff;
 }
-btn-theme{
+.btn-theme{
   color: #b36b0f !important;
   color: #fff  !important;
   --color: #b36b0f !important;
@@ -254,4 +254,12 @@ btn-theme{
   --ion-color-base: #b36b0f !important;
   --ion-color-shade: #b36b0f !important;
   --ion-color-tint: #b36b0f !important;
+}
+.button-native{
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px #d3d3d3;
+}
+
+ionic-selectable-modal ion-footer ion-toolbar{
+  --background: #ececec;
 }

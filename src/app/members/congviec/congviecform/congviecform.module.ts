@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TagInputModule } from 'ngx-chips';
 import { CongviecformPage } from './congviecform.page';
-
+import { IonicSelectableModule } from 'ionic-selectable';
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +20,7 @@ const routes: Routes = [
     TagInputModule,
     ReactiveFormsModule,
     IonicModule,
+    IonicSelectableModule,
     RouterModule.forChild(routes)
   ],
   declarations: [CongviecformPage]
