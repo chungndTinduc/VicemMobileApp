@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild ,ElementRef} from '@angular/core';
 import { NavParams, ModalController,Events } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { IonicSelectableComponent } from 'src/app/members/components/ionic-selectable/ionic-selectable.module'
 @Component({
   selector: 'app-congviecform',
   templateUrl: './congviecform.page.html',
@@ -36,7 +37,7 @@ lstnguoidung:[];
     this.loadDonVi();
     this.loadnguoidung();
   }
-
+  @ViewChild('hiddenButton') hiddenButton:ElementRef;
   loadnguoidung(){
     this.authService.getnguoiDungXuLy().subscribe(res =>{
       this.lstnguoidung = res["Data"];      
@@ -54,8 +55,6 @@ lstnguoidung:[];
     this.authService.postCongViec(this.credentialsForm.value).subscribe(res => {
       if(res["StatusCode"] == 0){
         this.authService.presentToastSuccess(res["Data"]);
-      }else{
-        this.authService.presentToastFail("Đã có lỗi xảy ra");
       }
     
     });
@@ -65,5 +64,37 @@ lstnguoidung:[];
     return str !== 'ABC' && str.trim() !== '';
   }
 
+  DonViXuLyChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    console.log('don vi xu ly', event.value.join(","));
+  }
+
+  DonViPhoiHopChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    console.log('Don vi phoi hop', event.value.join(","));
+  }
  
+  NguoiXuLyChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    console.log('nguoi xu ly', event.value.join(","));
+  }
+  
+  NguoiPhoiHopChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    console.log('nguoi phoi hop', event.value.join(","));
+  }
+
+  
+  triggerSumbit() {
+    // this.hiddenButton.nativeElement.click();
+    document.getElementById('submitForm').click(); // doesn't work
+}
 }

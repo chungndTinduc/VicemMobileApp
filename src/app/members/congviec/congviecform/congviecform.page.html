@@ -6,7 +6,9 @@
                 </ion-button>
             </ion-buttons>
             <ion-title>Thêm mới công việc</ion-title>
-          
+            <ion-buttons slot="end">
+                <ion-button  class="btn-header"  color=""  type="submit" (click)="triggerSumbit()">Xong</ion-button>
+              </ion-buttons>
         </ion-toolbar>
       </ion-header>
     
@@ -86,7 +88,10 @@
                       <ion-item>
                           <ion-label position="stacked">Đơn vị xử lý</ion-label>
                             <ionic-selectable   itemValueField="ID" [isMultiple]="true" formControlName="DonViXuLy"  [shouldStoreItemValue]="true"
-                            itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
+                            itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị xử lý"
+                             confirmButtonText="Chọn" closeButtonText="Hủy"
+                             (onChange)="DonViXuLyChange($event)"
+                             >
                           </ionic-selectable>
                       </ion-item>
                      <!-- <ion-item>
@@ -111,7 +116,10 @@
                             <ion-item>
                                 <ion-label position="stacked">Người xử lý</ion-label>
                                 <ionic-selectable [(ngModel)]="nguoidung" itemValueField="id" [isMultiple]="true" formControlName="NguoiXuLy"  [shouldStoreItemValue]="true"
-                                itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người xử lý" confirmButtonText="Chọn" closeButtonText="Hủy">
+                                itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người xử lý"
+                                 confirmButtonText="Chọn" closeButtonText="Hủy"
+                                 (onChange)="NguoiXuLyChange($event)"
+                                 >
                               </ionic-selectable>
                             </ion-item>
                            <!-- <ion-item>
@@ -136,7 +144,10 @@
                                 <ion-item>
                                     <ion-label position="stacked">Đơn vị phối hợp</ion-label>
                                     <ionic-selectable [(ngModel)]="donviph" itemValueField="ID" [isMultiple]="true" formControlName="DonViPhoiHop"  [shouldStoreItemValue]="true"
-                                    itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
+                                    itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị phối hợp" 
+                                    confirmButtonText="Chọn" closeButtonText="Hủy"
+                                    (onChange)="DonViPhoiHopChange($event)"
+                                    >
                                   </ionic-selectable>
                                   </ion-item>
                                <!-- <ion-item>
@@ -162,7 +173,10 @@
                                     <ion-item>
                                         <ion-label position="stacked">Người phối hợp</ion-label>
                                         <ionic-selectable [(ngModel)]="nguoidungph" itemValueField="id" [isMultiple]="true" formControlName="NguoiPhoiHop"  [shouldStoreItemValue]="true"
-                                        itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người phối hợp" confirmButtonText="Chọn" closeButtonText="Hủy">
+                                        itemTextField="text" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người phối hợp" 
+                                        confirmButtonText="Chọn" closeButtonText="Hủy"
+                                        (onChange)="DonViPhoiHopChange($event)"
+                                        >
                                       </ionic-selectable>
                                     </ion-item>
                                    <!-- <ion-item>
@@ -186,7 +200,7 @@
                                 <ion-col size="4">
                                 </ion-col>
                                 <ion-col size="4">
-                                    <ion-button  class="btn-theme"  color="theme"  type="submit" >Thêm mới</ion-button>
+                                    <ion-button #hiddenButton id="submitForm" class="btn-theme"  color="theme hidden"  type="submit" >Thêm mới</ion-button>
                                 </ion-col>
                                 <ion-col size="4">
                                 </ion-col>
