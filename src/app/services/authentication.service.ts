@@ -105,6 +105,10 @@ export class AuthenticationService {
    getNguoiDungByID(data){
     return this.get('api/NguoiDung/GetByID',data);
    }
+
+   getvanbandiykien(data){
+    return this.get('api/VanBanDi/GetYKiebByVanBanID',data);
+   }
    // Lich lam viec
    getLichLamViec(data){
     return this.get('api/LichlamViec/getLichCongtacTuan',data);
@@ -131,6 +135,10 @@ export class AuthenticationService {
    // ý kiến văn bản đến
    postVanBanDenykien(data) {
     return this.post('api/vanbanden/YKien',data);
+  }
+  // ý kiến văn bản đến
+  postVanBanDiykien(data) {
+    return this.post('api/vanbandi/ykien',data);
   }
 // cập nhật trạng thái cá nhân
   postVanBanDenytrangthaicanhan(data) {

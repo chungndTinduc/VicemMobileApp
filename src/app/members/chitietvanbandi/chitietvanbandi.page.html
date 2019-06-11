@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-          <!-- <ion-menu-button></ion-menu-button> -->
+ 
           <ion-back-button text="" ></ion-back-button>     
         </ion-buttons>
         <ion-title>Chi tiết văn bản đi</ion-title>
@@ -63,5 +63,10 @@
             </div> 
       </ion-label>
     </ion-item>  
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="success"  routerLink="/members/tabs/vanbandi/vanbandiykien/{{vanban.ID}}" title="Chuyển xử lý">
+        <ion-icon name="paper-plane"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </ion-content>
   
