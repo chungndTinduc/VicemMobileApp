@@ -94,7 +94,6 @@ lstnguoidung:[];
 
   
   triggerSumbit() {
-    // this.hiddenButton.nativeElement.click();
     document.getElementById('submitForm').click(); // doesn't work
 }
 }
