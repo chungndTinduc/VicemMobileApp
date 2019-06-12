@@ -52,7 +52,7 @@ export class AppComponent {
           var datapage={title:'Văn bản đến',icon:'md-copy',iconIos:'ios-copy-outline',url:'/members/tabs/vanbanden',color:'success'}
           this.appPages.push(datapage);
          }
-         if(this.authService.currentUser.QuyenHanEnum.vanbandi)     {
+         if(this.authService.currentUser.QuyenHanEnum.Vanbandi)     {
           var datapage={title:'Văn bản đi',icon:'md-paper-plane',iconIos:'ios-paper-plane-outline',url:'/members/tabs/vanbandi',color:'secondary'}
           this.appPages.push(datapage);
          }
@@ -60,7 +60,7 @@ export class AppComponent {
           var datapage={title:'Công việc',icon:'md-clipboard',iconIos:'ios-clipboard-outline',url:'/members/tabs/congviec',color:'tertiary'}
           this.appPages.push(datapage);
          }
-         if(this.authService.currentUser.QuyenHanEnum.Vanbandusthao)     {
+         if(this.authService.currentUser.QuyenHanEnum.Vanbanduthao)     {
           var datapage={title:'Văn bản dự thảo',icon:'md-document',iconIos:'ios-document-outline',url:'/members/tabs/vanbanduthao',color:'success'}
           this.appPages.push(datapage);
          }
