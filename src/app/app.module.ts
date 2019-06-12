@@ -12,7 +12,6 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import{Utility} from 'src/app/providers/Utility';
 import{CongviecformPageModule} from 'src/app/members/congviec/congviecform/congviecform.module';
 import {VanbandenformykienPageModule} from 'src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module'
-
 import {CapnhattrangthaivbPageModule} from 'src/app/members/vanbanden/capnhattrangthaivb/capnhattrangthaivb.module'
 import {CapnhattrangthaicanhanPageModule} from 'src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.module'
 import {VanbandenflowchartPageModule} from 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module'
@@ -20,7 +19,7 @@ import {VanbandiformykienPageModule} from 'src/app/members/vanbandi/vanbandiform
 import {VanbandiluongluanchuyenPageModule} from 'src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module'
 import {FormtrinhlanhdaoPageModule} from 'src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module'
 import {KethucduthaoPageModule} from 'src/app/members/vanbanduthao/kethucduthao/kethucduthao.module'
- import {ChuyenphathanhPageModule} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module'
+import {ChuyenphathanhPageModule} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module'
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -50,14 +49,14 @@ export function jwtOptionsFactory(storage) {
     VanbandiformykienPageModule,
     KethucduthaoPageModule,
     VanbandiluongluanchuyenPageModule,
-    FormtrinhlanhdaoPageModule,,
-     ChuyenphathanhPageModule,
+    FormtrinhlanhdaoPageModule,
+    ChuyenphathanhPageModule,
     AutoCompleteModule,
     TagInputModule, 
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-     IonicSelectableModule,
+    IonicSelectableModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

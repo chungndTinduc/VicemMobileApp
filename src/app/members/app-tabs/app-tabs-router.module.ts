@@ -42,12 +42,7 @@ const routes: Routes = [
        {
         path: 'vanbandenflowchart',
         loadChildren: 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module#VanbandenflowchartPageModule'
-      },
-    //    { 
-    //     path: 'vanbandenformykien/:vanbandenid', 
-    //     loadChildren: 'src/app/members/vanbanden/vanbandenformykien/vanbandenformykien.module#vanbandenformykienPageModule'
-    //  },
-    
+      }
       ]
      },
       { path: 'vanbandi',     
@@ -116,7 +111,6 @@ const routes: Routes = [
          },
       { path: 'danhba', loadChildren: 'src/app/members/danhba/danhba.module#DanhbaPageModule' },
       { path: 'viewfile', loadChildren: 'src/app/members/viewfile/viewfile.module#ViewfilePageModule' },
-   //   { path: 'vanbandenchuaxuly', loadChildren: './vanbandenchuaxuly/vanbandenchuaxuly.module#VanbandenchuaxulyPageModule' },
       
     ]}
 ];
