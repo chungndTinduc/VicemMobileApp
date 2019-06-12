@@ -148,8 +148,12 @@ export class AuthenticationService {
   postVanBanDenytrangthaivb(data) {
     return this.post('api/vanbanden/Finish',data);
   }
+  // lấy luồng luân chuyển văn bản đến
   getluongluanchuyenvanbanden(data){
     return this.get('api/vanbanden/LuongLuanChuyenVanBan',data);
+   }
+   getluongluanchuyenvanbandi(data){
+    return this.get('api/vanbandi/GetLuongLuanChuyen',data);
    }
   //các hàm đăng ký service
   postVanBanDen(data) {

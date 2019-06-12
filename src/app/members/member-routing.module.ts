@@ -8,6 +8,7 @@ const routes: Routes = [
     
   },  { path: 'vanbandiykien', loadChildren: './vanbandi/vanbandiykien/vanbandiykien.module#VanbandiykienPageModule' },
   { path: 'vanbandiformykien', loadChildren: './vanbandi/vanbandiformykien/vanbandiformykien.module#VanbandiformykienPageModule' },
+  { path: 'vanbandiluongluanchuyen', loadChildren: './vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module#VanbandiluongluanchuyenPageModule' },
 
   // { path: 'vanbandenflowchart', loadChildren: './vanbanden/vanbandenflowchart/vanbandenflowchart.module#VanbandenflowchartPageModule' },
   // { path: 'capnhattrangthaivb', loadChildren: './vanbanden/capnhattrangthaivb/capnhattrangthaivb.module#CapnhattrangthaivbPageModule' },

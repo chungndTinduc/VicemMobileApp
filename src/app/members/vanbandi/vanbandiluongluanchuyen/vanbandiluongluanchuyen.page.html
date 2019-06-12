@@ -1,0 +1,23 @@
+<ion-header>    
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button (click)="closePopup()">
+            <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>Luồng luân chuyển</ion-title>
+    </ion-toolbar>    
+</ion-header>
+
+<ion-content>
+  <div>
+      <div style="position: absolute; top: 4px; left:10px;">
+          <div style="background: #e0e0e0; float: right; padding: 3px 5px; font-size: 12px;">Chưa xử lý</div>
+          <div style="background: #35aa47; color: #fff; float: right; padding: 3px 5px; font-size: 12px;">Đã xử lý</div>
+          <div style="background: #C54257; color: #fff; float: right; padding: 3px 5px; font-size: 12px;">Trả lại</div>
+          <div class="clear"></div>
+      </div>
+  </div>
+  <div class="scroll-contain" id="luonglc">
+  </div>
+</ion-content>
