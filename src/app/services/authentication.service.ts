@@ -105,6 +105,10 @@ export class AuthenticationService {
    getNguoiDungByID(data){
     return this.get('api/NguoiDung/GetByID',data);
    }
+
+   getvanbandiykien(data){
+    return this.get('api/VanBanDi/GetYKiebByVanBanID',data);
+   }
    // Lich lam viec
    getLichLamViec(data){
     return this.get('api/LichlamViec/getLichCongtacTuan',data);
@@ -132,6 +136,10 @@ export class AuthenticationService {
    postVanBanDenykien(data) {
     return this.post('api/vanbanden/YKien',data);
   }
+  // ý kiến văn bản đến
+  postVanBanDiykien(data) {
+    return this.post('api/vanbandi/ykien',data);
+  }
 // cập nhật trạng thái cá nhân
   postVanBanDenytrangthaicanhan(data) {
     return this.post('api/vanbanden/HoanThanh',data);
@@ -140,13 +148,30 @@ export class AuthenticationService {
   postVanBanDenytrangthaivb(data) {
     return this.post('api/vanbanden/Finish',data);
   }
+  // lấy luồng luân chuyển văn bản đến
   getluongluanchuyenvanbanden(data){
     return this.get('api/vanbanden/LuongLuanChuyenVanBan',data);
+   }
+   //lấy luồng luân chuyển văn bản đi
+   getluongluanchuyenvanbandi(data){
+    return this.get('api/vanbandi/GetLuongLuanChuyen',data);
+   }
+
+   getlanhdaotrinhduthao(data){
+    return this.get('api/VanBanDuThao/GetlanhDaotrinh',data);
    }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
   }
+    // trình văn bản dự thảo
+    postTrinhvanbanduthao(data) {
+      return this.post('api/VanBanDuThao/TrinhKy',data);
+    }
+    // kết thúc bản dự thảo
+    postketthucbanduthao(data) {
+      return this.post('api/VanBanDuThao/Finish',data);
+    }
   //lấy danh sách công việc
   getDanhSachCongViec(data){
     return this.get('api/CongViec/getDanhDachCongViec',data);

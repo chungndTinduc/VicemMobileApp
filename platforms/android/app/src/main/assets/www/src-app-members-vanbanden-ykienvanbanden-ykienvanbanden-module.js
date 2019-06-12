@@ -58,7 +58,7 @@ var YkienvanbandenPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n          <!-- <ion-menu-button></ion-menu-button> -->\r\n          <ion-back-button text=\"\" ></ion-back-button>     \r\n      </ion-buttons>\r\n      <ion-title>Ý kiến văn bản đến</ion-title>\r\n      <ion-buttons slot=\"end\">\r\n        <ion-button>\r\n          <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n        </ion-button>\r\n      </ion-buttons>\r\n    </ion-toolbar>    \r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-list reorder=\"true\">\r\n    <ion-item lines=\"none\"  *ngFor=\"let objyk of lstobject\">\r\n      <ion-label>\r\n        <div  ><span > Người dùng :</span> {{objyk.TenNguoiTao}}<br></div>\r\n        <div *ngIf=\"objyk.NoiDung!=''\"><span > Nội dung :</span> {{objyk.NoiDung}}<br></div>\r\n        <div><span > Thời gian:</span> {{objyk.NgayTao | date:'dd/MM/yyyy'}}<br></div>\r\n        <div class=\"line-break\"><span >Đầu mối:</span>\r\n          {{objyk.strDonViXuLy + objyk.strNguoiXuLy!=''?(\", \"+objyk.strNguoiXuLy):''}}\r\n        </div>\r\n        <div class=\"line-break\"><span >Phối hợp:</span>\r\n          {{objyk.strDonViNhanDeBiet + objyk.strNguoiNhanDeBiet!=''?(\", \"+objyk.strNguoiNhanDeBiet):''}}\r\n        </div>\r\n        <div class=\"line-break\"><span >Xem để biết:</span>\r\n          {{objyk.strDonViXem+ objyk.strNguoiXem!=''?(\", \"+objyk.strNguoiXem):''}}\r\n        </div>\r\n      </ion-label>\r\n    </ion-item >\r\n  </ion-list>\r\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\r\n    <ion-fab-button color=\"success\" (click)=\"presentModal(dataquery.VanBanID)\">\r\n      <ion-icon name=\"add\"></ion-icon>\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <!-- <ion-menu-button></ion-menu-button> -->\n          <ion-back-button text=\"\" ></ion-back-button>     \n      </ion-buttons>\n      <ion-title>Ý kiến văn bản đến</ion-title>\n      <ion-buttons slot=\"end\">\n        <ion-button>\n          <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>    \n</ion-header>\n\n<ion-content>\n  <ion-list reorder=\"true\">\n    <ion-item lines=\"none\"  *ngFor=\"let objyk of lstobject\">\n      <ion-label>\n        <div  ><span > Người dùng :</span> {{objyk.TenNguoiTao}}<br></div>\n        <div *ngIf=\"objyk.NoiDung!=''\"><span > Nội dung :</span> {{objyk.NoiDung}}<br></div>\n        <div><span > Thời gian:</span> {{objyk.NgayTao | date:'dd/MM/yyyy'}}<br></div>\n        <div class=\"line-break\"><span >Đầu mối:</span>\n          {{objyk.strDonViXuLy }} {{objyk.strNguoiXuLy!=''?(\", \"+objyk.strNguoiXuLy):''}}\n        </div>\n        <div class=\"line-break\"><span >Phối hợp:</span>\n          {{objyk.strDonViNhanDeBiet }}{{objyk.strNguoiNhanDeBiet!=''?(\", \"+objyk.strNguoiNhanDeBiet):''}}\n        </div>\n        <div class=\"line-break\"><span >Xem để biết:</span>\n          {{objyk.strDonViXem}}{{objyk.strNguoiXem!=''?(\", \"+objyk.strNguoiXem):''}}\n        </div>\n        <div><span >Hạn xử lý:</span> {{objyk.HanXuLy | date:'dd/MM/yyyy'}}<br></div>\n      </ion-label>\n    </ion-item >\n  </ion-list>\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n    <ion-fab-button color=\"success\" (click)=\"presentModal(dataquery.VanBanID)\">\n      <ion-icon name=\"add\"></ion-icon>\n    </ion-fab-button>\n  </ion-fab>\n</ion-content>\n"
 
 /***/ }),
 
@@ -108,6 +108,9 @@ var YkienvanbandenPage = /** @class */ (function () {
     YkienvanbandenPage.prototype.ionViewDidEnter = function () {
         this.load();
     };
+    // ionViewWillEnter(){
+    //   this.load();
+    // }
     YkienvanbandenPage.prototype.load = function () {
         var _this = this;
         this.dataquery.VanBanID = parseInt(this.route.snapshot.paramMap.get('vanbandenid'));
@@ -118,6 +121,7 @@ var YkienvanbandenPage = /** @class */ (function () {
     YkienvanbandenPage.prototype.presentModal = function (_id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var modal;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
@@ -126,6 +130,12 @@ var YkienvanbandenPage = /** @class */ (function () {
                         })];
                     case 1:
                         modal = _a.sent();
+                        modal.onDidDismiss()
+                            .then(function (data) {
+                            if (data['data'] != null) {
+                                _this.lstobject = data['data'];
+                            }
+                        });
                         return [4 /*yield*/, modal.present()];
                     case 2: return [2 /*return*/, _a.sent()];
                 }

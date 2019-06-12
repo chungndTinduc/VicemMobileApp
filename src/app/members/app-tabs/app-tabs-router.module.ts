@@ -64,6 +64,7 @@ const routes: Routes = [
           path: 'chitietvanbandi/:vanbandiid',
           loadChildren:'src/app/members/chitietvanbandi/chitietvanbandi.module#ChitietvanbandiPageModule',
         },
+        { path: 'vanbandiykien/:vanbandiid', loadChildren: 'src/app/members/vanbandi/vanbandiykien/vanbandiykien.module#VanbandiykienPageModule' },
       ]
        },
       { 

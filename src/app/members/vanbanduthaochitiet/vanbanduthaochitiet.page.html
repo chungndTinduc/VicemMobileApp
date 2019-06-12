@@ -4,7 +4,7 @@
         <!-- <ion-menu-button></ion-menu-button> -->
         <ion-back-button text="" ></ion-back-button>     
       </ion-buttons>
-      <ion-title>Chi tiết văn bản đi</ion-title>
+      <ion-title>Chi tiết văn bản dự thảo</ion-title>
       <ion-buttons slot="end">
         <ion-button>
           <ion-icon slot="icon-only" name="more"></ion-icon>
@@ -85,6 +85,36 @@
           </div> 
     </ion-label>
   </ion-item>  
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="hammer"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button>
+          <ion-icon name="shuffle" (click)="presentModaltrinh(vanban.ID)"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon name="paper-plane"></ion-icon></ion-fab-button>
+      </ion-fab-button>
+      </ion-fab-list> 
+    </ion-fab> -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="hammer"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button (click)="presentModaltrinh(vanban.ID)">
+                <ion-icon name="paper-plane"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="presentModalketthuc(vanban.ID)">
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                </ion-fab-button>
+              <ion-fab-button (click)="presentModalchuyenph(vanban.ID)">
+                  <ion-icon name="airplane"></ion-icon>
+              </ion-fab-button>
+        </ion-fab-list> 
+      </ion-fab>
 </ion-content>
 <style>
   .default{

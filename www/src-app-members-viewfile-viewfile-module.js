@@ -58,7 +58,7 @@ var ViewfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n<!-- <ion-navbar>\r\n    <ion-title>Swipeabale Tabs</ion-title>\r\n\r\n</ion-navbar> -->\r\n\r\n<ion-toolbar>\r\n    <ion-segment [(ngModel)]=\"page\" color=\"dark\">\r\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(0)\">\r\n            <ion-icon name=\"camera\"></ion-icon>\r\n        </ion-segment-button>\r\n        <ion-segment-button value=\"bookmark\" (click)=\"selectedTab(1)\">\r\n            <ion-icon name=\"bookmark\"></ion-icon>\r\n        </ion-segment-button>\r\n        <ion-segment-button value=\"xxxx\" (click)=\"selectedTab(2)\">\r\n                <ion-icon name=\"camera\"></ion-icon>\r\n            </ion-segment-button>\r\n    </ion-segment>\r\n</ion-toolbar>\r\n\r\n\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>"
+module.exports = "<ion-header>\n<!-- <ion-navbar>\n    <ion-title>Swipeabale Tabs</ion-title>\n\n</ion-navbar> -->\n\n<ion-toolbar>\n    <ion-segment [(ngModel)]=\"page\" color=\"dark\">\n        <ion-segment-button value=\"camera\" (click)=\"selectedTab(0)\">\n            <ion-icon name=\"camera\"></ion-icon>\n        </ion-segment-button>\n        <ion-segment-button value=\"bookmark\" (click)=\"selectedTab(1)\">\n            <ion-icon name=\"bookmark\"></ion-icon>\n        </ion-segment-button>\n        <ion-segment-button value=\"xxxx\" (click)=\"selectedTab(2)\">\n                <ion-icon name=\"camera\"></ion-icon>\n            </ion-segment-button>\n    </ion-segment>\n</ion-toolbar>\n\n\n</ion-header>\n\n<ion-content>\n\n</ion-content>"
 
 /***/ }),
 

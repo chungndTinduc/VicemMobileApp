@@ -21,13 +21,13 @@
         <div *ngIf="objyk.NoiDung!=''"><span > Nội dung :</span> {{objyk.NoiDung}}<br></div>
         <div><span > Thời gian:</span> {{objyk.NgayTao | date:'dd/MM/yyyy'}}<br></div>
         <div class="line-break"><span >Đầu mối:</span>
-          {{objyk.strDonViXuLy + objyk.strNguoiXuLy!=''?(", "+objyk.strNguoiXuLy):''}}
+          {{objyk.strDonViXuLy }} {{objyk.strNguoiXuLy!=''?(", "+objyk.strNguoiXuLy):''}}
         </div>
         <div class="line-break"><span >Phối hợp:</span>
-          {{objyk.strDonViNhanDeBiet + objyk.strNguoiNhanDeBiet!=''?(", "+objyk.strNguoiNhanDeBiet):''}}
+          {{objyk.strDonViNhanDeBiet }}{{objyk.strNguoiNhanDeBiet!=''?(", "+objyk.strNguoiNhanDeBiet):''}}
         </div>
         <div class="line-break"><span >Xem để biết:</span>
-          {{objyk.strDonViXem+ objyk.strNguoiXem!=''?(", "+objyk.strNguoiXem):''}}
+          {{objyk.strDonViXem}}{{objyk.strNguoiXem!=''?(", "+objyk.strNguoiXem):''}}
         </div>
         <div><span >Hạn xử lý:</span> {{objyk.HanXuLy | date:'dd/MM/yyyy'}}<br></div>
       </ion-label>

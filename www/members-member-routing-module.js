@@ -21,6 +21,9 @@ var routes = [
         path: '',
         loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     },
+    { path: 'vanbandiykien', loadChildren: './vanbandi/vanbandiykien/vanbandiykien.module#VanbandiykienPageModule' },
+    { path: 'vanbandiformykien', loadChildren: './vanbandi/vanbandiformykien/vanbandiformykien.module#VanbandiformykienPageModule' },
+    { path: 'vanbandiluongluanchuyen', loadChildren: './vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module#VanbandiluongluanchuyenPageModule' },
 ];
 var MemberRoutingModule = /** @class */ (function () {
     function MemberRoutingModule() {
