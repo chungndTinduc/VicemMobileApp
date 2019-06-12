@@ -153,7 +153,7 @@ export class AuthenticationService {
   }
   //thêm mới công việc
   postCongViec(data){
-      return this.get('api/CongViec/AddOrEdit',data);
+      return this.post('api/CongViec/AddOrEdit',data);
     }
 //============================================================*********End danh sach dang ky service****======================= 
 

@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   //url:'http://test.e-office.vn/'
-  //url:'http://localhost:5000/'
-  url:'http://localhost:50775/'
+  url:'http://localhost:5000/'
+  //url:'http://localhost:50775/'
 };
 
 /*

@@ -209,20 +209,32 @@ ion-item-option ion-icon {
 .notnone{
   text-align: center;color: #999
 }
+
+.title-break-page{
+  background: #fff;
+  padding: 5px 0px;
+  color: #bb8848;
+  font-weight: bold;
+  margin: 5px 7px;
+  display: block;
+  border-bottom: 1px dotted #ac824c
+}
 .box-component{
   margin: 15px 10px 10px 10px;
   border: 1px solid #ccc;
   padding: 0px;
   border-radius: 6px;
 }
-.title-box{
+.box-component .title-box{
   position: relative;
   top: -10px;
   right: -10px;
   background: #fff;
   padding: 5px;
-  color: #5d5d5d;
+  color: #bb8848;
+  font-weight: bold;
 }
+
 .item-native{
   --padding-start: 0px;
 }
@@ -373,4 +385,7 @@ overflow: auto;
   border-radius: 4px;
   border: 1px solid #aa7d43;
   background: #ac824c;
+}
+.red{
+  color: red;
 }
