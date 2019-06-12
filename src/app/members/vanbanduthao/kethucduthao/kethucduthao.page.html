@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closePopup()">
+              <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Kết thúc văn bản trình ký</ion-title>
+      </ion-toolbar>    
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="stacked">Nội dung</ion-label>
+                        <ion-textarea placeholder="Nhập nội dung..." formControlName="NoiDung"></ion-textarea>
+                        <input type="hidden" formControlName="VanBanID" value="{{VanBanID}}">
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row class="row-button">
+                <ion-col size="12">    
+                           <ion-button color="success" type="submit" class="ion-button ion-button-save"  [disabled]="!credentialsForm.valid">
+                                <ion-icon name="paper" class="ion-icon-save"></ion-icon>
+                               Kết thúc</ion-button>
+                               <ion-button color="success"  class="ion-button ion-button-save" (click)="closePopup()">
+                                    <ion-icon name="close" class="ion-icon-close"></ion-icon>
+                                   Hủy</ion-button>
+                </ion-col>
+            </ion-row>
+            </ion-grid>
+            </form>
+</ion-content>

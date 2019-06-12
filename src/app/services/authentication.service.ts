@@ -152,13 +152,26 @@ export class AuthenticationService {
   getluongluanchuyenvanbanden(data){
     return this.get('api/vanbanden/LuongLuanChuyenVanBan',data);
    }
+   //lấy luồng luân chuyển văn bản đi
    getluongluanchuyenvanbandi(data){
     return this.get('api/vanbandi/GetLuongLuanChuyen',data);
+   }
+
+   getlanhdaotrinhduthao(data){
+    return this.get('api/VanBanDuThao/GetlanhDaotrinh',data);
    }
   //các hàm đăng ký service
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
   }
+    // trình văn bản dự thảo
+    postTrinhvanbanduthao(data) {
+      return this.post('api/VanBanDuThao/TrinhKy',data);
+    }
+    // kết thúc bản dự thảo
+    postketthucbanduthao(data) {
+      return this.post('api/VanBanDuThao/Finish',data);
+    }
   //lấy danh sách công việc
   getDanhSachCongViec(data){
     return this.get('api/CongViec/getDanhDachCongViec',data);

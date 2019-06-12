@@ -18,6 +18,9 @@ import {CapnhattrangthaicanhanPageModule} from 'src/app/members/vanbanden/capnha
 import {VanbandenflowchartPageModule} from 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module'
 import {VanbandiformykienPageModule} from 'src/app/members/vanbandi/vanbandiformykien/vanbandiformykien.module'
 import {VanbandiluongluanchuyenPageModule} from 'src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module'
+import {FormtrinhlanhdaoPageModule} from 'src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module'
+import {KethucduthaoPageModule} from 'src/app/members/vanbanduthao/kethucduthao/kethucduthao.module'
+ import {ChuyenphathanhPageModule} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module'
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -45,13 +48,16 @@ export function jwtOptionsFactory(storage) {
     CapnhattrangthaicanhanPageModule,
     VanbandenflowchartPageModule,
     VanbandiformykienPageModule,
+    KethucduthaoPageModule,
     VanbandiluongluanchuyenPageModule,
+    FormtrinhlanhdaoPageModule,,
+     ChuyenphathanhPageModule,
     AutoCompleteModule,
     TagInputModule, 
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    // IonicSelectableModule,
+     IonicSelectableModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

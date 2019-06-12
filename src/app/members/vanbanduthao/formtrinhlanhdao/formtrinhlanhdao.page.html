@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="closePopup()">
+              <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Trình lãnh đạo phê duyệt</ion-title>
+      </ion-toolbar>    
+</ion-header>
+<ion-content>
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="stacked">Ngày trình ký</ion-label>
+                         <ion-datetime display-format="DD/MM/YYYY" doneText="Chọn" cancelText="Hủy" formControlName="NgayTrinh" [(ngModel)]="myDate"
+                         placeholder="Ngày trình ký"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+          <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked">Lãnh đạo phê duyệt</ion-label>
+                      <ionic-selectable  [(ngModel)]="lanhdao" itemValueField="ID" [isMultiple]="true" formControlName="LanhDaoTrinhID"  [shouldStoreItemValue]="true"
+                      itemTextField="TenHienThi" [items]="LstLanhDao" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn lãnh đạo phê duyệt" confirmButtonText="Chọn" closeButtonText="Hủy">
+                    </ionic-selectable>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked">Phòng ban liên quan</ion-label>
+                      <ionic-selectable  [(ngModel)]="donvi" itemValueField="ID" [isMultiple]="true" formControlName="strPhongBanLienQuan"  [shouldStoreItemValue]="true"
+                      itemTextField="Ten" [items]="LstPhongban" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn phòng ban liên quan" confirmButtonText="Chọn" closeButtonText="Hủy">
+                    </ionic-selectable>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked">Lãnh đạo liên quan</ion-label>
+                    <ionic-selectable [(ngModel)]="lanhdaolq" itemValueField="ID" [isMultiple]="true" formControlName="strLtsDonViPhoiHop"  [shouldStoreItemValue]="true"
+                    itemTextField="TenHienThi" [items]="LstLanhDaolienquan" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn lãnh đạo liên quan" confirmButtonText="Chọn" closeButtonText="Hủy">
+                  </ionic-selectable>
+                  </ion-item>
+            </ion-col>
+        </ion-row>    
+        <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked">Nội dung</ion-label>
+                    <ion-textarea placeholder="Nhập nội dung..." formControlName="NoiDung"></ion-textarea>
+                    <input type="hidden" formControlName="VanBanID" value="{{VanBanID}}">
+                </ion-item>
+            </ion-col>
+        </ion-row>    
+        <ion-row class="row-button">
+            <ion-col size="12">    
+                       <ion-button color="success" type="submit" class="ion-button ion-button-save"  [disabled]="!credentialsForm.valid">
+                            <ion-icon name="paper" class="ion-icon-save"></ion-icon>
+                           Gửi</ion-button>
+                           <ion-button color="success"  class="ion-button ion-button-save" (click)="closePopup()">
+                                <ion-icon name="close" class="ion-icon-close"></ion-icon>
+                               Hủy</ion-button>
+            </ion-col>
+        </ion-row>
+          </ion-grid>
+        </form>
+</ion-content>
