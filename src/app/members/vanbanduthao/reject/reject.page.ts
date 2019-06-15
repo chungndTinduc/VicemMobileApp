@@ -5,11 +5,11 @@ import { NavParams, ModalController,Events } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder,ReactiveFormsModule  } from '@angular/forms';
 
 @Component({
-  selector: 'app-approved',
-  templateUrl: './approved.page.html',
-  styleUrls: ['./approved.page.scss'],
+  selector: 'app-reject',
+  templateUrl: './reject.page.html',
+  styleUrls: ['./reject.page.scss'],
 })
-export class ApprovedPage implements OnInit {
+export class RejectPage implements OnInit {
   public dataquery =  {VanBanID:this.navParams.get('id'),ID:this.navParams.get('id')};
   credentialsForm: FormGroup;
   constructor(private authService:AuthenticationService,private navParams: NavParams,    private formBuilder: FormBuilder,
@@ -22,7 +22,7 @@ export class ApprovedPage implements OnInit {
     });  
   }
   onSubmit() {
-    this.authService.postapprovedduthao(this.credentialsForm.value).subscribe(res => {
+    this.authService.postrejectduthao(this.credentialsForm.value).subscribe(res => {
       this.closePopupupdate();
     });
   }
@@ -35,5 +35,6 @@ export class ApprovedPage implements OnInit {
       this.modalController.dismiss(res["Data"]);
      });
  }
+
 
 }

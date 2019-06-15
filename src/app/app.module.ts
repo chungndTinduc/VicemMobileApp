@@ -20,6 +20,8 @@ import {VanbandiluongluanchuyenPageModule} from 'src/app/members/vanbandi/vanban
 import {FormtrinhlanhdaoPageModule} from 'src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module'
 import {KethucduthaoPageModule} from 'src/app/members/vanbanduthao/kethucduthao/kethucduthao.module'
 import {ChuyenphathanhPageModule} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module'
+import {ApprovedPageModule} from 'src/app/members/vanbanduthao/approved/approved.module'
+import {RejectPageModule} from 'src/app/members/vanbanduthao/reject/reject.module'
 import {ViewfilePageModule} from 'src/app/members/viewfile/viewfile.module'
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { TagInputModule } from 'ngx-chips';
@@ -59,7 +61,9 @@ export function jwtOptionsFactory(storage) {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    RejectPageModule,
     IonicSelectableModule,
+    ApprovedPageModule,
     IonicStorageModule.forRoot(),
     CacheModule.forRoot(),
     JwtModule.forRoot({

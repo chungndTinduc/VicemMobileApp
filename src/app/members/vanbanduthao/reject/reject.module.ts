@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 
-import { ApprovedPage } from './approved.page';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { RejectPage } from './reject.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ApprovedPage
+    component: RejectPage
   }
 ];
 
@@ -17,10 +17,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
     ReactiveFormsModule,
+    IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ApprovedPage]
+  declarations: [RejectPage]
 })
-export class ApprovedPageModule {}
+export class RejectPageModule {}
