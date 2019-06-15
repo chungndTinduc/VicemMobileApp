@@ -48,6 +48,7 @@
     "ionic4-auto-complete": "^1.7.1",
     "ionicons": "git://github.com/ionic-team/ionicons.git#3.0",
     "lab": "18.0.2",
+    "ng2-pdf-viewer": "^5.3.2",
     "ngx-chips": "^2.0.1",
     "rxjs": "^6.5.2",
     "rxjs-observable": "0.0.7",

@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ViewfilePage } from './viewfile.page';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ApprovedPage } from './approved.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViewfilePage
+    component: ApprovedPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    PdfViewerModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ViewfilePage]
+  declarations: [ApprovedPage]
 })
-export class ViewfilePageModule {}
+export class ApprovedPageModule {}

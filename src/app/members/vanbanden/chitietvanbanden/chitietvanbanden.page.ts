@@ -5,6 +5,7 @@ import { ModalController } from '@ionic/angular';
 import {CapnhattrangthaicanhanPage} from 'src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.page'
 import {CapnhattrangthaivbPage} from 'src/app/members/vanbanden/capnhattrangthaivb/capnhattrangthaivb.page'
 import {VanbandenflowchartPage} from 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page'
+import {ViewfilePage} from 'src/app/members/viewfile/viewfile.page'
 @Component({
   selector: 'app-chitietvanbanden',
   templateUrl: './chitietvanbanden.page.html',
@@ -24,6 +25,7 @@ export class ChitietvanbandenPage implements OnInit {
   }
   ionViewDidEnter(){
     this.load();
+    
   }
   load(){
     this.dataquery.ID = parseInt(this.route.snapshot.paramMap.get('vanbandenid'));
@@ -63,6 +65,13 @@ export class ChitietvanbandenPage implements OnInit {
     const modal = await this.modalController.create({
       component: VanbandenflowchartPage,
       componentProps: { id: _id }
+    });
+    return await modal.present();
+  }
+  async presentModalviewfile(_linkfile) {
+    const modal = await this.modalController.create({
+      component: ViewfilePage,
+      componentProps: { filelink: _linkfile }
     });
     return await modal.present();
   }
