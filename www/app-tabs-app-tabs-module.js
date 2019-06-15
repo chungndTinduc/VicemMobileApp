@@ -2899,7 +2899,7 @@ var routes = [
                     {
                         path: 'vanbandenflowchart',
                         loadChildren: 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module#VanbandenflowchartPageModule'
-                    },
+                    }
                 ]
             },
             { path: 'vanbandi',

@@ -64,7 +64,6 @@ export class ChitietvanbandenPage implements OnInit {
       component: VanbandenflowchartPage,
       componentProps: { id: _id }
     });
-  
     return await modal.present();
   }
 }

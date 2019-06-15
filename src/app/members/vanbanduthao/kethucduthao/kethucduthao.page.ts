@@ -18,15 +18,14 @@ export class KethucduthaoPage implements OnInit {
 
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
-      VanBanID: this.navParams.get('id'), 
-      
+      VanBanID: this.navParams.get('id'),  
       NoiDung:['',[ Validators.minLength(3)]], 
 
     });  
   }
   onSubmit() {
     this.authService.postketthucbanduthao(this.credentialsForm.value).subscribe(res => {
-      this.closePopup();
+      this.closePopupupdate();
     });
   }
   async closePopup(){

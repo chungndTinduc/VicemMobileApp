@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CacheService } from "ionic-cache";
 
  interface page {
   title: string,
@@ -29,10 +30,11 @@ export class AppComponent {
     private statusBar: StatusBar,
     private authService:AuthenticationService,
     private router:Router,
+    cache: CacheService
     
   ) 
   {
-
+    cache.setDefaultTTL(60 * 60);
     this.initializeApp();
     this.events.subscribe('user:login', () => {
       console.log('logined..');
@@ -73,7 +75,7 @@ export class AppComponent {
          var datapage={title:'Van ban den flowchart',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/vanbanden/vanbandenflowchart',color:'medium'}
 
          this.appPages.push(datapage);
-         var datapage={title:'xem file',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/vanbanden/ykienvanbanden/7001',color:'medium'}
+         var datapage={title:'xem file',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/viewfile',color:'medium'}
          this.appPages.push(datapage);
        }
   }

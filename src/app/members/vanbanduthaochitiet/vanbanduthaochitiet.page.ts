@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import {FormtrinhlanhdaoPage} from 'src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page'
 import {KethucduthaoPage} from 'src/app/members/vanbanduthao/kethucduthao/kethucduthao.page'
-// import {ChuyenphathanhPage} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page'
+ import {ChuyenphathanhPage} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page'
 @Component({
   selector: 'app-vanbanduthaochitiet',
   templateUrl: './vanbanduthaochitiet.page.html',
@@ -63,17 +63,17 @@ export class VanbanduthaochitietPage implements OnInit {
   });
     return await modal.present();
   }
-  // async presentModalchuyenph(_id) {
-  //   const modal = await this.modalController.create({
-  //     component: ChuyenphathanhPage,
-  //     componentProps: { id: _id }
-  //   });
-  //   modal.onDidDismiss()
-  //   .then((data) => {
-  //     if(data['data']!=null){
-  //     this.vanban  = data['data']; 
-  //     }
-  // });
-  //   return await modal.present();
-  // }
+  async presentModalchuyenph(_id) {
+    const modal = await this.modalController.create({
+      component: ChuyenphathanhPage,
+      componentProps: { id: _id }
+    });
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!=null){
+      this.vanban  = data['data']; 
+      }
+  });
+    return await modal.present();
+  }
 }

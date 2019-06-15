@@ -845,17 +845,6 @@ var map = {
 		"./src/app/public/register/register.module.ts",
 		"public-register-register-module"
 	],
-	"./vanbandi/vanbandiformykien/vanbandiformykien.module": [
-		"./src/app/members/vanbandi/vanbandiformykien/vanbandiformykien.module.ts"
-	],
-	"./vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module": [
-		"./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module.ts",
-		"vanbandi-vanbandiluongluanchuyen-vanbandiluongluanchuyen-module"
-	],
-	"./vanbandi/vanbandiykien/vanbandiykien.module": [
-		"./src/app/members/vanbandi/vanbandiykien/vanbandiykien.module.ts",
-		"vanbandi-vanbandiykien-vanbandiykien-module"
-	],
 	"src/app/members/chitietvanbandi/chitietvanbandi.module": [
 		"./src/app/members/chitietvanbandi/chitietvanbandi.module.ts",
 		"src-app-members-chitietvanbandi-chitietvanbandi-module"
@@ -924,7 +913,7 @@ var map = {
 	],
 	"src/app/members/vanbandi/vanbandiykien/vanbandiykien.module": [
 		"./src/app/members/vanbandi/vanbandiykien/vanbandiykien.module.ts",
-		"vanbandi-vanbandiykien-vanbandiykien-module"
+		"src-app-members-vanbandi-vanbandiykien-vanbandiykien-module"
 	],
 	"src/app/members/vanbandichuadoc/vanbandichuadoc.module": [
 		"./src/app/members/vanbandichuadoc/vanbandichuadoc.module.ts",
@@ -1091,7 +1080,7 @@ var AppComponent = /** @class */ (function () {
                 var datapage = { title: 'Văn bản đến', icon: 'md-copy', iconIos: 'ios-copy-outline', url: '/members/tabs/vanbanden', color: 'success' };
                 this.appPages.push(datapage);
             }
-            if (this.authService.currentUser.QuyenHanEnum.vanbandi) {
+            if (this.authService.currentUser.QuyenHanEnum.Vanbandi) {
                 var datapage = { title: 'Văn bản đi', icon: 'md-paper-plane', iconIos: 'ios-paper-plane-outline', url: '/members/tabs/vanbandi', color: 'secondary' };
                 this.appPages.push(datapage);
             }
@@ -1099,7 +1088,7 @@ var AppComponent = /** @class */ (function () {
                 var datapage = { title: 'Công việc', icon: 'md-clipboard', iconIos: 'ios-clipboard-outline', url: '/members/tabs/congviec', color: 'tertiary' };
                 this.appPages.push(datapage);
             }
-            if (this.authService.currentUser.QuyenHanEnum.Vanbandusthao) {
+            if (this.authService.currentUser.QuyenHanEnum.Vanbanduthao) {
                 var datapage = { title: 'Văn bản dự thảo', icon: 'md-document', iconIos: 'ios-document-outline', url: '/members/tabs/vanbanduthao', color: 'success' };
                 this.appPages.push(datapage);
             }
@@ -1109,7 +1098,7 @@ var AppComponent = /** @class */ (function () {
             this.appPages.push(datapage);
             var datapage = { title: 'Van ban den flowchart', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/vanbanden/vanbandenflowchart', color: 'medium' };
             this.appPages.push(datapage);
-            var datapage = { title: 'xem file', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/vanbanden/ykienvanbanden/7001', color: 'medium' };
+            var datapage = { title: 'xem file', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/viewfile', color: 'medium' };
             this.appPages.push(datapage);
         }
     };
@@ -1181,10 +1170,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_members_vanbanden_capnhattrangthaicanhan_capnhattrangthaicanhan_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.module */ "./src/app/members/vanbanden/capnhattrangthaicanhan/capnhattrangthaicanhan.module.ts");
 /* harmony import */ var src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module */ "./src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module.ts");
 /* harmony import */ var src_app_members_vanbandi_vanbandiformykien_vanbandiformykien_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/members/vanbandi/vanbandiformykien/vanbandiformykien.module */ "./src/app/members/vanbandi/vanbandiformykien/vanbandiformykien.module.ts");
-/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
-/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/esm5/ngx-chips.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var src_app_members_vanbandi_vanbandiluongluanchuyen_vanbandiluongluanchuyen_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module */ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module.ts");
+/* harmony import */ var src_app_members_vanbanduthao_formtrinhlanhdao_formtrinhlanhdao_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module */ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module.ts");
+/* harmony import */ var src_app_members_vanbanduthao_kethucduthao_kethucduthao_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/app/members/vanbanduthao/kethucduthao/kethucduthao.module */ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.module.ts");
+/* harmony import */ var src_app_members_vanbanduthao_chuyenphathanh_chuyenphathanh_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module */ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module.ts");
+/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
+/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/fesm5/ngx-chips.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
+
+
+
+
 
 
 
@@ -1207,6 +1205,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // this is needed!
+
 
 function jwtOptionsFactory(storage) {
     return {
@@ -1233,12 +1232,16 @@ var AppModule = /** @class */ (function () {
                 src_app_members_vanbanden_capnhattrangthaicanhan_capnhattrangthaicanhan_module__WEBPACK_IMPORTED_MODULE_16__["CapnhattrangthaicanhanPageModule"],
                 src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_module__WEBPACK_IMPORTED_MODULE_17__["VanbandenflowchartPageModule"],
                 src_app_members_vanbandi_vanbandiformykien_vanbandiformykien_module__WEBPACK_IMPORTED_MODULE_18__["VanbandiformykienPageModule"],
-                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_19__["AutoCompleteModule"],
-                ngx_chips__WEBPACK_IMPORTED_MODULE_20__["TagInputModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_21__["BrowserAnimationsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_22__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_22__["ReactiveFormsModule"],
-                // IonicSelectableModule,
+                src_app_members_vanbanduthao_kethucduthao_kethucduthao_module__WEBPACK_IMPORTED_MODULE_21__["KethucduthaoPageModule"],
+                src_app_members_vanbandi_vanbandiluongluanchuyen_vanbandiluongluanchuyen_module__WEBPACK_IMPORTED_MODULE_19__["VanbandiluongluanchuyenPageModule"],
+                src_app_members_vanbanduthao_formtrinhlanhdao_formtrinhlanhdao_module__WEBPACK_IMPORTED_MODULE_20__["FormtrinhlanhdaoPageModule"],
+                src_app_members_vanbanduthao_chuyenphathanh_chuyenphathanh_module__WEBPACK_IMPORTED_MODULE_22__["ChuyenphathanhPageModule"],
+                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_23__["AutoCompleteModule"],
+                ngx_chips__WEBPACK_IMPORTED_MODULE_24__["TagInputModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__["BrowserAnimationsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_26__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_26__["ReactiveFormsModule"],
+                ionic_selectable__WEBPACK_IMPORTED_MODULE_27__["IonicSelectableModule"],
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(),
                 _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__["JwtModule"].forRoot({
                     jwtOptionsProvider: {
@@ -1280,7 +1283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/esm5/ngx-chips.js");
+/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/fesm5/ngx-chips.js");
 /* harmony import */ var _congviecform_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./congviecform.page */ "./src/app/members/congviec/congviecform/congviecform.page.ts");
 /* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
 
@@ -1329,7 +1332,7 @@ var CongviecformPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n        <ion-toolbar>\r\n            <ion-buttons slot=\"start\">\r\n                <ion-button (click)=\"closePopup()\">\r\n                  <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\r\n                </ion-button>\r\n            </ion-buttons>\r\n            <ion-title>Thêm mới công việc</ion-title>\r\n            <ion-buttons slot=\"end\">\r\n                <ion-button  class=\"btn-header\"  color=\"\"  type=\"submit\" (click)=\"triggerSumbit()\">Xong</ion-button>\r\n              </ion-buttons>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n    \r\n    <ion-content>\r\n        <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\r\n          <ion-grid>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Tên công việc</ion-label>\r\n                          <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Mã công việc</ion-label>\r\n                          <ion-input  formControlName=\"Ma\"  placeholder=\"Nhập mã công việc\"></ion-input>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Ngày bắt đầu</ion-label>\r\n                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayBatDau\" placeholder=\"Nhập ngày bắt đầu\">\r\n                          </ion-datetime>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Hạn xử lý</ion-label>\r\n                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayKetThuc\"  placeholder=\"Nhập ngày kết thúc\"> \r\n                          </ion-datetime>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Nội dung công việc</ion-label><br>\r\n                          <ion-textarea  formControlName=\"NoiDung\" placeholder=\"Nhập nội dung\"></ion-textarea>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"6\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Độ quan trọng</ion-label>\r\n                          <ion-select placeholder=\"Độ quan trọng\">\r\n                            <ion-select-option value=\"14\">Bình thường</ion-select-option>\r\n                            <ion-select-option value=\"15\">Quan trọng</ion-select-option>\r\n                            <ion-select-option value=\"16\">Rất quan trọng</ion-select-option>\r\n                          </ion-select>\r\n                        </ion-item>\r\n                  </ion-col>\r\n                  <ion-col size=\"6\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Độ ưu tiên</ion-label>\r\n                          <ion-select placeholder=\"Độ ưu tiên\" >\r\n                            <ion-select-option value=\"17\">Bình thường</ion-select-option>\r\n                            <ion-select-option value=\"18\">Gấp</ion-select-option>\r\n                            <ion-select-option value=\"19\">Rất gấp</ion-select-option>\r\n                          </ion-select>\r\n                        </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n            </ion-grid>\r\n            <div class=\"box-component\">\r\n                <span class=\"title-box\">Thành phần tham gia</span>\r\n            <ion-grid>\r\n                <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Đơn vị xử lý</ion-label>\r\n                            <ionic-selectable   itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"DonViXuLy\"  [shouldStoreItemValue]=\"true\"\r\n                            itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị xử lý\"\r\n                             confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                             (onChange)=\"DonViXuLyChange($event)\"\r\n                             >\r\n                          </ionic-selectable>\r\n                      </ion-item>\r\n                     <!-- <ion-item>\r\n                        <ion-label position=\"stacked\">Đơn vị xử lý</ion-label>\r\n                        <tag-input  formControlName=\"DonViXuLy\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn đơn vị xử lý'\"  [secondaryPlaceholder]=\"'Chọn đơn vị xử lý'\">\r\n                            <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\r\n                                            [dynamicUpdate]=\"false\"\r\n                                            [focusFirstElement]=\"true\"\r\n                                            [displayBy]=\"'value'\"\r\n                                            [identifyBy]=\"'id'\"\r\n                                            [autocompleteItems]=\"donViXulyObj\">\r\n                                <ng-template let-item=\"item\" let-index=\"index\">\r\n                                  {{ item.id }}: {{ item.value }}\r\n                                </ng-template>\r\n                            </tag-input-dropdown>\r\n                          </tag-input>\r\n                        </ion-item> -->\r\n                     </ion-col>\r\n                </ion-row>\r\n                <ion-row>\r\n                        <ion-col size=\"12\">\r\n                            <ion-item>\r\n                                <ion-label position=\"stacked\">Người xử lý</ion-label>\r\n                                <ionic-selectable [(ngModel)]=\"nguoidung\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"NguoiXuLy\"  [shouldStoreItemValue]=\"true\"\r\n                                itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người xử lý\"\r\n                                 confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                                 (onChange)=\"NguoiXuLyChange($event)\"\r\n                                 >\r\n                              </ionic-selectable>\r\n                            </ion-item>\r\n                           <!-- <ion-item>\r\n                              <ion-label position=\"stacked\">Người xử lý</ion-label>\r\n                              <tag-input  formControlName=\"NguoiXuLy\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn người xử lý'\"   [secondaryPlaceholder]=\"'Chọn người xử lý'\">\r\n                                  <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\r\n                                                  [dynamicUpdate]=\"false\"\r\n                                                  [focusFirstElement]=\"true\"\r\n                                                  [displayBy]=\"'value'\"\r\n                                                  [identifyBy]=\"'id'\"\r\n                                                  [autocompleteItems]=\"nguoiXuLyObj\">\r\n                                      <ng-template let-item=\"item\" let-index=\"index\">\r\n                                        {{ item.id }}: {{ item.value }}\r\n                                      </ng-template>\r\n                                  </tag-input-dropdown>\r\n                                </tag-input>\r\n                              </ion-item> -->\r\n                           </ion-col>\r\n                      </ion-row>\r\n                      <ion-row>\r\n                            <ion-col size=\"12\">\r\n                                <ion-item>\r\n                                    <ion-label position=\"stacked\">Đơn vị phối hợp</ion-label>\r\n                                    <ionic-selectable [(ngModel)]=\"donviph\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"DonViPhoiHop\"  [shouldStoreItemValue]=\"true\"\r\n                                    itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị phối hợp\" \r\n                                    confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                                    (onChange)=\"DonViPhoiHopChange($event)\"\r\n                                    >\r\n                                  </ionic-selectable>\r\n                                  </ion-item>\r\n                               <!-- <ion-item>\r\n                                  <ion-label position=\"stacked\">Đơn vị phối hợp</ion-label>\r\n                                  <tag-input  formControlName=\"DonViPhoiHop\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn đơn vị phối hợp'\"   [secondaryPlaceholder]=\"'Chọn đơn vị phối hợp'\">\r\n                                      <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\r\n                                                      [dynamicUpdate]=\"false\"\r\n                                                      [focusFirstElement]=\"true\"\r\n                                                      [displayBy]=\"'value'\"\r\n                                                      [identifyBy]=\"'id'\"\r\n                                                      [autocompleteItems]=\"donViPhoiHopObj\">\r\n                                          <ng-template let-item=\"item\" let-index=\"index\">\r\n                                            {{ item.id }}: {{ item.value }}\r\n                                          </ng-template>\r\n                                      </tag-input-dropdown>\r\n                                    </tag-input>\r\n                                  </ion-item> -->\r\n                               </ion-col>\r\n                          </ion-row>\r\n                          <ion-row>\r\n                                <ion-col size=\"12\">\r\n\r\n                                    <ion-item>\r\n                                        <ion-label position=\"stacked\">Người phối hợp</ion-label>\r\n                                        <ionic-selectable [(ngModel)]=\"nguoidungph\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"NguoiPhoiHop\"  [shouldStoreItemValue]=\"true\"\r\n                                        itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người phối hợp\" \r\n                                        confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                                        (onChange)=\"DonViPhoiHopChange($event)\"\r\n                                        >\r\n                                      </ionic-selectable>\r\n                                    </ion-item>\r\n                                   <!-- <ion-item>\r\n                                      <ion-label position=\"stacked\">Người phối hợp</ion-label>\r\n                                      <tag-input  formControlName=\"NguoiPhoiHop\"  [onlyFromAutocomplete]=\"true\"  [placeholder]=\"'Chọn người phối hợp'\"   [secondaryPlaceholder]=\"'Chọn người phối hợp'\">\r\n                                          <tag-input-dropdown [showDropdownIfEmpty]=\"true\"\r\n                                                          [dynamicUpdate]=\"false\"\r\n                                                          [focusFirstElement]=\"true\"\r\n                                                          [displayBy]=\"'value'\"\r\n                                                          [identifyBy]=\"'id'\"\r\n                                                          [autocompleteItems]=\"nguoiPhoiHopObj\">\r\n                                              <ng-template let-item=\"item\" let-index=\"index\">\r\n                                                {{ item.id }}: {{ item.value }}\r\n                                              </ng-template>\r\n                                          </tag-input-dropdown>\r\n                                        </tag-input>\r\n                                      </ion-item> -->\r\n                                   </ion-col>\r\n                              </ion-row>\r\n                              <ion-row>\r\n                                <ion-col size=\"4\">\r\n                                </ion-col>\r\n                                <ion-col size=\"4\">\r\n                                    <ion-button #hiddenButton id=\"submitForm\" class=\"btn-theme\"  color=\"theme hidden\"  type=\"submit\" >Thêm mới</ion-button>\r\n                                </ion-col>\r\n                                <ion-col size=\"4\">\r\n                                </ion-col>\r\n                              </ion-row>\r\n                 </ion-grid> \r\n            \r\n            </div>\r\n        </form>\r\n    </ion-content>\r\n    "
+module.exports = "<ion-header>\r\n        <ion-toolbar>\r\n            <ion-buttons slot=\"start\">\r\n                <ion-button (click)=\"closePopup()\">\r\n                  <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\r\n                </ion-button>\r\n            </ion-buttons>\r\n            <ion-title>Thêm mới công việc</ion-title>\r\n            <ion-buttons slot=\"end\">\r\n                <ion-button  class=\"btn-header\"  color=\"\"  type=\"submit\" (click)=\"triggerSumbit()\" [disabled]=\"!credentialsForm.valid\">Xong</ion-button>\r\n              </ion-buttons>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n    \r\n    <ion-content>\r\n        <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\r\n          <ion-grid>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Tên công việc <span class=\"red\">*</span></ion-label>\r\n                          <ion-input  formControlName=\"Ten\"  placeholder=\"Nhập tên công việc\"></ion-input>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Mã công việc </ion-label>\r\n                          <ion-input  formControlName=\"Ma\"  placeholder=\"Nhập mã công việc\"></ion-input>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Ngày bắt đầu <span class=\"red\">*</span></ion-label>\r\n                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayBatDau\" placeholder=\"Nhập ngày bắt đầu\">\r\n                          </ion-datetime>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Hạn xử lý <span class=\"red\">*</span></ion-label>\r\n                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"NgayKetThuc\"  placeholder=\"Nhập ngày kết thúc\"> \r\n                          </ion-datetime>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"12\">\r\n                      <ion-item>\r\n                          <ion-label position=\"stacked\">Nội dung công việc</ion-label><br>\r\n                          <ion-textarea  formControlName=\"NoiDung\" placeholder=\"Nhập nội dung\"></ion-textarea>\r\n                      </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n              <ion-row>\r\n                  <ion-col size=\"6\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Độ quan trọng</ion-label>\r\n                          <ion-select placeholder=\"Độ quan trọng\">\r\n                            <ion-select-option value=\"14\">Bình thường</ion-select-option>\r\n                            <ion-select-option value=\"15\">Quan trọng</ion-select-option>\r\n                            <ion-select-option value=\"16\">Rất quan trọng</ion-select-option>\r\n                          </ion-select>\r\n                        </ion-item>\r\n                  </ion-col>\r\n                  <ion-col size=\"6\">\r\n                      <ion-item>\r\n                          <ion-label  position=\"stacked\">Độ ưu tiên</ion-label>\r\n                          <ion-select placeholder=\"Độ ưu tiên\" >\r\n                            <ion-select-option value=\"17\">Bình thường</ion-select-option>\r\n                            <ion-select-option value=\"18\">Gấp</ion-select-option>\r\n                            <ion-select-option value=\"19\">Rất gấp</ion-select-option>\r\n                          </ion-select>\r\n                        </ion-item>\r\n                  </ion-col>\r\n              </ion-row>\r\n            </ion-grid>\r\n            <div class=\"box-component\">\r\n              <span class=\"title-box\">Thành phần tham gia</span>\r\n              <ion-grid>\r\n                  <ion-row>\r\n                    <ion-col size=\"12\">\r\n                        <ion-item>\r\n                            <ion-label position=\"stacked\">Đơn vị xử lý</ion-label>\r\n                              <ionic-selectable   itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"DonViXuLy\"  [shouldStoreItemValue]=\"true\"\r\n                              itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị xử lý\"\r\n                              confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                              (onChange)=\"DonViXuLyChange($event)\"\r\n                              >\r\n                            </ionic-selectable>\r\n                        </ion-item>\r\n                    \r\n                      </ion-col>\r\n                  </ion-row>\r\n                  <ion-row>\r\n                          <ion-col size=\"12\">\r\n                              <ion-item>\r\n                                  <ion-label position=\"stacked\">Người xử lý</ion-label>\r\n                                  <ionic-selectable [(ngModel)]=\"nguoidung\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"NguoiXuLy\"  [shouldStoreItemValue]=\"true\"\r\n                                  itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người xử lý\"\r\n                                  confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                                  (onChange)=\"NguoiXuLyChange($event)\"\r\n                                  >\r\n                                </ionic-selectable>\r\n                              </ion-item>\r\n                            \r\n                            </ion-col>\r\n                        </ion-row>\r\n                        <ion-row>\r\n                              <ion-col size=\"12\">\r\n                                  <ion-item>\r\n                                      <ion-label position=\"stacked\">Đơn vị phối hợp</ion-label>\r\n                                      <ionic-selectable [(ngModel)]=\"donviph\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"DonViPhoiHop\"  [shouldStoreItemValue]=\"true\"\r\n                                      itemTextField=\"Ten\" [items]=\"lstdonvi\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn đơn vị phối hợp\" \r\n                                      confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                                      (onChange)=\"DonViPhoiHopChange($event)\"\r\n                                      >\r\n                                    </ionic-selectable>\r\n                                    </ion-item>\r\n                              \r\n                                </ion-col>\r\n                            </ion-row>\r\n                            <ion-row>\r\n                                  <ion-col size=\"12\">\r\n\r\n                                      <ion-item>\r\n                                          <ion-label position=\"stacked\">Người phối hợp</ion-label>\r\n                                          <ionic-selectable [(ngModel)]=\"nguoidungph\" itemValueField=\"id\" [isMultiple]=\"true\" formControlName=\"NguoiPhoiHop\"  [shouldStoreItemValue]=\"true\"\r\n                                          itemTextField=\"text\" [items]=\"lstnguoidung\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn người phối hợp\" \r\n                                          confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\"\r\n                                          (onChange)=\"DonViPhoiHopChange($event)\"\r\n                                          >\r\n                                        </ionic-selectable>\r\n                                      </ion-item>\r\n                                \r\n                                    </ion-col>\r\n                                </ion-row>\r\n                                    <span class=\"title-break-page\" *ngIf=\"CongViecTrangThaiItems\">Chi tiết giao xử lý</span>\r\n\r\n                                        <div formArrayName=\"CongViecTrangThaiItems\" *ngFor=\"let item of credentialsForm.get('CongViecTrangThaiItems').controls; let i = index;\">\r\n                                              <ion-row >\r\n                                                  <ion-col size=\"6\" *ngIf=\"item.get('NguoiDungID').value\">\r\n                                                      <ion-item  [formGroupName]=\"i\">\r\n                                                          <ion-label position=\"stacked\" >{{item.get('Title').value}}</ion-label>\r\n                                                          <ion-input  formControlName=\"NguoiDungText\"readonly></ion-input>\r\n                                                          <ion-input  formControlName=\"NguoiDungID\" class=\"hidden\"></ion-input>\r\n                                                      </ion-item>\r\n                                                  </ion-col>\r\n                                                  <ion-col size=\"6\" *ngIf=\"item.get('DonViID').value\">\r\n                                                      <ion-item  [formGroupName]=\"i\">\r\n                                                          <ion-label position=\"stacked\" >{{item.get('Title').value}}</ion-label>\r\n                                                          <ion-input  formControlName=\"DonViText\" readonly></ion-input>\r\n                                                          <ion-input  formControlName=\"DonViID\" class=\"hidden\"></ion-input>\r\n                                                      </ion-item>\r\n                                                  </ion-col>\r\n                                                  <ion-col size=\"6\">\r\n                                                      <ion-item  [formGroupName]=\"i\">\r\n                                                          <ion-label  position=\"stacked\">Hạn xử lý <span class=\"red\">*</span></ion-label>\r\n                                                          <ion-datetime displayFormat=\"MM/DD/YYYY\"  formControlName=\"HanXuLy\"  placeholder=\"Nhập ngày kết thúc\"> \r\n                                                          </ion-datetime>\r\n                                                          <ion-input  formControlName=\"IsDauMoi\" class=\"hidden\"></ion-input>\r\n                                                      </ion-item>\r\n                                                  </ion-col>\r\n                                              </ion-row>\r\n                                        </div> \r\n                                \r\n                              <ion-row>\r\n                                  <ion-col size=\"4\">\r\n                                  </ion-col>\r\n                                  <ion-col size=\"4\">\r\n                                      <ion-button #hiddenButton id=\"submitForm\" class=\"btn-theme\"  color=\"theme hidden\"  type=\"submit\" >Thêm mới</ion-button>\r\n                                  </ion-col>\r\n                                  <ion-col size=\"4\">\r\n                                  </ion-col>\r\n                                </ion-row>\r\n                                \r\n                  </ion-grid> \r\n            </div>\r\n        </form>\r\n    </ion-content>\r\n    "
 
 /***/ }),
 
@@ -1377,7 +1380,7 @@ var CongviecformPage = /** @class */ (function () {
         this.congviecId = this.navParams.get('id');
         this.credentialsForm = this.formBuilder.group({
             Ten: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-            Ma: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+            Ma: ['', []],
             NgayBatDau: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
             NgayKetThuc: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
             NoiDung: ['', []],
@@ -1385,9 +1388,23 @@ var CongviecformPage = /** @class */ (function () {
             NguoiXuLy: ['', []],
             DonViPhoiHop: ['', []],
             NguoiPhoiHop: ['', []],
+            CongViecTrangThaiItems: this.formBuilder.array([])
         });
         this.loadDonVi();
         this.loadnguoidung();
+    };
+    CongviecformPage.prototype.addICongViecTrangThaiItems = function (title, nguoiXuLy, nguoiXulyId, donViXuLy, donViXuLyId, isDauMoi, hanXuLy) {
+        var CongViecTrangThaiItem = this.formBuilder.group({
+            Title: [title, []],
+            NguoiDungText: [nguoiXuLy, []],
+            NguoiDungID: [nguoiXulyId, []],
+            DonViID: [donViXuLyId, []],
+            DonViText: [donViXuLy, []],
+            IsDauMoi: [isDauMoi, []],
+            HanXuLy: [hanXuLy, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+        });
+        this.CongViecTrangThaiItems = this.credentialsForm.get('CongViecTrangThaiItems');
+        this.CongViecTrangThaiItems.push(CongViecTrangThaiItem);
     };
     CongviecformPage.prototype.loadnguoidung = function () {
         var _this = this;
@@ -1406,17 +1423,29 @@ var CongviecformPage = /** @class */ (function () {
     };
     CongviecformPage.prototype.onSubmit = function () {
         var _this = this;
-        this.authService.postCongViec(this.credentialsForm.value).subscribe(function (res) {
-            if (res["StatusCode"] == 0) {
-                _this.authService.presentToastSuccess(res["Data"]);
-            }
-        });
+        if (this.credentialsForm.dirty && this.credentialsForm.valid) {
+            this.authService.postCongViec(this.credentialsForm.value).subscribe(function (res) {
+                if (res["StatusCode"] == 0) {
+                    _this.authService.presentToastSuccess(res["Data"]);
+                }
+            });
+        }
+        else {
+            this.authService.presentToastFail('Mời bạn nhập đầy đủ thông tin');
+        }
     };
     CongviecformPage.prototype.verifyTag = function (str) {
         return str !== 'ABC' && str.trim() !== '';
     };
     CongviecformPage.prototype.DonViXuLyChange = function (event) {
-        console.log('don vi xu ly', event.value.join(","));
+        var _this = this;
+        var listSelected = event.value;
+        var donviItems = this.lstdonvi.filter(function (d) { return listSelected.includes(d.ID); });
+        if (donviItems) {
+            donviItems.forEach(function (donviItem) {
+                _this.addICongViecTrangThaiItems('Đơn vị xử lý', '', '', donviItem.Ten, donviItem.ID, 1, '');
+            });
+        }
     };
     CongviecformPage.prototype.DonViPhoiHopChange = function (event) {
         console.log('Don vi phoi hop', event.value.join(","));
@@ -1428,13 +1457,8 @@ var CongviecformPage = /** @class */ (function () {
         console.log('nguoi phoi hop', event.value.join(","));
     };
     CongviecformPage.prototype.triggerSumbit = function () {
-        // this.hiddenButton.nativeElement.click();
         document.getElementById('submitForm').click(); // doesn't work
     };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('hiddenButton'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
-    ], CongviecformPage.prototype, "hiddenButton", void 0);
     CongviecformPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-congviecform',
@@ -1828,7 +1852,7 @@ var VanbandenflowchartPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>    \r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-button (click)=\"closePopup()\">\r\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\r\n            </ion-button>\r\n        </ion-buttons>\r\n        <ion-title>Luồng luân chuyển</ion-title>\r\n      </ion-toolbar>    \r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"scroll-contain\" id=\"luonglc\">\r\n  </div>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>    \r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-button (click)=\"closePopup()\">\r\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\r\n            </ion-button>\r\n        </ion-buttons>\r\n        <ion-title>Luồng luân chuyển</ion-title>\r\n      </ion-toolbar>    \r\n</ion-header>\r\n\r\n<ion-content>\r\n    <div>\r\n        <div style=\"position: absolute; top: 4px; left: 10px;\">\r\n            <div style=\"background: #e0e0e0; float: right; padding: 3px 5px; font-size: 12px;\">Chưa xử lý</div>\r\n            <div style=\"background: #35aa47; color: #fff; float: right; padding: 3px 5px; font-size: 12px;\">Đã xử lý</div>\r\n            <div style=\"background: #C54257; color: #fff; float: right; padding: 3px 5px; font-size: 12px;\">Trả lại</div>\r\n            <div class=\"clear\"></div>\r\n        </div>\r\n    </div>\r\n  <div class=\"scroll-contain\" id=\"luonglc\">\r\n  </div>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -2272,6 +2296,596 @@ var VanbandiformykienPage = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
     ], VanbandiformykienPage);
     return VanbandiformykienPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module.ts":
+/*!********************************************************************************************!*\
+  !*** ./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module.ts ***!
+  \********************************************************************************************/
+/*! exports provided: VanbandiluongluanchuyenPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandiluongluanchuyenPageModule", function() { return VanbandiluongluanchuyenPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _vanbandiluongluanchuyen_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./vanbandiluongluanchuyen.page */ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _vanbandiluongluanchuyen_page__WEBPACK_IMPORTED_MODULE_6__["VanbandiluongluanchuyenPage"]
+    }
+];
+var VanbandiluongluanchuyenPageModule = /** @class */ (function () {
+    function VanbandiluongluanchuyenPageModule() {
+    }
+    VanbandiluongluanchuyenPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_vanbandiluongluanchuyen_page__WEBPACK_IMPORTED_MODULE_6__["VanbandiluongluanchuyenPage"]]
+        })
+    ], VanbandiluongluanchuyenPageModule);
+    return VanbandiluongluanchuyenPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.html":
+/*!********************************************************************************************!*\
+  !*** ./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>    \n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-button (click)=\"closePopup()\">\n            <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n          </ion-button>\n      </ion-buttons>\n      <ion-title>Luồng luân chuyển</ion-title>\n    </ion-toolbar>    \n</ion-header>\n\n<ion-content>\n  <div>\n      <div style=\"position: absolute; top: 4px; left:10px;\">\n          <div style=\"background: #e0e0e0; float: right; padding: 3px 5px; font-size: 12px;\">Chưa xử lý</div>\n          <div style=\"background: #35aa47; color: #fff; float: right; padding: 3px 5px; font-size: 12px;\">Đã xử lý</div>\n          <div style=\"background: #C54257; color: #fff; float: right; padding: 3px 5px; font-size: 12px;\">Trả lại</div>\n          <div class=\"clear\"></div>\n      </div>\n  </div>\n  <div class=\"scroll-contain\" id=\"luonglc\">\n  </div>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.scss":
+/*!********************************************************************************************!*\
+  !*** ./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.scss ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZGkvdmFuYmFuZGlsdW9uZ2x1YW5jaHV5ZW4vdmFuYmFuZGlsdW9uZ2x1YW5jaHV5ZW4ucGFnZS5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.ts ***!
+  \******************************************************************************************/
+/*! exports provided: VanbandiluongluanchuyenPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandiluongluanchuyenPage", function() { return VanbandiluongluanchuyenPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+
+
+
+
+var VanbandiluongluanchuyenPage = /** @class */ (function () {
+    function VanbandiluongluanchuyenPage(modalController, navParams, authService) {
+        this.modalController = modalController;
+        this.navParams = navParams;
+        this.authService = authService;
+        this.dataquery = { VanBanID: 0 };
+        this.dataquery.VanBanID = this.navParams.get('id');
+    }
+    VanbandiluongluanchuyenPage.prototype.ngOnInit = function () {
+        this.load();
+    };
+    VanbandiluongluanchuyenPage.prototype.load = function () {
+        var _this = this;
+        this.authService.getluongluanchuyenvanbandi(this.dataquery).subscribe(function (res) {
+            _this.datahtml = res["Data"];
+            document.getElementById("luonglc").innerHTML = _this.datahtml;
+        });
+    };
+    VanbandiluongluanchuyenPage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    VanbandiluongluanchuyenPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-vanbandiluongluanchuyen',
+            template: __webpack_require__(/*! ./vanbandiluongluanchuyen.page.html */ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.html"),
+            styles: [__webpack_require__(/*! ./vanbandiluongluanchuyen.page.scss */ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"],
+            src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"]])
+    ], VanbandiluongluanchuyenPage);
+    return VanbandiluongluanchuyenPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module.ts ***!
+  \******************************************************************************/
+/*! exports provided: ChuyenphathanhPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChuyenphathanhPageModule", function() { return ChuyenphathanhPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _chuyenphathanh_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./chuyenphathanh.page */ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _chuyenphathanh_page__WEBPACK_IMPORTED_MODULE_6__["ChuyenphathanhPage"]
+    }
+];
+var ChuyenphathanhPageModule = /** @class */ (function () {
+    function ChuyenphathanhPageModule() {
+    }
+    ChuyenphathanhPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_chuyenphathanh_page__WEBPACK_IMPORTED_MODULE_6__["ChuyenphathanhPage"]]
+        })
+    ], ChuyenphathanhPageModule);
+    return ChuyenphathanhPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-button (click)=\"closePopup()\">\n            <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n          </ion-button>\n      </ion-buttons>\n      <ion-title>Chuyển phát hành</ion-title>\n    </ion-toolbar>    \n</ion-header>\n<ion-content>\n  <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n    <ion-grid>\n        <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Phạm vi</ion-label>\n                     <ion-select value=\"brown\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn phạm vi\" formControlName=\"PhamViID\">\n                      <ion-select-option value=\"2\">Đơn vị</ion-select-option>\n                      <ion-select-option value=\"1\">Phòng ban</ion-select-option>\n                    </ion-select>\n                </ion-item>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col size=\"12\">\n              <ion-item>\n                  <ion-label position=\"stacked\">Nội dung</ion-label>\n                  <ion-textarea placeholder=\"Nhập nội dung...\" formControlName=\"NoiDung\"></ion-textarea>\n                  <input type=\"hidden\" formControlName=\"VanBanID\" value=\"{{VanBanID}}\">\n              </ion-item>\n          </ion-col>\n      </ion-row>   \n      <ion-row class=\"row-button\">\n        <ion-col size=\"12\">    \n                   <ion-button color=\"success\" type=\"submit\" class=\"ion-button ion-button-save\"  [disabled]=\"!credentialsForm.valid\">\n                        <ion-icon name=\"paper\" class=\"ion-icon-save\"></ion-icon>\n                       Chuyển phát hành</ion-button>\n                       <ion-button color=\"success\"  class=\"ion-button ion-button-save\" (click)=\"closePopup()\">\n                            <ion-icon name=\"close\" class=\"ion-icon-close\"></ion-icon>\n                           Hủy</ion-button>\n        </ion-col>\n    </ion-row> \n        </ion-grid>\n        </form>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.scss":
+/*!******************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.scss ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZHV0aGFvL2NodXllbnBoYXRoYW5oL2NodXllbnBoYXRoYW5oLnBhZ2Uuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.ts ***!
+  \****************************************************************************/
+/*! exports provided: ChuyenphathanhPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChuyenphathanhPage", function() { return ChuyenphathanhPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var ChuyenphathanhPage = /** @class */ (function () {
+    function ChuyenphathanhPage(authService, navParams, formBuilder, modalController) {
+        this.authService = authService;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.modalController = modalController;
+        this.dataquery = { VanBanID: this.navParams.get('id'), ID: this.navParams.get('id') };
+    }
+    ChuyenphathanhPage.prototype.ngOnInit = function () {
+        this.credentialsForm = this.formBuilder.group({
+            VanBanID: this.navParams.get('id'),
+            NoiDung: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(3)]],
+            PhamViID: [, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+        });
+    };
+    ChuyenphathanhPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.postchuyenphathanhduthao(this.credentialsForm.value).subscribe(function (res) {
+            _this.closePopupupdate();
+        });
+    };
+    ChuyenphathanhPage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    ChuyenphathanhPage.prototype.closePopupupdate = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.authService.getVanBanDuThaobyID(this.dataquery).subscribe(function (res) {
+                    _this.modalController.dismiss(res["Data"]);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    ChuyenphathanhPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-chuyenphathanh',
+            template: __webpack_require__(/*! ./chuyenphathanh.page.html */ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.html"),
+            styles: [__webpack_require__(/*! ./chuyenphathanh.page.scss */ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], ChuyenphathanhPage);
+    return ChuyenphathanhPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module.ts ***!
+  \**********************************************************************************/
+/*! exports provided: FormtrinhlanhdaoPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormtrinhlanhdaoPageModule", function() { return FormtrinhlanhdaoPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _formtrinhlanhdao_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formtrinhlanhdao.page */ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.ts");
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _formtrinhlanhdao_page__WEBPACK_IMPORTED_MODULE_7__["FormtrinhlanhdaoPage"]
+    }
+];
+var FormtrinhlanhdaoPageModule = /** @class */ (function () {
+    function FormtrinhlanhdaoPageModule() {
+    }
+    FormtrinhlanhdaoPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+                ionic_selectable__WEBPACK_IMPORTED_MODULE_5__["IonicSelectableModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_formtrinhlanhdao_page__WEBPACK_IMPORTED_MODULE_7__["FormtrinhlanhdaoPage"]]
+        })
+    ], FormtrinhlanhdaoPageModule);
+    return FormtrinhlanhdaoPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-button (click)=\"closePopup()\">\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n        <ion-title>Trình lãnh đạo phê duyệt</ion-title>\n      </ion-toolbar>    \n</ion-header>\n<ion-content>\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n        <ion-grid>\n            <ion-row>\n                <ion-col size=\"12\">\n                    <ion-item>\n                        <ion-label position=\"stacked\">Ngày trình ký</ion-label>\n                         <ion-datetime display-format=\"DD/MM/YYYY\" doneText=\"Chọn\" cancelText=\"Hủy\" formControlName=\"NgayTrinh\" [(ngModel)]=\"myDate\"\n                         placeholder=\"Ngày trình ký\"></ion-datetime>\n                    </ion-item>\n                </ion-col>\n            </ion-row>\n          <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Lãnh đạo phê duyệt</ion-label>\n                      <ionic-selectable  [(ngModel)]=\"lanhdao\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"LanhDaoTrinhID\"  [shouldStoreItemValue]=\"true\"\n                      itemTextField=\"TenHienThi\" [items]=\"LstLanhDao\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn lãnh đạo phê duyệt\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\n                    </ionic-selectable>\n                </ion-item>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Phòng ban liên quan</ion-label>\n                      <ionic-selectable  [(ngModel)]=\"donvi\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"strPhongBanLienQuan\"  [shouldStoreItemValue]=\"true\"\n                      itemTextField=\"Ten\" [items]=\"LstPhongban\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn phòng ban liên quan\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\n                    </ionic-selectable>\n                </ion-item>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Lãnh đạo liên quan</ion-label>\n                    <ionic-selectable [(ngModel)]=\"lanhdaolq\" itemValueField=\"ID\" [isMultiple]=\"true\" formControlName=\"strLtsDonViPhoiHop\"  [shouldStoreItemValue]=\"true\"\n                    itemTextField=\"TenHienThi\" [items]=\"LstLanhDaolienquan\" [canSearch]=\"true\" okText=\"Chọn\" cancelText=\"Hủy\" placeholder=\"Chọn lãnh đạo liên quan\" confirmButtonText=\"Chọn\" closeButtonText=\"Hủy\">\n                  </ionic-selectable>\n                  </ion-item>\n            </ion-col>\n        </ion-row>    \n        <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Nội dung</ion-label>\n                    <ion-textarea placeholder=\"Nhập nội dung...\" formControlName=\"NoiDung\"></ion-textarea>\n                    <input type=\"hidden\" formControlName=\"VanBanID\" value=\"{{VanBanID}}\">\n                </ion-item>\n            </ion-col>\n        </ion-row>    \n        <ion-row class=\"row-button\">\n            <ion-col size=\"12\">    \n                       <ion-button color=\"success\" type=\"submit\" class=\"ion-button ion-button-save\"  [disabled]=\"!credentialsForm.valid\">\n                            <ion-icon name=\"paper\" class=\"ion-icon-save\"></ion-icon>\n                           Gửi</ion-button>\n                           <ion-button color=\"success\"  class=\"ion-button ion-button-save\" (click)=\"closePopup()\">\n                                <ion-icon name=\"close\" class=\"ion-icon-close\"></ion-icon>\n                               Hủy</ion-button>\n            </ion-col>\n        </ion-row>\n          </ion-grid>\n        </form>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.scss ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZHV0aGFvL2Zvcm10cmluaGxhbmhkYW8vZm9ybXRyaW5obGFuaGRhby5wYWdlLnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.ts ***!
+  \********************************************************************************/
+/*! exports provided: FormtrinhlanhdaoPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormtrinhlanhdaoPage", function() { return FormtrinhlanhdaoPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var FormtrinhlanhdaoPage = /** @class */ (function () {
+    function FormtrinhlanhdaoPage(authService, navParams, formBuilder, modalController) {
+        this.authService = authService;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.modalController = modalController;
+        this.dataquery = { VanBanID: this.navParams.get('id'), };
+        this.myDate = new Date().toISOString();
+    }
+    FormtrinhlanhdaoPage.prototype.ngOnInit = function () {
+        this.load();
+        this.credentialsForm = this.formBuilder.group({
+            VanBanID: this.navParams.get('id'),
+            strNoiDung: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(3)]],
+            LanhDaoTrinhID: [],
+            strPhongBanLienQuan: [],
+            NoiDung: [],
+            NgayTrinh: [],
+        });
+    };
+    FormtrinhlanhdaoPage.prototype.load = function () {
+        var _this = this;
+        this.authService.getlanhdaotrinhduthao(this.dataquery).subscribe(function (res) {
+            _this.LstLanhDao = res["Data"];
+            _this.LstLanhDaolienquan = res["LstNguoiDung"];
+            _this.LstPhongban = res["LstDonVi"];
+            return true;
+        });
+    };
+    FormtrinhlanhdaoPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.postTrinhvanbanduthao(this.credentialsForm.value).subscribe(function (res) {
+            _this.closePopup();
+        });
+    };
+    FormtrinhlanhdaoPage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    FormtrinhlanhdaoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-formtrinhlanhdao',
+            template: __webpack_require__(/*! ./formtrinhlanhdao.page.html */ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.html"),
+            styles: [__webpack_require__(/*! ./formtrinhlanhdao.page.scss */ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], FormtrinhlanhdaoPage);
+    return FormtrinhlanhdaoPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.module.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/kethucduthao/kethucduthao.module.ts ***!
+  \**************************************************************************/
+/*! exports provided: KethucduthaoPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KethucduthaoPageModule", function() { return KethucduthaoPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _kethucduthao_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./kethucduthao.page */ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _kethucduthao_page__WEBPACK_IMPORTED_MODULE_6__["KethucduthaoPage"]
+    }
+];
+var KethucduthaoPageModule = /** @class */ (function () {
+    function KethucduthaoPageModule() {
+    }
+    KethucduthaoPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_kethucduthao_page__WEBPACK_IMPORTED_MODULE_6__["KethucduthaoPage"]]
+        })
+    ], KethucduthaoPageModule);
+    return KethucduthaoPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-button (click)=\"closePopup()\">\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n        <ion-title>Kết thúc văn bản trình ký</ion-title>\n      </ion-toolbar>    \n</ion-header>\n\n<ion-content>\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n        <ion-grid>\n            <ion-row>\n                <ion-col size=\"12\">\n                    <ion-item>\n                        <ion-label position=\"stacked\">Nội dung</ion-label>\n                        <ion-textarea placeholder=\"Nhập nội dung...\" formControlName=\"NoiDung\"></ion-textarea>\n                        <input type=\"hidden\" formControlName=\"VanBanID\" value=\"{{VanBanID}}\">\n                    </ion-item>\n                </ion-col>\n            </ion-row>\n            <ion-row class=\"row-button\">\n                <ion-col size=\"12\">    \n                           <ion-button color=\"success\" type=\"submit\" class=\"ion-button ion-button-save\"  [disabled]=\"!credentialsForm.valid\">\n                                <ion-icon name=\"paper\" class=\"ion-icon-save\"></ion-icon>\n                               Kết thúc</ion-button>\n                               <ion-button color=\"success\"  class=\"ion-button ion-button-save\" (click)=\"closePopup()\">\n                                    <ion-icon name=\"close\" class=\"ion-icon-close\"></ion-icon>\n                                   Hủy</ion-button>\n                </ion-col>\n            </ion-row>\n            </ion-grid>\n            </form>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.scss":
+/*!**************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.scss ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-button {\n  --ion-color-base: #AC8559 !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy92YW5iYW5kdXRoYW8va2V0aHVjZHV0aGFvL0Q6XFxDVlxcVGluaFZhblxcVmljZW1cXEFwcFxcVmljZW1Nb2JpbGVBcHAvc3JjXFxhcHBcXG1lbWJlcnNcXHZhbmJhbmR1dGhhb1xca2V0aHVjZHV0aGFvXFxrZXRodWNkdXRoYW8ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksb0NBQWlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9tZW1iZXJzL3ZhbmJhbmR1dGhhby9rZXRodWNkdXRoYW8va2V0aHVjZHV0aGFvLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1idXR0b24ge1xyXG4gICAgLS1pb24tY29sb3ItYmFzZTogI0FDODU1OSAhaW1wb3J0YW50O1xyXG4gIH0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.ts ***!
+  \************************************************************************/
+/*! exports provided: KethucduthaoPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KethucduthaoPage", function() { return KethucduthaoPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var KethucduthaoPage = /** @class */ (function () {
+    function KethucduthaoPage(authService, navParams, formBuilder, modalController) {
+        this.authService = authService;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.modalController = modalController;
+        this.dataquery = { VanBanID: this.navParams.get('id'), ID: this.navParams.get('id'), };
+    }
+    KethucduthaoPage.prototype.ngOnInit = function () {
+        this.credentialsForm = this.formBuilder.group({
+            VanBanID: this.navParams.get('id'),
+            NoiDung: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(3)]],
+        });
+    };
+    KethucduthaoPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.postketthucbanduthao(this.credentialsForm.value).subscribe(function (res) {
+            _this.closePopupupdate();
+        });
+    };
+    KethucduthaoPage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    KethucduthaoPage.prototype.closePopupupdate = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.authService.getVanBanDuThaobyID(this.dataquery).subscribe(function (res) {
+                    _this.vanban = res["Data"];
+                    _this.modalController.dismiss(_this.vanban);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    KethucduthaoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-kethucduthao',
+            template: __webpack_require__(/*! ./kethucduthao.page.html */ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.html"),
+            styles: [__webpack_require__(/*! ./kethucduthao.page.scss */ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], KethucduthaoPage);
+    return KethucduthaoPage;
 }());
 
 
@@ -3232,12 +3846,32 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.postVanBanDenytrangthaivb = function (data) {
         return this.post('api/vanbanden/Finish', data);
     };
+    // lấy luồng luân chuyển văn bản đến
     AuthenticationService.prototype.getluongluanchuyenvanbanden = function (data) {
         return this.get('api/vanbanden/LuongLuanChuyenVanBan', data);
+    };
+    //lấy luồng luân chuyển văn bản đi
+    AuthenticationService.prototype.getluongluanchuyenvanbandi = function (data) {
+        return this.get('api/vanbandi/GetLuongLuanChuyen', data);
+    };
+    AuthenticationService.prototype.getlanhdaotrinhduthao = function (data) {
+        return this.get('api/VanBanDuThao/GetlanhDaotrinh', data);
     };
     //các hàm đăng ký service
     AuthenticationService.prototype.postVanBanDen = function (data) {
         return this.post('api/vanbanden/test', data);
+    };
+    // trình văn bản dự thảo
+    AuthenticationService.prototype.postTrinhvanbanduthao = function (data) {
+        return this.post('api/VanBanDuThao/TrinhKy', data);
+    };
+    // kết thúc bản dự thảo
+    AuthenticationService.prototype.postketthucbanduthao = function (data) {
+        return this.post('api/VanBanDuThao/Finish', data);
+    };
+    // chuyển phát hành văn bản dự thảo
+    AuthenticationService.prototype.postchuyenphathanhduthao = function (data) {
+        return this.post('api/VanBanDuThao/ChuyenPhatHanh', data);
     };
     //lấy danh sách công việc
     AuthenticationService.prototype.getDanhSachCongViec = function (data) {
@@ -3245,7 +3879,7 @@ var AuthenticationService = /** @class */ (function () {
     };
     //thêm mới công việc
     AuthenticationService.prototype.postCongViec = function (data) {
-        return this.get('api/CongViec/AddOrEdit', data);
+        return this.post('api/CongViec/AddOrEdit', data);
     };
     //============================================================*********End danh sach dang ky service****======================= 
     //===============================================================Base function==================================================  
@@ -3504,9 +4138,9 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    //url:'http://test.e-office.vn/'
+    url: 'http://test.e-office.vn/'
     //url:'http://localhost:5000/'
-    url: 'http://localhost:50775/'
+    //url:'http://localhost:50775/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

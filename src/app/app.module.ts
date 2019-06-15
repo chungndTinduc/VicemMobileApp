@@ -25,6 +25,7 @@ import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicSelectableModule } from 'ionic-selectable';
+import { CacheModule } from "ionic-cache";
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -58,6 +59,7 @@ export function jwtOptionsFactory(storage) {
     ReactiveFormsModule,
     IonicSelectableModule,
     IonicStorageModule.forRoot(),
+    CacheModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
