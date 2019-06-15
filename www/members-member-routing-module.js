@@ -21,6 +21,8 @@ var routes = [
         path: '',
         loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     },
+    { path: 'approved', loadChildren: './vanbanduthao/approved/approved.module#ApprovedPageModule' },
+    { path: 'reject', loadChildren: './vanbanduthao/reject/reject.module#RejectPageModule' },
 ];
 var MemberRoutingModule = /** @class */ (function () {
     function MemberRoutingModule() {

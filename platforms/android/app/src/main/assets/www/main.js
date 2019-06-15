@@ -845,6 +845,12 @@ var map = {
 		"./src/app/public/register/register.module.ts",
 		"public-register-register-module"
 	],
+	"./vanbanduthao/approved/approved.module": [
+		"./src/app/members/vanbanduthao/approved/approved.module.ts"
+	],
+	"./vanbanduthao/reject/reject.module": [
+		"./src/app/members/vanbanduthao/reject/reject.module.ts"
+	],
 	"src/app/members/chitietvanbandi/chitietvanbandi.module": [
 		"./src/app/members/chitietvanbandi/chitietvanbandi.module.ts",
 		"src-app-members-chitietvanbandi-chitietvanbandi-module"
@@ -883,17 +889,14 @@ var map = {
 	],
 	"src/app/members/vanbanden/vanbanden.module": [
 		"./src/app/members/vanbanden/vanbanden.module.ts",
-		"common",
 		"src-app-members-vanbanden-vanbanden-module"
 	],
 	"src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.module": [
 		"./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.module.ts",
-		"common",
 		"src-app-members-vanbanden-vanbandenchuadoc-vanbandenchuadoc-module"
 	],
 	"src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.module": [
 		"./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.module.ts",
-		"common",
 		"src-app-members-vanbanden-vanbandenchuaxuly-vanbandenchuaxuly-module"
 	],
 	"src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.module": [
@@ -940,9 +943,7 @@ var map = {
 		"src-app-members-vanbanduthaodaxuly-vanbanduthaodaxuly-module"
 	],
 	"src/app/members/viewfile/viewfile.module": [
-		"./src/app/members/viewfile/viewfile.module.ts",
-		"common",
-		"src-app-members-viewfile-viewfile-module"
+		"./src/app/members/viewfile/viewfile.module.ts"
 	]
 };
 function webpackAsyncContext(req) {
@@ -1042,6 +1043,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ionic_cache__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ionic-cache */ "./node_modules/ionic-cache/dist/index.js");
+
 
 
 
@@ -1050,7 +1053,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(events, platform, splashScreen, statusBar, authService, router) {
+    function AppComponent(events, platform, splashScreen, statusBar, authService, router, cache) {
         var _this = this;
         this.events = events;
         this.platform = platform;
@@ -1062,6 +1065,7 @@ var AppComponent = /** @class */ (function () {
         this.rowpage = 1;
         this.keyword = " ";
         this.loggedIn = false;
+        cache.setDefaultTTL(60 * 60);
         this.initializeApp();
         this.events.subscribe('user:login', function () {
             console.log('logined..');
@@ -1095,11 +1099,11 @@ var AppComponent = /** @class */ (function () {
             var datapage = { title: 'Danh bạ', icon: 'md-bookmarks', iconIos: 'ios-bookmarks-outline', url: '/members/tabs/danhba', color: 'danger' };
             this.appPages.push(datapage);
             var datapage = { title: 'Lịch làm việc', icon: 'md-calendar', iconIos: 'ios-calendar-outline', url: '/members/tabs/lichlamviec', color: 'primary' };
-            this.appPages.push(datapage);
-            var datapage = { title: 'Van ban den flowchart', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/vanbanden/vanbandenflowchart', color: 'medium' };
-            this.appPages.push(datapage);
-            var datapage = { title: 'xem file', icon: 'md-book', iconIos: 'ios-book-outline', url: '/members/tabs/viewfile', color: 'medium' };
-            this.appPages.push(datapage);
+            //  this.appPages.push(datapage);
+            //  var datapage={title:'Van ban den flowchart',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/vanbanden/vanbandenflowchart',color:'medium'}
+            //  this.appPages.push(datapage);
+            //  var datapage={title:'xem file',icon:'md-book',iconIos:'ios-book-outline',url:'/members/tabs/viewfile',color:'medium'}
+            //  this.appPages.push(datapage);
         }
     };
     AppComponent.prototype.logout = function () {
@@ -1131,7 +1135,8 @@ var AppComponent = /** @class */ (function () {
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
             _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            ionic_cache__WEBPACK_IMPORTED_MODULE_7__["CacheService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -1174,11 +1179,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_members_vanbanduthao_formtrinhlanhdao_formtrinhlanhdao_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module */ "./src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.module.ts");
 /* harmony import */ var src_app_members_vanbanduthao_kethucduthao_kethucduthao_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/app/members/vanbanduthao/kethucduthao/kethucduthao.module */ "./src/app/members/vanbanduthao/kethucduthao/kethucduthao.module.ts");
 /* harmony import */ var src_app_members_vanbanduthao_chuyenphathanh_chuyenphathanh_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module */ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module.ts");
-/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
-/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/fesm5/ngx-chips.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
+/* harmony import */ var src_app_members_vanbanduthao_approved_approved_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! src/app/members/vanbanduthao/approved/approved.module */ "./src/app/members/vanbanduthao/approved/approved.module.ts");
+/* harmony import */ var src_app_members_vanbanduthao_reject_reject_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! src/app/members/vanbanduthao/reject/reject.module */ "./src/app/members/vanbanduthao/reject/reject.module.ts");
+/* harmony import */ var src_app_members_viewfile_viewfile_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! src/app/members/viewfile/viewfile.module */ "./src/app/members/viewfile/viewfile.module.ts");
+/* harmony import */ var ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ionic4-auto-complete */ "./node_modules/ionic4-auto-complete/index.js");
+/* harmony import */ var ngx_chips__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ngx-chips */ "./node_modules/ngx-chips/fesm5/ngx-chips.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ionic_selectable__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ionic-selectable */ "./node_modules/ionic-selectable/esm5/ionic-selectable.min.js");
+/* harmony import */ var ionic_cache__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ionic-cache */ "./node_modules/ionic-cache/dist/index.js");
+
+
+
 
 
 
@@ -1205,6 +1217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // this is needed!
+
 
 
 function jwtOptionsFactory(storage) {
@@ -1236,13 +1249,17 @@ var AppModule = /** @class */ (function () {
                 src_app_members_vanbandi_vanbandiluongluanchuyen_vanbandiluongluanchuyen_module__WEBPACK_IMPORTED_MODULE_19__["VanbandiluongluanchuyenPageModule"],
                 src_app_members_vanbanduthao_formtrinhlanhdao_formtrinhlanhdao_module__WEBPACK_IMPORTED_MODULE_20__["FormtrinhlanhdaoPageModule"],
                 src_app_members_vanbanduthao_chuyenphathanh_chuyenphathanh_module__WEBPACK_IMPORTED_MODULE_22__["ChuyenphathanhPageModule"],
-                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_23__["AutoCompleteModule"],
-                ngx_chips__WEBPACK_IMPORTED_MODULE_24__["TagInputModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_25__["BrowserAnimationsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_26__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_26__["ReactiveFormsModule"],
-                ionic_selectable__WEBPACK_IMPORTED_MODULE_27__["IonicSelectableModule"],
+                src_app_members_viewfile_viewfile_module__WEBPACK_IMPORTED_MODULE_25__["ViewfilePageModule"],
+                ionic4_auto_complete__WEBPACK_IMPORTED_MODULE_26__["AutoCompleteModule"],
+                ngx_chips__WEBPACK_IMPORTED_MODULE_27__["TagInputModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_28__["BrowserAnimationsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_29__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_29__["ReactiveFormsModule"],
+                src_app_members_vanbanduthao_reject_reject_module__WEBPACK_IMPORTED_MODULE_24__["RejectPageModule"],
+                ionic_selectable__WEBPACK_IMPORTED_MODULE_30__["IonicSelectableModule"],
+                src_app_members_vanbanduthao_approved_approved_module__WEBPACK_IMPORTED_MODULE_23__["ApprovedPageModule"],
                 _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(),
+                ionic_cache__WEBPACK_IMPORTED_MODULE_31__["CacheModule"].forRoot(),
                 _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__["JwtModule"].forRoot({
                     jwtOptionsProvider: {
                         provide: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_11__["JWT_OPTIONS"],
@@ -1788,6 +1805,413 @@ var CapnhattrangthaivbPage = /** @class */ (function () {
             src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
     ], CapnhattrangthaivbPage);
     return CapnhattrangthaivbPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbanden.page.html":
+/*!*******************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbanden.page.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Văn bản đến</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button>\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n      <ion-tab-bar class=\"tab-header\" >\r\n        <ion-tab-button tab=\"vanbanden\" class=\"vanbanden\" class=\"tabvanbanden\">\r\n            <ion-icon name=\"ios-document\"></ion-icon>\r\n            <ion-label>Danh sách</ion-label>\r\n          </ion-tab-button>\r\n        <ion-tab-button tab=\"vanbanden/vanbandenchuaxuly\" class=\"tabvanbandenchuaxuly\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n          <ion-label>Chưa xử lý</ion-label>\r\n        </ion-tab-button>\r\n        <ion-tab-button tab=\"vanbanden/vanbandenchuadoc\" class=\"tabvanbandenchuadoc\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n           <ion-label>Chưa đọc</ion-label>\r\n        </ion-tab-button>\r\n        <ion-tab-button tab=\"vanbanden/vanbandenxulychinh\" class=\"tabvanbandenxulychinh\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n          <ion-label>Xử lý chính</ion-label>\r\n        </ion-tab-button>\r\n      </ion-tab-bar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-searchbar  id=\"keyword\" name=\"keyword\" (keypress)=\"onKeyPressed($event)\" [(ngModel)]=\"dataquery.Keyword\"></ion-searchbar>\r\n  <ion-refresher slot=\"fixed\" (ionRefresh)=\"dorefresh($event)\">\r\n    <ion-refresher-content></ion-refresher-content>\r\n  </ion-refresher>\r\n  <ion-list >\r\n      <ion-item-sliding  *ngFor=\"let vanban of danhsachVanBans\" >\r\n    <ion-item routerLink=\"/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}\">\r\n      <ion-label>\r\n        <div *ngIf=\"vanban.NgayDen!=null\"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>\r\n        <div *ngIf=\"vanban.SoKyHieu!=''\"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>\r\n        <div class=\"line-break\">{{vanban.TrichYeu}}</div>\r\n      </ion-label>\r\n    </ion-item >\r\n    <ion-item-options  icon-left>\r\n      <button ion-button color=\"secondary\" (click)=\"presentModalluonglc(vanban.ID)\">\r\n         <ion-icon name=\"git-network\"></ion-icon>\r\n         Luồng\r\n      </button>     \r\n   </ion-item-options>\r\n  </ion-item-sliding>\r\n  </ion-list>\r\n  <div *ngIf=\"danhsachVanBans==''\" class=\"notnone\"><h3>Không có bản ghi nào</h3></div>\r\n  <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\r\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\r\n  </ion-infinite-scroll>\r\n</ion-content>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbanden.page.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbanden.page.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-item {\n  padding: 5px 0px; }\n\nion-item ion-label span {\n  font-weight: bold; }\n\n.tabvanbanden {\n  color: burlywood; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy92YW5iYW5kZW4vRDpcXENWXFxUaW5oVmFuXFxWaWNlbVxcQXBwXFxWaWNlbU1vYmlsZUFwcC9zcmNcXGFwcFxcbWVtYmVyc1xcdmFuYmFuZGVuXFx2YW5iYW5kZW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQWUsRUFBQTs7QUFFbkI7RUFDRyxpQkFBZ0IsRUFBQTs7QUFFbkI7RUFDSSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZGVuL3ZhbmJhbmRlbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24taXRlbXtcclxuICAgIHBhZGRpbmc6NXB4IDBweDtcclxufVxyXG5pb24taXRlbSBpb24tbGFiZWwgc3BhbntcclxuICAgZm9udC13ZWlnaHQ6Ym9sZDsgXHJcbn1cclxuLnRhYnZhbmJhbmRlbntcclxuICAgIGNvbG9yOiBidXJseXdvb2Q7XHJcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbanden.page.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbanden.page.ts ***!
+  \*****************************************************/
+/*! exports provided: VanbandenPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandenPage", function() { return VanbandenPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var ionic_cache__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ionic-cache */ "./node_modules/ionic-cache/dist/index.js");
+/* harmony import */ var src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page */ "./src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page.ts");
+
+
+
+
+
+
+
+var VanbandenPage = /** @class */ (function () {
+    function VanbandenPage(authService, cache, modalController) {
+        this.authService = authService;
+        this.cache = cache;
+        this.modalController = modalController;
+        this.total = 0;
+        this.dataquery = { CurrentPage: 1, RowPerPage: 10, SearchIn: 'SoKyHieu,TrichYeu', Keyword: '' };
+        this.onKeyPressed = function (keyEvent) {
+            if (keyEvent.keyCode == 13) {
+                this.load();
+            }
+        };
+    }
+    VanbandenPage.prototype.ngOnInit = function () {
+    };
+    VanbandenPage.prototype.ionViewDidEnter = function () {
+        this.load();
+    };
+    VanbandenPage.prototype.load = function () {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDen(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+            return true;
+        });
+        //     let cacheKey = "vanbanden";
+        //     let request =  this.authService.getVanBanDen(this.dataquery).subscribe(res =>{
+        //        this.total=res["Total"];
+        //       this.danhsachVanBans= res["Data"];
+        //     });
+        // debugger;
+        //     this.danhsachVanBans= this.cache.loadFromObservable(cacheKey,request,"hhjhjhj");
+        //     debugger;
+    };
+    VanbandenPage.prototype.dorefresh = function (refresher) {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDen(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+            refresher.target.complete();
+        });
+    };
+    VanbandenPage.prototype.loadsearch = function () {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDen(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+        });
+    };
+    VanbandenPage.prototype.doInfinite = function (infiniteScroll) {
+        var _this = this;
+        setTimeout(function () {
+            if (_this.dataquery.CurrentPage == 1)
+                _this.dataquery.CurrentPage = 2;
+            if ((_this.dataquery.CurrentPage * _this.dataquery.RowPerPage) < _this.total) {
+                _this.authService.getVanBanDen(_this.dataquery).subscribe(function (res) {
+                    for (var j = 0; j < res["Data"].length; j++) {
+                        _this.danhsachVanBans.push(res["Data"][j]);
+                    }
+                });
+                _this.dataquery.CurrentPage = _this.dataquery.CurrentPage + 1;
+            }
+            infiniteScroll.target.complete();
+        }, 500);
+    };
+    VanbandenPage.prototype.presentModalluonglc = function (_id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_page__WEBPACK_IMPORTED_MODULE_5__["VanbandenflowchartPage"],
+                            componentProps: { id: _id }
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slides', { read: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonSlides"] }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonSlides"])
+    ], VanbandenPage.prototype, "slides", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("segments"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], VanbandenPage.prototype, "segments", void 0);
+    VanbandenPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-vanbanden',
+            template: __webpack_require__(/*! ./vanbanden.page.html */ "./src/app/members/vanbanden/vanbanden.page.html"),
+            styles: [__webpack_require__(/*! ./vanbanden.page.scss */ "./src/app/members/vanbanden/vanbanden.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], ionic_cache__WEBPACK_IMPORTED_MODULE_4__["CacheService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], VanbandenPage);
+    return VanbandenPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title>Văn bản đến</ion-title>\r\n      <ion-buttons slot=\"end\">\r\n        <ion-button>\r\n          <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n        </ion-button>\r\n      </ion-buttons>\r\n    </ion-toolbar>\r\n    \r\n    <ion-tab-bar  class=\"tab-header\" slot=\"top\" selected-tab=\"vanbanden/vanbandenchuadoc\">\r\n        <ion-tab-button tab=\"vanbanden\" class=\"vanbanden\" class=\"tabvanbanden\">\r\n            <ion-icon name=\"ios-document\"></ion-icon>\r\n            <ion-label>Danh sách</ion-label>\r\n          </ion-tab-button>\r\n        <ion-tab-button tab=\"vanbanden/vanbandenchuaxuly\" class=\"tabvanbandenchuaxuly\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n          <ion-label>Chưa xử lý</ion-label>\r\n        </ion-tab-button>\r\n  \r\n        <ion-tab-button tab=\"vanbanden/vanbandenchuadoc\" class=\"tabvanbandenchuadoc\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n           <ion-label>Chưa đọc</ion-label>\r\n        </ion-tab-button>\r\n  \r\n        <ion-tab-button tab=\"vanbanden/vanbandenxulychinh\" class=\"tabvanbandenxulychinh\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n          <ion-label>Xử lý chính</ion-label>\r\n        </ion-tab-button>\r\n      </ion-tab-bar>\r\n   \r\n</ion-header>\r\n<ion-content>\r\n    <ion-searchbar  id=\"keyword\" name=\"keyword\" (keypress)=\"onKeyPressed($event)\" [(ngModel)]=\"dataquery.Keyword\"></ion-searchbar>\r\n    <ion-refresher slot=\"fixed\" (ionRefresh)=\"dorefresh($event)\">\r\n      <ion-refresher-content></ion-refresher-content>\r\n    </ion-refresher>\r\n    <ion-list >\r\n        <ion-item-sliding  *ngFor=\"let vanban of danhsachVanBans\" >\r\n      <ion-item routerLink=\"/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}\">\r\n        <ion-label>\r\n          <div *ngIf=\"vanban.NgayDen!=null\"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>\r\n          <div *ngIf=\"vanban.SoKyHieu!=''\"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>\r\n          <div class=\"line-break\">{{vanban.TrichYeu}}</div>\r\n        </ion-label>\r\n      </ion-item >\r\n      <ion-item-options  icon-left>\r\n        <button ion-button color=\"secondary\" (click)=\"presentModalluonglc(vanban.ID)\">\r\n           <ion-icon name=\"git-network\"></ion-icon>\r\n           Luồng\r\n        </button>     \r\n     </ion-item-options>\r\n    </ion-item-sliding>\r\n    </ion-list>\r\n    <div *ngIf=\"danhsachVanBans==''\" class=\"notnone\"><h3>Không có bản ghi nào</h3></div>\r\n    <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\r\n      <ion-infinite-scroll-content></ion-infinite-scroll-content>\r\n    </ion-infinite-scroll>\r\n  </ion-content>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-item {\n  padding: 5px 0px; }\n\nion-item ion-label span {\n  font-weight: bold; }\n\n.tabvanbandenchuadoc {\n  color: burlywood; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy92YW5iYW5kZW4vdmFuYmFuZGVuY2h1YWRvYy9EOlxcQ1ZcXFRpbmhWYW5cXFZpY2VtXFxBcHBcXFZpY2VtTW9iaWxlQXBwL3NyY1xcYXBwXFxtZW1iZXJzXFx2YW5iYW5kZW5cXHZhbmJhbmRlbmNodWFkb2NcXHZhbmJhbmRlbmNodWFkb2MucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQWUsRUFBQTs7QUFFbkI7RUFDRyxpQkFBZ0IsRUFBQTs7QUFFbkI7RUFDSSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZGVuL3ZhbmJhbmRlbmNodWFkb2MvdmFuYmFuZGVuY2h1YWRvYy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24taXRlbXtcclxuICAgIHBhZGRpbmc6NXB4IDBweDtcclxufVxyXG5pb24taXRlbSBpb24tbGFiZWwgc3BhbntcclxuICAgZm9udC13ZWlnaHQ6Ym9sZDsgXHJcbn1cclxuLnRhYnZhbmJhbmRlbmNodWFkb2N7XHJcbiAgICBjb2xvcjogYnVybHl3b29kO1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.ts ***!
+  \*****************************************************************************/
+/*! exports provided: VanbandenchuadocPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandenchuadocPage", function() { return VanbandenchuadocPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page */ "./src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page.ts");
+
+
+
+
+
+var VanbandenchuadocPage = /** @class */ (function () {
+    function VanbandenchuadocPage(authService, modalController) {
+        this.authService = authService;
+        this.modalController = modalController;
+        this.total = 0;
+        this.tabsIndex = 2;
+        this.dataquery = { CurrentPage: 1, RowPerPage: 10, SearchIn: 'SoKyHieu,TrichYeu', Keyword: '', TrangThaiID: 0 };
+        this.onKeyPressed = function (keyEvent) {
+            if (keyEvent.keyCode == 13) {
+                this.load();
+            }
+        };
+    }
+    VanbandenchuadocPage.prototype.ngOnInit = function () {
+    };
+    VanbandenchuadocPage.prototype.ionViewDidEnter = function () {
+        this.load();
+    };
+    VanbandenchuadocPage.prototype.load = function () {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDenChuaDoc(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+        });
+    };
+    VanbandenchuadocPage.prototype.loadsearch = function () {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDenChuaDoc(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+        });
+    };
+    VanbandenchuadocPage.prototype.doInfinite = function (infiniteScroll) {
+        var _this = this;
+        setTimeout(function () {
+            if (_this.dataquery.CurrentPage == 1)
+                _this.dataquery.CurrentPage = 2;
+            if ((_this.dataquery.CurrentPage * _this.dataquery.RowPerPage) < _this.total) {
+                _this.authService.getVanBanDenChuaDoc(_this.dataquery).subscribe(function (res) {
+                    for (var j = 0; j < res["Data"].length; j++) {
+                        _this.danhsachVanBans.push(res["Data"][j]);
+                    }
+                });
+                _this.dataquery.CurrentPage = _this.dataquery.CurrentPage + 1;
+            }
+            infiniteScroll.target.complete();
+        }, 500);
+    };
+    VanbandenchuadocPage.prototype.presentModalluonglc = function (_id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_page__WEBPACK_IMPORTED_MODULE_4__["VanbandenflowchartPage"],
+                            componentProps: { id: _id }
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    VanbandenchuadocPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-vanbandenchuadoc',
+            template: __webpack_require__(/*! ./vanbandenchuadoc.page.html */ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.html"),
+            styles: [__webpack_require__(/*! ./vanbandenchuadoc.page.scss */ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], VanbandenchuadocPage);
+    return VanbandenchuadocPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.html":
+/*!*********************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Văn bản đến</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-button>\r\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\r\n          </ion-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n      <ion-tab-bar>\r\n        <ion-tab-button tab=\"vanbanden\" class=\"vanbanden\" class=\"tabvanbanden\">\r\n            <ion-icon name=\"ios-document\"></ion-icon>\r\n            <ion-label>Danh sách</ion-label>\r\n          </ion-tab-button>\r\n        <ion-tab-button tab=\"vanbanden/vanbandenchuaxuly\" class=\"tabvanbandenchuaxuly\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n          <ion-label>Chưa xử lý</ion-label>\r\n        </ion-tab-button>\r\n  \r\n        <ion-tab-button tab=\"vanbanden/vanbandenchuadoc\" class=\"tabvanbandenchuadoc\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n           <ion-label>Chưa đọc</ion-label>\r\n        </ion-tab-button>\r\n  \r\n        <ion-tab-button tab=\"vanbanden/vanbandenxulychinh\" class=\"tabvanbandenxulychinh\">\r\n          <ion-icon name=\"ios-document\"></ion-icon>\r\n          <ion-label>Xử lý chính</ion-label>\r\n        </ion-tab-button>\r\n      </ion-tab-bar>\r\n      \r\n</ion-header>\r\n<ion-content>\r\n    <ion-searchbar  id=\"keyword\" name=\"keyword\" (keypress)=\"onKeyPressed($event)\" [(ngModel)]=\"dataquery.Keyword\"></ion-searchbar>\r\n    <ion-refresher slot=\"fixed\" (ionRefresh)=\"dorefresh($event)\">\r\n      <ion-refresher-content></ion-refresher-content>\r\n    </ion-refresher>\r\n    <ion-list >\r\n        <ion-item-sliding  *ngFor=\"let vanban of danhsachVanBans\" >\r\n      <ion-item routerLink=\"/members/tabs/vanbanden/chitietvanbanden/{{vanban.ID}}\">\r\n        <ion-label>\r\n          <div *ngIf=\"vanban.NgayDen!=null\"><span > Ngày đến :</span> {{vanban.NgayDen|date:'dd/MM/yyyy'}}<br></div>\r\n          <div *ngIf=\"vanban.SoKyHieu!=''\"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>\r\n          <div class=\"line-break\">{{vanban.TrichYeu}}</div>\r\n        </ion-label>\r\n      </ion-item >\r\n      <ion-item-options  icon-left>\r\n        <button ion-button color=\"secondary\" (click)=\"presentModalluonglc(vanban.ID)\">\r\n           <ion-icon name=\"git-network\"></ion-icon>\r\n           Luồng\r\n        </button>     \r\n     </ion-item-options>\r\n    </ion-item-sliding>\r\n    </ion-list>\r\n    <div *ngIf=\"danhsachVanBans==''\" class=\"notnone\"><h3>Không có bản ghi nào</h3></div>\r\n    <ion-infinite-scroll (ionInfinite)=\"doInfinite($event)\">\r\n      <ion-infinite-scroll-content></ion-infinite-scroll-content>\r\n    </ion-infinite-scroll>\r\n  </ion-content>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.scss":
+/*!*********************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.scss ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-item {\n  padding: 5px 0px; }\n\nion-item ion-label span {\n  font-weight: bold; }\n\n.tabvanbandenchuaxuly {\n  color: burlywood; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVtYmVycy92YW5iYW5kZW4vdmFuYmFuZGVuY2h1YXh1bHkvRDpcXENWXFxUaW5oVmFuXFxWaWNlbVxcQXBwXFxWaWNlbU1vYmlsZUFwcC9zcmNcXGFwcFxcbWVtYmVyc1xcdmFuYmFuZGVuXFx2YW5iYW5kZW5jaHVheHVseVxcdmFuYmFuZGVuY2h1YXh1bHkucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQWUsRUFBQTs7QUFFbkI7RUFDRyxpQkFBZ0IsRUFBQTs7QUFFbkI7RUFDSSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZGVuL3ZhbmJhbmRlbmNodWF4dWx5L3ZhbmJhbmRlbmNodWF4dWx5LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1pdGVte1xyXG4gICAgcGFkZGluZzo1cHggMHB4O1xyXG59XHJcbmlvbi1pdGVtIGlvbi1sYWJlbCBzcGFue1xyXG4gICBmb250LXdlaWdodDpib2xkOyBcclxufVxyXG4udGFidmFuYmFuZGVuY2h1YXh1bHl7XHJcbiAgICBjb2xvcjogYnVybHl3b29kO1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.ts ***!
+  \*******************************************************************************/
+/*! exports provided: VanbandenchuaxulyPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VanbandenchuaxulyPage", function() { return VanbandenchuaxulyPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page */ "./src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+
+var VanbandenchuaxulyPage = /** @class */ (function () {
+    function VanbandenchuaxulyPage(authService, modalController) {
+        this.authService = authService;
+        this.modalController = modalController;
+        this.total = 0;
+        this.dataquery = { CurrentPage: 1, RowPerPage: 10, SearchIn: 'SoKyHieu,TrichYeu', Keyword: '', TrangThaiID: 0 };
+        this.onKeyPressed = function (keyEvent) {
+            if (keyEvent.keyCode == 13) {
+                this.load();
+            }
+        };
+    }
+    VanbandenchuaxulyPage.prototype.ngOnInit = function () {
+    };
+    VanbandenchuaxulyPage.prototype.ionViewDidEnter = function () {
+        this.load();
+    };
+    VanbandenchuaxulyPage.prototype.load = function () {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDenChuaXuLy(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+        });
+    };
+    VanbandenchuaxulyPage.prototype.loadsearch = function () {
+        var _this = this;
+        this.dataquery.RowPerPage = 10;
+        this.dataquery.CurrentPage = 1;
+        this.authService.getVanBanDenChuaXuLy(this.dataquery).subscribe(function (res) {
+            _this.danhsachVanBans = res["Data"];
+            _this.total = res["Total"];
+        });
+    };
+    VanbandenchuaxulyPage.prototype.doInfinite = function (infiniteScroll) {
+        var _this = this;
+        setTimeout(function () {
+            if (_this.dataquery.CurrentPage == 1)
+                _this.dataquery.CurrentPage = 2;
+            if ((_this.dataquery.CurrentPage * _this.dataquery.RowPerPage) < _this.total) {
+                _this.authService.getVanBanDenChuaXuLy(_this.dataquery).subscribe(function (res) {
+                    for (var j = 0; j < res["Data"].length; j++) {
+                        _this.danhsachVanBans.push(res["Data"][j]);
+                    }
+                });
+                _this.dataquery.CurrentPage = _this.dataquery.CurrentPage + 1;
+            }
+            infiniteScroll.target.complete();
+        }, 500);
+    };
+    VanbandenchuaxulyPage.prototype.presentModalluonglc = function (_id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: src_app_members_vanbanden_vanbandenflowchart_vanbandenflowchart_page__WEBPACK_IMPORTED_MODULE_3__["VanbandenflowchartPage"],
+                            componentProps: { id: _id }
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    VanbandenchuaxulyPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-vanbandenchuaxuly',
+            template: __webpack_require__(/*! ./vanbandenchuaxuly.page.html */ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.html"),
+            styles: [__webpack_require__(/*! ./vanbandenchuaxuly.page.scss */ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"]])
+    ], VanbandenchuaxulyPage);
+    return VanbandenchuaxulyPage;
 }());
 
 
@@ -2436,6 +2860,155 @@ var VanbandiluongluanchuyenPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/members/vanbanduthao/approved/approved.module.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/approved/approved.module.ts ***!
+  \******************************************************************/
+/*! exports provided: ApprovedPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApprovedPageModule", function() { return ApprovedPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _approved_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./approved.page */ "./src/app/members/vanbanduthao/approved/approved.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _approved_page__WEBPACK_IMPORTED_MODULE_6__["ApprovedPage"]
+    }
+];
+var ApprovedPageModule = /** @class */ (function () {
+    function ApprovedPageModule() {
+    }
+    ApprovedPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_approved_page__WEBPACK_IMPORTED_MODULE_6__["ApprovedPage"]]
+        })
+    ], ApprovedPageModule);
+    return ApprovedPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/approved/approved.page.html":
+/*!******************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/approved/approved.page.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-button (click)=\"closePopup()\">\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n        <ion-title>Duyệt văn bản dự thảo</ion-title>\n      </ion-toolbar>  \n</ion-header>\n<ion-content>\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n      <ion-grid>\n          <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Nội dung</ion-label>\n                    <ion-textarea placeholder=\"Nhập nội dung...\" formControlName=\"NoiDung\"></ion-textarea>\n                    <input type=\"hidden\" formControlName=\"VanBanID\" value=\"{{VanBanID}}\">\n                </ion-item>\n            </ion-col>\n        </ion-row>   \n        <ion-row class=\"row-button\">\n          <ion-col size=\"12\">    \n                     <ion-button color=\"success\" type=\"submit\" class=\"ion-button ion-button-save\"  [disabled]=\"!credentialsForm.valid\">\n                          <ion-icon name=\"paper\" class=\"ion-icon-save\"></ion-icon>\n                         Duyệt</ion-button>\n                         <ion-button color=\"success\"  class=\"ion-button ion-button-save\" (click)=\"closePopup()\">\n                              <ion-icon name=\"close\" class=\"ion-icon-close\"></ion-icon>\n                             Hủy</ion-button>\n          </ion-col>\n      </ion-row> \n          </ion-grid>\n          </form>\n  </ion-content>\n  \n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/approved/approved.page.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/approved/approved.page.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZHV0aGFvL2FwcHJvdmVkL2FwcHJvdmVkLnBhZ2Uuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/approved/approved.page.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/approved/approved.page.ts ***!
+  \****************************************************************/
+/*! exports provided: ApprovedPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApprovedPage", function() { return ApprovedPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var ApprovedPage = /** @class */ (function () {
+    function ApprovedPage(authService, navParams, formBuilder, modalController) {
+        this.authService = authService;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.modalController = modalController;
+        this.dataquery = { VanBanID: this.navParams.get('id'), ID: this.navParams.get('id') };
+    }
+    ApprovedPage.prototype.ngOnInit = function () {
+        this.credentialsForm = this.formBuilder.group({
+            VanBanID: this.navParams.get('id'),
+            NoiDung: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(3)]],
+        });
+    };
+    ApprovedPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.postapprovedduthao(this.credentialsForm.value).subscribe(function (res) {
+            _this.closePopupupdate();
+        });
+    };
+    ApprovedPage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    ApprovedPage.prototype.closePopupupdate = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.authService.getVanBanDuThaobyID(this.dataquery).subscribe(function (res) {
+                    _this.modalController.dismiss(res["Data"]);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    ApprovedPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-approved',
+            template: __webpack_require__(/*! ./approved.page.html */ "./src/app/members/vanbanduthao/approved/approved.page.html"),
+            styles: [__webpack_require__(/*! ./approved.page.scss */ "./src/app/members/vanbanduthao/approved/approved.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], ApprovedPage);
+    return ApprovedPage;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module.ts":
 /*!******************************************************************************!*\
   !*** ./src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.module.ts ***!
@@ -2886,6 +3459,322 @@ var KethucduthaoPage = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
     ], KethucduthaoPage);
     return KethucduthaoPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/reject/reject.module.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/reject/reject.module.ts ***!
+  \**************************************************************/
+/*! exports provided: RejectPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RejectPageModule", function() { return RejectPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _reject_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reject.page */ "./src/app/members/vanbanduthao/reject/reject.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _reject_page__WEBPACK_IMPORTED_MODULE_6__["RejectPage"]
+    }
+];
+var RejectPageModule = /** @class */ (function () {
+    function RejectPageModule() {
+    }
+    RejectPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_reject_page__WEBPACK_IMPORTED_MODULE_6__["RejectPage"]]
+        })
+    ], RejectPageModule);
+    return RejectPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/reject/reject.page.html":
+/*!**************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/reject/reject.page.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-button (click)=\"closePopup()\">\n              <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n            </ion-button>\n        </ion-buttons>\n        <ion-title>Từ chối</ion-title>\n      </ion-toolbar>  \n</ion-header>\n<ion-content>\n    <form [formGroup]=\"credentialsForm\" (ngSubmit)=\"onSubmit()\">\n      <ion-grid>\n          <ion-row>\n            <ion-col size=\"12\">\n                <ion-item>\n                    <ion-label position=\"stacked\">Nội dung</ion-label>\n                    <ion-textarea placeholder=\"Nhập nội dung...\" formControlName=\"NoiDung\"></ion-textarea>\n                    <input type=\"hidden\" formControlName=\"VanBanID\" value=\"{{VanBanID}}\">\n                </ion-item>\n            </ion-col>\n        </ion-row>   \n        <ion-row class=\"row-button\">\n          <ion-col size=\"12\">    \n                     <ion-button color=\"success\" type=\"submit\" class=\"ion-button ion-button-save\"  [disabled]=\"!credentialsForm.valid\">\n                          <ion-icon name=\"paper\" class=\"ion-icon-save\"></ion-icon>\n                         Từ chối</ion-button>\n                         <ion-button color=\"success\"  class=\"ion-button ion-button-save\" (click)=\"closePopup()\">\n                              <ion-icon name=\"close\" class=\"ion-icon-close\"></ion-icon>\n                             Hủy</ion-button>\n          </ion-col>\n      </ion-row> \n          </ion-grid>\n          </form>\n  </ion-content>\n  \n"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/reject/reject.page.scss":
+/*!**************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/reject/reject.page.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmFuYmFuZHV0aGFvL3JlamVjdC9yZWplY3QucGFnZS5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/members/vanbanduthao/reject/reject.page.ts":
+/*!************************************************************!*\
+  !*** ./src/app/members/vanbanduthao/reject/reject.page.ts ***!
+  \************************************************************/
+/*! exports provided: RejectPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RejectPage", function() { return RejectPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var RejectPage = /** @class */ (function () {
+    function RejectPage(authService, navParams, formBuilder, modalController) {
+        this.authService = authService;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.modalController = modalController;
+        this.dataquery = { VanBanID: this.navParams.get('id'), ID: this.navParams.get('id') };
+    }
+    RejectPage.prototype.ngOnInit = function () {
+        this.credentialsForm = this.formBuilder.group({
+            VanBanID: this.navParams.get('id'),
+            NoiDung: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(3)]],
+        });
+    };
+    RejectPage.prototype.onSubmit = function () {
+        var _this = this;
+        this.authService.postrejectduthao(this.credentialsForm.value).subscribe(function (res) {
+            _this.closePopupupdate();
+        });
+    };
+    RejectPage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    RejectPage.prototype.closePopupupdate = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.authService.getVanBanDuThaobyID(this.dataquery).subscribe(function (res) {
+                    _this.modalController.dismiss(res["Data"]);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    RejectPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-reject',
+            template: __webpack_require__(/*! ./reject.page.html */ "./src/app/members/vanbanduthao/reject/reject.page.html"),
+            styles: [__webpack_require__(/*! ./reject.page.scss */ "./src/app/members/vanbanduthao/reject/reject.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]])
+    ], RejectPage);
+    return RejectPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/viewfile/viewfile.module.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/members/viewfile/viewfile.module.ts ***!
+  \*****************************************************/
+/*! exports provided: ViewfilePageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewfilePageModule", function() { return ViewfilePageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _viewfile_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./viewfile.page */ "./src/app/members/viewfile/viewfile.page.ts");
+/* harmony import */ var ng2_pdf_viewer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng2-pdf-viewer */ "./node_modules/ng2-pdf-viewer/fesm5/ng2-pdf-viewer.js");
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _viewfile_page__WEBPACK_IMPORTED_MODULE_6__["ViewfilePage"]
+    }
+];
+var ViewfilePageModule = /** @class */ (function () {
+    function ViewfilePageModule() {
+    }
+    ViewfilePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                ng2_pdf_viewer__WEBPACK_IMPORTED_MODULE_7__["PdfViewerModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_viewfile_page__WEBPACK_IMPORTED_MODULE_6__["ViewfilePage"]]
+        })
+    ], ViewfilePageModule);
+    return ViewfilePageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/members/viewfile/viewfile.page.html":
+/*!*****************************************************!*\
+  !*** ./src/app/members/viewfile/viewfile.page.html ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header >    \n        <ion-toolbar>\n            <ion-buttons slot=\"start\">\n                <ion-button (click)=\"closePopup()\">\n                  <ion-icon slot=\"icon-only\" ios=\"ios-arrow-round-back\" md=\"md-arrow-round-back\"></ion-icon>\n                </ion-button>\n            </ion-buttons>\n            <ion-title>Xem file văn bản</ion-title>\n          </ion-toolbar>    \n    </ion-header>\n<ion-content>\n    <div *ngIf=\"checktypefile==true\">\n        <ion-fab bottom right horizontal=\"center\">\n                <button ion-fab mini (click)=\"zoomIn()\">\n                    <ion-icon name=\"add\"></ion-icon>\n                </button>\n                <button ion-fab mini (click)=\"zoomOut()\">\n                    <ion-icon name=\"remove\"></ion-icon>\n                </button>\n                <button ion-fab mini (click)=\"resetZoom()\">\n                    <ion-icon name=\"refresh\"></ion-icon>\n                </button>\n            </ion-fab>\n        <pdf-viewer  [src]=\"filelink\" [autoresize]=\"true\" [original-size]=\"false\" style=\"display: block;\" [zoom]=\"pdfZoom\"\n        [(page)]=\"page\"\n        [show-all]=\"showAll\"\n        [stick-to-page]=\"stickToPage\"></pdf-viewer>\n    </div>\n     <div id=\"viewoffice\">     \n     </div>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/members/viewfile/viewfile.page.scss":
+/*!*****************************************************!*\
+  !*** ./src/app/members/viewfile/viewfile.page.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lbWJlcnMvdmlld2ZpbGUvdmlld2ZpbGUucGFnZS5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/members/viewfile/viewfile.page.ts":
+/*!***************************************************!*\
+  !*** ./src/app/members/viewfile/viewfile.page.ts ***!
+  \***************************************************/
+/*! exports provided: ViewfilePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewfilePage", function() { return ViewfilePage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_members_vanbanden_vanbanden_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/members/vanbanden/vanbanden.page */ "./src/app/members/vanbanden/vanbanden.page.ts");
+/* harmony import */ var src_app_members_vanbanden_vanbandenchuadoc_vanbandenchuadoc_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page */ "./src/app/members/vanbanden/vanbandenchuadoc/vanbandenchuadoc.page.ts");
+/* harmony import */ var src_app_members_vanbanden_vanbandenchuaxuly_vanbandenchuaxuly_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page */ "./src/app/members/vanbanden/vanbandenchuaxuly/vanbandenchuaxuly.page.ts");
+
+
+
+
+
+
+
+
+var ZOOM_STEP = 0.25;
+var DEFAULT_ZOOM = 1;
+var ViewfilePage = /** @class */ (function () {
+    function ViewfilePage(navCtrl, navParams, modalController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.modalController = modalController;
+        this.pdfZoom = DEFAULT_ZOOM;
+        this.checktypefile = true;
+        this.tab1Root = src_app_members_vanbanden_vanbanden_page__WEBPACK_IMPORTED_MODULE_3__["VanbandenPage"];
+        this.tab2Root = src_app_members_vanbanden_vanbandenchuadoc_vanbandenchuadoc_page__WEBPACK_IMPORTED_MODULE_4__["VanbandenchuadocPage"];
+        this.tab3Root = src_app_members_vanbanden_vanbandenchuaxuly_vanbandenchuaxuly_page__WEBPACK_IMPORTED_MODULE_5__["VanbandenchuaxulyPage"];
+        this.loaded = false;
+        this.tabIndex = 0;
+    }
+    ViewfilePage.prototype.zoomIn = function () {
+        this.pdfZoom += ZOOM_STEP;
+    };
+    ViewfilePage.prototype.zoomOut = function () {
+        if (this.pdfZoom > DEFAULT_ZOOM) {
+            this.pdfZoom -= ZOOM_STEP;
+        }
+    };
+    ViewfilePage.prototype.resetZoom = function () {
+        this.pdfZoom = DEFAULT_ZOOM;
+    };
+    ViewfilePage.prototype.ngOnInit = function () {
+        this.filelink = "http://vanban.vicem.vn/" + this.navParams.get('filelink');
+        if (this.filelink.lastIndexOf((".pdf").toLowerCase()) <= 0) {
+            this.filelink = "https://docs.google.com/gview?url=" + this.filelink + "&embedded=true";
+            document.getElementById("viewoffice").innerHTML = "<iframe id=\"ViewPdf\" src=\"" + this.filelink + "\" style=\"width: 100%; height: 608px;\"></iframe>";
+            this.checktypefile = false;
+        }
+    };
+    ViewfilePage.prototype.ionViewDidLoad = function () {
+    };
+    ViewfilePage.prototype.closePopup = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.modalController.dismiss();
+                return [2 /*return*/];
+            });
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"])
+    ], ViewfilePage.prototype, "slides", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("IonSegment"),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ViewfilePage.prototype, "segments", void 0);
+    ViewfilePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-viewfile',
+            template: __webpack_require__(/*! ./viewfile.page.html */ "./src/app/members/viewfile/viewfile.page.html"),
+            styles: [__webpack_require__(/*! ./viewfile.page.scss */ "./src/app/members/viewfile/viewfile.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])
+    ], ViewfilePage);
+    return ViewfilePage;
 }());
 
 
@@ -3873,6 +4762,14 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.postchuyenphathanhduthao = function (data) {
         return this.post('api/VanBanDuThao/ChuyenPhatHanh', data);
     };
+    //duyệt dự thảo
+    AuthenticationService.prototype.postapprovedduthao = function (data) {
+        return this.post('api/VanBanDuThao/Approved', data);
+    };
+    //  từ chối dự thảo
+    AuthenticationService.prototype.postrejectduthao = function (data) {
+        return this.post('api/VanBanDuThao/reject', data);
+    };
     //lấy danh sách công việc
     AuthenticationService.prototype.getDanhSachCongViec = function (data) {
         return this.get('api/CongViec/getDanhDachCongViec', data);
@@ -4138,8 +5035,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    url: 'http://test.e-office.vn/'
-    //url:'http://localhost:5000/'
+    //url:'http://test.e-office.vn/'
+    url: 'http://localhost:5000/'
     //url:'http://localhost:50775/'
 };
 /*
@@ -4189,6 +5086,50 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 module.exports = __webpack_require__(/*! D:\CV\TinhVan\Vicem\App\VicemMobileApp\src\main.ts */"./src/main.ts");
 
+
+/***/ }),
+
+/***/ 1:
+/*!**********************!*\
+  !*** zlib (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 2:
+/*!********************!*\
+  !*** fs (ignored) ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 3:
+/*!**********************!*\
+  !*** http (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 4:
+/*!***********************!*\
+  !*** https (ignored) ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 
