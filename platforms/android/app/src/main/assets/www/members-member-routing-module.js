@@ -21,9 +21,8 @@ var routes = [
         path: '',
         loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     },
-    { path: 'vanbandiykien', loadChildren: './vanbandi/vanbandiykien/vanbandiykien.module#VanbandiykienPageModule' },
-    { path: 'vanbandiformykien', loadChildren: './vanbandi/vanbandiformykien/vanbandiformykien.module#VanbandiformykienPageModule' },
-    { path: 'vanbandiluongluanchuyen', loadChildren: './vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.module#VanbandiluongluanchuyenPageModule' },
+    { path: 'approved', loadChildren: './vanbanduthao/approved/approved.module#ApprovedPageModule' },
+    { path: 'reject', loadChildren: './vanbanduthao/reject/reject.module#RejectPageModule' },
 ];
 var MemberRoutingModule = /** @class */ (function () {
     function MemberRoutingModule() {

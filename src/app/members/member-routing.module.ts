@@ -6,7 +6,9 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     
-  },
+  },  { path: 'approved', loadChildren: './vanbanduthao/approved/approved.module#ApprovedPageModule' },
+  { path: 'reject', loadChildren: './vanbanduthao/reject/reject.module#RejectPageModule' },
+
   // { path: 'kethucduthao', loadChildren: './vanbanduthao/kethucduthao/kethucduthao.module#KethucduthaoPageModule' },
   // { path: 'chuyenphathanh', loadChildren: './vanbanduthao/chuyenphathanh/chuyenphathanh.module#ChuyenphathanhPageModule' },
 

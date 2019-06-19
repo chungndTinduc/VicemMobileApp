@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import {VanbandiluongluanchuyenPage} from 'src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page'
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-vanbandi',
@@ -10,7 +12,7 @@ export class VanbandiPage implements OnInit {
   danhsachVanBans:any;
   total=0;
   public dataquery ={CurrentPage:1,RowPerPage:10,SearchIn:'SoKyHieu,TrichYeu',Keyword:''};
-  constructor(private authService:AuthenticationService) { }
+  constructor(private authService:AuthenticationService,public modalController: ModalController) { }
 
   ngOnInit() {
   
@@ -50,5 +52,11 @@ export class VanbandiPage implements OnInit {
       infiniteScroll.target.complete();
     }, 500);
   }
-
+  async presentModalluonglc(_id) {
+    const modal = await this.modalController.create({
+      component: VanbandiluongluanchuyenPage,
+      componentProps: { id: _id }
+    });
+    return await modal.present();
+  }
 }

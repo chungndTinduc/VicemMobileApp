@@ -82,7 +82,7 @@
     <ion-label>
         <div>
             <span > File văn bản:</span>
-            <p *ngFor="let file of vanbanden.LtsFileAttach"><a target="_blank" href="/{{file.FileLink}}">{{file.Ten}}</a></p>
+            <p *ngFor="let file of vanbanden.LtsFileAttach" (click)="presentModalviewfile(file.FileLink)"><a>{{file.Ten}}</a></p>
           </div> 
     </ion-label>
   </ion-item>  

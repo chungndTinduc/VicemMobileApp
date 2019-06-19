@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import {VanbandenflowchartPage} from 'src/app/members/vanbanden/vanbandenflowchart/vanbandenflowchart.page'
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-vanbandenchuaxuly',
   templateUrl: './vanbandenchuaxuly.page.html',
@@ -9,7 +11,7 @@ export class VanbandenchuaxulyPage implements OnInit {
   danhsachVanBans:any;
   total=0;
   public dataquery ={CurrentPage:1,RowPerPage:10,SearchIn:'SoKyHieu,TrichYeu',Keyword:'',TrangThaiID:0};
-  constructor(private authService:AuthenticationService) { }
+  constructor(private authService:AuthenticationService,public modalController: ModalController) { }
 
   ngOnInit() {
     
@@ -17,6 +19,11 @@ export class VanbandenchuaxulyPage implements OnInit {
   ionViewDidEnter(){
     this.load();
   }
+  onKeyPressed= function(keyEvent) {
+    if (keyEvent.keyCode == 13) {
+      this.load();
+    }
+};  
   load(){
     this.dataquery.RowPerPage=10;
     this.dataquery.CurrentPage=1;
@@ -47,5 +54,12 @@ export class VanbandenchuaxulyPage implements OnInit {
       }
       infiniteScroll.target.complete();
     }, 500);
+  }
+  async presentModalluonglc(_id) {
+    const modal = await this.modalController.create({
+      component: VanbandenflowchartPage,
+      componentProps: { id: _id }
+    });
+    return await modal.present();
   }
 }

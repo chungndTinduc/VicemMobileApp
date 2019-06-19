@@ -4,7 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import {FormtrinhlanhdaoPage} from 'src/app/members/vanbanduthao/formtrinhlanhdao/formtrinhlanhdao.page'
 import {KethucduthaoPage} from 'src/app/members/vanbanduthao/kethucduthao/kethucduthao.page'
-// import {ChuyenphathanhPage} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page'
+ import {ChuyenphathanhPage} from 'src/app/members/vanbanduthao/chuyenphathanh/chuyenphathanh.page'
+ import {ApprovedPage} from 'src/app/members/vanbanduthao/approved/approved.page'
+ import {RejectPage} from 'src/app/members/vanbanduthao/reject/reject.page'
 @Component({
   selector: 'app-vanbanduthaochitiet',
   templateUrl: './vanbanduthaochitiet.page.html',
@@ -12,6 +14,7 @@ import {KethucduthaoPage} from 'src/app/members/vanbanduthao/kethucduthao/kethuc
 })
 export class VanbanduthaochitietPage implements OnInit {
   vanban:any;
+  action:any;
   LtsAllDanhMuc:any;
   TrangThaiCaNhanID:any;
   strNguoiNhan:string;
@@ -33,6 +36,7 @@ export class VanbanduthaochitietPage implements OnInit {
     this.dataquery.ID = parseInt(this.route.snapshot.paramMap.get('vanbanduthaoid'));
     this.authService.getVanBanDuThaobyID(this.dataquery).subscribe(res =>{
       this.vanban = res["Data"];
+      this.action=res["action"];
       this.LtsAllDanhMuc=res["LtsAllDanhMuc"];
       this.TrangThaiCaNhanID=res["TrangThaiCaNhanID"];
       this.strNguoiNhan=res["strNguoiNhan"];
@@ -63,17 +67,44 @@ export class VanbanduthaochitietPage implements OnInit {
   });
     return await modal.present();
   }
-  // async presentModalchuyenph(_id) {
-  //   const modal = await this.modalController.create({
-  //     component: ChuyenphathanhPage,
-  //     componentProps: { id: _id }
-  //   });
-  //   modal.onDidDismiss()
-  //   .then((data) => {
-  //     if(data['data']!=null){
-  //     this.vanban  = data['data']; 
-  //     }
-  // });
-  //   return await modal.present();
-  // }
+  async presentModalchuyenph(_id) {
+    const modal = await this.modalController.create({
+      component: ChuyenphathanhPage,
+      componentProps: { id: _id }
+    });
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!=null){
+      this.vanban  = data['data']; 
+      }
+  });
+    return await modal.present();
+  }
+
+  async presentModalduyet(_id) {
+    const modal = await this.modalController.create({
+      component: ApprovedPage,
+      componentProps: { id: _id }
+    });
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!=null){
+      this.vanban  = data['data']; 
+      }
+  });
+    return await modal.present();
+  }
+  async presentModaltuchoi(_id) {
+    const modal = await this.modalController.create({
+      component: RejectPage,
+      componentProps: { id: _id }
+    });
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!=null){
+      this.vanban  = data['data']; 
+      }
+  });
+    return await modal.present();
+  }
 }

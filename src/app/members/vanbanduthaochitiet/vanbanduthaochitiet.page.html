@@ -104,15 +104,21 @@
           <ion-icon name="hammer"></ion-icon>
         </ion-fab-button>
         <ion-fab-list side="top">
-            <ion-fab-button (click)="presentModaltrinh(vanban.ID)">
+            <ion-fab-button (click)="presentModaltrinh(vanban.ID)" *ngIf="action.IsTrinh==true">
                 <ion-icon name="paper-plane"></ion-icon>
               </ion-fab-button>
-              <ion-fab-button (click)="presentModalketthuc(vanban.ID)">
+              <ion-fab-button (click)="presentModalketthuc(vanban.ID)" *ngIf="action.IsKetThuc==true">
                   <ion-icon name="checkmark-circle"></ion-icon>
                 </ion-fab-button>
-              <ion-fab-button (click)="presentModalchuyenph(vanban.ID)">
+              <ion-fab-button (click)="presentModalchuyenph(vanban.ID)" *ngIf="action.IsPhatHanh==true">
                   <ion-icon name="airplane"></ion-icon>
               </ion-fab-button>
+              <ion-fab-button (click)="presentModalduyet(vanban.ID)" *ngIf="action.IsDuyet==true"><!--Duyệt văn bản-->
+                  <ion-icon name="checkbox-outline"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button (click)="presentModaltuchoi(vanban.ID)" *ngIf="action.IsTuChoi==true"><!--từ chối-->
+                <ion-icon name="share-alt"></ion-icon>
+            </ion-fab-button>
         </ion-fab-list> 
       </ion-fab>
 </ion-content>

@@ -58,7 +58,7 @@ var ChitietvanbandiPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n \n          <ion-back-button text=\"\" ></ion-back-button>     \n        </ion-buttons>\n        <ion-title>Chi tiết văn bản đi</ion-title>\n        <ion-buttons slot=\"end\">\n          <ion-button >\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n      </ion-toolbar>     \n</ion-header>\n\n<ion-content>\n    <ion-item *ngIf=\"vanban.NgayBanHanh!=null\">\n      <ion-label>\n        <div ><span > Ngày ban hành:</span> {{vanban.NgayBanHanh|date:'dd/MM/yyyy'}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.SoKyHieu!=''\">\n       <ion-label>\n        <div ><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>\n        </ion-label> \n      </ion-item>\n     \n    <ion-item *ngIf=\"vanban.TenLoaiVanBan!=null\">\n      <ion-label>\n        <div ><span > Loại văn bản:</span> {{vanban.TenLoaiVanBan}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.TenSoVanBan!=null\">\n      <ion-label>\n        <div ><span > Sổ văn bản:</span> {{vanban.TenSoVanBan}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.TenDonViSoanThao!=null\">\n      <ion-label>\n        <div  class=\"line-break\"><span > Đơn vị soạn thảo:</span> {{vanban.TenDonViSoanThao}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.TrichYeu !=''\">\n      <ion-label>\n        <div  class=\"line-break\"><span > Trích yếu:</span> {{vanban.TrichYeu}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.HanXuLy!=null\">\n      <ion-label>\n        <div ><span > Hạn xử lý:</span> {{vanban.HanXuLy|date:'dd/MM/yyyy'}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.LstDanhMucGiaTri.length>0\">\n      <ion-label >\n        <div *ngFor=\"let danhmuc of LtsAllDanhMuc\" ><span > {{danhmuc.Ten}} :</span> {{danhmuc.TenGiaTri}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.LtsFileAttach!=null\">\n      <ion-label>\n          <div>\n              <span > File văn bản:</span>\n              <p *ngFor=\"let file of vanban.LtsFileAttach\"><a target=\"_blank\" href=\"/{{file.FileLink}}\">{{file.Ten}}</a></p>\n            </div> \n      </ion-label>\n    </ion-item>  \n    <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button color=\"success\"  routerLink=\"/members/tabs/vanbandi/vanbandiykien/{{vanban.ID}}\" title=\"Chuyển xử lý\">\n        <ion-icon name=\"paper-plane\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n  </ion-content>\n  \n"
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n \n          <ion-back-button text=\"\" ></ion-back-button>     \n        </ion-buttons>\n        <ion-title>Chi tiết văn bản đi</ion-title>\n        <ion-buttons slot=\"end\">\n          <ion-button >\n            <ion-icon slot=\"icon-only\" name=\"more\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n      </ion-toolbar>     \n</ion-header>\n\n<ion-content>\n    <ion-item *ngIf=\"vanban.NgayBanHanh!=null\">\n      <ion-label>\n        <div ><span > Ngày ban hành:</span> {{vanban.NgayBanHanh|date:'dd/MM/yyyy'}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.SoKyHieu!=''\">\n       <ion-label>\n        <div ><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>\n        </ion-label> \n      </ion-item>\n     \n    <ion-item *ngIf=\"vanban.TenLoaiVanBan!=null\">\n      <ion-label>\n        <div ><span > Loại văn bản:</span> {{vanban.TenLoaiVanBan}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.TenSoVanBan!=null\">\n      <ion-label>\n        <div ><span > Sổ văn bản:</span> {{vanban.TenSoVanBan}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.TenDonViSoanThao!=null\">\n      <ion-label>\n        <div  class=\"line-break\"><span > Đơn vị soạn thảo:</span> {{vanban.TenDonViSoanThao}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.TrichYeu !=''\">\n      <ion-label>\n        <div  class=\"line-break\"><span > Trích yếu:</span> {{vanban.TrichYeu}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.HanXuLy!=null\">\n      <ion-label>\n        <div ><span > Hạn xử lý:</span> {{vanban.HanXuLy|date:'dd/MM/yyyy'}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.LstDanhMucGiaTri.length>0\">\n      <ion-label >\n        <div *ngFor=\"let danhmuc of LtsAllDanhMuc\" ><span > {{danhmuc.Ten}} :</span> {{danhmuc.TenGiaTri}}<br></div>\n      </ion-label>\n    </ion-item>\n    <ion-item *ngIf=\"vanban.LtsFileAttach!=null\">\n      <ion-label>\n          <div>\n              <span > File văn bản:</span>\n              <p *ngFor=\"let file of vanban.LtsFileAttach\"><a target=\"_blank\" href=\"/{{file.FileLink}}\">{{file.Ten}}</a></p>\n            </div> \n      </ion-label>\n    </ion-item>  \n    <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button>\n        <ion-icon name=\"hammer\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-list side=\"top\">\n        <ion-fab-button><ion-icon name=\"shuffle\" (click)=\"presentModalluonglc(vanban.ID)\"></ion-icon>\n        </ion-fab-button>\n        <ion-fab-button  routerLink=\"/members/tabs/vanbandi/vanbandiykien/{{vanban.ID}}\" title=\"Chuyển xử lý\"><ion-icon name=\"paper-plane\"></ion-icon></ion-fab-button>\n      </ion-fab-list>\n    </ion-fab>\n  </ion-content>\n  \n"
 
 /***/ }),
 
@@ -87,14 +87,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_members_vanbandi_vanbandiluongluanchuyen_vanbandiluongluanchuyen_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page */ "./src/app/members/vanbandi/vanbandiluongluanchuyen/vanbandiluongluanchuyen.page.ts");
+
+
 
 
 
 
 var ChitietvanbandiPage = /** @class */ (function () {
-    function ChitietvanbandiPage(authService, route) {
+    function ChitietvanbandiPage(authService, route, modalController) {
         this.authService = authService;
         this.route = route;
+        this.modalController = modalController;
         this.dataquery = { ID: 0 };
         this.total = 0;
     }
@@ -111,13 +116,30 @@ var ChitietvanbandiPage = /** @class */ (function () {
             _this.LtsAllDanhMuc = res["LtsAllDanhMuc"];
         });
     };
+    ChitietvanbandiPage.prototype.presentModalluonglc = function (_id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: src_app_members_vanbandi_vanbandiluongluanchuyen_vanbandiluongluanchuyen_page__WEBPACK_IMPORTED_MODULE_5__["VanbandiluongluanchuyenPage"],
+                            componentProps: { id: _id }
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     ChitietvanbandiPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-chitietvanbandi',
             template: __webpack_require__(/*! ./chitietvanbandi.page.html */ "./src/app/members/chitietvanbandi/chitietvanbandi.page.html"),
             styles: [__webpack_require__(/*! ./chitietvanbandi.page.scss */ "./src/app/members/chitietvanbandi/chitietvanbandi.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"]])
     ], ChitietvanbandiPage);
     return ChitietvanbandiPage;
 }());

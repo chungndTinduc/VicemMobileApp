@@ -172,6 +172,18 @@ export class AuthenticationService {
     postketthucbanduthao(data) {
       return this.post('api/VanBanDuThao/Finish',data);
     }
+       // chuyển phát hành văn bản dự thảo
+ postchuyenphathanhduthao(data) {
+        return this.post('api/VanBanDuThao/ChuyenPhatHanh',data);
+      }
+ //duyệt dự thảo
+postapprovedduthao(data) {
+          return this.post('api/VanBanDuThao/Approved',data);
+        }
+//  từ chối dự thảo
+   postrejectduthao(data) {
+    return this.post('api/VanBanDuThao/reject',data);
+    }
   //lấy danh sách công việc
   getDanhSachCongViec(data){
     return this.get('api/CongViec/getDanhDachCongViec',data);

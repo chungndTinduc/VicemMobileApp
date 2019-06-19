@@ -23,18 +23,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
-  <ion-list reorder="true">
-    <ion-item *ngFor="let vanban of danhsachVanBans" routerLink="/members/tabs/vanbandi/chitietvanbandi/{{vanban.ID}}">
-      <ion-label>
-        <div *ngIf="vanban.NgayBanHanh!=null"><span > Ngày ban hành :</span> {{vanban.NgayBanHanh|date:'dd/MM/yyyy'}}<br></div>
-        <div *ngIf="vanban.SoKyHieu!=''" class="line-break"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
-        <div *ngIf="vanban.TenChucVu!=''" class="line-break"><span > Người ký:</span> {{vanban.TenChucVu}}<br></div>
-        <div class="line-break">{{vanban.TrichYeu}}</div>
-      </ion-label>
-    </ion-item >
-  </ion-list>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-</ion-content>
+    <ion-searchbar auocomplete="on" id="keyword" name="keyword" (ionChange)="loadsearch()" [(ngModel)]="dataquery.Keyword"></ion-searchbar>
+    <ion-list>
+        <ion-item-sliding  *ngFor="let vanban of danhsachVanBans">
+      <ion-item routerLink="/members/tabs/vanbandi/chitietvanbandi/{{vanban.ID}}">
+        <ion-label>
+          <div *ngIf="vanban.NgayBanHanh!=null"><span > Ngày ban hành :</span> {{vanban.NgayBanHanh|date:'dd/MM/yyyy'}}<br></div>
+          <div *ngIf="vanban.SoKyHieu!=''" class="line-break"><span > Số ký hiệu:</span> {{vanban.SoKyHieu}}<br></div>
+          <div *ngIf="vanban.TenChucVu!=''" class="line-break"><span > Người ký:</span> {{vanban.TenChucVu}}<br></div>
+          <div class="line-break">{{vanban.TrichYeu}}</div>
+        </ion-label>
+      </ion-item >
+      <ion-item-options  icon-left>
+          <button ion-button color="secondary" (click)="presentModalluonglc(vanban.ID)">
+             <ion-icon name="git-network"></ion-icon>
+             Luồng
+          </button>     
+       </ion-item-options>
+      </ion-item-sliding>     
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
