@@ -180,6 +180,7 @@ export class AuthenticationService {
   postCongViec(data){
       return this.post('api/CongViec/AddOrEdit',data);
     }
+    
 //============================================================*********End danh sach dang ky service****======================= 
 
 
@@ -352,7 +353,7 @@ checkToken() {
 
 async dismissLoadding()
   {
-    await this.delay(500);
+    await this.delay(300);
     try {
       this.countLoadding -= 1;
       console.log('dismissLoadding ' + this.countLoadding);
@@ -371,11 +372,10 @@ async dismissLoadding()
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
-
   async presentToastSuccess(message) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration:3000,
       position: 'top',
       color:'success'
     });
@@ -385,36 +385,12 @@ async dismissLoadding()
   async presentToastFail(message) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 4000,
       position: 'top',
       color:'danger'
     });
     toast.present();
   }
 
-  // async presentToastWithOptions() {
-  //   const toast = await this.toastController.create({
-  //     header: 'Toast header',
-  //     message: 'Click to Close',
-  //     position: 'top',
-  //     buttons: [
-  //       {
-  //         side: 'start',
-  //         icon: 'star',
-  //         text: 'Favorite',
-  //         handler: () => {
-  //           console.log('Favorite clicked');
-  //         }
-  //       }, {
-  //         text: 'Done',
-  //         role: 'cancel',
-  //         handler: () => {
-  //           console.log('Cancel clicked');
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   toast.present();
-  // }
 //================================================ end base function===============================================
 }

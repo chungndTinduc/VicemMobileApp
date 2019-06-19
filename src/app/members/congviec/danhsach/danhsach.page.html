@@ -43,10 +43,6 @@
             <p>{{congviec.NoiDung}}</p>
             <div *ngIf="congviec.HanXuLy!=null" class="info-item"><span>Hạn xử lý :</span> {{congviec.HanXuLy|date:'dd/MM/yyyy'}} - <span>Người tạo:</span> Nguyễn Đức Chung</div>
           </ion-label>
-          <!-- <ion-note slot="end">
-              <span slot="start">5</span>
-              <ion-icon ios="ios-attach" md="md-attach" slot="end"></ion-icon>
-          </ion-note> -->
         </ion-item>
         <ion-item-options side="start">
           <ion-item-option>
@@ -71,5 +67,5 @@
       <ion-fab-button color="success" (click)="presentModal(null)">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
-    </ion-fab>
+  </ion-fab>
 </ion-content>

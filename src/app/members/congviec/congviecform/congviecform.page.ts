@@ -41,6 +41,7 @@ lstnguoidung:[{ID:0,text:''}];
   }
 
   addICongViecTrangThaiItems(title,nguoiXuLy,nguoiXulyId,donViXuLy,donViXuLyId,isDauMoi,hanXuLy){
+    
     var CongViecTrangThaiItem =  this.formBuilder.group({
       Title: [title, []],
       NguoiDungText: [nguoiXuLy, []],
@@ -95,11 +96,8 @@ lstnguoidung:[{ID:0,text:''}];
     if(donviItems){
       donviItems.forEach( (donviItem) => {
         this.addICongViecTrangThaiItems('Đơn vị xử lý','','',donviItem.Ten,donviItem.ID,1,'');
-    });
+      });
     }
-
-   
-
   }
 
   DonViPhoiHopChange(event: {
