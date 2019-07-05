@@ -37,7 +37,7 @@ export class AuthenticationService {
     });
    }
 
-   //==========================================*********các hàm đăng ký service******* ==================================================
+  //==========================================*********các hàm đăng ký service******* ==================================================
 
   //count Van bản đến trang chủ
   getVanBanDenCounHome() {
@@ -171,28 +171,52 @@ export class AuthenticationService {
     // kết thúc bản dự thảo
     postketthucbanduthao(data) {
       return this.post('api/VanBanDuThao/Finish',data);
-    }
+  }
        // chuyển phát hành văn bản dự thảo
- postchuyenphathanhduthao(data) {
+  postchuyenphathanhduthao(data) {
         return this.post('api/VanBanDuThao/ChuyenPhatHanh',data);
       }
- //duyệt dự thảo
-postapprovedduthao(data) {
-          return this.post('api/VanBanDuThao/Approved',data);
-        }
-//  từ chối dự thảo
+  //duyệt dự thảo
+  postapprovedduthao(data) {
+    return this.post('api/VanBanDuThao/Approved',data);
+  }
+  //  từ chối dự thảo
    postrejectduthao(data) {
     return this.post('api/VanBanDuThao/reject',data);
-    }
+  }
+
   //lấy danh sách công việc
   getDanhSachCongViec(data){
     return this.get('api/CongViec/getDanhDachCongViec',data);
   }
-  //thêm mới công việc
+  //thêm mới & sửa công việc
   postCongViec(data){
-      return this.post('api/CongViec/AddOrEdit',data);
-    }
-    
+    return this.post('api/CongViec/AddOrUpdate',data);
+  }
+  //Lấy chi tiết công việc
+  getCongViec(data){
+    return this.get('api/CongViec/getByID',data);
+  }
+  //Lấy chi danh mục tên công việc
+  getAllDanhMucCongViec(data){
+    return this.get('api/CongViec/getAllDanhMucGiaTri',data);
+  }
+  //Lấy thành phần tham gia công việc
+  getThanPhanThamGiaCongViec(data){
+    return this.get('api/CongViec/GetThanhPhanThamGiaCongViec',data);
+  }
+  //Lấy danh sách văn bản dự thảo thuộc công việc
+  loadVanBanDuThao(data){
+    return this.get('api/CongViec/GetVanBanDuThao',data);
+  }
+   //Lấy danh sách ý kiến xử lý công việc
+   loadYKienXuLy(data){
+    return this.get('api/CongViec/GetYKienXuLy',data);
+  }
+  //Lấy danh sách thông tin gia hạn công việc
+  loadThongTinGiaHan(data){
+    return this.get('api/CongViec/GetListCongViecGiaHan',data);
+  }
 //============================================================*********End danh sach dang ky service****======================= 
 
 
@@ -223,6 +247,7 @@ checkToken() {
   getToken() {
     return localStorage.getItem(TOKEN_KEY)!== null ? localStorage.getItem(TOKEN_KEY) : '';
   }
+  
   register(credentials) {
     return this.http.post(`${this.urlServer}/api/register`, credentials).pipe(
       catchError(e => {
@@ -262,6 +287,7 @@ checkToken() {
     localStorage.removeItem(CURRENT_USER);
     this.authenticationState.next(false);
   }
+
   isAuthenticated() {
     return this.authenticationState.value;
   }
@@ -275,9 +301,8 @@ checkToken() {
     alert.then(alert => alert.present());
   }
 
-   post(api, data) {
-      this.presentLoadingWithOptions(0);
-   
+  post(api, data) {
+    this.presentLoadingWithOptions(0);
     return new Observable((observer) => { 
       var token = this.getToken(); 
       if(!token){
@@ -309,7 +334,7 @@ checkToken() {
     });  
   }
 
-   get(api, data) {
+get(api, data) {
     this.presentLoadingWithOptions(0);
     return new Observable((observer) => {    
       var token = this.getToken();

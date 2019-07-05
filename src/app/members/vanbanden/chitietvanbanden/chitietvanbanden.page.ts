@@ -20,12 +20,12 @@ export class ChitietvanbandenPage implements OnInit {
   ID:any;
   constructor(private authService:AuthenticationService, private route: ActivatedRoute,public modalController: ModalController) { }
 
-
   ngOnInit() {
+
   }
+
   ionViewDidEnter(){
     this.load();
-    
   }
   load(){
     this.dataquery.ID = parseInt(this.route.snapshot.paramMap.get('vanbandenid'));

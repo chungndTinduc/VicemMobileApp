@@ -37,6 +37,7 @@
     "angular-jwt": "^0.1.11",
     "cordova": "^9.0.0",
     "cordova-android": "^8.0.0",
+    "cordova-ios": "^5.0.1",
     "cordova-plugin-document-viewer": "0.9.10",
     "cordova-plugin-sqlite": "^1.0.3",
     "cordova-sqlite-storage": "3.2.0",

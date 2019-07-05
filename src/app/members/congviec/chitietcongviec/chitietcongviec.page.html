@@ -1,0 +1,416 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+            <ion-back-button text="" ></ion-back-button>     
+          <!-- <ion-button (click)="closePopup()">
+            <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+          </ion-button> -->
+      </ion-buttons>
+      <ion-title>Chi tiết công việc</ion-title>
+      <ion-buttons slot="end">
+          <!-- <ion-button  class="btn-header"  color=""  type="submit" (click)="triggerSumbit()" >Xong</ion-button> -->
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+      <ion-grid>
+          <ion-row>
+              <ion-col size="12">
+                  <div class="box-component">
+                      <span class="title-box">Thông tin chung</span>
+                      <ion-grid>
+                        <ion-row> 
+                                <ion-col size="12">
+                                    <b>Tên c.Việc: </b>
+                                </ion-col>
+                                <ion-col size="12">
+                                    {{congViec.Ten}}
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="6">
+                                    <b>Ngày bắt đầu: </b>
+                                </ion-col>
+                                <ion-col size="6">
+                                        {{congViec.NgayBatDau|date:'dd/MM/yyyy HH:mm'}}
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="6">
+                                    <b>Hạn xử lý: </b>
+                                </ion-col>
+                                <ion-col size="6">
+                                        {{congViec.HanXuLy|date:'dd/MM/yyyy HH:mm'}}
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="12">
+                                    <b>Nội dung: </b>
+                                </ion-col>
+                                <ion-col size="12">
+                                        {{congViec.NoiDung}}
+                                </ion-col>
+                        </ion-row>
+                        <ion-row  *ngFor="let danhMucTenItem  of danhMucTens">
+                                <ion-col size="6" >
+                                    <b>{{danhMucTenItem.Ten}}: </b>
+                                </ion-col>
+                                <ion-col size="6">
+                                        <span *ngIf="danhMucTenItem.Value==''">Thường</span>
+                                        {{danhMucTenItem.Value}}
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="6">
+                                    <b>Người lập: </b>
+                                </ion-col>
+                                <ion-col size="6">
+                                        {{congViec.TenNguoiLap}}
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="6">
+                                    <b>Trạng thái:</b>
+                                </ion-col>
+                                <ion-col size="6">
+                                        <span *ngIf="congViec.TrangThai===8">
+                                            <ion-badge color='warning' >Đang xử lý</ion-badge>
+                                        </span>
+                                       <span *ngIf="congViec.TrangThai===9" >
+                                            <ion-badge color='success' >Đã xử lý</ion-badge>
+                                       </span>
+                                       <span  *ngIf="congViec.TrangThai===7" >
+                                            <ion-badge color='danger'>Chưa xử lý</ion-badge>
+                                       </span>
+                                       <span *ngIf="congViec.TrangThai !== 7 && congViec.TrangThai !== 9 && congViec.TrangThai !== 8" >
+                                            <ion-badge color='medium' >Kết thúc</ion-badge>
+                                       </span>
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="12">
+                                    <b>File đính kèm : </b>
+                                </ion-col>
+                                <ion-col size="12">
+                                        <p *ngFor="let file of congViec.LtsFileAttach" (click)="presentModalviewfile(file.FileLink)"><a>{{file.Ten}}</a></p>
+                                </ion-col>
+                        </ion-row>
+                        <ion-row> 
+                                <ion-col size="12">
+                                    <b>Tiến độ công việc {{TienDoCongViec}}%: </b>
+                                </ion-col>
+                                <ion-col size="12">
+                                        <ion-progress-bar color="secondary" value="{{TienDoCongViec/100}}"></ion-progress-bar> 
+                                </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div class="box-component">
+                      <span class="title-box">Thành phần tham gia</span>
+                        <ion-grid>
+                                <ion-list>
+                                    <!-- Multi-line sliding item with icon options on both sides -->
+                                    <ion-item-sliding  *ngFor="let thanhPhanThamGiaItem of ThanhPhanThamGiaCongViecs">
+                                        <ion-item lines="none"  slot="start">
+                                            <ion-label>
+                                               <h2>{{thanhPhanThamGiaItem.NguoiDungID ? thanhPhanThamGiaItem.TenNguoiDung : thanhPhanThamGiaItem.TenDonVi}}</h2>
+                                                  <div class="info-task-content">
+                                                    <div class="col-6">
+                                                        <b>H.xử lý:</b> {{thanhPhanThamGiaItem.HanXuLy|date:'dd/MM/yyyy'}}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <b>Trạng thái:</b> 
+                                                        <span *ngIf="thanhPhanThamGiaItem.IsBanGiao">
+                                                                Đã bàn giao
+                                                            <!-- <ion-badge color='medium' >Đã bàn giao</ion-badge> -->
+                                                        </span>
+                                                        <span *ngIf="!thanhPhanThamGiaItem.IsBanGiao && thanhPhanThamGiaItem.TrangThaiID===8">
+                                                                Đang xử lý
+                                                            <!-- <ion-badge color='warning' >Đang xử lý</ion-badge> -->
+                                                        </span>
+                                                       <span *ngIf="!thanhPhanThamGiaItem.IsBanGiao &&thanhPhanThamGiaItem.TrangThaiID===9" >
+                                                            Đã xử lý
+                                                            <!-- <ion-badge color='success' >Đã xử lý</ion-badge> -->
+                                                       </span>
+                                                       <span  *ngIf="!thanhPhanThamGiaItem.IsBanGiao &&thanhPhanThamGiaItem.TrangThaiID===7" >
+                                                            Chưa xử lý
+                                                            <!-- <ion-badge color='danger'>Chưa xử lý</ion-badge> -->
+                                                       </span>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <b>V.trò:</b> {{thanhPhanThamGiaItem.IsDauMoi ? (thanhPhanThamGiaItem.DonViID ? 'Đơn vị xử lý':'Người xử lý') : (thanhPhanThamGiaItem.DonViID ? 'Đơn vị phối hợp':'Người phối hợp')}}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <b>Đánh giá:</b> 
+                                                        <span *ngIf="thanhPhanThamGiaItem.DanhGiaID == 12">
+                                                            <ion-badge color='medium' >Không đạt</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="thanhPhanThamGiaItem.DanhGiaID == 13">
+                                                            <ion-badge color='warning' >Đạt</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="thanhPhanThamGiaItem.DanhGiaID == 14">
+                                                            <ion-badge color='success' >Khá</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="thanhPhanThamGiaItem.DanhGiaID == 15">
+                                                            <ion-badge color='success' >Tốt</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="thanhPhanThamGiaItem.DanhGiaID == 16">
+                                                            <ion-badge color='success' >Xuất Sắc</ion-badge>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <b>Tiến độ {{((thanhPhanThamGiaItem.LtsTienDo && thanhPhanThamGiaItem.LtsTienDo.length > 0) ? thanhPhanThamGiaItem.LtsTienDo[thanhPhanThamGiaItem.LtsTienDo.length - 1] : 0) }} %:</b> 
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <ion-progress-bar color="tertiary" value="{{((thanhPhanThamGiaItem.LtsTienDo && thanhPhanThamGiaItem.LtsTienDo.length > 0) ? thanhPhanThamGiaItem.LtsTienDo[thanhPhanThamGiaItem.LtsTienDo.length - 1]:0)/100}}"></ion-progress-bar> 
+                                                    </div>
+                                                  </div>
+                                                </ion-label>
+                                              </ion-item>
+                                              <ion-item-options side="start">
+                                                <ion-item-option>
+                                                    <ion-icon ios="ios-refresh" md="md-refresh"></ion-icon>
+                                                </ion-item-option>
+                                              </ion-item-options>
+                                              <ion-item-options side="end">
+                                                <ion-item-option color="danger">
+                                                  <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+                                                </ion-item-option>
+                                                <ion-item-option>
+                                                  <ion-icon slot="icon-only" ios="ios-create-outline" md="md-create"></ion-icon>
+                                                </ion-item-option>
+                                              </ion-item-options>
+                                            </ion-item-sliding>
+                                          </ion-list>
+                                        <div *ngIf="!ThanhPhanThamGiaCongViecs || ThanhPhanThamGiaCongViecs.length ==0" style="text-align: center;color: #999"><h3>Không có bản ghi nào</h3></div>
+                        </ion-grid>
+                  </div>
+                  <div class="box-component">
+                      <span class="title-box">Thông tin gia hạn công việc</span>
+                      <ion-grid>
+                        <ion-list>
+                                <ion-item-sliding  *ngFor="let thongTinGiaHanItem of ThongTinGiaHans">
+                                <ion-item lines="none" slot="start">
+                                    <ion-label>
+                                    <div class="info-task-content">
+                                        <div class="col-12">
+                                            <b>Người/Đơn vị xin gia hạn:</b> {{thongTinGiaHanItem.NguoiDungID ? thongTinGiaHanItem.TenNguoiTao: thongTinGiaHanItem.TenDonViTao}}
+                                        </div>
+                                        <div class="col-6">
+                                            <b>Hạn xử lý cũ:</b> 
+                                            {{thongTinGiaHanItem.HanXuLyCu|date:'dd/MM/yyyy'}}
+                                        </div>
+                                        <div class="col-6">
+                                            <b>Hạn xử mới:</b> 
+                                            {{thongTinGiaHanItem.HanXuLy|date:'dd/MM/yyyy'}}
+                                        </div>
+                                        <div class="col-6">
+                                            <b>Loại:</b> 
+                                            {{thongTinGiaHanItem.IsToanCV ? 'Toàn công việc':'Cá nhân'}}
+                                        </div>
+                                        <div class="col-6">
+                                            <b>Trạng thái: </b>
+                                               <span *ngIf="thongTinGiaHanItem.TrangThaiID == 2">
+                                                   <ion-badge color='warning' >Chờ duyệt</ion-badge>
+                                               </span>
+                                               <span *ngIf="thongTinGiaHanItem.TrangThaiID == 3">
+                                                   <ion-badge color='success' >Đã duyệt</ion-badge>
+                                               </span>
+                                               <span *ngIf=" thongTinGiaHanItem.TrangThaiID == 4">
+                                                   <ion-badge color='warning' >Từ chối</ion-badge>
+                                               </span>
+                                         </div>
+                                        <div class="col-12">
+                                            <b>Lãnh đạo phế duyệt:</b> 
+                                            {{thongTinGiaHanItem.NguoiDuyetID ? thongTinGiaHanItem.TenNguoiDuyet: ''}}
+                                        </div>
+                                        <div class="col-12">
+                                            <b>Lý do:</b> 
+                                            {{thongTinGiaHanItem.LyDo}}
+                                        </div>
+                                    </div>
+                                    </ion-label>
+                                </ion-item>
+                                <ion-item-options side="start">
+                                    <ion-item-option>
+                                      <ion-icon slot="icon-only"  ios="ios-exit-outline" md="md-exit"></ion-icon>
+                                    </ion-item-option>
+                                  </ion-item-options>
+                                  <ion-item-options side="end">
+                                    <ion-item-option color="danger">
+                                      <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+                                    </ion-item-option>
+                                    <ion-item-option>
+                                      <ion-icon slot="icon-only" ios="ios-create-outline" md="md-create"></ion-icon>
+                                    </ion-item-option>
+                                  </ion-item-options>
+                              </ion-item-sliding>
+                            </ion-list>
+                            <div *ngIf="!ThongTinGiaHans || ThongTinGiaHans.length ==0" style="text-align: center;color: #999"><h3>Không có bản ghi nào</h3></div>
+                </ion-grid>
+                  </div>
+
+                  <div class="box-component">
+                        <span class="title-box">Văn bản trình ký</span>
+                          <ion-grid>
+                                  <ion-list>
+                                          <ion-item-sliding  *ngFor="let vanbanduthaoItem of VanBanDuThaos">
+                                          <ion-item lines="none" routerLink="/members/tabs/vanbanduthao/vanbanduthaochitiet/{{vanbanduthaoItem.ID}}" slot="start">
+                                              <ion-label>
+                                              <div class="info-task-content">
+                                                  <div class="col-6">
+                                                      <b>Ngày trình:</b> {{vanbanduthaoItem.NgayTao|date:'dd/MM/yyyy'}}
+                                                  </div>
+                                                  <div class="col-6">
+                                                      <b>Người trình:</b> 
+                                                      {{vanbanduthaoItem.TenNguoiTao}}
+                                                  </div>
+                                                  <div class="col-12">
+                                                      <b>Lãnh đạo phế duyệt:</b> 
+                                                      {{vanbanduthaoItem.TenNguoiKy}}
+                                                  </div>
+                                                  <div class="col-12">
+                                                      <b>Nội dung:</b> 
+                                                      {{vanbanduthaoItem.TrichYeu}}
+                                                  </div>
+                                                  <div class="col-12">
+                                                     <b>Trạng thái: </b>
+                                                       <span *ngIf="vanbanduthaoItem.ThuTu">
+                                                            <ion-badge color='success' >Phát hành</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="!vanbanduthaoItem.ThuTu && vanbanduthaoItem.TrangThaiID == 10">
+                                                            <ion-badge color='warning' >Từ chối vào sổ</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="!vanbanduthaoItem.ThuTu && vanbanduthaoItem.IsVanBanDi && vanbanduthaoItem.TrangThaiID !== 4 && vanbanduthaoItem.TrangThaiID !== 6">
+                                                            <ion-badge color='warning' >Chờ vào sổ</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="!vanbanduthaoItem.ThuTu && vanbanduthaoItem.TrangThaiID == 2">
+                                                            <ion-badge color='warning' >Chờ duyệt</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="!vanbanduthaoItem.ThuTu && vanbanduthaoItem.TrangThaiID == 3">
+                                                            <ion-badge color='success' >Đã duyệt</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="!vanbanduthaoItem.ThuTu && vanbanduthaoItem.TrangThaiID == 4">
+                                                            <ion-badge color='warning' >Từ chối</ion-badge>
+                                                        </span>
+                                                        <span *ngIf="!vanbanduthaoItem.TrangThaiID || vanbanduthaoItem.TrangThaiID ===1">
+                                                            <ion-badge color='medium' >Tạo mới</ion-badge>
+                                                        </span>
+                                                  </div>
+                                              </div>
+                                              </ion-label>
+                                          </ion-item>
+                                        </ion-item-sliding>
+                                      </ion-list>
+                                      <div *ngIf="!VanBanDuThaos || VanBanDuThaos.length ==0" style="text-align: center;color: #999"><h3>Không có bản ghi nào</h3></div>
+                          </ion-grid>
+                    </div>
+
+                  <div class="box-component">
+                      <span class="title-box">Ý kiến xử lý</span>
+                      <ion-grid>
+                            <ion-list>
+                                    <ion-item-sliding  *ngFor="let yKienXuLyItem of YKienXuLys">
+                                    <ion-item lines="none" slot="start">
+                                        <ion-label>
+                                        <div class="info-task-content">
+                                            <div class="col-12">
+                                                <b>Đơn vị/ Người xử lý:</b> {{yKienXuLyItem.TenNguoiTao}}
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Đơn vị/ Người nhận:</b> 
+                                                {{yKienXuLyItem.TenDonVi}} {{yKienXuLyItem.DonViID && yKienXuLyItem.NguoiDungID ? ',':''}} {{yKienXuLyItem.TenNguoiDung}} 
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Thời gian:</b> 
+                                                {{yKienXuLyItem.NgayTao|date:'dd/MM/yyyy'}}
+                                            </div>
+                                            <div class="col-12">
+                                                <b>Nội dung:</b> 
+                                                {{yKienXuLyItem.NoiDung}}
+                                            </div>
+                                            <div class="col-12">
+                                               <b>File đính kèm: </b>
+                                                <p *ngFor="let file of yKienXuLyItem.LtsFileAttach" (click)="presentModalviewfile(file.FileLink)"><a>{{file.Ten}}</a></p>
+                                            </div>
+                                        </div>
+                                        </ion-label>
+                                    </ion-item>
+                                  </ion-item-sliding>
+                                </ion-list>
+                                <div *ngIf="!YKienXuLys || YKienXuLys.length ==0" style="text-align: center;color: #999"><h3>Không có bản ghi nào</h3></div>
+                    </ion-grid>
+                  </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                  <ion-col size="12">
+                  </ion-col>
+                  <ion-col size="12">
+                      <ion-button #hiddenButton id="submitForm" class="btn-theme"  color="theme hidden"  type="submit" >Thêm mới</ion-button>
+                  </ion-col>
+                  <ion-col size="12">
+                  </ion-col>
+            </ion-row>
+      </ion-grid>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+                <ion-icon name="logo-buffer"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <button ion-fab>
+                <!-- <ion-icon name="shuffle" (click)="presentModalluonglc(congViec.ID)"></ion-icon> -->
+                <ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon>
+                <ion-label>
+                    Dự thảo văn bản
+                </ion-label>
+            </button >
+            <button ion-fab>
+                    <ion-icon ios="ios-redo" md="md-redo"></ion-icon>
+                <ion-label>
+                    Giao việc tiếp
+                </ion-label>
+            </button >
+            <button ion-fab>
+                    <ion-icon ios="ios-git-merge" md="md-git-merge"></ion-icon>
+                <ion-label>
+                    Cây phân cấp c.việc
+                </ion-label>
+            </button >
+            <button ion-fab>
+                    <ion-icon ios="ios-list-box" md="md-list-box"></ion-icon>
+                <ion-label>
+                    Cập nhật tiến độ
+                </ion-label>
+            </button >
+            <button ion-fab>
+                    <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+                <ion-label>
+                    Gửi SMS
+                </ion-label>
+            </button >
+            <button ion-fab>
+                    <ion-icon ios="ios-timer" md="md-timer"></ion-icon>
+                <ion-label>
+                    Gia hạn
+                </ion-label>
+            </button >
+            <button ion-fab>
+                <ion-icon ios="ios-checkbox" md="md-checkbox"></ion-icon>
+                <ion-label>
+                    Kết thúc
+                </ion-label>
+            </button >
+            <!--             
+            <ion-fab-button  routerLink="/members/tabs/vanbanden/ykienvanbanden/{{congViec.ID}}" title="Chuyển xử lý">
+                <ion-icon name="paper-plane"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button (click)="presentModaltrangthaivb(congViec.ID)" >
+                <ion-icon name="checkmark-circle"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button (click)="presentModaltrangthaicanhan(congViec.ID)">
+                <ion-icon name="checkbox"></ion-icon>
+            </ion-fab-button> -->
+        </ion-fab-list> 
+      </ion-fab>
+</ion-content>

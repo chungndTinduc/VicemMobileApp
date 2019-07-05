@@ -63,6 +63,13 @@ async doInfinite(infiniteScroll) {
       component: CongviecformPage,
       componentProps: { id: _id }
     });
+
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!= null){
+        this.load(null);
+      }
+    });
     return await modal.present();
   }
 }

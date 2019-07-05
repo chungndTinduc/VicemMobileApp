@@ -1,0 +1,30 @@
+.box-component{
+    margin: 15px 0px 10px 10px;
+}
+.box-component ion-grid{
+    padding: 0px 10px
+}
+
+.box-component ion-grid ion-row {
+    margin: 5px 0px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.box-component ion-grid ion-row:last-child{
+    border-bottom:none;
+}
+ion-list ion-item.item-lines-none{
+    padding: 0px;
+}
+ion-item-sliding{
+    margin: 0px 0px 0px -10px;
+}
+ion-item-sliding[_ngcontent-kvv-c3]{
+    margin: 0px 0px;
+}
+.info-task-content{
+    font-size: 13px !important;
+}
+ion-label{
+    padding: 0px;
+    margin: 5px 0px;
+}

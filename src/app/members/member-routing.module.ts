@@ -6,8 +6,10 @@ const routes: Routes = [
     path: '',
     loadChildren: './app-tabs/app-tabs.module#AppTabsRoutingModule',
     
-  },  { path: 'approved', loadChildren: './vanbanduthao/approved/approved.module#ApprovedPageModule' },
+  },
+  { path: 'approved', loadChildren: './vanbanduthao/approved/approved.module#ApprovedPageModule' },
   { path: 'reject', loadChildren: './vanbanduthao/reject/reject.module#RejectPageModule' },
+  // { path: 'chitietcongviec', loadChildren: './congviec/chitietcongviec/chitietcongviec.module#ChitietcongviecPageModule' },
 
   // { path: 'kethucduthao', loadChildren: './vanbanduthao/kethucduthao/kethucduthao.module#KethucduthaoPageModule' },
   // { path: 'chuyenphathanh', loadChildren: './vanbanduthao/chuyenphathanh/chuyenphathanh.module#ChuyenphathanhPageModule' },

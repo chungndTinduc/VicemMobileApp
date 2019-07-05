@@ -44,7 +44,7 @@
                   <ion-col size="12">
                       <ion-item>
                           <ion-label  position="stacked">Hạn xử lý <span class="red">*</span></ion-label>
-                          <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="NgayKetThuc"  placeholder="Nhập ngày kết thúc"> 
+                          <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="HanXuLy"  placeholder="Nhập ngày kết thúc"> 
                           </ion-datetime>
                       </ion-item>
                   </ion-col>
@@ -150,11 +150,11 @@
                                                           <ion-input  formControlName="NguoiDungID" class="hidden"></ion-input>
                                                       </ion-item>
                                                   </ion-col>
-                                                  <ion-col size="6" *ngIf="item.get('DonViID').value">
+                                                  <ion-col size="6" *ngIf="item.get('PhongBanID').value">
                                                       <ion-item  [formGroupName]="i">
                                                           <ion-label position="stacked" >{{item.get('Title').value}}</ion-label>
                                                           <ion-input  formControlName="DonViText" readonly></ion-input>
-                                                          <ion-input  formControlName="DonViID" class="hidden"></ion-input>
+                                                          <ion-input  formControlName="PhongBanID" class="hidden"></ion-input>
                                                       </ion-item>
                                                   </ion-col>
                                                   <ion-col size="6">
@@ -176,7 +176,6 @@
                                   <ion-col size="4">
                                   </ion-col>
                                 </ion-row>
-                                
                   </ion-grid> 
             </div>
         </form>

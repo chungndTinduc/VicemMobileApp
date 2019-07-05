@@ -80,6 +80,10 @@ const routes: Routes = [
         {
           path: 'daxuly',
           loadChildren: 'src/app/members/congviec/daxuly/daxuly.module#DaxulyPageModule',
+        },
+        {
+          path: 'chitietcongviec/:congviecid',
+          loadChildren: 'src/app/members/congviec/chitietcongviec/chitietcongviec.module#ChitietcongviecPageModule'
         }
        ] 
      },
