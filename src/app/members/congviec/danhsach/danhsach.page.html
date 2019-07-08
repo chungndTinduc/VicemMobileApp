@@ -35,13 +35,26 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list>
-      <!-- Multi-line sliding item with icon options on both sides -->
       <ion-item-sliding  *ngFor="let congviec of danhSach">
         <ion-item lines="none"  routerLink="/members/tabs/congviec/chitietcongviec/{{congviec.ID}}" slot="start">
           <ion-label>
             <h2>{{congviec.Ten}}</h2>
             <p>{{congviec.NoiDung}}</p>
-            <div *ngIf="congviec.HanXuLy!=null" class="info-item"><span>Hạn xử lý :</span> {{congviec.HanXuLy|date:'dd/MM/yyyy'}} - <span>Người tạo:</span> Nguyễn Đức Chung</div>
+            <div *ngIf="congviec.HanXuLy!=null" class="info-item"><span>Hạn xử lý :</span> {{congviec.HanXuLy|date:'dd/MM/yyyy'}} - 
+              <b>Trạng thái:</b>
+              <span *ngIf="congviec.TrangThai===8" style="color: coral">
+                  Đang xử lý
+              </span>
+             <span *ngIf="congviec.TrangThai===9"  style="color: green">
+                  Đã xử lý
+             </span>
+             <span  *ngIf="congviec.TrangThai===7"  style="color: red">
+                  Chưa xử lý
+             </span>
+             <span *ngIf="congviec.TrangThai !== 7 && congviec.TrangThai !== 9 && congviec.TrangThai !== 8" >
+                  Kết thúc
+             </span>
+            <br/> <b>Người tạo:</b> Nguyễn Đức Chung</div>
           </ion-label>
         </ion-item>
         <ion-item-options side="start">
@@ -50,7 +63,8 @@
           </ion-item-option>
         </ion-item-options>
         <ion-item-options side="end">
-          <ion-item-option color="danger">
+          <!-- <ion-item-option color="danger"  *ngIf="CurrentUser.QuyenHanEnum.Xoacongviec && congviec.NguoiLapID == CurrentUser.ID && congviec.TrangThai == 7"> -->
+          <ion-item-option color="danger" >
             <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
           </ion-item-option>
           <ion-item-option>
@@ -64,7 +78,7 @@
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button color="success" (click)="presentModal(null)">
+      <ion-fab-button (click)="presentModal(null)">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
   </ion-fab>

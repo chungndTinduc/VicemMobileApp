@@ -1,14 +1,10 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
-            <ion-back-button text="" ></ion-back-button>     
-          <!-- <ion-button (click)="closePopup()">
-            <ion-icon slot="icon-only" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
-          </ion-button> -->
+            <ion-back-button text="" ></ion-back-button>  
       </ion-buttons>
       <ion-title>Chi tiết công việc</ion-title>
       <ion-buttons slot="end">
-          <!-- <ion-button  class="btn-header"  color=""  type="submit" (click)="triggerSumbit()" >Xong</ion-button> -->
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -109,7 +105,6 @@
                       <span class="title-box">Thành phần tham gia</span>
                         <ion-grid>
                                 <ion-list>
-                                    <!-- Multi-line sliding item with icon options on both sides -->
                                     <ion-item-sliding  *ngFor="let thanhPhanThamGiaItem of ThanhPhanThamGiaCongViecs">
                                         <ion-item lines="none"  slot="start">
                                             <ion-label>
@@ -122,19 +117,15 @@
                                                         <b>Trạng thái:</b> 
                                                         <span *ngIf="thanhPhanThamGiaItem.IsBanGiao">
                                                                 Đã bàn giao
-                                                            <!-- <ion-badge color='medium' >Đã bàn giao</ion-badge> -->
                                                         </span>
                                                         <span *ngIf="!thanhPhanThamGiaItem.IsBanGiao && thanhPhanThamGiaItem.TrangThaiID===8">
                                                                 Đang xử lý
-                                                            <!-- <ion-badge color='warning' >Đang xử lý</ion-badge> -->
                                                         </span>
                                                        <span *ngIf="!thanhPhanThamGiaItem.IsBanGiao &&thanhPhanThamGiaItem.TrangThaiID===9" >
                                                             Đã xử lý
-                                                            <!-- <ion-badge color='success' >Đã xử lý</ion-badge> -->
                                                        </span>
                                                        <span  *ngIf="!thanhPhanThamGiaItem.IsBanGiao &&thanhPhanThamGiaItem.TrangThaiID===7" >
                                                             Chưa xử lý
-                                                            <!-- <ion-badge color='danger'>Chưa xử lý</ion-badge> -->
                                                        </span>
                                                     </div>
                                                     <div class="col-6">
@@ -168,20 +159,28 @@
                                                 </ion-label>
                                               </ion-item>
                                               <ion-item-options side="start">
+                                                <ion-item-option color="danger">
+                                                    <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+                                                </ion-item-option>
                                                 <ion-item-option>
-                                                    <ion-icon ios="ios-refresh" md="md-refresh"></ion-icon>
+                                                        <ion-icon slot="icon-only" ios="ios-paper" md="md-paper"></ion-icon>
                                                 </ion-item-option>
                                               </ion-item-options>
                                               <ion-item-options side="end">
-                                                <ion-item-option color="danger">
-                                                  <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+                                                <ion-item-option>
+                                                    <ion-icon slot="icon-only" ios="ios-people" md="md-people"></ion-icon>
+                                                </ion-item-option>
+                                                <ion-item-option  color="secondary">
+                                                    <ion-icon slot="icon-only" ios="ios-timer" md="md-timer"></ion-icon>
                                                 </ion-item-option>
                                                 <ion-item-option>
-                                                  <ion-icon slot="icon-only" ios="ios-create-outline" md="md-create"></ion-icon>
+                                                    <ion-icon slot="icon-only" ios="ios-list-box" md="md-list-box"></ion-icon>
                                                 </ion-item-option>
                                               </ion-item-options>
+                                              
                                             </ion-item-sliding>
                                           </ion-list>
+                                          
                                         <div *ngIf="!ThanhPhanThamGiaCongViecs || ThanhPhanThamGiaCongViecs.length ==0" style="text-align: center;color: #999"><h3>Không có bản ghi nào</h3></div>
                         </ion-grid>
                   </div>
@@ -231,17 +230,12 @@
                                     </div>
                                     </ion-label>
                                 </ion-item>
-                                <ion-item-options side="start">
-                                    <ion-item-option>
-                                      <ion-icon slot="icon-only"  ios="ios-exit-outline" md="md-exit"></ion-icon>
-                                    </ion-item-option>
-                                  </ion-item-options>
                                   <ion-item-options side="end">
                                     <ion-item-option color="danger">
-                                      <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+                                        <ion-icon slot="icon-only" ios="ios-remove-circle" md="md-remove-circle"></ion-icon>
                                     </ion-item-option>
                                     <ion-item-option>
-                                      <ion-icon slot="icon-only" ios="ios-create-outline" md="md-create"></ion-icon>
+                                        <ion-icon slot="icon-only" ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
                                     </ion-item-option>
                                   </ion-item-options>
                               </ion-item-sliding>
@@ -359,7 +353,6 @@
         </ion-fab-button>
         <ion-fab-list side="top">
             <button ion-fab>
-                <!-- <ion-icon name="shuffle" (click)="presentModalluonglc(congViec.ID)"></ion-icon> -->
                 <ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon>
                 <ion-label>
                     Dự thảo văn bản
@@ -401,16 +394,12 @@
                     Kết thúc
                 </ion-label>
             </button >
-            <!--             
-            <ion-fab-button  routerLink="/members/tabs/vanbanden/ykienvanbanden/{{congViec.ID}}" title="Chuyển xử lý">
-                <ion-icon name="paper-plane"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button (click)="presentModaltrangthaivb(congViec.ID)" >
-                <ion-icon name="checkmark-circle"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button (click)="presentModaltrangthaicanhan(congViec.ID)">
-                <ion-icon name="checkbox"></ion-icon>
-            </ion-fab-button> -->
+            <button ion-fab>
+                <ion-icon ios="ios-create-outline" md="md-create"></ion-icon>
+                <ion-label>
+                     Cập nhật
+                </ion-label>
+            </button >
         </ion-fab-list> 
       </ion-fab>
 </ion-content>

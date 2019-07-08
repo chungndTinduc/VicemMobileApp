@@ -14,7 +14,7 @@ congviecId = null;
 credentialsForm: FormGroup;
 CongViecTrangThaiItems: FormArray;
 lstdonvi:[{ID:0,Ten:''}];
-lstnguoidung:[{id:0,text:''}];
+lstnguoidung:[{ID:0,Ten:''}];
 
   constructor(private navParams: NavParams,
     private modalController: ModalController,
@@ -24,28 +24,41 @@ lstnguoidung:[{id:0,text:''}];
 
   ngOnInit() {
     this.congviecId = this.navParams.get('id');
-    this.credentialsForm = this.formBuilder.group({
-      Ten:['',[Validators.required, Validators.minLength(3)]],
-      Ma:['',[]],
-      NgayBatDau:['',[Validators.required]],
-      HanXuLy:['',[Validators.required]],
-      NoiDung:['',[]],
-      DonViXuLy: ['',[]],
-      NguoiXuLy: ['',[]],
-      DonViPhoiHop: ['',[]],
-      NguoiPhoiHop: ['',[]],
-      CongViecTrangThaiItems: this.formBuilder.array([])
-    });
+
+    
     this.loadDonVi();
     this.loadnguoidung();
   }
-  isBigEnough(element, index, array) {
-      // this.selectedLst
-      return (element >= 10); 
-  } 
 
+
+  initCongViecForm(congViecItem){
+    this.credentialsForm = this.formBuilder.group({
+      Ten:[congViecItem ? congViecItem.Ten : '',[Validators.required, Validators.minLength(3)]],
+      Ma:[congViecItem ? congViecItem.Ma : '',[]],
+      NgayBatDau:[congViecItem ? congViecItem.NgayBatDau : '',[Validators.required]],
+      HanXuLy:[congViecItem ? congViecItem.HanXuLy : '',[Validators.required]],
+      NoiDung:[congViecItem ? congViecItem.NoiDung : '',[]],
+      DonViXuLy: [congViecItem && congViecItem.LtsDonViXuLy ? congViecItem.LtsDonViXuLy.map(c=>c.ID) : '',[]],
+      NguoiXuLy: [congViecItem && congViecItem.LtsNguoiXuLy ? congViecItem.LtsNguoiXuLy.map(c=>c.ID) : '',[]],
+      DonViPhoiHop: [congViecItem && congViecItem.LtsDonViPhoiHop ? congViecItem.LtsDonViPhoiHop.map(c=>c.ID) : '',[]],
+      NguoiPhoiHop: [congViecItem && congViecItem.LtsNguoiPhoiHop ? congViecItem.LtsNguoiPhoiHop.map(c=>c.ID) : '',[]],
+      CongViecTrangThaiItems: this.formBuilder.array([])
+    });
+    if(congViecItem){
+      
+    }
+  }
+  getCongViecById(congViecId){
+    this.authService.getCongViec(congViecId).subscribe(res => {
+          if(res["StatusCode"] == 0)
+          {
+            
+          }  
+    });
+  }
+
+  //xóa những thành phần đã chọn
   removeChoose(lstRemove){
-    // debugger;
     lstRemove.forEach((item) => { 
       this.CongViecTrangThaiItems.removeAt(
         this.CongViecTrangThaiItems.value.findIndex(c=>c.IsDauMoi == item.IsDauMoi && c.PhongBanID == item.PhongBanID && c.NguoiDungID == item.NguoiDungID)
@@ -53,20 +66,21 @@ lstnguoidung:[{id:0,text:''}];
     });
   }
 
-  addICongViecTrangThaiItems(selectedLst, isDauMoi, isDonVi){
-    // debugger;
+  addThanhPhanThamGiaItems(selectedLst, isDauMoi, isDonVi){
     this.CongViecTrangThaiItems = this.credentialsForm.get('CongViecTrangThaiItems') as FormArray;
+    //xóa thành phần đã chọn trước đó
     if(isDonVi){
       this.removeChoose(this.CongViecTrangThaiItems.value.filter(c=>c.IsDauMoi == isDauMoi && c.PhongBanID > 0));
     }
     else{
       this.removeChoose(this.CongViecTrangThaiItems.value.filter(c=>c.IsDauMoi == isDauMoi && c.NguoiDungID > 0)) ;
     }
+    //update thành phần mới chọn
     selectedLst.forEach((donviItem) => {
       var title ='',nguoiXuLy='',nguoiXulyId='',donViXuLy='',donViXuLyId='',hanXuLy=''
       title = isDonVi == true ? (isDauMoi == true? 'Đơn vị xử lý':'Đơn vị phối hợp'): (isDauMoi ==true? 'Người xử lý':'Người phối hợp')
-      nguoiXulyId = isDonVi == false ?  donviItem.id: '';
-      nguoiXuLy = isDonVi == false ? donviItem.text : '';
+      nguoiXulyId = isDonVi == false ?  donviItem.ID: '';
+      nguoiXuLy = isDonVi == false ? donviItem.Ten : '';
       donViXuLy =  isDonVi == true ? donviItem.Ten : '';
       donViXuLyId = isDonVi == true ? donviItem.ID : '';
       var CongViecTrangThaiItem =  this.formBuilder.group({
@@ -76,7 +90,7 @@ lstnguoidung:[{id:0,text:''}];
         PhongBanID: [donViXuLyId,[]],
         DonViText: [donViXuLy, []],
         IsDauMoi:  [isDauMoi, []],
-        HanXuLy:   [this.credentialsForm.get('HanXuLy').value, [Validators.required]],
+        HanXuLy:   [donviItem && donviItem.HanXuLy ? donviItem.HanXuLy : this.credentialsForm.get('HanXuLy').value, [Validators.required]],
       })
       this.CongViecTrangThaiItems.push(CongViecTrangThaiItem);
     });
@@ -87,15 +101,17 @@ lstnguoidung:[{id:0,text:''}];
       this.lstnguoidung = res["Data"];
     });
   }
+
   loadDonVi(){
     this.authService.getAllDonVi().subscribe(res =>{
       this.lstdonvi = res["Data"];
     });
   }
+
   closePopup(){
-    debugger;
     this.modalController.dismiss();
   }
+
   onSubmit() {
     if (this.credentialsForm.dirty && this.credentialsForm.valid) {
       this.authService.postCongViec(this.credentialsForm.value).subscribe(res => {
@@ -109,51 +125,44 @@ lstnguoidung:[{id:0,text:''}];
     }
   }
 
-  verifyTag(str: string): boolean{
-    return str !== 'ABC' && str.trim() !== '';
-  }
-
   DonViXuLyChange(event: {
     component: IonicSelectableComponent,
-    value: any
-  }) {
+    value: any}) 
+    {
     var listSelected = event.value;
     var donviItems = this.lstdonvi.filter(d=> listSelected.includes(d.ID));
-    this.addICongViecTrangThaiItems(donviItems,true,true);
-  }
+    this.addThanhPhanThamGiaItems(donviItems,true,true);
+    }
 
   DonViPhoiHopChange(event: {
     component: IonicSelectableComponent,
-    value: any
-  })
-  {
-    var listSelected = event.value;
-    var donviItems = this.lstdonvi.filter(d=> listSelected.includes(d.ID));
-    this.addICongViecTrangThaiItems(donviItems,false,true);
-  }
+    value: any})
+    {
+      var listSelected = event.value;
+      var donviItems = this.lstdonvi.filter(d=> listSelected.includes(d.ID));
+      this.addThanhPhanThamGiaItems(donviItems,false,true);
+    }
 
   NguoiXuLyChange(event: {
     component: IonicSelectableComponent,
-    value: any
-  })
-  {
-    var listSelected = event.value;
-    var nguoidungItems = this.lstnguoidung.filter(d=> listSelected.includes(d.id));
-    this.addICongViecTrangThaiItems(nguoidungItems,true,false);
-  }
+    value: any})
+    {
+      var listSelected = event.value;
+      var nguoidungItems = this.lstnguoidung.filter(d=> listSelected.includes(d.ID));
+      this.addThanhPhanThamGiaItems(nguoidungItems,true,false);
+    }
 
   NguoiPhoiHopChange(event: {
     component: IonicSelectableComponent,
-    value: any
-  })
-  {
-    var listSelected = event.value;
-    var nguoidungItems = this.lstnguoidung.filter(d=> listSelected.includes(d.id));
-    this.addICongViecTrangThaiItems(nguoidungItems,false,false);
-  }
+    value: any})
+    {
+      var listSelected = event.value;
+      var nguoidungItems = this.lstnguoidung.filter(d=> listSelected.includes(d.ID));
+      this.addThanhPhanThamGiaItems(nguoidungItems,false,false);
+    }
 
   triggerSumbit()
-  {
-    document.getElementById('submitForm').click(); 
-  }
+    {
+      document.getElementById('submitForm').click(); 
+    }
 }

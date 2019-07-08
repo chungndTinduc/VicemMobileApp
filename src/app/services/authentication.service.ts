@@ -374,9 +374,7 @@ get(api, data) {
      if(!message){
          message =  'Xin chờ đang lấy dữ liệu..';
     }
-    console.log('presentLoading ' + this.countLoadding);
     if(this.countLoadding > 1) return;
-     console.log('present');
      this.loading = await this.loadingController.create({
       spinner: null,
       duration: 220000,
@@ -393,10 +391,8 @@ async dismissLoadding()
     await this.delay(300);
     try {
       this.countLoadding -= 1;
-      console.log('dismissLoadding ' + this.countLoadding);
       if(this.countLoadding === 0)
       { 
-        console.log('dismissed..');
         this.loading.dismiss();
       }
     }

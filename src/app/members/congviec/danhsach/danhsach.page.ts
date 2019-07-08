@@ -11,12 +11,15 @@ export class DanhsachPage implements OnInit {
   danhSach:any;
   total:0;
   pageIndex:any;
+  CurrentUser={};
   public dataquery = {CurrentPage:1,RowPerPage:10,SearchIn:'Ten,NoiDung',Keyword:''};
 
   constructor(private authService:AuthenticationService,public modalController: ModalController) { }
 
   ngOnInit() {
-  
+    if(this.authService.currentUser!=null){
+      this.CurrentUser = this.authService.currentUser
+    }
   }
 
   ionViewDidEnter(){
