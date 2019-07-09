@@ -10,12 +10,12 @@ import { IonicSelectableComponent } from 'src/app/members/components/ionic-selec
   providers: []
 })
 export class CongviecformPage implements OnInit {
-congviecId = null;
+danhMucTens:any;
+congviecId = 0;
 credentialsForm: FormGroup;
 CongViecTrangThaiItems: FormArray;
 lstdonvi:[{ID:0,Ten:''}];
 lstnguoidung:[{ID:0,Ten:''}];
-
   constructor(private navParams: NavParams,
     private modalController: ModalController,
     private formBuilder: FormBuilder,
@@ -23,36 +23,68 @@ lstnguoidung:[{ID:0,Ten:''}];
     private events: Events) { }
 
   ngOnInit() {
+    this.initCongViecForm(null);
     this.congviecId = this.navParams.get('id');
-
-    
-    this.loadDonVi();
-    this.loadnguoidung();
+      this.loadDanhMucGiaTri();
+      this.loadDonVi();
+      this.loadnguoidung();
+      if(this.congviecId)
+      //khởi tạo form khi cập nhật công việc
+         this.getCongViecById(this.congviecId);
   }
-
 
   initCongViecForm(congViecItem){
+
     this.credentialsForm = this.formBuilder.group({
-      Ten:[congViecItem ? congViecItem.Ten : '',[Validators.required, Validators.minLength(3)]],
-      Ma:[congViecItem ? congViecItem.Ma : '',[]],
-      NgayBatDau:[congViecItem ? congViecItem.NgayBatDau : '',[Validators.required]],
-      HanXuLy:[congViecItem ? congViecItem.HanXuLy : '',[Validators.required]],
-      NoiDung:[congViecItem ? congViecItem.NoiDung : '',[]],
-      DonViXuLy: [congViecItem && congViecItem.LtsDonViXuLy ? congViecItem.LtsDonViXuLy.map(c=>c.ID) : '',[]],
-      NguoiXuLy: [congViecItem && congViecItem.LtsNguoiXuLy ? congViecItem.LtsNguoiXuLy.map(c=>c.ID) : '',[]],
-      DonViPhoiHop: [congViecItem && congViecItem.LtsDonViPhoiHop ? congViecItem.LtsDonViPhoiHop.map(c=>c.ID) : '',[]],
-      NguoiPhoiHop: [congViecItem && congViecItem.LtsNguoiPhoiHop ? congViecItem.LtsNguoiPhoiHop.map(c=>c.ID) : '',[]],
+      ID:['',[]],
+      Ten:['',[Validators.required, Validators.minLength(3)]],
+      Ma:['',[]],
+      NgayBatDau:['',[Validators.required]],
+      HanXuLy:['',[Validators.required]],
+      NoiDung:['',[]],
+      DonViXuLy: ['',[]],
+      NguoiXuLy: ['',[]],
+      DonViPhoiHop: ['',[]],
+      NguoiPhoiHop: ['',[]],
+      DanhMucGiaTriID: ['',[]],
       CongViecTrangThaiItems: this.formBuilder.array([])
     });
+
     if(congViecItem){
-      
+      var donViXuLy = congViecItem && congViecItem.LtsDonViXuLy ? congViecItem.LtsDonViXuLy.map(c=>c.ID) : '';
+      var nguoiXuLy = congViecItem && congViecItem.LtsNguoiXuLy ? congViecItem.LtsNguoiXuLy.map(c=>c.ID) : '';
+      var donViPhoiHop =  congViecItem && congViecItem.LtsDonViPhoiHop ? congViecItem.LtsDonViPhoiHop.map(c=>c.ID) : '';
+      var nguoiPhoiHop = congViecItem && congViecItem.LtsNguoiPhoiHop ? congViecItem.LtsNguoiPhoiHop.map(c=>c.ID) : '';
+      this.credentialsForm.patchValue({
+        ID: congViecItem ? congViecItem.ID : '', 
+        Ten: congViecItem ? congViecItem.Ten : '', 
+        Ma: congViecItem ? congViecItem.Ma : '', 
+        NgayBatDau: congViecItem ? congViecItem.NgayBatDau : '', 
+        HanXuLy: congViecItem ? congViecItem.HanXuLy : '', 
+        NoiDung: congViecItem ? congViecItem.NoiDung : '', 
+        DonViXuLy: donViXuLy, 
+        NguoiXuLy: nguoiXuLy, 
+        DonViPhoiHop:donViPhoiHop, 
+        NguoiPhoiHop:nguoiPhoiHop ,
+        DanhMucGiaTriID:congViecItem ? congViecItem.DanhMucGiaTriID : ''
+      });
+      //Danh sách đơn vị xử lý
+      this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsDonViXuLy ? congViecItem.LtsDonViXuLy:[],true,true);
+      //Danh sách người xử lý
+      this.addThanhPhanThamGiaItems(congViecItem && congViecItem.NguoiXuLy ? congViecItem.NguoiXuLy:[],true,false);
+      //Danh sách Đơn vị phối hợp
+      this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsDonViPhoiHop ? congViecItem.LtsDonViPhoiHop:[],false,true);
+      //Danh sách người phối hợp
+      this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsNguoiPhoiHop ? congViecItem.LtsNguoiPhoiHop:[],false,false);
     }
+
   }
   getCongViecById(congViecId){
-    this.authService.getCongViec(congViecId).subscribe(res => {
+    this.authService.getCongViec({Id:congViecId}).subscribe(res => {
           if(res["StatusCode"] == 0)
           {
-            
+            this.initCongViecForm(res["Data"]);
+            this.checkDanhMucGiaTri(res["Data"].LtsDanhMucGiaTri);
           }  
     });
   }
@@ -112,6 +144,7 @@ lstnguoidung:[{ID:0,Ten:''}];
     this.modalController.dismiss();
   }
 
+  // Lưu công việc
   onSubmit() {
     if (this.credentialsForm.dirty && this.credentialsForm.valid) {
       this.authService.postCongViec(this.credentialsForm.value).subscribe(res => {
@@ -161,8 +194,35 @@ lstnguoidung:[{ID:0,Ten:''}];
       this.addThanhPhanThamGiaItems(nguoidungItems,false,false);
     }
 
-  triggerSumbit()
-    {
-      document.getElementById('submitForm').click(); 
+  checkDanhMucGiaTri(LtsDanhMucGiaTri){
+          if(this.danhMucTens && LtsDanhMucGiaTri){
+            this.danhMucTens.forEach(function(danhMucTenItem) {
+                      if(danhMucTenItem.LtsDanhMucGiaTri)
+                        danhMucTenItem.LtsDanhMucGiaTri.forEach(function(item) {
+                            if(LtsDanhMucGiaTri.filter(c=>c.ID == item.ID).length > 0){
+                              danhMucTenItem.Selected = item.ID;
+                            }
+                        });
+              });
+          }
     }
+  loadDanhMucGiaTri(){
+    this.authService.getAllDanhMucCongViec(null).subscribe(res =>{
+      this.danhMucTens= res["Data"];
+    });
+  }
+
+  triggerSumbit()
+  {
+    document.getElementById('submitForm').click(); 
+  }
+
+  danhMucGiaTriSelected(newChoose){
+    this.danhMucTens.forEach(function(item,index){
+          var danhmucgiatri = item.LtsDanhMucGiaTri.map(c=>c.ID);
+          if(danhmucgiatri.includes(newChoose)){
+            item.Selected = newChoose;
+          }
+    });
+  }
 }

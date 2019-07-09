@@ -244,11 +244,12 @@ checkToken() {
         }
       } 
   }
-  getToken() {
+
+getToken() {
     return localStorage.getItem(TOKEN_KEY)!== null ? localStorage.getItem(TOKEN_KEY) : '';
   }
   
-  register(credentials) {
+register(credentials) {
     return this.http.post(`${this.urlServer}/api/register`, credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
@@ -256,7 +257,7 @@ checkToken() {
       })
     );
   }
-  login(credentials) {
+login(credentials) {
     this.presentLoadingWithOptions('Xin chờ đang xác thực..');
     return this.http.post(`${this.urlServer}api/NguoiDung/Login`, credentials)
       .pipe(
@@ -282,17 +283,17 @@ checkToken() {
       );
   }
 
-  logout() {
+logout() {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(CURRENT_USER);
     this.authenticationState.next(false);
   }
 
-  isAuthenticated() {
+isAuthenticated() {
     return this.authenticationState.value;
   }
 
-  showAlert(msg) {
+showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
       header: 'Thông báo',
@@ -301,7 +302,7 @@ checkToken() {
     alert.then(alert => alert.present());
   }
 
-  post(api, data) {
+post(api, data) {
     this.presentLoadingWithOptions(0);
     return new Observable((observer) => { 
       var token = this.getToken(); 
