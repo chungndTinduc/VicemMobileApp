@@ -164,15 +164,15 @@ export class AuthenticationService {
   postVanBanDen(data) {
     return this.post('api/vanbanden/test',data);
   }
-    // trình văn bản dự thảo
+  //trình văn bản dự thảo
     postTrinhvanbanduthao(data) {
       return this.post('api/VanBanDuThao/TrinhKy',data);
     }
-    // kết thúc bản dự thảo
+  //kết thúc bản dự thảo
     postketthucbanduthao(data) {
       return this.post('api/VanBanDuThao/Finish',data);
   }
-       // chuyển phát hành văn bản dự thảo
+  //chuyển phát hành văn bản dự thảo
   postchuyenphathanhduthao(data) {
         return this.post('api/VanBanDuThao/ChuyenPhatHanh',data);
       }
@@ -180,7 +180,7 @@ export class AuthenticationService {
   postapprovedduthao(data) {
     return this.post('api/VanBanDuThao/Approved',data);
   }
-  //  từ chối dự thảo
+  // từ chối dự thảo
    postrejectduthao(data) {
     return this.post('api/VanBanDuThao/reject',data);
   }
@@ -216,6 +216,10 @@ export class AuthenticationService {
   //Lấy danh sách thông tin gia hạn công việc
   loadThongTinGiaHan(data){
     return this.get('api/CongViec/GetListCongViecGiaHan',data);
+  }
+  //Lấy danh sách thông tin gia hạn công việc
+  xoaCongViec(data){
+    return this.get('api/CongViec/Delete',data);
   }
 //============================================================*********End danh sach dang ky service****======================= 
 
@@ -301,6 +305,33 @@ showAlert(msg) {
     });
     alert.then(alert => alert.present());
   }
+
+  async showConfirm(msg) {
+      let choice
+      const alert = await this.alertController.create({
+          header: 'Thông báo',
+          message: msg,
+          buttons: [{
+              text: 'Không đồng ý',
+              handler: () => {
+                  alert.dismiss(false)
+                  return false
+              }
+          }, {
+              text: 'Đồng ý',
+              handler: () => {
+                  alert.dismiss(true);
+                  return false;
+              }
+          }]
+      });
+
+      await alert.present();
+      await alert.onDidDismiss().then((data) => {
+          choice = data
+      })
+      return choice
+}
 
 post(api, data) {
     this.presentLoadingWithOptions(0);

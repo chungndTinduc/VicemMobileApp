@@ -65,7 +65,7 @@
         <ion-item-options side="end">
           <!-- <ion-item-option color="danger"  *ngIf="CurrentUser.QuyenHanEnum.Xoacongviec && congviec.NguoiLapID == CurrentUser.ID && congviec.TrangThai == 7"> -->
           <ion-item-option color="danger" >
-            <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash"></ion-icon>
+            <ion-icon slot="icon-only"  ios="ios-trash-outline" md="md-trash" (click)="deleteCongViec(congviec.ID)"></ion-icon>
           </ion-item-option>
           <ion-item-option>
             <ion-icon slot="icon-only" ios="ios-create-outline" md="md-create" (click)="presentModal(congviec.ID)"></ion-icon>

@@ -16,17 +16,20 @@ export class DanhsachPage implements OnInit {
 
   constructor(private authService:AuthenticationService,public modalController: ModalController) { }
 
-  ngOnInit() {
+ngOnInit() {
     if(this.authService.currentUser!=null){
       this.CurrentUser = this.authService.currentUser
     }
   }
 
-  ionViewDidEnter(){
+ionViewDidEnter(){
      this.load(null);
   }
+
+
+
 //load danh sách
-  load(refresher){
+load(refresher){
     this.dataquery.RowPerPage=10;
     this.dataquery.CurrentPage=1;
     this.authService.getDanhSachCongViec(this.dataquery).subscribe(res =>{
@@ -61,7 +64,7 @@ async doInfinite(infiniteScroll) {
     }
   };
 
-  async presentModal(_id) {
+async presentModal(_id) {
     const modal = await this.modalController.create({
       component: CongviecformPage,
       componentProps: { id: _id }
@@ -74,5 +77,21 @@ async doInfinite(infiniteScroll) {
       }
     });
     return await modal.present();
+  }
+
+  deleteCongViec(congviecId){
+    this.authService.showConfirm('Bạn có muốn xóa công việc này?').then((confirm) => {
+      if(confirm.data){
+        this.authService.xoaCongViec({congViecId:congviecId}).subscribe(res =>{     
+            if(res["StatusCode"]==0)
+                if(res["Data"]==1){
+                  this.authService.presentToastSuccess('Xóa bản ghi thành công');
+                  this.load(null);
+                  return;
+                }
+            this.authService.presentToastFail('Đã có lỗi xảy ra.');
+        });
+      }
+    })
   }
 }

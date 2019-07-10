@@ -10,7 +10,7 @@
                 <ion-button  class="btn-header"  color=""  type="submit" (click)="triggerSumbit()" >{{ congviecId ?'Cập nhật':'Thêm'}}</ion-button>
               </ion-buttons>
         </ion-toolbar>
-      </ion-header>
+</ion-header>
     <ion-content>
         <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
           <ion-grid>
@@ -57,11 +57,11 @@
                   </ion-col>
               </ion-row>
             <ion-row>
-                    <ion-col size="6"  *ngFor="let danhMucTenItem  of danhMucTens">
+                    <ion-col size="6" *ngFor="let danhMucTenItem  of danhMucTens">
                         <ion-item>
-                            <ion-label  position="stacked">{{danhMucTenItem.Ten}}:</ion-label>
-                            <ion-select  placeholder="{{danhMucTenItem.Ten}}" formControlName="DanhMucGiaTriID" (ngModelChange)="danhMucGiaTriSelected($event)">
-                              <ion-select-option  *ngFor="let danhMucGiaTriItem  of danhMucTenItem.LtsDanhMucGiaTri" value="{{danhMucGiaTriItem.ID}}" [selected]="danhMucTenItem.Selected==danhMucGiaTriItem.ID" >{{danhMucGiaTriItem.Ten}}</ion-select-option>
+                            <ion-label position="stacked">{{danhMucTenItem.Ten}}:</ion-label>
+                            <ion-select  placeholder="{{danhMucTenItem.Ten}}" (ionChange)="danhMucGiaTriOnChange($event)" >
+                              <ion-select-option  *ngFor="let danhMucGiaTriItem  of danhMucTenItem.LtsDanhMucGiaTri" [value]="danhMucGiaTriItem.ID" [selected]="danhMucTenItem.Selected==danhMucGiaTriItem.ID">{{danhMucGiaTriItem.Ten}}</ion-select-option>
                             </ion-select>
                           </ion-item>
                     </ion-col>
@@ -88,7 +88,7 @@
                           <ion-col size="12">
                               <ion-item>
                                   <ion-label position="stacked">Người xử lý</ion-label>
-                                  <ionic-selectable [(ngModel)]="nguoidung" itemValueField="ID" [isMultiple]="true" formControlName="NguoiXuLy"  [shouldStoreItemValue]="true"
+                                  <ionic-selectable itemValueField="ID" [isMultiple]="true" formControlName="NguoiXuLy"  [shouldStoreItemValue]="true"
                                   itemTextField="Ten" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người xử lý"
                                   confirmButtonText="Chọn" closeButtonText="Hủy"
                                   (onChange)="NguoiXuLyChange($event)">
@@ -96,12 +96,12 @@
                               </ion-item>
                             
                             </ion-col>
-                        </ion-row>
-                        <ion-row>
+                    </ion-row>
+                    <ion-row>
                             <ion-col size="12">
                                 <ion-item>
                                     <ion-label position="stacked">Người phối hợp</ion-label>
-                                    <ionic-selectable  [(ngModel)]="nguoidungph"  itemValueField="ID" [isMultiple]="true" formControlName="NguoiPhoiHop"  [shouldStoreItemValue]="true"
+                                    <ionic-selectable    itemValueField="ID" [isMultiple]="true" formControlName="NguoiPhoiHop"  [shouldStoreItemValue]="true"
                                     itemTextField="Ten" [items]="lstnguoidung" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn người phối hợp"
                                     confirmButtonText="Chọn" closeButtonText="Hủy"
                                     (onChange)="NguoiPhoiHopChange($event)">
@@ -109,19 +109,19 @@
                                 </ion-item>
                               </ion-col>
 
-                        </ion-row>
-                        <ion-row>
+                    </ion-row>
+                    <ion-row>
                               <ion-col size="12">
                                   <ion-item>
                                       <ion-label position="stacked">Đơn vị phối hợp</ion-label>
-                                      <ionic-selectable [(ngModel)]="donviph" itemValueField="ID" [isMultiple]="true" formControlName="DonViPhoiHop"  [shouldStoreItemValue]="true"
+                                      <ionic-selectable  itemValueField="ID" [isMultiple]="true" formControlName="DonViPhoiHop"  [shouldStoreItemValue]="true"
                                       itemTextField="Ten" [items]="lstdonvi" [canSearch]="true" okText="Chọn" cancelText="Hủy" placeholder="Chọn đơn vị phối hợp" 
                                       confirmButtonText="Chọn" closeButtonText="Hủy"
                                       (onChange)="DonViPhoiHopChange($event)">
                                     </ionic-selectable>
                                     </ion-item>
                                 </ion-col>
-                            </ion-row>
+                    </ion-row>
                             
                                     <span class="title-break-page" *ngIf="CongViecTrangThaiItems">Chi tiết giao xử lý</span>
                                         <div formArrayName="CongViecTrangThaiItems" *ngFor="let item of credentialsForm.get('CongViecTrangThaiItems').controls; let i = index;">
@@ -158,7 +158,7 @@
                                   </ion-col>
                                   <ion-col size="4">
                                   </ion-col>
-                                </ion-row>
+                            </ion-row>
                   </ion-grid> 
             </div>
         </form>

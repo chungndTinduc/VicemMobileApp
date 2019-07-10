@@ -16,6 +16,7 @@ credentialsForm: FormGroup;
 CongViecTrangThaiItems: FormArray;
 lstdonvi:[{ID:0,Ten:''}];
 lstnguoidung:[{ID:0,Ten:''}];
+
   constructor(private navParams: NavParams,
     private modalController: ModalController,
     private formBuilder: FormBuilder,
@@ -56,39 +57,37 @@ lstnguoidung:[{ID:0,Ten:''}];
       var donViPhoiHop =  congViecItem && congViecItem.LtsDonViPhoiHop ? congViecItem.LtsDonViPhoiHop.map(c=>c.ID) : '';
       var nguoiPhoiHop = congViecItem && congViecItem.LtsNguoiPhoiHop ? congViecItem.LtsNguoiPhoiHop.map(c=>c.ID) : '';
       this.credentialsForm.patchValue({
-        ID: congViecItem ? congViecItem.ID : '', 
-        Ten: congViecItem ? congViecItem.Ten : '', 
-        Ma: congViecItem ? congViecItem.Ma : '', 
-        NgayBatDau: congViecItem ? congViecItem.NgayBatDau : '', 
-        HanXuLy: congViecItem ? congViecItem.HanXuLy : '', 
-        NoiDung: congViecItem ? congViecItem.NoiDung : '', 
-        DonViXuLy: donViXuLy, 
-        NguoiXuLy: nguoiXuLy, 
-        DonViPhoiHop:donViPhoiHop, 
-        NguoiPhoiHop:nguoiPhoiHop ,
-        DanhMucGiaTriID:congViecItem ? congViecItem.DanhMucGiaTriID : ''
+          ID: congViecItem ? congViecItem.ID : '', 
+          Ten: congViecItem ? congViecItem.Ten : '', 
+          Ma: congViecItem ? congViecItem.Ma : '', 
+          NgayBatDau: congViecItem ? congViecItem.NgayBatDau : '', 
+          HanXuLy: congViecItem ? congViecItem.HanXuLy : '', 
+          NoiDung: congViecItem ? congViecItem.NoiDung : '', 
+          DonViXuLy: donViXuLy, 
+          NguoiXuLy: nguoiXuLy, 
+          DonViPhoiHop:donViPhoiHop, 
+          NguoiPhoiHop:nguoiPhoiHop ,
+          DanhMucGiaTriID:congViecItem ? congViecItem.DanhMucGiaTriID : ''
       });
       //Danh sách đơn vị xử lý
       this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsDonViXuLy ? congViecItem.LtsDonViXuLy:[],true,true);
       //Danh sách người xử lý
-      this.addThanhPhanThamGiaItems(congViecItem && congViecItem.NguoiXuLy ? congViecItem.NguoiXuLy:[],true,false);
+      this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsNguoiXuLy ? congViecItem.LtsNguoiXuLy:[],true,false);
       //Danh sách Đơn vị phối hợp
       this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsDonViPhoiHop ? congViecItem.LtsDonViPhoiHop:[],false,true);
       //Danh sách người phối hợp
       this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsNguoiPhoiHop ? congViecItem.LtsNguoiPhoiHop:[],false,false);
     }
-
   }
   getCongViecById(congViecId){
     this.authService.getCongViec({Id:congViecId}).subscribe(res => {
           if(res["StatusCode"] == 0)
           {
             this.initCongViecForm(res["Data"]);
-            this.checkDanhMucGiaTri(res["Data"].LtsDanhMucGiaTri);
+            this.checkDanhMucGiaTriByCongViec(res["Data"].LtsDanhMucGiaTri);
           }  
     });
   }
-
   //xóa những thành phần đã chọn
   removeChoose(lstRemove){
     lstRemove.forEach((item) => { 
@@ -99,6 +98,7 @@ lstnguoidung:[{ID:0,Ten:''}];
   }
 
   addThanhPhanThamGiaItems(selectedLst, isDauMoi, isDonVi){
+    
     this.CongViecTrangThaiItems = this.credentialsForm.get('CongViecTrangThaiItems') as FormArray;
     //xóa thành phần đã chọn trước đó
     if(isDonVi){
@@ -139,14 +139,17 @@ lstnguoidung:[{ID:0,Ten:''}];
       this.lstdonvi = res["Data"];
     });
   }
-
+  loadDanhMucGiaTri(){
+    this.authService.getAllDanhMucCongViec(null).subscribe(res =>{
+      this.danhMucTens= res["Data"];
+    });
+  }
   closePopup(){
     this.modalController.dismiss();
   }
-
   // Lưu công việc
   onSubmit() {
-    if (this.credentialsForm.dirty && this.credentialsForm.valid) {
+    if ( this.credentialsForm.valid) {
       this.authService.postCongViec(this.credentialsForm.value).subscribe(res => {
         if(res["StatusCode"] == 0){
           this.authService.presentToastSuccess(res["Data"]);
@@ -156,6 +159,11 @@ lstnguoidung:[{ID:0,Ten:''}];
     }else{
       this.authService.presentToastFail('Mời bạn nhập đầy đủ thông tin');
     }
+  }
+
+  triggerSumbit()
+  {
+    document.getElementById('submitForm').click(); 
   }
 
   DonViXuLyChange(event: {
@@ -194,35 +202,42 @@ lstnguoidung:[{ID:0,Ten:''}];
       this.addThanhPhanThamGiaItems(nguoidungItems,false,false);
     }
 
-  checkDanhMucGiaTri(LtsDanhMucGiaTri){
-          if(this.danhMucTens && LtsDanhMucGiaTri){
-            this.danhMucTens.forEach(function(danhMucTenItem) {
-                      if(danhMucTenItem.LtsDanhMucGiaTri)
-                        danhMucTenItem.LtsDanhMucGiaTri.forEach(function(item) {
-                            if(LtsDanhMucGiaTri.filter(c=>c.ID == item.ID).length > 0){
-                              danhMucTenItem.Selected = item.ID;
-                            }
-                        });
-              });
-          }
-    }
-  loadDanhMucGiaTri(){
-    this.authService.getAllDanhMucCongViec(null).subscribe(res =>{
-      this.danhMucTens= res["Data"];
-    });
-  }
+  
 
-  triggerSumbit()
-  {
-    document.getElementById('submitForm').click(); 
-  }
-
-  danhMucGiaTriSelected(newChoose){
+  //check change danh mục giá trị 
+  danhMucGiaTriOnChange(newChoose){
+    if(!newChoose)return;
+    var lstDanhMucGiaTri =[];
+    newChoose = newChoose.detail.value;
     this.danhMucTens.forEach(function(item,index){
           var danhmucgiatri = item.LtsDanhMucGiaTri.map(c=>c.ID);
           if(danhmucgiatri.includes(newChoose)){
             item.Selected = newChoose;
           }
+          if(item.Selected)
+           lstDanhMucGiaTri.push(item.Selected);
+    });
+    this.credentialsForm.patchValue({
+      DanhMucGiaTriID:lstDanhMucGiaTri
     });
   }
+  // check danh mục giá trị của công việc đã được chọn
+  checkDanhMucGiaTriByCongViec(LtsDanhMucGiaTri){
+    var lstDanhMucGiaTri =[];
+       if(this.danhMucTens && LtsDanhMucGiaTri){
+         this.danhMucTens.forEach(function(danhMucTenItem) {
+             if(danhMucTenItem.LtsDanhMucGiaTri)
+                 danhMucTenItem.LtsDanhMucGiaTri.forEach(function(item) {
+                   if(LtsDanhMucGiaTri.filter(c=>c.ID == item.ID).length > 0){
+                       danhMucTenItem.Selected = item.ID;
+                       }
+                   });
+             if(danhMucTenItem.Selected)
+               lstDanhMucGiaTri.push(danhMucTenItem.Selected);
+           });
+           this.credentialsForm.patchValue({
+             DanhMucGiaTriID:lstDanhMucGiaTri
+           });
+       }
+ }
 }
