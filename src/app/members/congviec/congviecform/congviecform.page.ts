@@ -12,6 +12,7 @@ import { IonicSelectableComponent } from 'src/app/members/components/ionic-selec
 export class CongviecformPage implements OnInit {
 danhMucTens:any;
 congviecId = 0;
+congviecchaId = 0;
 credentialsForm: FormGroup;
 CongViecTrangThaiItems: FormArray;
 lstdonvi:[{ID:0,Ten:''}];
@@ -26,12 +27,17 @@ lstnguoidung:[{ID:0,Ten:''}];
   ngOnInit() {
     this.initCongViecForm(null);
     this.congviecId = this.navParams.get('id');
+    this.congviecchaId = this.navParams.get('congviecchaId');
+    
       this.loadDanhMucGiaTri();
       this.loadDonVi();
       this.loadnguoidung();
       if(this.congviecId)
       //khởi tạo form khi cập nhật công việc
          this.getCongViecById(this.congviecId);
+      if(this.congviecchaId){
+
+      }
   }
 
   initCongViecForm(congViecItem){
@@ -48,6 +54,7 @@ lstnguoidung:[{ID:0,Ten:''}];
       DonViPhoiHop: ['',[]],
       NguoiPhoiHop: ['',[]],
       DanhMucGiaTriID: ['',[]],
+      CongViecChaID: [this.congviecchaId,[]],
       CongViecTrangThaiItems: this.formBuilder.array([])
     });
 
@@ -67,7 +74,8 @@ lstnguoidung:[{ID:0,Ten:''}];
           NguoiXuLy: nguoiXuLy, 
           DonViPhoiHop:donViPhoiHop, 
           NguoiPhoiHop:nguoiPhoiHop ,
-          DanhMucGiaTriID:congViecItem ? congViecItem.DanhMucGiaTriID : ''
+          DanhMucGiaTriID:congViecItem ? congViecItem.DanhMucGiaTriID : '',
+          CongViecChaID:congViecItem ? congViecItem.CongViecChaID : '', 
       });
       //Danh sách đơn vị xử lý
       this.addThanhPhanThamGiaItems(congViecItem && congViecItem.LtsDonViXuLy ? congViecItem.LtsDonViXuLy:[],true,true);

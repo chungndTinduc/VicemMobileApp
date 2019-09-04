@@ -25,9 +25,7 @@ ngOnInit() {
 ionViewDidEnter(){
      this.load(null);
   }
-
-
-
+  
 //load danh sách
 load(refresher){
     this.dataquery.RowPerPage=10;
@@ -94,4 +92,21 @@ async presentModal(_id) {
       }
     })
   }
+
+  async presentModalGiaoViecTiep(_id) {
+    const modal = await this.modalController.create({
+      component: CongviecformPage,
+      componentProps: { congviecchaId: _id }
+    });
+
+    modal.onDidDismiss()
+    .then((data) => {
+      if(data['data']!= null){
+        this.load(null);
+      }
+    });
+    return await modal.present();
+  }
+
+
 }
